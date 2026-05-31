@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+<head>
+<meta name="referrer" content="no-referrer">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arapça Konuşma Kitapçığı - 8. Sınıf</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Scheherazade+New:wght@400;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #1a6b3c;
+    --green-light: #2d9e5f;
+    --green-pale: #e8f5ee;
+    --gold: #c8952a;
+    --gold-light: #f0c040;
+    --gold-pale: #fdf6e3;
+    --red: #b83232;
+    --blue: #1e4fa0;
+    --purple: #6a3fa0;
+    --teal: #1a7a7a;
+    --bg: #f8faf9;
+    --text: #1a2a1f;
+    --border: #b8dcc8;
+    --shadow: 0 4px 20px rgba(26,107,60,0.10);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 0;
+  }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, var(--green) 0%, #0f4a28 60%, #1a3a10 100%);
+    color: white;
+    text-align: center;
+    padding: 40px 20px 30px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .header-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .header h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 6px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+  .header-arabic {
+    font-family: 'Amiri', serif;
+    font-size: 1.8rem;
+    color: var(--gold-light);
+    margin-bottom: 8px;
+  }
+  .header p {
+    font-size: 1rem;
+    opacity: 0.85;
+  }
+
+  /* MAIN */
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 30px 20px 60px;
+  }
+
+  /* SECTION CARD */
+  .section-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 24px;
+    border-bottom: 2px solid var(--green-pale);
+  }
+  .section-icon {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+  .section-header h2 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--green);
+  }
+  .section-header .step-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+  }
+  .section-body {
+    padding: 24px;
+  }
+
+  /* TABLE */
+  .vocab-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+  }
+  .vocab-table thead tr {
+    background: var(--green);
+    color: white;
+  }
+  .vocab-table thead th {
+    padding: 10px 14px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+  }
+  .vocab-table tbody tr:nth-child(even) { background: var(--green-pale); }
+  .vocab-table tbody tr:hover { background: #d0eedd; transition: background 0.2s; }
+  .vocab-table td {
+    padding: 10px 14px;
+    text-align: center;
+    border-bottom: 1px solid #dceee5;
+  }
+  .arabic-cell {
+    font-family: 'Scheherazade New', serif;
+    font-size: 1.5rem;
+    direction: rtl;
+    line-height: 1.6;
+    cursor: pointer;
+    position: relative;
+  }
+  .telaffuz-cell {
+    font-size: 0.9rem;
+    color: #555;
+    font-style: italic;
+  }
+  .meaning-cell {
+    font-weight: 700;
+    color: var(--green);
+  }
+
+  /* TOOLTIP */
+  .word-tooltip {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+  }
+  .word-tooltip .tooltip-box {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1a2a1f;
+    color: white;
+    padding: 7px 12px;
+    border-radius: 8px;
+    font-size: 0.78rem;
+    white-space: nowrap;
+    z-index: 100;
+    transition: opacity 0.2s;
+    pointer-events: none;
+    font-family: 'Nunito', sans-serif;
+    line-height: 1.5;
+    text-align: center;
+  }
+  .word-tooltip .tooltip-box::after {
+    content: '';
+    position: absolute;
+    top: 100%; left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: #1a2a1f;
+  }
+  .word-tooltip:hover .tooltip-box {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  /* SENTENCE TABLE */
+  .sentence-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.93rem;
+  }
+  .sentence-table thead tr { background: var(--gold); color: white; }
+  .sentence-table thead th {
+    padding: 10px 14px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 0.85rem;
+  }
+  .sentence-table tbody tr:nth-child(even) { background: var(--gold-pale); }
+  .sentence-table tbody tr:hover { background: #faecd0; transition: 0.2s; }
+  .sentence-table td {
+    padding: 10px 14px;
+    text-align: center;
+    border-bottom: 1px solid #e8dcc0;
+  }
+  .arabic-sentence {
+    font-family: 'Scheherazade New', serif;
+    font-size: 1.35rem;
+    direction: rtl;
+    line-height: 1.7;
+  }
+
+  /* COLORED WORDS */
+  .w1 { color: #c0392b; }
+  .w2 { color: #1e4fa0; }
+  .w3 { color: #1a6b3c; }
+  .w4 { color: #7d3c98; }
+  .w5 { color: #c8952a; }
+  .w6 { color: #1a7a7a; }
+  .w7 { color: #d35400; }
+  .w8 { color: #2980b9; }
+  .w9 { color: #8e44ad; }
+  .w10 { color: #16a085; }
+
+  /* MODELS */
+  .models-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .model-card {
+    border-radius: 12px;
+    border: 2px solid var(--border);
+    overflow: hidden;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .model-card:hover {
+    box-shadow: 0 6px 24px rgba(26,107,60,0.15);
+    transform: translateY(-2px);
+  }
+  .model-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    font-weight: 800;
+    font-size: 0.9rem;
+    color: white;
+  }
+  .model-header .badge {
+    background: rgba(255,255,255,0.25);
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-size: 0.78rem;
+  }
+  .model-body {
+    padding: 16px;
+    background: white;
+  }
+  .model-arabic {
+    font-family: 'Scheherazade New', serif;
+    font-size: 1.4rem;
+    direction: rtl;
+    line-height: 2;
+    text-align: right;
+    margin-bottom: 10px;
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 10px;
+  }
+  .model-telaffuz {
+    font-size: 0.85rem;
+    color: #666;
+    font-style: italic;
+    line-height: 1.7;
+    margin-bottom: 8px;
+    direction: ltr;
+  }
+  .model-meaning {
+    font-size: 0.88rem;
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* COLORS for models */
+  .m1 .model-header { background: linear-gradient(90deg, #1e4fa0, #2d6fc8); }
+  .m2 .model-header { background: linear-gradient(90deg, #1a6b3c, #2d9e5f); }
+  .m3 .model-header { background: linear-gradient(90deg, #7d3c98, #a15ac0); }
+  .m4 .model-header { background: linear-gradient(90deg, #c8952a, #e0b040); }
+  .m5 .model-header { background: linear-gradient(90deg, #b83232, #d04040); }
+
+  /* INFO BOX */
+  .info-box {
+    background: var(--green-pale);
+    border-left: 4px solid var(--green);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-top: 12px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  .info-box strong { color: var(--green); }
+
+  /* NOTE */
+  .note-box {
+    background: #fff8e1;
+    border-left: 4px solid var(--gold);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-top: 12px;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: #5a4000;
+  }
+
+  /* SECTION COLORS */
+  .s1 .section-icon { background: #dbeafe; color: #1e4fa0; }
+  .s2 .section-icon { background: #dcfce7; color: #1a6b3c; }
+  .s3 .section-icon { background: #f3e8ff; color: #7d3c98; }
+  .s4 .section-icon { background: #fef9c3; color: #c8952a; }
+  .s5 .section-icon { background: #ffe4e6; color: #b83232; }
+  .s6 .section-icon { background: #e0f2fe; color: #1a7a7a; }
+  .s7 .section-icon { background: #fff7ed; color: #d35400; }
+
+  /* EXTRA SENTENCES */
+  .extra-sentence {
+    background: linear-gradient(135deg, #f0faf5, #e8f5ee);
+    border: 1.5px solid #b8dcc8;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 10px;
+  }
+  .extra-sentence .ar {
+    font-family: 'Scheherazade New', serif;
+    font-size: 1.3rem;
+    direction: rtl;
+    text-align: right;
+    line-height: 1.8;
+    color: #1a2a1f;
+    margin-bottom: 6px;
+  }
+  .extra-sentence .tel {
+    font-size: 0.83rem;
+    color: #555;
+    font-style: italic;
+  }
+  .extra-sentence .mng {
+    font-size: 0.88rem;
+    color: var(--green);
+    font-weight: 700;
+    margin-top: 4px;
+  }
+
+  /* FULL PARAGRAPH section */
+  .farewell-box {
+    background: linear-gradient(135deg, #fff8e1, #fdf6e3);
+    border: 2px solid var(--gold);
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 0;
+  }
+  .farewell-box .ar {
+    font-family: 'Scheherazade New', serif;
+    font-size: 1.4rem;
+    direction: rtl;
+    text-align: right;
+    line-height: 2;
+    color: #3a2000;
+    margin-bottom: 10px;
+  }
+  .farewell-box .tel {
+    font-size: 0.88rem; color: #666; font-style: italic; line-height: 1.8;
+  }
+  .farewell-box .mng {
+    font-size: 0.9rem; color: var(--gold); font-weight: 700; margin-top: 6px;
+  }
+
+  /* SPORT VARIANTS */
+  .variants-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    margin-top: 4px;
+  }
+  .variant-pill {
+    background: var(--green-pale);
+    border: 1.5px solid var(--green-light);
+    border-radius: 8px;
+    padding: 10px 12px;
+    text-align: center;
+  }
+  .variant-pill .ar { font-family: 'Scheherazade New', serif; font-size: 1.25rem; direction: rtl; }
+  .variant-pill .tel { font-size: 0.78rem; color: #555; font-style: italic; }
+  .variant-pill .mng { font-size: 0.82rem; font-weight: 700; color: var(--green); }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: #888;
+    font-size: 0.85rem;
+    border-top: 1px solid #e0e0e0;
+    margin-top: 20px;
+  }
+
+  @media (max-width: 600px) {
+    .header h1 { font-size: 1.5rem; }
+    .arabic-cell { font-size: 1.2rem; }
+    .arabic-sentence { font-size: 1.1rem; }
+    .model-arabic { font-size: 1.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-badge">8. Sınıf · Arapça Konuşma</div>
+  <div class="header-arabic">كِتَيِّبُ المُحَادَثَة</div>
+  <h1>Konuşma Kitapçığı</h1>
+  <p>Arapça'da kendini tanıtma ve spor hakkında konuşma</p>
+</div>
+
+<div class="container">
+
+<!-- ======== BÖLÜM 1: SELAMLAMA ======== -->
+<div class="section-card s1">
+  <div class="section-header">
+    <div class="section-icon">👋</div>
+    <div>
+      <span class="step-label">Adım 1</span>
+      <h2>Selamlama — التَّحِيَّة</h2>
+    </div>
+  </div>
+  <div class="section-body">
+    <p style="margin-bottom:14px; font-size:0.95rem; color:#444;">
+      Arapça'da karşılaştığında veya arkadaşlarına seslenirken kullandığın kelimeler ve ifadeler:
+    </p>
+    <table class="vocab-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Arapça</th>
+          <th>Telaffuz</th>
+          <th>Türkçe Anlamı</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td class="arabic-cell">
+            <span class="word-tooltip w1">
+              مَرْحَبًا
+              <span class="tooltip-box">📖 Merhaba<br>🔊 Merhaben</span>
+            </span>
+          </td>
+          <td class="telaffuz-cell w1">Mer-ha-ben</td>
+          <td class="meaning-cell w1">Merhaba</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td class="arabic-cell">
+            <span class="word-tooltip w2">
+              أَصْدِقَائِي
+              <span class="tooltip-box">📖 Arkadaşlarım<br>🔊 Es-di-kaa-î</span>
+            </span>
+          </td>
+          <td class="telaffuz-cell w2">Es-di-kaa-î</td>
+          <td class="meaning-cell w2">Arkadaşlarım</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td class="arabic-cell">
+            <span class="word-tooltip w3">
+              أَهْلاً وَسَهْلاً
+              <span class="tooltip-box">📖 Hoş geldiniz<br>🔊 Ehlen ve-sehlen</span>
+            </span>
+          </td>
+          <td class="telaffuz-cell w3">Ehlen ve-sehlen</td>
+          <td class="meaning-cell w3">Hoş geldiniz / Merhaba</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td class="arabic-cell">
+            <span class="word-tooltip w4">
+              كَيْفَ حَالُكُمْ؟
+              <span class="tooltip-box">📖 Nasılsınız?<br>🔊 Keyfe haaluküm</span>
+            </span>
+          </td>
+          <td class="telaffuz-cell w4">Keyfe haaluküm?</td>
+          <td class="meaning-cell w4">Nasılsınız?</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="info-box">
+      <strong>💡 Bilgi:</strong> Arapça'da selamlamanın en yaygın şekli <b>مَرْحَبًا (Merhaben)</b> veya <b>السَّلَامُ عَلَيْكُمْ (Es-selaamu aleyküm)</b>'dür. Birincisi günlük yaşamda, ikincisi daha resmi ve dinî ortamlarda kullanılır.
+    </div>
+
+    <h3 style="margin-top:18px; margin-bottom:10px; color:#333; font-size:1rem;">📝 Selamlama Cümleleri</h3>
+    <table class="sentence-table">
+      <thead>
+        <tr><th>#</th><th>Arapça Cümle</th><th>Telaffuz</th><th>Türkçe Anlamı</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td class="arabic-sentence">
+            <span class="word-tooltip w1">مَرْحَبًا<span class="tooltip-box">Merhaba</span></span>
+            <span class="word-tooltip w2"> أَصْدِقَائِي<span class="tooltip-box">arkadaşlarım</span></span>
+            !
+          </td>
+          <td class="telaffuz-cell">Merhaben esdikaaî!</td>
+          <td>Merhaba arkadaşlarım!</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td class="arabic-sentence">
+            <span class="word-tooltip w3">أَهْلاً وَسَهْلاً<span class="tooltip-box">Hoş geldiniz</span></span>
+            <span class="word-tooltip w2"> يَا أَصْدِقَائِي<span class="tooltip-box">ey arkadaşlarım</span></span>
+            !
+          </td>
+          <td class="telaffuz-cell">Ehlen ve-sehlen yaa esdikaaî!</td>
+          <td>Hoş geldiniz ey arkadaşlarım!</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td class="arabic-sentence">
+            <span class="word-tooltip w4">كَيْفَ حَالُكُمْ؟<span class="tooltip-box">Nasılsınız?</span></span>
+          </td>
+          <td class="telaffuz-cell">Keyfe haaluküm?</td>
+          <td>Nasılsınız?</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td class="arabic-sentence">
+            <span class="word-tooltip w5">أَتَمَنَّى<span class="tooltip-box">Umuyorum</span></span>
+            <span class="word-tooltip w6"> أَنْ تَكُونُوا<span class="tooltip-box">olduğunuzu</span></span>
+            <span class="word-tooltip w7"> بِخَيْرٍ<span class="tooltip-box">iyi / sağlıklı</span></span>
+            .
+          </td>
+          <td class="telaffuz-cell">Etemennaa en tekuunuu bihayr.</td>
+          <td>Umarım iyisinizdir.</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td class="arabic-sentence">
+            <span class="word-tooltip w8">يَسْعِدُنِي<span class="tooltip-box">Sevindiriyor beni</span></span>
+            <span class="word-tooltip w9"> أَنْ أَلْتَقِيَ بِكُمْ<span class="tooltip-box">sizinle buluşmak</span></span>
+            .
+          </td>
+          <td class="telaffuz-cell">Yes'idinî en eltekiye biküm.</td>
+          <td>Sizinle tanışmaktan mutluluk duyuyorum.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ======== BÖLÜM 2: KENDİNİ TANITMA ======== -->
+<div class="section-card s2">
+  <div class="section-header">
+    <div class="section-icon">🧑</div>
+    <div>
+      <span class="step-label">Adım 2</span>
+      <h2>Kendini Tanıtma — التَّعْرِيفُ بِالنَّفْسِ</h2>
+    </div>
+  </div>
+  <div class="section-body">
+    <table class="vocab-table">
+      <thead>
+        <tr><th>#</th><th>Arapça</th><th>Telaffuz</th><th>Türkçe Anlamı</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td class="arabic-cell"><span class="word-tooltip w1">أَنَا<span class="tooltip-box">Ben<br>🔊 Enâ</span></span></td>
+          <td class="telaffuz-cell w1">Enâ</td>
+          <td class="meaning-cell w1">Ben</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td class="arabic-cell"><span class="word-tooltip w2">اسْمِي<span class="tooltip-box">Benim adım<br>🔊 İsmî</span></span></td>
+          <td class="telaffuz-cell w2">İsmî</td>
+          <td class="meaning-cell w2">Benim adım</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td class="arabic-cell"><span class="word-tooltip w3">فِي الصَّفِّ<span class="tooltip-box">Sınıfta<br>🔊 Fis-saff</span></span></td>
+          <td class="telaffuz-cell w3">Fis-saff</td>
+          <td class="meaning-cell w3">Sınıfta / ...sınıfındayım</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td class="arabic-cell"><span class="word-tooltip w4">الثَّامِن<span class="tooltip-box">Sekizinci<br>🔊 Es-saamîn</span></span></td>
+          <td class="telaffuz-cell w4">Es-saamîn</td>
+          <td class="meaning-cell w4">Sekizinci</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td class="arabic-cell"><span class="word-tooltip w5">طَالِبٌ<span class="tooltip-box">Öğrenci (erkek)<br>🔊 Taalib</span></span></td>
+          <td class="telaffuz-cell w5">Taalib</td>
+          <td class="meaning-cell w5">Öğrenci (erkek)</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td class="arabic-cell"><span class="word-tooltip w6">طَالِبَةٌ<span class="tooltip-box">Öğrenci (kız)<br>🔊 Taalibe</span></span></td>
+          <td class="telaffuz-cell w6">Taalibe</td>
+          <td class="meaning-cell w6">Öğrenci (kız)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 style="margin-top:18px; margin-bottom:10px; color:#333; font-size:1rem;">📝 Tanıtım Cümleleri</h3>
+    <table class="sentence-table">
+      <thead>
+        <tr><th>#</th><th>Arapça Cümle</th><th>Telaffuz</th><th>Türkçe Anlamı</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td class="arabic-sentence">
+            <span class="word-tooltip w1">أَنَا<span class="tooltip-box">Ben</span></span>
+            <span class="word-tooltip w2"> اسْمِي<span class="tooltip-box">benim adım</span></span>
+            <span class="word-tooltip w3"> [اسمك]<span class="tooltip-box">adını yaz</span></span>
+            .
+          </td>
+          <td class="telaffuz-cell">Enâ ismî [adın].</td>
+          <td>Benim adım [adın].</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td class="arabic-sentence">
+            <span class="word-tooltip w4">أَنَا<span class="tooltip-box">Ben</span></span>
+            <span class="word-tooltip w5"> فِي الصَّفِّ الثَّامِنِ<span class="tooltip-box">sekizinci sınıftayım</span></span>
+            .
+          </td>
+          <td class="telaffuz-cell">Enâ fis-saffis-saamîn.</td>
+          <td>Ben sekizinci sınıftayım.</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td class="arabic-sentence">
+            <span class="word-tooltip w6">أَنَا طَالِبٌ<span class="tooltip-box">Ben bir öğrenciyim</span></span>
+            <span class="word-tooltip w7"> فِي المَدْرَسَةِ المُتَوَسِّطَةِ<span class="tooltip-box">ortaokulda</span></span>
+            .
+          </td>
+          <td class="telaffuz-cell">Enâ taalibun fil-medreseel-mutevessiteh.</td>
+          <td>Ben ortaokulda bir öğrenciyim.</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td class="arabic-sentence">
+            <span class="word-tooltip w8">يُسْعِدُنِي<span class="tooltip-box">Sevindiriyor beni</span></span>
+            <span class="word-tooltip w9"> التَّعَرُّفُ عَلَيْكُمْ<span class="tooltip-box">sizinle tanışmak</span></span>
+            .
+          </td>
+          <td class="telaffuz-cell">Yus'idinî et-te'arrufu aleyküm.</td>
+          <td>Sizinle tanışmaktan mutluluk duyuyorum.</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td class="arabic-sentence">
+            <span class="word-tooltip w10">اسْمِي [اسمك]<span class="tooltip-box">Adım [adın]</span></span>
+            <span class="w2"> وَأَنَا </span>
+            <span class="word-tooltip w3">فِي الصَّفِّ الثَّامِنِ<span class="tooltip-box">sekizinci sınıftayım</span></span>
+            .
+          </td>
+          <td class="telaffuz-cell">İsmî [adın] ve-enâ fis-saffis-saamîn.</td>
+          <td>Adım [adın] ve ben sekizinci sınıftayım.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ======== BÖLÜM 3: TARAFTAR ======== -->
+<div class="section-card s3">
+  <div class="section-header">
+    <div class="section-icon">⚽</div>
+    <div>
+      <span class="step-label">Adım 3</span>
+      <h2>Takım Taraftarlığı — تَشْجِيعُ الفَرِيقِ</h2>
+    </div>
+  </div>
+  <div class="section-body">
+    <table class="vocab-table">
+      <thead>
+        <tr><th>#</th><th>Arapça</th><th>Telaffuz</th><th>Türkçe Anlamı</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td class="arabic-cell"><span class="word-tooltip w1">أُشَجِّعُ<span class="tooltip-box">Destekliyorum / Tutuyorum<br>🔊 Uşecci'u</span></span></td>
+          <td class="telaffuz-cell w1">Uşecci'u</td>
+          <td class="meaning-cell w1">Destekliyorum / Tutuyorum</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td class="arabic-cell"><span class="word-tooltip w2">فَرِيقَ<span class="tooltip-box">Takımını<br>🔊 Ferîka</span></span></td>
+          <td class="telaffuz-cell w2">Ferîka</td>
+          <td class="meaning-cell w2">Takımını</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td class="arabic-cell"><span class="word-tooltip w3">بَشِيكْتَاش<span class="tooltip-box">Beşiktaş<br>🔊 Beşiktaş</span></span></td>
+          <td class="telaffuz-cell w3">Beşiktaş</td>
+          <td class="meaning-cell w3">Beşiktaş</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td class="arabic-cell"><span class="word-tooltip w4">غَلَطَة سَرَاي<span class="tooltip-box">Galatasaray<br>🔊 Galataseray</span></span></td>
+          <td class="telaffuz-cell w4">Galataseray</td>
+          <td class="meaning-cell w4">Galatasaray</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td class="arabic-cell"><span class="word-tooltip w5">فَنَرْبَخْشَة<span class="tooltip-box">Fenerbahçe<br>🔊 Fenerbahçe</span></span></td>
+          <td class="telaffuz-cell w5">Fenerbahçe</td>
+          <td class="meaning-cell w5">Fenerbahçe</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td class="arabic-cell"><span class="word-tooltip w6">المُفَضَّلُ<span class="tooltip-box">En sevdiğim<br>🔊 El-mufaddalu</span></span></td>
+          <td class="telaffuz-cell w6">El-mufaddalu</td>
+          <td class="meaning-cell w6">En sevdiğim / Favori</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 style="margin-top:18px; margin-bottom:10px; color:#333; font-size:1rem;">📝 Taraftarlık Cümleleri</h3>
+    <table class="sentence-table">
+      <thead>
+        <tr><th>#</th><th>Arapça Cümle</th><th>Telaffuz</th><th>Türkçe Anlamı</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td class="arabic-sentence">
+            <span class="word-tooltip w1">وَأَنَا أُشَجِّعُ<span class="tooltip-box">Ve ben destekliyorum</span></span>
+            <span class="word-tooltip w3"> فَرِيقَ بَشِيكْتَاش<span class="tooltip-box">Beşiktaş takımını</span></span>
+            .
+          </td>
+          <td class="telaffuz-cell">Ve-enâ uşecci'u ferîka Beşiktaş.</td>
+          <td>Ben Beşiktaş'ı destekliyorum.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td class="arabic-sentence">
+            <span class="word-tooltip w2">فَرِيقِي المُفَضَّلُ<span class="tooltip-box">En sevdiğim takım</span></span>
+            <span class="word-tooltip w4"> هُوَ غَلَطَة سَرَاي<span class="tooltip-box">o Galatasaray</span></span>
+            .
+          </td>
+          <td class="telaffuz-cell">Ferîkî el-mufaddalu huve Galataseray.</td>
+          <td>En sevdiğim takım Galatasaray'dır.</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td class="arabic-sentence">
+            <span class="word-tooltip w5">أَنَا مِنْ مُشَجِّعِي<span class="tooltip-box">Ben taraftarlarındanım</span></span>
+            <span class="word-tooltip w6"> فَنَرْبَخْشَة<span class="tooltip-box">Fenerbahçe'nin</span></span>
+            .
+          </td>
+          <td class="telaffuz-cell">Enâ min muşecciî Fenerbahçe.</td>
+          <td>Ben Fenerbahçe taraftarlarındanım.</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td class="arabic-sentence">
+            <span class="word-tooltip w7">أُحِبُّ<span class="tooltip-box">Seviyorum</span></span>
+            <span class="word-tooltip w8"> فَرِيقَ [اسم الفريق]<span class="tooltip-box">...takımını</span></span>
+            <span class="word-tooltip w9"> كَثِيرًا<span class="tooltip-box">çok</span></span>
+            .
+          </td>
+          <td class="telaffuz-cell">Uhibbu ferîka [takım adı] kesîren.</td>
+          <td>[Takım adı] takımını çok seviyorum.</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td class="arabic-sentence">
+            <span class="word-tooltip w10">فَرِيقِي<span class="tooltip-box">Benim takımım</span></span>
+            <span class="word-tooltip w1"> هُوَ الأَفْضَلُ<span class="tooltip-box">o en iyisidir</span></span>
+            !
+          </td>
+          <td class="telaffuz-cell">Ferîkî huve el-efdal!</td>
+          <td>Benim takımım en iyisidir!</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ======== BÖLÜM 4: SPOR ======== -->
+<div class="section-card s4">
+  <div class="section-header">
+    <div class="section-icon">🏃</div>
+    <div>
+      <span class="step-label">Adım 4</span>
+      <h2>Spor Sevgisi — الرِّيَاضَةُ المُفَضَّلَة</h2>
+    </div>
+  </div>
+  <div class="section-body">
+    <table class="vocab-table">
+      <thead>
+        <tr><th>#</th><th>Arapça</th><th>Telaffuz</th><th>Türkçe Anlamı</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td class="arabic-cell"><span class="word-tooltip w1">أُحِبُّ<span class="tooltip-box">Seviyorum<br>🔊 Uhibbu</span></span></td>
+          <td class="telaffuz-cell w1">Uhibbu</td>
+          <td class="meaning-cell w1">Seviyorum</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td class="arabic-cell"><span class="word-tooltip w2">رِيَاضَةَ<span class="tooltip-box">Sporu<br>🔊 Riyâdete</span></span></td>
+          <td class="telaffuz-cell w2">Riyâdete</td>
+          <td class="meaning-cell w2">Sporu (bağlı hali)</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td class="arabic-cell"><span class="word-tooltip w3">أُمَارِسُ<span class="tooltip-box">Yapıyorum / Pratik yapıyorum<br>🔊 Umaarisu</span></span></td>
+          <td class="telaffuz-cell w3">Umaarisu</td>
+          <td class="meaning-cell w3">Yapıyorum / Pratik yapıyorum</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 style="margin-top:18px; margin-bottom:10px; color: var(--gold); font-size:1rem;">🏅 Spor Türleri — أَسْمَاءُ الرِّيَاضَات</h3>
+    <div class="variants-grid">
+      <div class="variant-pill">
+        <div class="ar w1">كُرَةُ القَدَمِ</div>
+        <div class="tel">Kureetul-kadem</div>
+        <div class="mng">Futbol</div>
+      </div>
+      <div class="variant-pill">
+        <div class="ar w2">كُرَةُ السَّلَةِ</div>
+        <div class="tel">Kureets-seleh</div>
+        <div class="mng">Basketbol</div>
+      </div>
+      <div class="variant-pill">
+        <div class="ar w3">الكُرَةُ الطَّائِرَةُ</div>
+        <div class="tel">El-kureetut-taaira</div>
+        <div class="mng">Voleybol</div>
+      </div>
+      <div class="variant-pill">
+        <div class="ar w4">التِّنِسُ</div>
+        <div class="tel">Et-tenis</div>
+        <div class="mng">Tenis</div>
+      </div>
+      <div class="variant-pill">
+        <div class="ar w5">السِّبَاحَةُ</div>
+        <div class="tel">Es-sibaahe</div>
+        <div class="mng">Yüzme</div>
+      </div>
+      <div class="variant-pill">
+        <div class="ar w6">الجَرْيُ</div>
+        <div class="tel">El-cery</div>
+        <div class="mng">Koşu</div>
+      </div>
+      <div class="variant-pill">
+        <div class="ar w7">رُكُوبُ الخَيْلِ</div>
+        <div class="tel">Rukuubul-hayl</div>
+        <div class="mng">Ata binme</div>
+      </div>
+      <div class="variant-pill">
+        <div class="ar w8">الرِّمَايَةُ</div>
+        <div class="tel">Er-rımâye</div>
+        <div class="mng">Okçuluk / Atıcılık</div>
+      </div>
+      <div class="variant-pill">
+        <div class="ar w9">كُرَةُ الطَّاوِلَةِ</div>
+        <div class="tel">Kureetu-ttaavile</div>
+        <div class="mng">Masa Tenisi / Ping-Pong</div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:18px; margin-bottom:10px; color:#333; font-size:1rem;">📝 Spor Cümleleri</h3>
+    <table class="sentence-table">
+      <thead>
+        <tr><th>#</th><th>Arapça Cümle</th><th>Telaffuz</th><th>Türkçe Anlamı</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td class="arabic-sentence">
+            <span class="word-tooltip w1">أُحِبُّ رِيَاضَةَ<span class="tooltip-box">Seviyorum sporunu</span></span>
+            <span class="word-tooltip w2"> كُرَةِ القَدَمِ<span class="tooltip-box">futbol</span></span>
+            .
+          </td>
+          <td class="telaffuz-cell">Uhibbu riyâdete kureetil-kadem.</td>
+          <td>Futbol sporunu seviyorum.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td class="arabic-sentence">
+            <span class="word-tooltip w3">أُمَارِسُ<span class="tooltip-box">Yapıyorum</span></span>
+            <span class="word-tooltip w4"> الجَرْيَ<span class="tooltip-box">koşuyu</span></span>
+            <span class="word-tooltip w5"> كُلَّ يَوْمٍ<span class="tooltip-box">her gün</span></span>
+            .
+          </td>
+          <td class="telaffuz-cell">Umaarisu el-cerye kulle yewm.</td>
+          <td>Her gün koşu yapıyorum.</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td class="arabic-sentence">
+            <span class="word-tooltip w6">رِيَاضَتِي المُفَضَّلَةُ<span class="tooltip-box">En sevdiğim spor</span></span>
+            <span class="word-tooltip w7"> هِيَ السِّبَاحَةُ<span class="tooltip-box">o yüzmedir</span></span>
+            .
+          </td>
+          <td class="telaffuz-cell">Riyâdetî el-mufaddale hiye es-sibaahe.</td>
+          <td>En sevdiğim spor yüzmedir.</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td class="arabic-sentence">
+            <span class="word-tooltip w8">أُحِبُّ رِيَاضَةَ<span class="tooltip-box">Seviyorum sporunu</span></span>
+            <span class="word-tooltip w9"> التِّنِسِ<span class="tooltip-box">tenisi</span></span>
+            <span class="word-tooltip w10"> لِأَنَّهَا مُمْتِعَةٌ<span class="tooltip-box">çünkü eğlencelidir</span></span>
+            .
+          </td>
+          <td class="telaffuz-cell">Uhibbu riyâdete et-tenis li-ennehâ mümti'a.</td>
+          <td>Tenis sporunu seviyorum çünkü eğlencelidir.</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td class="arabic-sentence">
+            <span class="word-tooltip w1">أُمَارِسُ<span class="tooltip-box">Yapıyorum</span></span>
+            <span class="word-tooltip w2"> كُرَةَ السَّلَةِ<span class="tooltip-box">basketbol</span></span>
+            <span class="word-tooltip w3"> مَعَ أَصْدِقَائِي<span class="tooltip-box">arkadaşlarımla</span></span>
+            .
+          </td>
+          <td class="telaffuz-cell">Umaarisu kureets-seleh mea esdikaaî.</td>
+          <td>Arkadaşlarımla basketbol oynuyorum.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ======== BÖLÜM 5: SPORUN FAYDALARI ======== -->
+<div class="section-card s5">
+  <div class="section-header">
+    <div class="section-icon">💪</div>
+    <div>
+      <span class="step-label">Adım 5</span>
+      <h2>Sporun Faydaları — فَوَائِدُ الرِّيَاضَة</h2>
+    </div>
+  </div>
+  <div class="section-body">
+    <p style="margin-bottom:14px; font-size:0.92rem; color:#555; background: #fff3f3; border-left: 4px solid #b83232; padding: 10px 14px; border-radius: 8px;">
+      📌 Aşağıdaki cümlelerden <b>herhangi birini</b> konuşmanın bu bölümünde kullanabilirsin. Bir ek cümle ekleyerek sporun faydalarını anlat.
+    </p>
+
+    <div class="extra-sentence">
+      <div class="ar">
+        <span class="word-tooltip w1">الرِّيَاضَةُ<span class="tooltip-box">Spor</span></span>
+        <span class="word-tooltip w2"> مُفِيدَةٌ<span class="tooltip-box">faydalıdır</span></span>
+        <span class="word-tooltip w3"> لِجِسْمِ الإِنْسَانِ<span class="tooltip-box">insan vücudu için</span></span>،
+        <span class="word-tooltip w4"> وَخَاصَّةً<span class="tooltip-box">özellikle</span></span>
+        <span class="word-tooltip w5"> عِنْدَمَا نُمَارِسُهَا<span class="tooltip-box">onu yaptığımızda</span></span>
+        <span class="word-tooltip w6"> بِشَكْلٍ دَائِمٍ<span class="tooltip-box">düzenli olarak</span></span>.
+      </div>
+      <div class="tel">Er-riyâdetu mufîdetun li-cismil-insaan, ve-hassaten indema numaarisuhâ bişeklen daaim.</div>
+      <div class="mng">Spor, insan vücudu için faydalıdır; özellikle düzenli olarak yaptığımızda.</div>
+    </div>
+
+    <div class="extra-sentence">
+      <div class="ar">
+        <span class="word-tooltip w7">التَّخَلُّصُ مِنْ زِيَادَةِ الوَزْنِ<span class="tooltip-box">Fazla kilodan kurtulmak</span></span>
+        <span class="word-tooltip w8"> هُوَ مِنْ أَهَمِّ الفَوَائِدِ<span class="tooltip-box">o en önemli faydalardan</span></span>.
+      </div>
+      <div class="tel">Et-tehallüsu min ziyaadetil-vezn huve min ehammi el-fevaaïd.</div>
+      <div class="mng">Fazla kilodan kurtulmak en önemli faydalardan biridir.</div>
+    </div>
+
+    <div class="extra-sentence">
+      <div class="ar">
+        <span class="word-tooltip w9">تُحَافِظُ عَلَى سَلَامَةِ الجِسْمِ<span class="tooltip-box">Vücudun sağlığını korur</span></span>،
+        <span class="word-tooltip w10"> وَتُقَوِّي العِظَامَ<span class="tooltip-box">ve kemikleri güçlendirir</span></span>.
+      </div>
+      <div class="tel">Tuhâfidu alâ selâmetil-cism, ve-tukavviyel-izâm.</div>
+      <div class="mng">Vücudun sağlığını korur ve kemikleri güçlendirir.</div>
+    </div>
+
+    <div class="extra-sentence">
+      <div class="ar">
+        <span class="word-tooltip w1">تُقَوِّي قُدْرَةَ الإِنْسَانِ<span class="tooltip-box">İnsanın gücünü artırır</span></span>
+        <span class="word-tooltip w2"> عَلَى القِيَامِ بِالوَاجِبَاتِ اليَوْمِيَّةِ<span class="tooltip-box">günlük görevleri yapmak için</span></span>.
+      </div>
+      <div class="tel">Tukavvî kudretal-insaan alel-kiyaam bil-vaacibâtil-yevmiyye.</div>
+      <div class="mng">İnsanın günlük görevleri yerine getirme kapasitesini artırır.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ======== BÖLÜM 6: MEZUNIYET ======== -->
+<div class="section-card s6">
+  <div class="section-header">
+    <div class="section-icon">🎓</div>
+    <div>
+      <span class="step-label">Adım 6</span>
+      <h2>Mezuniyet — التَّخَرُّج</h2>
+    </div>
+  </div>
+  <div class="section-body">
+    <table class="vocab-table">
+      <thead>
+        <tr><th>#</th><th>Arapça</th><th>Telaffuz</th><th>Türkçe Anlamı</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td class="arabic-cell"><span class="word-tooltip w1">سَأَتَخَرَّجُ<span class="tooltip-box">Mezun olacağım<br>🔊 Se-eteharrecu</span></span></td>
+          <td class="telaffuz-cell w1">Se-eteharrecu</td>
+          <td class="meaning-cell w1">Mezun olacağım</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td class="arabic-cell"><span class="word-tooltip w2">المَدْرَسَةُ المُتَوَسِّطَةُ<span class="tooltip-box">Ortaokul<br>🔊 El-medrese el-mutevessita</span></span></td>
+          <td class="telaffuz-cell w2">El-medrese el-mutevessita</td>
+          <td class="meaning-cell w2">Ortaokul</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td class="arabic-cell"><span class="word-tooltip w3">بَعْدَ شَهْرٍ<span class="tooltip-box">Bir ay sonra<br>🔊 Baade şehr</span></span></td>
+          <td class="telaffuz-cell w3">Baade şehr</td>
+          <td class="meaning-cell w3">Bir ay sonra</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td class="arabic-cell"><span class="word-tooltip w4">تَقْرِيبًا<span class="tooltip-box">Yaklaşık<br>🔊 Takriben</span></span></td>
+          <td class="telaffuz-cell w4">Takriben</td>
+          <td class="meaning-cell w4">Yaklaşık / Aşağı yukarı</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td class="arabic-cell"><span class="word-tooltip w5">سَأَكُونُ سَعِيدًا<span class="tooltip-box">Çok mutlu olacağım<br>🔊 Se-ekuunu saiiden</span></span></td>
+          <td class="telaffuz-cell w5">Se-ekuunu saiiden</td>
+          <td class="meaning-cell w5">Mutlu olacağım</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="farewell-box" style="margin-top:16px;">
+      <div class="ar">
+        <span class="word-tooltip w1">أَنَا سَأَتَخَرَّجُ<span class="tooltip-box">Ben mezun olacağım</span></span>
+        <span class="word-tooltip w2"> فِي المَدْرَسَةِ المُتَوَسِّطَةِ<span class="tooltip-box">ortaokuldan</span></span>
+        <span class="word-tooltip w3"> بَعْدَ شَهْرٍ<span class="tooltip-box">bir ay sonra</span></span>
+        <span class="word-tooltip w4"> تَقْرِيبًا<span class="tooltip-box">yaklaşık</span></span>.
+        <span class="word-tooltip w5"> سَأَكُونُ سَعِيدًا جِدًّا<span class="tooltip-box">Çok mutlu olacağım</span></span>.
+      </div>
+      <div class="tel">Enâ se-eteharrecu fil-medreseel-mutevessiteh baade şehrin takriben. Se-ekuunu saiiden ciddan.</div>
+      <div class="mng">Ben yaklaşık bir ay sonra ortaokuldan mezun olacağım. Çok mutlu olacağım.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ======== BÖLÜM 7: 5 HAZIR ÖRNEK ======== -->
+<div class="section-card s7">
+  <div class="section-header">
+    <div class="section-icon">📄</div>
+    <div>
+      <span class="step-label">Adım 7 — Hazır Metinler</span>
+      <h2>5 Konuşma Örneği — نَمَاذِجُ جَاهِزَة</h2>
+    </div>
+  </div>
+  <div class="section-body">
+    <div class="note-box" style="margin-bottom:18px;">
+      ⚡ <b>Nasıl kullanırsın?</b> Aşağıdaki 5 örnekten istediğini seç. İçindeki [ ] parantezleri kendi bilginle doldur. İstersen ezberle! Her örnek tam ve eksiksiz bir konuşma paragrafıdır.
+    </div>
+
+    <div class="models-grid">
+
+      <!-- MODEL 1 -->
+      <div class="model-card m1">
+        <div class="model-header">
+          <span>📝 Örnek 1 — Beşiktaşlı, Futbolcu</span>
+          <span class="badge">Nümüne الأول</span>
+        </div>
+        <div class="model-body">
+          <div class="model-arabic">
+            <span class="word-tooltip w1">مَرْحَبًا<span class="tooltip-box">Merhaba</span></span>
+            <span class="word-tooltip w2"> أَصْدِقَائِي<span class="tooltip-box">arkadaşlarım</span></span>!
+            <span class="word-tooltip w3"> أَنَا اسْمِي<span class="tooltip-box">Benim adım</span></span>
+            <span class="w4"> أَحْمَد</span>،
+            <span class="word-tooltip w5"> وَأَنَا فِي الصَّفِّ الثَّامِنِ<span class="tooltip-box">ve ben 8. sınıftayım</span></span>.
+            <span class="word-tooltip w6"> وَأَنَا أُشَجِّعُ فَرِيقَ بَشِيكْتَاش<span class="tooltip-box">Ben Beşiktaş'ı destekliyorum</span></span>.
+            <span class="word-tooltip w7"> أُحِبُّ رِيَاضَةَ كُرَةِ القَدَمِ<span class="tooltip-box">Futbol sporunu seviyorum</span></span>
+            <span class="word-tooltip w8"> وَأُمَارِسُهَا كُلَّ يَوْمٍ<span class="tooltip-box">ve her gün yapıyorum</span></span>.
+            <span class="word-tooltip w9"> الرِّيَاضَةُ مُفِيدَةٌ لِجِسْمِ الإِنْسَانِ<span class="tooltip-box">Spor insan vücudu için faydalıdır</span></span>.
+            <span class="word-tooltip w10"> أَنَا سَأَتَخَرَّجُ بَعْدَ شَهْرٍ تَقْرِيبًا<span class="tooltip-box">Ben yaklaşık bir ay sonra mezun olacağım</span></span>،
+            <span class="word-tooltip w1"> سَأَكُونُ سَعِيدًا جِدًّا<span class="tooltip-box">çok mutlu olacağım</span></span>!
+          </div>
+          <div class="model-telaffuz">
+            <b>Telaffuz:</b> Merhaben esdikaaî! Enâ ismî Ahmed, ve-enâ fis-saffis-saamîn. Ve-enâ uşecci'u ferîka Beşiktaş. Uhibbu riyâdete kureetil-kadem ve-umaarisuhâ kulle yewm. Er-riyâdetu mufîdetun li-cismil-insaan. Enâ se-eteharrecu baade şehrin takriben, se-ekuunu saiiden ciddan!
+          </div>
+          <div class="model-meaning">
+            <b>Türkçe:</b> Merhaba arkadaşlarım! Benim adım Ahmed ve ben 8. sınıftayım. Ben Beşiktaş'ı destekliyorum. Futbol sporunu seviyorum ve her gün yapıyorum. Spor insan vücudu için faydalıdır. Ben yaklaşık bir ay sonra mezun olacağım; çok mutlu olacağım!
+          </div>
+        </div>
+      </div>
+
+      <!-- MODEL 2 -->
+      <div class="model-card m2">
+        <div class="model-header">
+          <span>📝 Örnek 2 — Galatasaraylı, Yüzücü</span>
+          <span class="badge">Nümüne الثاني</span>
+        </div>
+        <div class="model-body">
+          <div class="model-arabic">
+            <span class="word-tooltip w3">أَهْلاً وَسَهْلاً<span class="tooltip-box">Hoş geldiniz</span></span>
+            <span class="word-tooltip w2"> يَا أَصْدِقَائِي<span class="tooltip-box">ey arkadaşlarım</span></span>!
+            <span class="word-tooltip w4"> اسْمِي فَاطِمَة<span class="tooltip-box">Benim adım Fatıma</span></span>،
+            <span class="word-tooltip w5"> وَأَنَا طَالِبَةٌ فِي الصَّفِّ الثَّامِنِ<span class="tooltip-box">ve ben 8. sınıfta bir öğrenciyim</span></span>.
+            <span class="word-tooltip w6"> فَرِيقِي المُفَضَّلُ هُوَ غَلَطَة سَرَاي<span class="tooltip-box">En sevdiğim takım Galatasaray</span></span>.
+            <span class="word-tooltip w7"> أُحِبُّ رِيَاضَةَ السِّبَاحَةِ<span class="tooltip-box">Yüzme sporunu seviyorum</span></span>
+            <span class="word-tooltip w8"> لِأَنَّهَا تُقَوِّي الجِسْمَ<span class="tooltip-box">çünkü vücudu güçlendirir</span></span>.
+            <span class="word-tooltip w9"> تُحَافِظُ الرِّيَاضَةُ عَلَى سَلَامَةِ الجِسْمِ<span class="tooltip-box">Spor vücudun sağlığını korur</span></span>.
+            <span class="word-tooltip w10"> سَأَتَخَرَّجُ بَعْدَ شَهْرٍ تَقْرِيبًا وَسَأَكُونُ سَعِيدَةً جِدًّا<span class="tooltip-box">Yaklaşık bir ay sonra mezun olacağım ve çok mutlu olacağım</span></span>.
+          </div>
+          <div class="model-telaffuz">
+            <b>Telaffuz:</b> Ehlen ve-sehlen yaa esdikaaî! İsmî Fatıma, ve-enâ taalebetun fis-saffis-saamîn. Ferîkî el-mufaddalu huve Galataseray. Uhibbu riyâdetes-sibaahe li-ennehâ tukavvil-cism. Tuhâfidur-riyâdetu alâ selâmetil-cism. Se-eteharrecu baade şehrin takriben ve-se-ekuunu saiideten ciddan.
+          </div>
+          <div class="model-meaning">
+            <b>Türkçe:</b> Hoş geldiniz ey arkadaşlarım! Adım Fatıma ve ben 8. sınıfta bir öğrenciyim. En sevdiğim takım Galatasaray'dır. Yüzme sporunu seviyorum çünkü vücudu güçlendirir. Spor vücudun sağlığını korur. Yaklaşık bir ay sonra mezun olacağım ve çok mutlu olacağım.
+          </div>
+        </div>
+      </div>
+
+      <!-- MODEL 3 -->
+      <div class="model-card m3">
+        <div class="model-header">
+          <span>📝 Örnek 3 — Fenerbahçeli, Koşucu</span>
+          <span class="badge">Nümüne الثالث</span>
+        </div>
+        <div class="model-body">
+          <div class="model-arabic">
+            <span class="word-tooltip w5">مَرْحَبًا<span class="tooltip-box">Merhaba</span></span>
+            <span class="word-tooltip w6"> أَصْدِقَائِي الأَعِزَّاء<span class="tooltip-box">sevgili arkadaşlarım</span></span>!
+            <span class="word-tooltip w7"> أَنَا اسْمِي يُوسُف<span class="tooltip-box">Benim adım Yusuf</span></span>،
+            <span class="word-tooltip w8"> وَأَنَا فِي الصَّفِّ الثَّامِنِ<span class="tooltip-box">ve ben 8. sınıftayım</span></span>.
+            <span class="word-tooltip w9"> أَنَا مِنْ مُشَجِّعِي فَنَرْبَخْشَة<span class="tooltip-box">Ben Fenerbahçe taraftarlarındanım</span></span>.
+            <span class="word-tooltip w10"> رِيَاضَتِي المُفَضَّلَةُ هِيَ الجَرْيُ<span class="tooltip-box">En sevdiğim spor koşudur</span></span>.
+            <span class="word-tooltip w1"> أُمَارِسُ الجَرْيَ كُلَّ صَبَاحٍ<span class="tooltip-box">Her sabah koşu yapıyorum</span></span>.
+            <span class="word-tooltip w2"> تُقَوِّي الرِّيَاضَةُ قُدْرَتِي عَلَى الدِّرَاسَةِ<span class="tooltip-box">Spor ders çalışma kapasitemi artırır</span></span>.
+            <span class="word-tooltip w3"> بَعْدَ شَهْرٍ سَأَتَخَرَّجُ<span class="tooltip-box">Bir ay sonra mezun olacağım</span></span>،
+            <span class="word-tooltip w4"> وَهَذَا يَجْعَلُنِي سَعِيدًا جِدًّا<span class="tooltip-box">ve bu beni çok mutlu ediyor</span></span>!
+          </div>
+          <div class="model-telaffuz">
+            <b>Telaffuz:</b> Merhaben esdikaaî el-ezizzaa! Enâ ismî Yusuf, ve-enâ fis-saffis-saamîn. Enâ min muşecciî Fenerbahçe. Riyâdetî el-mufaddale hiyel-cery. Umaarisu el-cerye kulle sabâh. Tukavvir-riyâdetu kudreti alad-dirâse. Baade şehrin se-eteharrecu, ve-hâzâ yec'alunî saiiden ciddan!
+          </div>
+          <div class="model-meaning">
+            <b>Türkçe:</b> Merhaba sevgili arkadaşlarım! Benim adım Yusuf ve ben 8. sınıftayım. Ben Fenerbahçe taraftarlarındanım. En sevdiğim spor koşudur. Her sabah koşu yapıyorum. Spor ders çalışma kapasitemi artırır. Bir ay sonra mezun olacağım ve bu beni çok mutlu ediyor!
+          </div>
+        </div>
+      </div>
+
+      <!-- MODEL 4 -->
+      <div class="model-card m4">
+        <div class="model-header">
+          <span>📝 Örnek 4 — Galatasaraylı, Tenis</span>
+          <span class="badge">Nümüne الرابع</span>
+        </div>
+        <div class="model-body">
+          <div class="model-arabic">
+            <span class="word-tooltip w5">مَرْحَبًا<span class="tooltip-box">Merhaba</span></span>
+            <span class="word-tooltip w6"> يَا أَصْدِقَائِي<span class="tooltip-box">ey arkadaşlarım</span></span>!
+            <span class="word-tooltip w7"> اسْمِي مَرْيَم<span class="tooltip-box">Adım Meryem</span></span>
+            <span class="word-tooltip w8"> وَأَنَا فِي الصَّفِّ الثَّامِنِ<span class="tooltip-box">ve 8. sınıftayım</span></span>.
+            <span class="word-tooltip w9"> أُشَجِّعُ فَرِيقَ غَلَطَة سَرَاي<span class="tooltip-box">Galatasaray takımını destekliyorum</span></span>.
+            <span class="word-tooltip w10"> أُحِبُّ رِيَاضَةَ التِّنِسِ<span class="tooltip-box">Tenis sporunu seviyorum</span></span>
+            <span class="word-tooltip w1"> لِأَنَّهَا مُمْتِعَةٌ<span class="tooltip-box">çünkü eğlencelidir</span></span>.
+            <span class="word-tooltip w2"> الرِّيَاضَةُ تُحَافِظُ عَلَى سَلَامَةِ الجِسْمِ<span class="tooltip-box">Spor vücudun sağlığını korur</span></span>
+            <span class="word-tooltip w3"> وَتُقَوِّي العِظَامَ<span class="tooltip-box">ve kemikleri güçlendirir</span></span>.
+            <span class="word-tooltip w4"> سَأَتَخَرَّجُ بَعْدَ شَهْرٍ تَقْرِيبًا وَسَأَكُونُ سَعِيدَةً جِدًّا<span class="tooltip-box">Yaklaşık bir ay sonra mezun olacağım ve çok mutlu olacağım</span></span>.
+          </div>
+          <div class="model-telaffuz">
+            <b>Telaffuz:</b> Merhaben yaa esdikaaî! İsmî Meryem ve-enâ fis-saffis-saamîn. Uşecci'u ferîka Galataseray. Uhibbu riyâdetet-tenis li-ennehâ mümti'a. Er-riyâdetu tuhâfidu alâ selâmetil-cism ve-tukavviyel-izâm. Se-eteharrecu baade şehrin takriben ve-se-ekuunu saiideten ciddan.
+          </div>
+          <div class="model-meaning">
+            <b>Türkçe:</b> Merhaba arkadaşlarım! Adım Meryem ve 8. sınıftayım. Galatasaray'ı destekliyorum. Tenis sporunu seviyorum çünkü eğlencelidir. Spor vücudun sağlığını korur ve kemikleri güçlendirir. Yaklaşık bir ay sonra mezun olacağım ve çok mutlu olacağım.
+          </div>
+        </div>
+      </div>
+
+      <!-- MODEL 5 -->
+      <div class="model-card m5">
+        <div class="model-header">
+          <span>📝 Örnek 5 — Beşiktaşlı, Voleybol</span>
+          <span class="badge">Nümüne الخامس</span>
+        </div>
+        <div class="model-body">
+          <div class="model-arabic">
+            <span class="word-tooltip w1">أَهْلاً وَسَهْلاً<span class="tooltip-box">Hoş geldiniz</span></span>
+            <span class="word-tooltip w2"> أَصْدِقَائِي<span class="tooltip-box">arkadaşlarım</span></span>!
+            <span class="word-tooltip w3"> أَنَا اسْمِي عُمَر<span class="tooltip-box">Benim adım Ömer</span></span>،
+            <span class="word-tooltip w4"> وَأَنَا طَالِبٌ فِي الصَّفِّ الثَّامِنِ<span class="tooltip-box">ve 8. sınıfta bir öğrenciyim</span></span>.
+            <span class="word-tooltip w5"> وَأَنَا أُشَجِّعُ فَرِيقَ بَشِيكْتَاش<span class="tooltip-box">Ben Beşiktaş'ı destekliyorum</span></span>.
+            <span class="word-tooltip w6"> أُحِبُّ رِيَاضَةَ الكُرَةِ الطَّائِرَةِ<span class="tooltip-box">Voleybol sporunu seviyorum</span></span>
+            <span class="word-tooltip w7"> وَأُمَارِسُهَا مَعَ أَصْدِقَائِي<span class="tooltip-box">ve arkadaşlarımla yapıyorum</span></span>.
+            <span class="word-tooltip w8"> الرِّيَاضَةُ مُفِيدَةٌ جِدًّا<span class="tooltip-box">Spor çok faydalıdır</span></span>،
+            <span class="word-tooltip w9"> تُقَوِّي العِظَامَ وَتُحَافِظُ عَلَى الصِّحَّةِ<span class="tooltip-box">kemikleri güçlendirir ve sağlığı korur</span></span>.
+            <span class="word-tooltip w10"> أَنَا سَأَتَخَرَّجُ فِي المَدْرَسَةِ المُتَوَسِّطَةِ بَعْدَ شَهْرٍ تَقْرِيبًا<span class="tooltip-box">Ben yaklaşık bir ay sonra ortaokuldan mezun olacağım</span></span>.
+            <span class="word-tooltip w1"> سَأَكُونُ سَعِيدًا جِدًّا<span class="tooltip-box">Çok mutlu olacağım</span></span>!
+          </div>
+          <div class="model-telaffuz">
+            <b>Telaffuz:</b> Ehlen ve-sehlen esdikaaî! Enâ ismî Ömer, ve-enâ taalibun fis-saffis-saamîn. Ve-enâ uşecci'u ferîka Beşiktaş. Uhibbu riyâdetel-kureetit-taaira ve-umaarisuhâ mea esdikaaî. Er-riyâdetu mufîdetun ciddan, tukavviyel-izâm ve-tuhâfidu alas-sıhha. Enâ se-eteharrecu fil-medreseel-mutevessiteh baade şehrin takriben. Se-ekuunu saiiden ciddan!
+          </div>
+          <div class="model-meaning">
+            <b>Türkçe:</b> Hoş geldiniz arkadaşlarım! Adım Ömer ve 8. sınıfta bir öğrenciyim. Ben Beşiktaş'ı destekliyorum. Voleybol sporunu seviyorum ve arkadaşlarımla yapıyorum. Spor çok faydalıdır; kemikleri güçlendirir ve sağlığı korur. Ben yaklaşık bir ay sonra ortaokuldan mezun olacağım. Çok mutlu olacağım!
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end models-grid -->
+  </div>
+</div>
+
+</div><!-- end container -->
+
+<div class="footer">
+  كِتَيِّبُ المُحَادَثَة — 8. Sınıf Arapça Konuşma · Türk Öğrenciler İçin Hazırlanmıştır<br>
+  <span style="font-size:0.8rem; color:#aaa;">Kelimeler üzerine fare getirildiğinde telaffuz ve anlamı görürsün 🖱️</span>
+</div>
+
+<!-- ===== Arapça Sesli Okuma (tıkla-dinle) — otomatik eklendi ===== -->
+<script>
+(function(){
+  function hasAr(s){ return /[؀-ۿ]/.test(s||''); }
+  var st=document.createElement('style');
+  st.textContent='.tts-on{background:#ffd84d !important;border-radius:6px;box-shadow:0 0 0 2px #f1b400}';
+  document.head.appendChild(st);
+
+  var arVoice=null, ttsAudio=new Audio();
+  function pickVoice(){ if('speechSynthesis' in window){ var v=window.speechSynthesis.getVoices(); arVoice=v.find(function(x){return /^ar(\b|-|_)/i.test(x.lang);})||null; } }
+  if('speechSynthesis' in window){ pickVoice(); window.speechSynthesis.onvoiceschanged=pickVoice; }
+  function clearHi(){ var a=document.querySelectorAll('.tts-on'); for(var i=0;i<a.length;i++) a[i].classList.remove('tts-on'); }
+
+  function speakLocal(ar, el){
+    if(!('speechSynthesis' in window) || !arVoice){ if(el) el.classList.remove('tts-on'); return; }
+    window.speechSynthesis.cancel();
+    var u=new SpeechSynthesisUtterance(ar);
+    u.lang='ar-SA'; u.rate=0.8; u.voice=arVoice;
+    u.onend=function(){ if(el) el.classList.remove('tts-on'); };
+    u.onerror=function(){ if(el) el.classList.remove('tts-on'); };
+    window.speechSynthesis.speak(u);
+  }
+
+  function say(el, raw){
+    var m=(raw||'').match(/[؀-ۿـٰ\s]+/g);
+    var ar=m?m.join(' ').replace(/\s+/g,' ').trim():'';
+    if(!ar) return;
+    if(ar.length>200) ar=ar.slice(0,200);
+
+    // Tek ses elemanı: yeni tıklamada öncekini kesin durdurur (asla iki ses)
+    try{ ttsAudio.pause(); }catch(e){}
+    if('speechSynthesis' in window) window.speechSynthesis.cancel();
+    clearHi(); if(el) el.classList.add('tts-on');
+
+    var q=encodeURIComponent(ar);
+    var urls=[
+      'https://translate.googleapis.com/translate_tts?ie=UTF-8&tl=ar&client=gtx&q='+q,
+      'https://translate.google.com/translate_tts?ie=UTF-8&tl=ar&client=tw-ob&q='+q
+    ];
+    var idx=0, started=false;
+    ttsAudio.onplaying=function(){ started=true; };
+    ttsAudio.onended=function(){ if(el) el.classList.remove('tts-on'); };
+    ttsAudio.onerror=function(){
+      if(started){ if(el) el.classList.remove('tts-on'); return; }
+      idx++;
+      if(idx<urls.length){ ttsAudio.src=urls[idx]; var pp=ttsAudio.play(); if(pp&&pp.catch) pp.catch(function(){}); }
+      else speakLocal(ar, el);
+    };
+    ttsAudio.src=urls[0];
+    var p=ttsAudio.play(); if(p&&p.catch) p.catch(function(){});
+  }
+
+  document.addEventListener('click', function(e){
+    var t=e.target;
+    if(t.closest && t.closest('button,input,textarea,select,a[href],label')) return;
+    if(!hasAr(t.textContent)) return;
+    say(t, t.textContent);
+  }, true);
+
+  document.addEventListener('mouseover', function(e){
+    var t=e.target;
+    if(t.nodeType!==1) return;
+    if(t.closest && t.closest('button,input,textarea,select,a[href],label')) return;
+    if(t.children && t.children.length===0 && hasAr(t.textContent)) t.style.cursor='pointer';
+  });
+})();
+</script>
+</body>
+</html>

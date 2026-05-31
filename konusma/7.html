@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta name="referrer" content="no-referrer">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>كتيب المحادثة العربية - الصف السابع</title>
+<link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #1a6b3a;
+    --green-light: #2d9558;
+    --green-pale: #e8f5ee;
+    --gold: #c9922a;
+    --gold-light: #f5d98b;
+    --cream: #fdf8f0;
+    --text: #1a1a2e;
+    --muted: #5a6a5e;
+    --shadow: 0 4px 20px rgba(26,107,58,0.12);
+    --radius: 16px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--cream); font-family: 'Nunito', sans-serif; color: var(--text); min-height: 100vh; }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #0d4a28 0%, var(--green) 60%, #1e7e42 100%);
+    color: white; text-align: center; padding: 36px 20px 28px; position: relative; overflow: hidden;
+  }
+  .header::before { content:''; position:absolute; top:-50px; right:-50px; width:180px; height:180px; background:rgba(255,255,255,0.05); border-radius:50%; }
+  .header::after  { content:''; position:absolute; bottom:-40px; left:-40px; width:150px; height:150px; background:rgba(201,146,42,0.12); border-radius:50%; }
+  .header-badge { display:inline-block; background:var(--gold); color:white; font-size:11px; font-weight:800; padding:4px 16px; border-radius:20px; letter-spacing:1px; margin-bottom:10px; text-transform:uppercase; }
+  .header h1 { font-family:'Scheherazade New',serif; font-size:2.4rem; font-weight:700; margin-bottom:5px; line-height:1.3; }
+  .header p  { font-size:.95rem; opacity:.85; font-weight:600; }
+
+  /* TASK BOX */
+  .task-box {
+    background: linear-gradient(135deg, #fff9ee, #fff3d6);
+    border: 2px solid var(--gold);
+    border-radius: var(--radius);
+    margin: 24px auto;
+    max-width: 900px;
+    padding: 22px 28px;
+    position: relative;
+  }
+  .task-box-title {
+    font-family:'Scheherazade New',serif;
+    font-size:1.35rem;
+    color: var(--gold);
+    font-weight:700;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .task-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 10px 0;
+    border-bottom: 1px dashed #e8d8b0;
+  }
+  .task-step:last-child { border-bottom: none; }
+  .task-num {
+    flex-shrink: 0;
+    width: 32px; height: 32px;
+    background: var(--gold);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 800;
+  }
+  .task-text-ar {
+    font-family:'Scheherazade New',serif;
+    font-size:1.15rem;
+    font-weight:700;
+    color: var(--text);
+    line-height:1.6;
+  }
+  .task-text-tr {
+    font-size:.83rem;
+    color: var(--muted);
+    font-weight:600;
+    margin-top:2px;
+  }
+  .task-choices {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .task-choice {
+    background: white;
+    border: 2px solid var(--gold);
+    border-radius: 10px;
+    padding: 8px 16px;
+    font-family:'Scheherazade New',serif;
+    font-size:1.05rem;
+    font-weight:700;
+    color: var(--gold);
+    display:flex; flex-direction:column; align-items:center; gap:2px;
+  }
+  .task-choice span { font-family:'Nunito',sans-serif; font-size:.75rem; color:var(--muted); font-weight:700; }
+
+  /* NAV TABS */
+  .nav-tabs { display:flex; overflow-x:auto; background:var(--green); padding:0 20px; scrollbar-width:none; border-bottom:3px solid var(--gold); }
+  .nav-tabs::-webkit-scrollbar { display:none; }
+  .tab-btn { flex-shrink:0; background:none; border:none; color:rgba(255,255,255,.7); font-family:'Scheherazade New',serif; font-size:1rem; font-weight:600; padding:13px 20px; cursor:pointer; border-bottom:3px solid transparent; margin-bottom:-3px; transition:all .25s; white-space:nowrap; }
+  .tab-btn:hover { color:white; }
+  .tab-btn.active { color:var(--gold-light); border-bottom-color:var(--gold); background:rgba(255,255,255,.07); }
+  .tab-btn .tr-label { display:block; font-family:'Nunito',sans-serif; font-size:.68rem; font-weight:700; opacity:.8; margin-top:1px; }
+  .tab-num { display:inline-flex; width:20px; height:20px; background:var(--gold); color:white; font-family:'Nunito',sans-serif; font-size:11px; font-weight:800; border-radius:50%; align-items:center; justify-content:center; margin-left:5px; }
+
+  /* MAIN */
+  .main { max-width:900px; margin:0 auto; padding:28px 20px 60px; }
+
+  /* SECTION */
+  .section { display:none; animation:fadeIn .35s ease; }
+  .section.active { display:block; }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+
+  .section-header { display:flex; align-items:center; gap:14px; margin-bottom:22px; padding-bottom:14px; border-bottom:2px solid var(--green-pale); }
+  .section-icon { width:50px; height:50px; background:linear-gradient(135deg,var(--green),var(--green-light)); border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0; box-shadow:var(--shadow); }
+  .section-title { font-family:'Scheherazade New',serif; font-size:1.8rem; color:var(--green); font-weight:700; }
+  .section-subtitle { font-size:.88rem; color:var(--muted); font-weight:700; margin-top:2px; }
+
+  /* INTRO CARD */
+  .intro-card { background:linear-gradient(135deg,var(--green-pale),#d4edd9); border:1.5px solid #b5dfc2; border-radius:var(--radius); padding:16px 20px; margin-bottom:22px; font-size:.92rem; color:var(--green); font-weight:600; line-height:1.8; }
+
+  /* TABLE TITLE */
+  .table-title { font-family:'Scheherazade New',serif; font-size:1.25rem; color:var(--green); font-weight:700; margin:20px 0 10px; padding-right:12px; border-right:4px solid var(--gold); }
+
+  /* WORDS TABLE */
+  .words-table { width:100%; border-collapse:collapse; margin-bottom:26px; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); }
+  .words-table thead tr { background:var(--green); color:white; }
+  .words-table thead th { padding:11px 14px; font-family:'Nunito',sans-serif; font-size:.78rem; font-weight:800; letter-spacing:.4px; text-transform:uppercase; text-align:center; }
+  .words-table tbody tr { border-bottom:1px solid #e0ede5; transition:background .2s; }
+  .words-table tbody tr:last-child { border-bottom:none; }
+  .words-table tbody tr:hover { background:var(--green-pale); }
+  .words-table tbody tr:nth-child(even) { background:#f7fdf9; }
+  .words-table tbody tr:nth-child(even):hover { background:var(--green-pale); }
+  .words-table td { padding:10px 14px; text-align:center; vertical-align:middle; }
+  .telaffuz-cell { font-size:.85rem; color:#3a6650; font-weight:700; font-style:italic; }
+  .meaning-cell { font-size:.9rem; color:var(--text); font-weight:700; }
+  .example-cell { font-family:'Scheherazade New',serif; font-size:1.1rem; text-align:right; direction:rtl; color:#2a4a35; }
+
+  /* WORD CHIP with tooltip */
+  .wc { display:inline; position:relative; cursor:help; font-family:'Scheherazade New',serif; font-weight:700; }
+  .wc .tt {
+    display:none; position:absolute; bottom:115%; left:50%; transform:translateX(-50%);
+    background:#1a1a2e; color:white; padding:8px 13px; border-radius:10px;
+    font-size:.78rem; white-space:nowrap; z-index:300; box-shadow:0 4px 18px rgba(0,0,0,.25);
+    font-family:'Nunito',sans-serif; font-weight:600; text-align:center; pointer-events:none;
+    direction:ltr; min-width:140px;
+  }
+  .wc .tt::after { content:''; position:absolute; top:100%; left:50%; transform:translateX(-50%); border:6px solid transparent; border-top-color:#1a1a2e; }
+  .wc:hover .tt { display:block; }
+  .wc .tt .tt-ar { font-family:'Scheherazade New',serif; font-size:.9rem; color:#f5d98b; display:block; margin-bottom:3px; }
+  .wc .tt .tt-tel { font-style:italic; color:#9ecfb0; display:block; margin-bottom:2px; }
+  .wc .tt .tt-tr { color:white; display:block; }
+
+  /* COLOR CLASSES */
+  .c1{color:#1a6b3a} .c2{color:#7b2d8b} .c3{color:#c9440a} .c4{color:#0a6b8b}
+  .c5{color:#8b6b0a} .c6{color:#0a4e8b} .c7{color:#8b0a3d} .c8{color:#3d7b0a}
+  .c9{color:#5c2d8b} .c10{color:#8b3a0a}
+
+  /* SENTENCES BOX */
+  .sentences-box { background:white; border:1.5px solid #d0e8d8; border-radius:var(--radius); padding:18px 22px; margin-bottom:26px; box-shadow:var(--shadow); }
+  .sentence-row { display:flex; align-items:flex-start; gap:12px; padding:10px 0; border-bottom:1px dashed #e0ede5; }
+  .sentence-row:last-child { border-bottom:none; }
+  .sentence-num { flex-shrink:0; width:27px; height:27px; background:var(--green); color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; }
+  .sentence-content { flex:1; }
+  .sentence-arabic { font-family:'Scheherazade New',serif; font-size:1.2rem; font-weight:700; line-height:1.7; direction:rtl; margin-bottom:4px; }
+  .sentence-telaffuz { font-size:.8rem; color:#4a7a5a; font-weight:700; font-style:italic; margin-bottom:2px; }
+  .sentence-meaning { font-size:.8rem; color:var(--muted); font-weight:600; }
+
+  /* PRAYER TABLE */
+  .prayer-table { width:100%; border-collapse:collapse; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); margin-bottom:22px; }
+  .prayer-table thead th { background:var(--green); color:white; padding:11px 16px; font-family:'Nunito',sans-serif; font-size:.78rem; font-weight:800; text-transform:uppercase; letter-spacing:.4px; text-align:center; }
+  .prayer-table tbody tr { border-bottom:1px solid #e0ede5; transition:background .2s; }
+  .prayer-table tbody tr:last-child { border-bottom:none; }
+  .prayer-table tbody tr:hover { background:var(--green-pale); }
+  .prayer-table td { padding:12px 16px; text-align:center; vertical-align:middle; }
+  .prayer-name-ar { font-family:'Scheherazade New',serif; font-size:1.25rem; font-weight:700; }
+  .raka-badge { display:inline-block; background:var(--gold-light); color:var(--gold); border:1.5px solid var(--gold); border-radius:20px; padding:3px 14px; font-size:.85rem; font-weight:800; }
+
+  /* MODELS */
+  .models-title { font-family:'Scheherazade New',serif; font-size:1.45rem; color:var(--green); font-weight:700; margin:28px 0 14px; text-align:center; }
+  .models-grid { display:grid; grid-template-columns:1fr; gap:18px; }
+  .model-card { background:white; border:2px solid #c8e6d0; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); transition:transform .2s, box-shadow .2s; }
+  .model-card:hover { transform:translateY(-3px); box-shadow:0 8px 30px rgba(26,107,58,.18); }
+  .model-card-header { background:linear-gradient(135deg,var(--green),var(--green-light)); padding:11px 18px; display:flex; align-items:center; justify-content:space-between; }
+  .model-card-title { color:white; font-family:'Scheherazade New',serif; font-size:1.1rem; font-weight:700; }
+  .model-badge { background:var(--gold); color:white; font-size:.72rem; font-weight:800; padding:3px 12px; border-radius:12px; font-family:'Nunito',sans-serif; }
+  .model-body { padding:16px 20px; }
+
+  /* MODEL LINE with tooltip */
+  .ml {
+    display:block; position:relative; cursor:help;
+    font-family:'Scheherazade New',serif; font-size:1.15rem; font-weight:600;
+    line-height:2; direction:rtl; color:var(--text);
+    padding:3px 0; border-bottom:1px dotted #e8f0eb;
+  }
+  .ml:last-of-type { border-bottom:none; }
+  .ml .mltt {
+    display:none; position:absolute; bottom:110%; right:0; left:auto;
+    background:#1a1a2e; color:white; padding:9px 14px; border-radius:10px;
+    font-size:.8rem; z-index:400; box-shadow:0 4px 20px rgba(0,0,0,.28);
+    font-family:'Nunito',sans-serif; font-weight:600; pointer-events:none;
+    direction:ltr; text-align:left; min-width:220px; max-width:320px;
+    white-space:normal; line-height:1.6;
+  }
+  .ml .mltt::after { content:''; position:absolute; top:100%; right:20px; left:auto; border:6px solid transparent; border-top-color:#1a1a2e; }
+  .ml:hover .mltt { display:block; }
+  .ml .mltt .tt-ar { font-family:'Scheherazade New',serif; font-size:.95rem; color:#f5d98b; display:block; margin-bottom:4px; }
+  .ml .mltt .tt-tel { font-style:italic; color:#9ecfb0; display:block; margin-bottom:3px; font-size:.78rem; }
+  .ml .mltt .tt-tr { color:#e0e0e0; display:block; }
+
+  .copy-btn { display:block; width:100%; margin-top:12px; background:var(--green-pale); border:1.5px solid var(--green); color:var(--green); font-family:'Nunito',sans-serif; font-size:.83rem; font-weight:800; padding:9px; border-radius:10px; cursor:pointer; transition:all .2s; }
+  .copy-btn:hover { background:var(--green); color:white; }
+  .copy-btn.copied { background:var(--green); color:white; }
+
+  /* TOOLTIP HINT */
+  .tooltip-hint { text-align:center; font-size:.78rem; color:var(--muted); font-weight:600; margin:-10px 0 16px; }
+  .tooltip-hint span { background:#e8f5ee; border:1px solid #b5dfc2; border-radius:8px; padding:3px 10px; }
+
+  @media(max-width:600px){
+    .header h1{font-size:1.7rem}
+    .words-table thead th{font-size:.68rem;padding:7px 6px}
+    .words-table td{padding:7px 6px}
+    .tab-btn{font-size:.85rem;padding:11px 13px}
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-badge">Arapça Konuşma Kitabı • 7. Sınıf</div>
+  <h1>كِتَابُ المُحَادَثَةِ العَرَبِيَّة</h1>
+  <p>Arapça Konuşma Kitabı &nbsp;|&nbsp; الصَّفُّ السَّابِع</p>
+</div>
+
+<!-- TASK BOX -->
+<div class="task-box" style="margin:0 auto; max-width:900px; margin-top:0; border-radius:0 0 16px 16px; border-top:none;">
+  <div style="background:linear-gradient(135deg,var(--green),var(--green-light)); margin:-22px -28px 16px; padding:12px 22px; border-radius:0;">
+    <div style="color:white; font-family:'Scheherazade New',serif; font-size:1.3rem; font-weight:700;">📋 المَطلُوب مِنَ الطَّالِب &nbsp;|&nbsp; <span style="font-family:'Nunito',sans-serif; font-size:.95rem; font-weight:700;">Öğrenciden İstenenler</span></div>
+  </div>
+  <div class="task-step">
+    <div class="task-num">١</div>
+    <div>
+      <div class="task-text-ar">قَدِّم نَفسَكَ أَمَامَ الصَّفِّ: قُل اسمَكَ وَفِي أَيِّ صَفٍّ أَنتَ.</div>
+      <div class="task-text-tr">Sınıfın önüne geç ve kendini tanıt: adını ve hangi sınıfta olduğunu söyle.</div>
+    </div>
+  </div>
+  <div class="task-step">
+    <div class="task-num">٢</div>
+    <div>
+      <div class="task-text-ar">اختَر وَاحِدَةً مِن الفَقَرَات التَّالِيَة وَاحفَظهَا:</div>
+      <div class="task-text-tr">Aşağıdaki konulardan birini seç ve ezberle:</div>
+      <div class="task-choices">
+        <div class="task-choice">كَيفِيَّةُ الصَّلاة<span>Namazın Kılınışı</span></div>
+        <div class="task-choice">أَوقَاتُ الصَّلَوَات<span>Namaz Vakitleri</span></div>
+        <div class="task-choice">الأَعيَادُ الإِسلامِيَّة<span>İslami Bayramlar</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="task-step">
+    <div class="task-num">٣</div>
+    <div>
+      <div class="task-text-ar">اِبدَأ دَائِماً بِالتَّرحِيب بِأَصدِقَائِكَ، ثُمَّ انتَقِل إِلَى الفَقرَة الَّتِي حَفِظتَهَا.</div>
+      <div class="task-text-tr">Her zaman önce arkadaşlarını selamla, sonra ezberlediğin konuya geç.</div>
+    </div>
+  </div>
+  <div class="task-step">
+    <div class="task-num">٤</div>
+    <div>
+      <div class="task-text-ar">يُمكِنُكَ اختِيَار أَيِّ نَموذَج مِن النَّمَاذِج الثَّلاثَة تَحتَ كُلِّ مَوضُوع.</div>
+      <div class="task-text-tr">Her konunun altındaki üç hazır örnekten istediğini seçebilirsin.</div>
+    </div>
+  </div>
+  <div style="margin-top:12px; background:#fff9ee; border:1px solid #e8d8b0; border-radius:10px; padding:10px 16px; font-size:.85rem; color:#7a5a10; font-weight:600;">
+    💡 <strong>İpucu:</strong> Fareyi herhangi bir Arapça kelime veya cümlenin üzerine getirince <strong>okunuş (Telaffuz)</strong> ve <strong>Türkçe anlamı</strong> görünür!
+    &nbsp;|&nbsp; <strong>İpucu:</strong> أَيِّ كَلِمَة عَرَبِيَّة ضَع عَلَيهَا المُؤشِّر تَرَى اللَّفظ وَالمَعنَى!
+  </div>
+</div>
+
+<!-- TABS -->
+<div class="nav-tabs">
+  <button class="tab-btn active" onclick="showSection('s1',this)">
+    التَّرحيب والتَّعريف <span class="tab-num">١</span>
+    <span class="tr-label">Selam &amp; Tanışma</span>
+  </button>
+  <button class="tab-btn" onclick="showSection('s2',this)">
+    كَيفِيَّةُ الصَّلاة <span class="tab-num">٢</span>
+    <span class="tr-label">Namazın Kılınışı</span>
+  </button>
+  <button class="tab-btn" onclick="showSection('s3',this)">
+    أَوقَاتُ الصَّلاة <span class="tab-num">٣</span>
+    <span class="tr-label">Namaz Vakitleri</span>
+  </button>
+  <button class="tab-btn" onclick="showSection('s4',this)">
+    الأَعيَادُ <span class="tab-num">٤</span>
+    <span class="tr-label">İslami Bayramlar</span>
+  </button>
+</div>
+
+<div class="main">
+
+<!-- ============================= SECTION 1 ============================= -->
+<div id="s1" class="section active">
+  <div class="section-header">
+    <div class="section-icon">👋</div>
+    <div>
+      <div class="section-title">التَّرحيب والتَّعريف بالنَّفس</div>
+      <div class="section-subtitle">Selam ve Kendini Tanıtma — Bu bölüm HER sunumun başında kullanılır!</div>
+    </div>
+  </div>
+
+  <div class="intro-card">
+    🎯 <strong>Bu bölüm zorunludur!</strong> Hangi konuyu seçersen seç, sunumuna her zaman bu bölümdeki selamlama ve kendini tanıtma ile başlayacaksın.<br>
+    هَذَا القِسم إِلزَامِيّ! مَهمَا اخترتَ مِن مَوضُوع، ابدَأ دَائِماً بِالتَّرحِيب وَالتَّعريف بِنَفسِك.
+  </div>
+
+  <div class="tooltip-hint"><span>🖱️ Fareyi Arapça kelimelerin üzerine getir → okunuş + anlam görünür</span></div>
+
+  <div class="table-title">📚 المُفردات — Kelimeler</div>
+  <table class="words-table">
+    <thead><tr>
+      <th>الكلمة العربية<br>Arapça Kelime</th>
+      <th>Telaffuz — النُّطق</th>
+      <th>Türkçe Anlam — المعنى</th>
+      <th>مثال — Örnek Cümle</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td><span class="wc c2" style="font-size:1.3rem">السَّلاَمُ عَلَيْكُمْ<span class="tt"><span class="tt-ar">السَّلاَمُ عَلَيْكُمْ</span><span class="tt-tel">Esselâmü Aleyküm</span><span class="tt-tr">Selamün aleyküm</span></span></span></td>
+        <td class="telaffuz-cell c2">Esselâmü Aleyküm</td>
+        <td class="meaning-cell">Selamün aleyküm</td>
+        <td class="example-cell"><span class="wc c2">السَّلاَمُ عَلَيْكُمْ<span class="tt"><span class="tt-ar">السَّلاَمُ عَلَيْكُمْ</span><span class="tt-tel">Esselâmü Aleyküm</span><span class="tt-tr">Selamün aleyküm</span></span></span> وَرَحمَةُ الله!</td>
+      </tr>
+      <tr>
+        <td><span class="wc c1" style="font-size:1.3rem">مَرحَباً<span class="tt"><span class="tt-ar">مَرحَباً</span><span class="tt-tel">Merheben</span><span class="tt-tr">Merhaba</span></span></span></td>
+        <td class="telaffuz-cell c1">Merheben</td>
+        <td class="meaning-cell">Merhaba</td>
+        <td class="example-cell"><span class="wc c1">مَرحَباً<span class="tt"><span class="tt-ar">مَرحَباً</span><span class="tt-tel">Merheben</span><span class="tt-tr">Merhaba</span></span></span> يَا أَصدِقَائِي!</td>
+      </tr>
+      <tr>
+        <td><span class="wc c3" style="font-size:1.3rem">اسمي<span class="tt"><span class="tt-ar">اسمي</span><span class="tt-tel">İsmî</span><span class="tt-tr">Benim adım</span></span></span></td>
+        <td class="telaffuz-cell c3">İsmî</td>
+        <td class="meaning-cell">Benim adım</td>
+        <td class="example-cell"><span class="wc c3">اسمي<span class="tt"><span class="tt-ar">اسمي</span><span class="tt-tel">İsmî</span><span class="tt-tr">Benim adım</span></span></span> أَحمَد.</td>
+      </tr>
+      <tr>
+        <td><span class="wc c4" style="font-size:1.3rem">أَنَا<span class="tt"><span class="tt-ar">أَنَا</span><span class="tt-tel">Ene</span><span class="tt-tr">Ben</span></span></span></td>
+        <td class="telaffuz-cell c4">Ene</td>
+        <td class="meaning-cell">Ben</td>
+        <td class="example-cell"><span class="wc c4">أَنَا<span class="tt"><span class="tt-ar">أَنَا</span><span class="tt-tel">Ene</span><span class="tt-tr">Ben</span></span></span> <span class="wc c5">طَالِبٌ<span class="tt"><span class="tt-ar">طَالِبٌ</span><span class="tt-tel">Tâlibün</span><span class="tt-tr">Öğrenciyim</span></span></span>.</td>
+      </tr>
+      <tr>
+        <td><span class="wc c5" style="font-size:1.3rem">طَالِبٌ / طَالِبَةٌ<span class="tt"><span class="tt-ar">طَالِبٌ / طَالِبَةٌ</span><span class="tt-tel">Tâlibün / Tâlibetün</span><span class="tt-tr">Erkek öğrenci / Kız öğrenci</span></span></span></td>
+        <td class="telaffuz-cell c5">Tâlibün / Tâlibetün</td>
+        <td class="meaning-cell">Öğrenci (erkek/kız)</td>
+        <td class="example-cell"><span class="wc c4">أَنَا<span class="tt"><span class="tt-ar">أَنَا</span><span class="tt-tel">Ene</span><span class="tt-tr">Ben</span></span></span> <span class="wc c5">طَالِبٌ<span class="tt"><span class="tt-ar">طَالِبٌ</span><span class="tt-tel">Tâlibün</span><span class="tt-tr">Öğrenciyim</span></span></span> مُجتَهِد.</td>
+      </tr>
+      <tr>
+        <td><span class="wc c6" style="font-size:1.3rem">الصَّفُّ السَّابِع<span class="tt"><span class="tt-ar">الصَّفُّ السَّابِع</span><span class="tt-tel">Es-Saffu es-Sâbi'</span><span class="tt-tr">Yedinci sınıf</span></span></span></td>
+        <td class="telaffuz-cell c6">Es-Saffu es-Sâbi'</td>
+        <td class="meaning-cell">Yedinci sınıf</td>
+        <td class="example-cell">أَنَا فِي <span class="wc c6">الصَّفِّ السَّابِع<span class="tt"><span class="tt-ar">الصَّفِّ السَّابِع</span><span class="tt-tel">Es-Saffi es-Sâbi'</span><span class="tt-tr">Yedinci sınıfta</span></span></span>.</td>
+      </tr>
+      <tr>
+        <td><span class="wc c10" style="font-size:1.3rem">أَهلاً وَسَهلاً<span class="tt"><span class="tt-ar">أَهلاً وَسَهلاً</span><span class="tt-tel">Ehlen ve Sehlen</span><span class="tt-tr">Hoş geldiniz</span></span></span></td>
+        <td class="telaffuz-cell c10">Ehlen ve Sehlen</td>
+        <td class="meaning-cell">Hoş geldiniz</td>
+        <td class="example-cell"><span class="wc c10">أَهلاً وَسَهلاً<span class="tt"><span class="tt-ar">أَهلاً وَسَهلاً</span><span class="tt-tel">Ehlen ve Sehlen</span><span class="tt-tr">Hoş geldiniz</span></span></span> بِكُم!</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="models-title">🌟 نماذج جاهزة للتَّعريف بالنَّفس — Kendini Tanıtma Örnekleri</div>
+  <div class="tooltip-hint"><span>🖱️ Her cümlenin üzerine gel → okunuş + Türkçe anlam görünür</span></div>
+  <div class="models-grid">
+
+    <div class="model-card">
+      <div class="model-card-header">
+        <span class="model-card-title">النموذج الأول — 1. Örnek (Erkek öğrenci)</span>
+        <span class="model-badge">Örnek A</span>
+      </div>
+      <div class="model-body">
+        <span class="ml"><span class="mltt"><span class="tt-ar">السَّلاَمُ عَلَيْكُمْ، أَصدِقَائِي!</span><span class="tt-tel">Esselâmü aleyküm, esdikâî!</span><span class="tt-tr">Selamün aleyküm, arkadaşlarım!</span></span>السَّلاَمُ عَلَيْكُمْ، أَصدِقَائِي!</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">اسمي أَحمَد.</span><span class="tt-tel">İsmî Ahmed.</span><span class="tt-tr">Benim adım Ahmed.</span></span>اسمي أَحمَد.</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">أَنَا طَالِبٌ فِي الصَّفِّ السَّابِع.</span><span class="tt-tel">Ene tâlibün fî es-saffi es-sâbi'.</span><span class="tt-tr">Ben yedinci sınıf öğrencisiyim.</span></span>أَنَا طَالِبٌ فِي الصَّفِّ السَّابِع.</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">أَهلاً وَسَهلاً بِكُم!</span><span class="tt-tel">Ehlen ve sehlen biküm!</span><span class="tt-tr">Hoş geldiniz!</span></span>أَهلاً وَسَهلاً بِكُم!</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">اليَوم سَأُعَلِّمُكُم كَيفِيَّةَ الصَّلاة.</span><span class="tt-tel">El-yevm se-uallimüküm keyfiyyetes-salâh.</span><span class="tt-tr">Bugün size namazın nasıl kılınacağını öğreteceğim.</span></span>اليَوم سَأُعَلِّمُكُم كَيفِيَّةَ الصَّلاة.</span>
+        <button class="copy-btn" onclick="copyText(this,'السَّلاَمُ عَلَيْكُمْ، أَصدِقَائِي!\nاسمي أَحمَد.\nأَنَا طَالِبٌ فِي الصَّفِّ السَّابِع.\nأَهلاً وَسَهلاً بِكُم!\nاليَوم سَأُعَلِّمُكُم كَيفِيَّةَ الصَّلاة.')">📋 Kopyala — انسخ</button>
+      </div>
+    </div>
+
+    <div class="model-card">
+      <div class="model-card-header">
+        <span class="model-card-title">النموذج الثاني — 2. Örnek (Kız öğrenci)</span>
+        <span class="model-badge">Örnek B</span>
+      </div>
+      <div class="model-body">
+        <span class="ml"><span class="mltt"><span class="tt-ar">مَرحَباً يَا أَصدِقَائِي الأَعزَّاء!</span><span class="tt-tel">Merheben yâ esdikâîl-ezzâ!</span><span class="tt-tr">Merhaba, sevgili arkadaşlarım!</span></span>مَرحَباً يَا أَصدِقَائِي الأَعزَّاء!</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">اسمي فَاطِمَة.</span><span class="tt-tel">İsmî Fâtıme.</span><span class="tt-tr">Benim adım Fatma.</span></span>اسمي فَاطِمَة.</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">أَنَا طَالِبَةٌ فِي الصَّفِّ السَّابِع.</span><span class="tt-tel">Ene tâlibetün fî es-saffi es-sâbi'.</span><span class="tt-tr">Ben yedinci sınıf öğrencisiyim.</span></span>أَنَا طَالِبَةٌ فِي الصَّفِّ السَّابِع.</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">يَسعَدُنِي أَن أَكُونَ مَعَكُم.</span><span class="tt-tel">Yas'adunî en ekûne meaküm.</span><span class="tt-tr">Sizinle olmaktan mutluluk duyuyorum.</span></span>يَسعَدُنِي أَن أَكُونَ مَعَكُم.</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">اليَوم سَأُحَدِّثُكُم عَن الأَعيَاد.</span><span class="tt-tel">El-yevm se-uheddişküm anil-a'yâd.</span><span class="tt-tr">Bugün size bayramlar hakkında konuşacağım.</span></span>اليَوم سَأُحَدِّثُكُم عَن الأَعيَاد.</span>
+        <button class="copy-btn" onclick="copyText(this,'مَرحَباً يَا أَصدِقَائِي الأَعزَّاء!\nاسمي فَاطِمَة.\nأَنَا طَالِبَةٌ فِي الصَّفِّ السَّابِع.\nيَسعَدُنِي أَن أَكُونَ مَعَكُم.\nاليَوم سَأُحَدِّثُكُم عَن الأَعيَاد.')">📋 Kopyala — انسخ</button>
+      </div>
+    </div>
+
+    <div class="model-card">
+      <div class="model-card-header">
+        <span class="model-card-title">النموذج الثالث — 3. Örnek</span>
+        <span class="model-badge">Örnek C</span>
+      </div>
+      <div class="model-body">
+        <span class="ml"><span class="mltt"><span class="tt-ar">السَّلاَمُ عَلَيْكُمْ وَرَحمَةُ الله!</span><span class="tt-tel">Esselâmü aleyküm ve rahmetüllâh!</span><span class="tt-tr">Allah'ın selam ve rahmeti üzerinize olsun!</span></span>السَّلاَمُ عَلَيْكُمْ وَرَحمَةُ الله!</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">اسمي عُمَر، وَأَنَا فِي الصَّفِّ السَّابِع.</span><span class="tt-tel">İsmî Umer, ve ene fî es-saffi es-sâbi'.</span><span class="tt-tr">Benim adım Ömer ve ben yedinci sınıftayım.</span></span>اسمي عُمَر، وَأَنَا فِي الصَّفِّ السَّابِع.</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">أَنَا سَعِيدٌ بِوُجُودِكُم.</span><span class="tt-tel">Ene saîdün bi-vucûdiküm.</span><span class="tt-tr">Varlığınızdan mutluyum.</span></span>أَنَا سَعِيدٌ بِوُجُودِكُم.</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">اليَوم سَنَتَعَلَّمُ مَعاً أَوقَاتَ الصَّلاة.</span><span class="tt-tel">El-yevm se-neteallemu meaen evkâtes-salâh.</span><span class="tt-tr">Bugün birlikte namaz vakitlerini öğreneceğiz.</span></span>اليَوم سَنَتَعَلَّمُ مَعاً أَوقَاتَ الصَّلاة.</span>
+        <button class="copy-btn" onclick="copyText(this,'السَّلاَمُ عَلَيْكُمْ وَرَحمَةُ الله!\nاسمي عُمَر، وَأَنَا فِي الصَّفِّ السَّابِع.\nأَنَا سَعِيدٌ بِوُجُودِكُم.\nاليَوم سَنَتَعَلَّمُ مَعاً أَوقَاتَ الصَّلاة.')">📋 Kopyala — انسخ</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================= SECTION 2 ============================= -->
+<div id="s2" class="section">
+  <div class="section-header">
+    <div class="section-icon">🕌</div>
+    <div>
+      <div class="section-title">كَيفِيَّةُ الصَّلاة</div>
+      <div class="section-subtitle">Namazın Kılınışı — Nasıl Namaz Kılınır?</div>
+    </div>
+  </div>
+  <div class="intro-card">
+    🎯 <strong>Namazın Kılınışı</strong> konusunu seçtiysen bu bölümü ezberle. Önce kendini tanıtmayı unutma! <br>
+    إِذَا اخترتَ هَذَا الموضوع، احفَظ هَذِه الفَقرَة بَعدَ التَّعريف بِنَفسِك.
+  </div>
+  <div class="tooltip-hint"><span>🖱️ Fareyi kelimelerin üzerine getir → okunuş + anlam görünür</span></div>
+
+  <div class="table-title">📚 المُفردات — Kelimeler</div>
+  <table class="words-table">
+    <thead><tr>
+      <th>الكلمة العربية</th><th>Telaffuz</th><th>Türkçe Anlam</th><th>مثال</th>
+    </tr></thead>
+    <tbody>
+      <tr><td><span class="wc c1" style="font-size:1.3rem">أَنوِي<span class="tt"><span class="tt-ar">أَنوِي</span><span class="tt-tel">Envî</span><span class="tt-tr">Niyet ederim</span></span></span></td><td class="telaffuz-cell c1">Envî</td><td class="meaning-cell">Niyet ederim</td><td class="example-cell">أَنوِي لِصَلاةِ الفَجر.</td></tr>
+      <tr><td><span class="wc c2" style="font-size:1.3rem">أَقُول<span class="tt"><span class="tt-ar">أَقُول</span><span class="tt-tel">Ekûl</span><span class="tt-tr">Söylerim / Derim</span></span></span></td><td class="telaffuz-cell c2">Ekûl</td><td class="meaning-cell">Söylerim / Derim</td><td class="example-cell">أَقُول اللهُ أَكبَر.</td></tr>
+      <tr><td><span class="wc c3" style="font-size:1.3rem">أَقرَأ<span class="tt"><span class="tt-ar">أَقرَأ</span><span class="tt-tel">Ekra'</span><span class="tt-tr">Okurum</span></span></span></td><td class="telaffuz-cell c3">Ekra'</td><td class="meaning-cell">Okurum</td><td class="example-cell">أَقرَأ الفَاتِحَة.</td></tr>
+      <tr><td><span class="wc c4" style="font-size:1.3rem">أَركَع<span class="tt"><span class="tt-ar">أَركَع</span><span class="tt-tel">Erka'</span><span class="tt-tr">Rükûya giderim</span></span></span></td><td class="telaffuz-cell c4">Erka'</td><td class="meaning-cell">Rükûya giderim</td><td class="example-cell">أَركَع وَأَقُول سُبحَان.</td></tr>
+      <tr><td><span class="wc c5" style="font-size:1.3rem">أَقُوم<span class="tt"><span class="tt-ar">أَقُوم</span><span class="tt-tel">Ekûm</span><span class="tt-tr">Kalkarım (doğrulurum)</span></span></span></td><td class="telaffuz-cell c5">Ekûm</td><td class="meaning-cell">Kalkarım</td><td class="example-cell">أَقُوم مِنَ الرُّكُوع.</td></tr>
+      <tr><td><span class="wc c6" style="font-size:1.3rem">أَسجُد<span class="tt"><span class="tt-ar">أَسجُد</span><span class="tt-tel">Escüd</span><span class="tt-tr">Secde ederim</span></span></span></td><td class="telaffuz-cell c6">Escüd</td><td class="meaning-cell">Secde ederim</td><td class="example-cell">أَسجُد لِلّه.</td></tr>
+      <tr><td><span class="wc c7" style="font-size:1.3rem">أَجلِس<span class="tt"><span class="tt-ar">أَجلِس</span><span class="tt-tel">Eclis</span><span class="tt-tr">Otururum</span></span></span></td><td class="telaffuz-cell c7">Eclis</td><td class="meaning-cell">Otururum</td><td class="example-cell">أَجلِس لِلتَّشَهُّد.</td></tr>
+      <tr><td><span class="wc c8" style="font-size:1.3rem">أُسَلِّم<span class="tt"><span class="tt-ar">أُسَلِّم</span><span class="tt-tel">Üsellim</span><span class="tt-tr">Selam veririm</span></span></span></td><td class="telaffuz-cell c8">Üsellim</td><td class="meaning-cell">Selam veririm</td><td class="example-cell">أُسَلِّم عَلَى اليَمِين.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="table-title">🕌 خُطوَاتُ الصَّلاة — Namazın Adımları</div>
+  <div class="sentences-box">
+    <div class="sentence-row"><div class="sentence-num">١</div><div class="sentence-content">
+      <div class="sentence-arabic"><span class="wc c1">أَنوِي<span class="tt"><span class="tt-ar">أَنوِي</span><span class="tt-tel">Envî</span><span class="tt-tr">Niyet ederim</span></span></span> لِصَلاةِ ..........</div>
+      <div class="sentence-telaffuz">Envî li-salâti ...</div>
+      <div class="sentence-meaning">... namazına niyet ederim.</div>
+    </div></div>
+    <div class="sentence-row"><div class="sentence-num">٢</div><div class="sentence-content">
+      <div class="sentence-arabic"><span class="wc c2">أَقُول<span class="tt"><span class="tt-ar">أَقُول</span><span class="tt-tel">Ekûl</span><span class="tt-tr">Derim</span></span></span>: «<span class="wc c3">اللَّهُ أَكبَر<span class="tt"><span class="tt-ar">اللَّهُ أَكبَر</span><span class="tt-tel">Allâhu Ekber</span><span class="tt-tr">Allah en büyüktür</span></span></span>»</div>
+      <div class="sentence-telaffuz">Ekûl: «Allâhu Ekber»</div>
+      <div class="sentence-meaning">Derim: «Allah en büyüktür» — İftitah tekbiri</div>
+    </div></div>
+    <div class="sentence-row"><div class="sentence-num">٣</div><div class="sentence-content">
+      <div class="sentence-arabic"><span class="wc c3">أَقرَأ<span class="tt"><span class="tt-ar">أَقرَأ</span><span class="tt-tel">Ekra'</span><span class="tt-tr">Okurum</span></span></span>: «<span class="wc c4">سُورَةَ الفَاتِحَة<span class="tt"><span class="tt-ar">سُورَةَ الفَاتِحَة</span><span class="tt-tel">Sûratel-Fâtiha</span><span class="tt-tr">Fatiha Suresini</span></span></span>» وَآيَاتٍ مِنَ القُرآن.</div>
+      <div class="sentence-telaffuz">Ekra': «Sûratel-Fâtiha» ve âyâtin minel-Kur'ân.</div>
+      <div class="sentence-meaning">Fatiha suresini ve Kur'an'dan ayetler okurum.</div>
+    </div></div>
+    <div class="sentence-row"><div class="sentence-num">٤</div><div class="sentence-content">
+      <div class="sentence-arabic"><span class="wc c4">أَركَع<span class="tt"><span class="tt-ar">أَركَع</span><span class="tt-tel">Erka'</span><span class="tt-tr">Rükûya giderim</span></span></span> وَأَقُول: «<span class="wc c5">سُبحَانَ رَبِّيَ العَظِيم<span class="tt"><span class="tt-ar">سُبحَانَ رَبِّيَ العَظِيم</span><span class="tt-tel">Subhâne Rabbiyel-azîm</span><span class="tt-tr">Yüce Rabbimi tenzih ederim</span></span></span>»</div>
+      <div class="sentence-telaffuz">Erka' ve ekûl: «Subhâne Rabbiyel-azîm»</div>
+      <div class="sentence-meaning">Rükûya giderim ve derim: «Yüce Rabbimi tenzih ederim»</div>
+    </div></div>
+    <div class="sentence-row"><div class="sentence-num">٥</div><div class="sentence-content">
+      <div class="sentence-arabic"><span class="wc c5">أَقُوم<span class="tt"><span class="tt-ar">أَقُوم</span><span class="tt-tel">Ekûm</span><span class="tt-tr">Kalkarım</span></span></span> وَأَقُول: «<span class="wc c6">سَمِعَ اللَّهُ لِمَن حَمِدَه<span class="tt"><span class="tt-ar">سَمِعَ اللَّهُ لِمَن حَمِدَه</span><span class="tt-tel">Semi'allâhu limen hamideh</span><span class="tt-tr">Allah, onu hamdedeni işitti</span></span></span>»</div>
+      <div class="sentence-telaffuz">Ekûm ve ekûl: «Semi'allâhu limen hamideh»</div>
+      <div class="sentence-meaning">Kalkarım ve derim: «Allah, O'na hamdedenin duasını işitti»</div>
+    </div></div>
+    <div class="sentence-row"><div class="sentence-num">٦</div><div class="sentence-content">
+      <div class="sentence-arabic"><span class="wc c6">أَسجُد<span class="tt"><span class="tt-ar">أَسجُد</span><span class="tt-tel">Escüd</span><span class="tt-tr">Secde ederim</span></span></span> وَأَقُول: «<span class="wc c7">سُبحَانَ رَبِّيَ الأَعلَى<span class="tt"><span class="tt-ar">سُبحَانَ رَبِّيَ الأَعلَى</span><span class="tt-tel">Subhâne Rabbiyel-a'lâ</span><span class="tt-tr">En yüce Rabbimi tenzih ederim</span></span></span>»</div>
+      <div class="sentence-telaffuz">Escüd ve ekûl: «Subhâne Rabbiyel-a'lâ»</div>
+      <div class="sentence-meaning">Secde ederim: «En yüce Rabbimi tenzih ederim»</div>
+    </div></div>
+    <div class="sentence-row"><div class="sentence-num">٧</div><div class="sentence-content">
+      <div class="sentence-arabic"><span class="wc c7">أَجلِس<span class="tt"><span class="tt-ar">أَجلِس</span><span class="tt-tel">Eclis</span><span class="tt-tr">Otururum</span></span></span> لِلتَّشَهُّد.</div>
+      <div class="sentence-telaffuz">Eclis lit-teşehhüd.</div>
+      <div class="sentence-meaning">Teşehhüt için otururum.</div>
+    </div></div>
+    <div class="sentence-row"><div class="sentence-num">٨</div><div class="sentence-content">
+      <div class="sentence-arabic"><span class="wc c8">أُسَلِّم<span class="tt"><span class="tt-ar">أُسَلِّم</span><span class="tt-tel">Üsellim</span><span class="tt-tr">Selam veririm</span></span></span> عَلَى <span class="wc c9">يَمِينِي وَيَسَارِي<span class="tt"><span class="tt-ar">يَمِينِي وَيَسَارِي</span><span class="tt-tel">Yemînî ve yesârî</span><span class="tt-tr">Sağıma ve soluma</span></span></span> وَأَقُول: «السَّلاَمُ عَلَيْكُمْ وَرَحمَةُ الله»</div>
+      <div class="sentence-telaffuz">Üsellim alâ yemînî ve yesârî ve ekûl: «Esselâmü aleyküm ve rahmetüllâh»</div>
+      <div class="sentence-meaning">Sağıma ve soluma selam veririm: «Allah'ın selamı ve rahmeti üzerinize olsun»</div>
+    </div></div>
+  </div>
+
+  <div class="models-title">🌟 نماذج جاهزة — Hazır Örnekler (Namazın Kılınışı)</div>
+  <div class="tooltip-hint"><span>🖱️ Her cümlenin üzerine gel → okunuş + Türkçe anlam görünür</span></div>
+  <div class="models-grid">
+    <div class="model-card">
+      <div class="model-card-header"><span class="model-card-title">النموذج الأول — 1. Örnek</span><span class="model-badge">Örnek A</span></div>
+      <div class="model-body">
+        <span class="ml"><span class="mltt"><span class="tt-ar">السَّلاَمُ عَلَيْكُمْ، أَصدِقَائِي!</span><span class="tt-tel">Esselâmü aleyküm, esdikâî!</span><span class="tt-tr">Selamün aleyküm, arkadaşlarım!</span></span>السَّلاَمُ عَلَيْكُمْ، أَصدِقَائِي!</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">اليَوم سَأُعَلِّمُكُم كَيفِيَّةَ الصَّلاة.</span><span class="tt-tel">El-yevm se-uallimüküm keyfiyyetes-salâh.</span><span class="tt-tr">Bugün size namazın nasıl kılınacağını öğreteceğim.</span></span>اليَوم سَأُعَلِّمُكُم كَيفِيَّةَ الصَّلاة.</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">أَوَّلاً: أَنوِي لِصَلاةِ الظُّهر.</span><span class="tt-tel">Evvelen: Envî li-salâtiz-Zuhr.</span><span class="tt-tr">Birincisi: Öğle namazına niyet ederim.</span></span>أَوَّلاً: أَنوِي لِصَلاةِ الظُّهر.</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">ثُمَّ أَقُول: «اللَّهُ أَكبَر».</span><span class="tt-tel">Sümme ekûl: «Allâhu Ekber».</span><span class="tt-tr">Sonra derim: «Allah en büyüktür».</span></span>ثُمَّ أَقُول: «اللَّهُ أَكبَر».</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">أَقرَأ سُورَةَ الفَاتِحَة وَآيَاتٍ مِنَ القُرآن.</span><span class="tt-tel">Ekra' sûratel-Fâtiha ve âyâtin minel-Kur'ân.</span><span class="tt-tr">Fatiha suresini ve Kur'an'dan ayetler okurum.</span></span>أَقرَأ سُورَةَ الفَاتِحَة وَآيَاتٍ مِنَ القُرآن.</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">أَركَع وَأَقُول: «سُبحَانَ رَبِّيَ العَظِيم».</span><span class="tt-tel">Erka' ve ekûl: «Subhâne Rabbiyel-azîm».</span><span class="tt-tr">Rükûya gider ve derim: «Yüce Rabbimi tenzih ederim».</span></span>أَركَع وَأَقُول: «سُبحَانَ رَبِّيَ العَظِيم».</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">أَقُوم وَأَقُول: «سَمِعَ اللَّهُ لِمَن حَمِدَه».</span><span class="tt-tel">Ekûm ve ekûl: «Semi'allâhu limen hamideh».</span><span class="tt-tr">Kalkarım ve derim: «Allah onu hamdedeni işitti».</span></span>أَقُوم وَأَقُول: «سَمِعَ اللَّهُ لِمَن حَمِدَه».</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">أَسجُد وَأَقُول: «سُبحَانَ رَبِّيَ الأَعلَى».</span><span class="tt-tel">Escüd ve ekûl: «Subhâne Rabbiyel-a'lâ».</span><span class="tt-tr">Secde ederim ve derim: «En yüce Rabbimi tenzih ederim».</span></span>أَسجُد وَأَقُول: «سُبحَانَ رَبِّيَ الأَعلَى».</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">أَجلِس لِلتَّشَهُّد، ثُمَّ أُسَلِّم.</span><span class="tt-tel">Eclis lit-teşehhüd, sümme üsellim.</span><span class="tt-tr">Teşehhüt için otururum, sonra selam veririm.</span></span>أَجلِس لِلتَّشَهُّد، ثُمَّ أُسَلِّم.</span>
+        <button class="copy-btn" onclick="copyText(this,'السَّلاَمُ عَلَيْكُمْ، أَصدِقَائِي!\nاليَوم سَأُعَلِّمُكُم كَيفِيَّةَ الصَّلاة.\nأَوَّلاً: أَنوِي لِصَلاةِ الظُّهر.\nثُمَّ أَقُول: «اللَّهُ أَكبَر».\nأَقرَأ سُورَةَ الفَاتِحَة وَآيَاتٍ مِنَ القُرآن.\nأَركَع وَأَقُول: «سُبحَانَ رَبِّيَ العَظِيم».\nأَقُوم وَأَقُول: «سَمِعَ اللَّهُ لِمَن حَمِدَه».\nأَسجُد وَأَقُول: «سُبحَانَ رَبِّيَ الأَعلَى».\nأَجلِس لِلتَّشَهُّد، ثُمَّ أُسَلِّم.')">📋 Kopyala — انسخ</button>
+      </div>
+    </div>
+
+    <div class="model-card">
+      <div class="model-card-header"><span class="model-card-title">النموذج الثاني — 2. Örnek</span><span class="model-badge">Örnek B</span></div>
+      <div class="model-body">
+        <span class="ml"><span class="mltt"><span class="tt-ar">مَرحَباً بِكُم، أَصدِقَائِي الكِرَام!</span><span class="tt-tel">Merheben biküm, esdikâîl-kirâm!</span><span class="tt-tr">Hoş geldiniz, değerli arkadaşlarım!</span></span>مَرحَباً بِكُم، أَصدِقَائِي الكِرَام!</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">سَأَشرَح لَكُم كَيفَ نُصَلِّي.</span><span class="tt-tel">Se-eşrahu leküm keyfe nusallî.</span><span class="tt-tr">Size namazın nasıl kılındığını açıklayacağım.</span></span>سَأَشرَح لَكُم كَيفَ نُصَلِّي.</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">نَبدَأ بِالنِّيَّة، ثُمَّ نَقُول: «اللَّهُ أَكبَر».</span><span class="tt-tel">Nebde' bin-niyye, sümme nekûl: «Allâhu Ekber».</span><span class="tt-tr">Niyetle başlarız, sonra deriz: «Allah en büyüktür».</span></span>نَبدَأ بِالنِّيَّة، ثُمَّ نَقُول: «اللَّهُ أَكبَر».</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">نَقرَأ الفَاتِحَة وَسُورَة مِنَ القُرآن.</span><span class="tt-tel">Nekra' el-Fâtiha ve sûraten minel-Kur'ân.</span><span class="tt-tr">Fatiha'yı ve Kur'an'dan bir sure okuriz.</span></span>نَقرَأ الفَاتِحَة وَسُورَة مِنَ القُرآن.</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">نَركَع وَنَقُول: «سُبحَانَ رَبِّيَ العَظِيم» ثَلاثَ مَرَّات.</span><span class="tt-tel">Nerka' ve nekûl: «Subhâne Rabbiyel-azîm» selâse merrât.</span><span class="tt-tr">Rükûya gideriz ve üç kez deriz: «Yüce Rabbimi tenzih ederim».</span></span>نَركَع وَنَقُول: «سُبحَانَ رَبِّيَ العَظِيم» ثَلاثَ مَرَّات.</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">نَسجُد وَنَقُول: «سُبحَانَ رَبِّيَ الأَعلَى».</span><span class="tt-tel">Nescüd ve nekûl: «Subhâne Rabbiyel-a'lâ».</span><span class="tt-tr">Secde ederiz ve deriz: «En yüce Rabbimi tenzih ederim».</span></span>نَسجُد وَنَقُول: «سُبحَانَ رَبِّيَ الأَعلَى».</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">نَجلِس لِلتَّشَهُّد، ثُمَّ نُسَلِّم عَلَى اليَمِين وَاليَسَار.</span><span class="tt-tel">Neclis lit-teşehhüd, sümme nüsellim alel-yemîn vel-yesâr.</span><span class="tt-tr">Teşehhüt için otururuz, sonra sağa ve sola selam veririz.</span></span>نَجلِس لِلتَّشَهُّد، ثُمَّ نُسَلِّم عَلَى اليَمِين وَاليَسَار.</span>
+        <button class="copy-btn" onclick="copyText(this,'مَرحَباً بِكُم، أَصدِقَائِي الكِرَام!\nسَأَشرَح لَكُم كَيفَ نُصَلِّي.\nنَبدَأ بِالنِّيَّة، ثُمَّ نَقُول: «اللَّهُ أَكبَر».\nنَقرَأ الفَاتِحَة وَسُورَة مِنَ القُرآن.\nنَركَع وَنَقُول: «سُبحَانَ رَبِّيَ العَظِيم» ثَلاثَ مَرَّات.\nنَسجُد وَنَقُول: «سُبحَانَ رَبِّيَ الأَعلَى».\nنَجلِس لِلتَّشَهُّد، ثُمَّ نُسَلِّم عَلَى اليَمِين وَاليَسَار.')">📋 Kopyala — انسخ</button>
+      </div>
+    </div>
+
+    <div class="model-card">
+      <div class="model-card-header"><span class="model-card-title">النموذج الثالث — 3. Örnek</span><span class="model-badge">Örnek C</span></div>
+      <div class="model-body">
+        <span class="ml"><span class="mltt"><span class="tt-ar">أَهلاً وَسَهلاً بِجَمِيعِكُم!</span><span class="tt-tel">Ehlen ve sehlen bi-cemî'iküm!</span><span class="tt-tr">Hepinize hoş geldiniz!</span></span>أَهلاً وَسَهلاً بِجَمِيعِكُم!</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">هَل تَعرِفُون كَيفَ نُصَلِّي؟ سَأُخبِرُكُم.</span><span class="tt-tel">Hel ta'rifûn keyfe nusallî? Se-uhbirüküm.</span><span class="tt-tr">Namazın nasıl kılındığını biliyor musunuz? Söyleyeceğim.</span></span>هَل تَعرِفُون كَيفَ نُصَلِّي؟ سَأُخبِرُكُم.</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">أَوَّلاً أَنوِي، ثُمَّ أُكَبِّر: «اللَّهُ أَكبَر».</span><span class="tt-tel">Evvelen envî, sümme ükebbir: «Allâhu Ekber».</span><span class="tt-tr">Önce niyet ederim, sonra tekbir alırım: «Allah en büyüktür».</span></span>أَوَّلاً أَنوِي، ثُمَّ أُكَبِّر: «اللَّهُ أَكبَر».</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">أَقرَأ الفَاتِحَة وَبَعضَ آيَاتِ القُرآن الكَرِيم.</span><span class="tt-tel">Ekra' el-Fâtiha ve ba'da âyâtil-Kur'ânil-kerîm.</span><span class="tt-tr">Fatiha'yı ve Kur'an-ı Kerim'den bazı ayetler okurum.</span></span>أَقرَأ الفَاتِحَة وَبَعضَ آيَاتِ القُرآن الكَرِيم.</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">أَركَع مُسَبِّحاً: «سُبحَانَ رَبِّيَ العَظِيم».</span><span class="tt-tel">Erka' müsebbihan: «Subhâne Rabbiyel-azîm».</span><span class="tt-tr">Rükûya gider tesbih ederim: «Yüce Rabbimi tenzih ederim».</span></span>أَركَع مُسَبِّحاً: «سُبحَانَ رَبِّيَ العَظِيم».</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">ثُمَّ أَقُوم وَأَسجُد: «سُبحَانَ رَبِّيَ الأَعلَى».</span><span class="tt-tel">Sümme ekûm ve escüd: «Subhâne Rabbiyel-a'lâ».</span><span class="tt-tr">Sonra kalkarım ve secde ederim: «En yüce Rabbimi tenzih ederim».</span></span>ثُمَّ أَقُوم وَأَسجُد: «سُبحَانَ رَبِّيَ الأَعلَى».</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">أَجلِس لِلتَّشَهُّد، وَأُنهِي الصَّلاة بِالسَّلام.</span><span class="tt-tel">Eclis lit-teşehhüd, ve ünhîs-salâte bis-selâm.</span><span class="tt-tr">Teşehhüt için otururum ve namazı selam ile bitiririm.</span></span>أَجلِس لِلتَّشَهُّد، وَأُنهِي الصَّلاة بِالسَّلام.</span>
+        <button class="copy-btn" onclick="copyText(this,'أَهلاً وَسَهلاً بِجَمِيعِكُم!\nهَل تَعرِفُون كَيفَ نُصَلِّي؟ سَأُخبِرُكُم.\nأَوَّلاً أَنوِي، ثُمَّ أُكَبِّر: «اللَّهُ أَكبَر».\nأَقرَأ الفَاتِحَة وَبَعضَ آيَاتِ القُرآن الكَرِيم.\nأَركَع مُسَبِّحاً: «سُبحَانَ رَبِّيَ العَظِيم».\nثُمَّ أَقُوم وَأَسجُد: «سُبحَانَ رَبِّيَ الأَعلَى».\nأَجلِس لِلتَّشَهُّد، وَأُنهِي الصَّلاة بِالسَّلام.')">📋 Kopyala — انسخ</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================= SECTION 3 ============================= -->
+<div id="s3" class="section">
+  <div class="section-header">
+    <div class="section-icon">🕐</div>
+    <div>
+      <div class="section-title">أَوقَاتُ الصَّلَوَات الخَمس</div>
+      <div class="section-subtitle">Beş Vakit Namaz — Namaz Vakitleri ve Rekat Sayıları</div>
+    </div>
+  </div>
+  <div class="intro-card">
+    🎯 <strong>Namaz Vakitleri</strong> konusunu seçtiysen bu bölümü ezberle. Önce kendini tanıtmayı unutma!<br>
+    إِذَا اخترتَ هَذَا الموضوع، احفَظ هَذِه الفَقرَة بَعدَ التَّعريف بِنَفسِك.
+  </div>
+  <div class="tooltip-hint"><span>🖱️ Fareyi kelimelerin üzerine getir → okunuş + anlam görünür</span></div>
+
+  <div class="table-title">📚 المُفردات — Kelimeler</div>
+  <table class="words-table">
+    <thead><tr><th>الكلمة العربية</th><th>Telaffuz</th><th>Türkçe Anlam</th><th>مثال</th></tr></thead>
+    <tbody>
+      <tr><td><span class="wc c1" style="font-size:1.3rem">نُصَلِّي<span class="tt"><span class="tt-ar">نُصَلِّي</span><span class="tt-tel">Nusallî</span><span class="tt-tr">Namaz kılarız</span></span></span></td><td class="telaffuz-cell c1">Nusallî</td><td class="meaning-cell">Namaz kılarız</td><td class="example-cell">نُصَلِّي خَمسَ صَلَوَات.</td></tr>
+      <tr><td><span class="wc c2" style="font-size:1.3rem">صَلاةُ الفَجر<span class="tt"><span class="tt-ar">صَلاةُ الفَجر</span><span class="tt-tel">Salâtül-Fecr</span><span class="tt-tr">Sabah Namazı</span></span></span></td><td class="telaffuz-cell c2">Salâtül-Fecr</td><td class="meaning-cell">Sabah Namazı</td><td class="example-cell">صَلاةُ الفَجر رَكعَتَان.</td></tr>
+      <tr><td><span class="wc c3" style="font-size:1.3rem">صَلاةُ الظُّهر<span class="tt"><span class="tt-ar">صَلاةُ الظُّهر</span><span class="tt-tel">Salâtüz-Zuhr</span><span class="tt-tr">Öğle Namazı</span></span></span></td><td class="telaffuz-cell c3">Salâtüz-Zuhr</td><td class="meaning-cell">Öğle Namazı</td><td class="example-cell">صَلاةُ الظُّهر أَربَع رَكَعَات.</td></tr>
+      <tr><td><span class="wc c4" style="font-size:1.3rem">صَلاةُ العَصر<span class="tt"><span class="tt-ar">صَلاةُ العَصر</span><span class="tt-tel">Salâtül-Asr</span><span class="tt-tr">İkindi Namazı</span></span></span></td><td class="telaffuz-cell c4">Salâtül-Asr</td><td class="meaning-cell">İkindi Namazı</td><td class="example-cell">صَلاةُ العَصر أَربَع رَكَعَات.</td></tr>
+      <tr><td><span class="wc c5" style="font-size:1.3rem">صَلاةُ المَغرِب<span class="tt"><span class="tt-ar">صَلاةُ المَغرِب</span><span class="tt-tel">Salâtül-Mağrib</span><span class="tt-tr">Akşam Namazı</span></span></span></td><td class="telaffuz-cell c5">Salâtül-Mağrib</td><td class="meaning-cell">Akşam Namazı</td><td class="example-cell">صَلاةُ المَغرِب ثَلاث رَكَعَات.</td></tr>
+      <tr><td><span class="wc c6" style="font-size:1.3rem">صَلاةُ العِشَاء<span class="tt"><span class="tt-ar">صَلاةُ العِشَاء</span><span class="tt-tel">Salâtül-İşâ</span><span class="tt-tr">Yatsı Namazı</span></span></span></td><td class="telaffuz-cell c6">Salâtül-İşâ</td><td class="meaning-cell">Yatsı Namazı</td><td class="example-cell">صَلاةُ العِشَاء أَربَع رَكَعَات.</td></tr>
+      <tr><td><span class="wc c7" style="font-size:1.3rem">رَكعَة / رَكَعَات<span class="tt"><span class="tt-ar">رَكعَة / رَكَعَات</span><span class="tt-tel">Rak'a / Rak'ât</span><span class="tt-tr">Rekat / Rekatlar</span></span></span></td><td class="telaffuz-cell c7">Rak'a / Rak'ât</td><td class="meaning-cell">Rekat / Rekatlar</td><td class="example-cell">أَربَع رَكَعَات فَرض.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="table-title">🕌 الصَّلَوَات الخَمس — Beş Vakit Namazın Tablosu</div>
+  <table class="prayer-table">
+    <thead><tr>
+      <th>#</th><th>اسم الصَّلاة / Adı</th><th>Telaffuz</th><th>Türkçe</th><th>عدد الرَّكعات / Rekat</th><th>الوَقت / Vakit</th>
+    </tr></thead>
+    <tbody>
+      <tr><td style="font-weight:800;color:var(--green)">١</td><td><span class="wc c2 prayer-name-ar">صَلاةُ الفَجر<span class="tt"><span class="tt-ar">صَلاةُ الفَجر</span><span class="tt-tel">Salâtül-Fecr</span><span class="tt-tr">Sabah Namazı</span></span></span></td><td class="telaffuz-cell c2">Salâtül-Fecr</td><td style="font-weight:700">Sabah</td><td><span class="raka-badge">٢ رَكعَتَان</span></td><td style="font-size:.82rem;color:var(--muted);font-weight:600">Şafaktan önce</td></tr>
+      <tr><td style="font-weight:800;color:var(--green)">٢</td><td><span class="wc c3 prayer-name-ar">صَلاةُ الظُّهر<span class="tt"><span class="tt-ar">صَلاةُ الظُّهر</span><span class="tt-tel">Salâtüz-Zuhr</span><span class="tt-tr">Öğle Namazı</span></span></span></td><td class="telaffuz-cell c3">Salâtüz-Zuhr</td><td style="font-weight:700">Öğle</td><td><span class="raka-badge">٤ رَكَعَات</span></td><td style="font-size:.82rem;color:var(--muted);font-weight:600">Güneş zirveyi geçince</td></tr>
+      <tr><td style="font-weight:800;color:var(--green)">٣</td><td><span class="wc c4 prayer-name-ar">صَلاةُ العَصر<span class="tt"><span class="tt-ar">صَلاةُ العَصر</span><span class="tt-tel">Salâtül-Asr</span><span class="tt-tr">İkindi Namazı</span></span></span></td><td class="telaffuz-cell c4">Salâtül-Asr</td><td style="font-weight:700">İkindi</td><td><span class="raka-badge">٤ رَكَعَات</span></td><td style="font-size:.82rem;color:var(--muted);font-weight:600">İkindi vakti</td></tr>
+      <tr><td style="font-weight:800;color:var(--green)">٤</td><td><span class="wc c5 prayer-name-ar">صَلاةُ المَغرِب<span class="tt"><span class="tt-ar">صَلاةُ المَغرِب</span><span class="tt-tel">Salâtül-Mağrib</span><span class="tt-tr">Akşam Namazı</span></span></span></td><td class="telaffuz-cell c5">Salâtül-Mağrib</td><td style="font-weight:700">Akşam</td><td><span class="raka-badge">٣ رَكَعَات</span></td><td style="font-size:.82rem;color:var(--muted);font-weight:600">Güneş batınca</td></tr>
+      <tr><td style="font-weight:800;color:var(--green)">٥</td><td><span class="wc c6 prayer-name-ar">صَلاةُ العِشَاء<span class="tt"><span class="tt-ar">صَلاةُ العِشَاء</span><span class="tt-tel">Salâtül-İşâ</span><span class="tt-tr">Yatsı Namazı</span></span></span></td><td class="telaffuz-cell c6">Salâtül-İşâ</td><td style="font-weight:700">Yatsı</td><td><span class="raka-badge">٤ رَكَعَات</span></td><td style="font-size:.82rem;color:var(--muted);font-weight:600">Gece başlayınca</td></tr>
+    </tbody>
+  </table>
+
+  <div class="models-title">🌟 نماذج جاهزة — Hazır Örnekler (Namaz Vakitleri)</div>
+  <div class="tooltip-hint"><span>🖱️ Her cümlenin üzerine gel → okunuş + Türkçe anlam görünür</span></div>
+  <div class="models-grid">
+    <div class="model-card">
+      <div class="model-card-header"><span class="model-card-title">النموذج الأول — 1. Örnek</span><span class="model-badge">Örnek A</span></div>
+      <div class="model-body">
+        <span class="ml"><span class="mltt"><span class="tt-ar">السَّلاَمُ عَلَيْكُمْ، أَصدِقَائِي!</span><span class="tt-tel">Esselâmü aleyküm, esdikâî!</span><span class="tt-tr">Selamün aleyküm, arkadaşlarım!</span></span>السَّلاَمُ عَلَيْكُمْ، أَصدِقَائِي!</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">نُصَلِّي فِي اليَوم خَمسَ صَلَوَات.</span><span class="tt-tel">Nusallî fil-yevm hamse salavât.</span><span class="tt-tr">Günde beş vakit namaz kılarız.</span></span>نُصَلِّي فِي اليَوم خَمسَ صَلَوَات.</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">أَوَّلاً: صَلاةُ الفَجر، وَهِيَ رَكعَتَا فَرض.</span><span class="tt-tel">Evvelen: Salâtül-Fecr, ve hiye rak'atâ fard.</span><span class="tt-tr">Birincisi: Sabah namazı, iki rekat farzdır.</span></span>أَوَّلاً: صَلاةُ الفَجر، وَهِيَ رَكعَتَا فَرض.</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">وَتَلِيهَا صَلاةُ الظُّهر، وَهِيَ أَربَع رَكَعَات.</span><span class="tt-tel">Ve telîhâ salâtüz-Zuhr, ve hiye erba' rak'ât.</span><span class="tt-tr">Ardından öğle namazı gelir, o dört rekattır.</span></span>وَتَلِيهَا صَلاةُ الظُّهر، وَهِيَ أَربَع رَكَعَات.</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">ثُمَّ صَلاةُ العَصر، وَهِيَ أَربَع رَكَعَات.</span><span class="tt-tel">Sümme salâtül-Asr, ve hiye erba' rak'ât.</span><span class="tt-tr">Sonra ikindi namazı, o da dört rekattır.</span></span>ثُمَّ صَلاةُ العَصر، وَهِيَ أَربَع رَكَعَات.</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">ثُمَّ صَلاةُ المَغرِب، وَهِيَ ثَلاث رَكَعَات.</span><span class="tt-tel">Sümme salâtül-Mağrib, ve hiye selâs rak'ât.</span><span class="tt-tr">Sonra akşam namazı, o üç rekattır.</span></span>ثُمَّ صَلاةُ المَغرِب، وَهِيَ ثَلاث رَكَعَات.</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">وَأَخِيراً صَلاةُ العِشَاء، وَهِيَ أَربَع رَكَعَات.</span><span class="tt-tel">Ve ahîren salâtül-İşâ, ve hiye erba' rak'ât.</span><span class="tt-tr">Ve son olarak yatsı namazı, o dört rekattır.</span></span>وَأَخِيراً صَلاةُ العِشَاء، وَهِيَ أَربَع رَكَعَات.</span>
+        <button class="copy-btn" onclick="copyText(this,'السَّلاَمُ عَلَيْكُمْ، أَصدِقَائِي!\nنُصَلِّي فِي اليَوم خَمسَ صَلَوَات.\nأَوَّلاً: صَلاةُ الفَجر، وَهِيَ رَكعَتَا فَرض.\nوَتَلِيهَا صَلاةُ الظُّهر، وَهِيَ أَربَع رَكَعَات.\nثُمَّ صَلاةُ العَصر، وَهِيَ أَربَع رَكَعَات.\nثُمَّ صَلاةُ المَغرِب، وَهِيَ ثَلاث رَكَعَات.\nوَأَخِيراً صَلاةُ العِشَاء، وَهِيَ أَربَع رَكَعَات.')">📋 Kopyala — انسخ</button>
+      </div>
+    </div>
+
+    <div class="model-card">
+      <div class="model-card-header"><span class="model-card-title">النموذج الثاني — 2. Örnek</span><span class="model-badge">Örnek B</span></div>
+      <div class="model-body">
+        <span class="ml"><span class="mltt"><span class="tt-ar">مَرحَباً بِكُم، أَصدِقَائِي الأَعزَّاء!</span><span class="tt-tel">Merheben biküm, esdikâîl-ezzâ!</span><span class="tt-tr">Hoş geldiniz, sevgili arkadaşlarım!</span></span>مَرحَباً بِكُم، أَصدِقَائِي الأَعزَّاء!</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">المُسلِمُ يُصَلِّي خَمسَ مَرَّات فِي اليَوم.</span><span class="tt-tel">El-müslimu yusallî hamse merrât fil-yevm.</span><span class="tt-tr">Müslüman günde beş kez namaz kılar.</span></span>المُسلِمُ يُصَلِّي خَمسَ مَرَّات فِي اليَوم.</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">الصَّلاة الأُولَى هِيَ الفَجر: رَكعَتَان.</span><span class="tt-tel">Es-Salâtul-ûlâ hiyal-Fecr: Rak'atân.</span><span class="tt-tr">Birinci namaz sabah namazıdır: iki rekat.</span></span>الصَّلاة الأُولَى هِيَ الفَجر: رَكعَتَان.</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">الصَّلاة الثَّانِيَة هِيَ الظُّهر: أَربَع رَكَعَات.</span><span class="tt-tel">Es-Salâtus-sâniye hiyes-Zuhr: Erba' rak'ât.</span><span class="tt-tr">İkinci namaz öğle namazıdır: dört rekat.</span></span>الصَّلاة الثَّانِيَة هِيَ الظُّهر: أَربَع رَكَعَات.</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">الصَّلاة الثَّالِثَة هِيَ العَصر: أَربَع رَكَعَات.</span><span class="tt-tel">Es-Salâtus-sâlise hiyel-Asr: Erba' rak'ât.</span><span class="tt-tr">Üçüncü namaz ikindi namazıdır: dört rekat.</span></span>الصَّلاة الثَّالِثَة هِيَ العَصر: أَربَع رَكَعَات.</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">الصَّلاة الرَّابِعَة هِيَ المَغرِب: ثَلاث رَكَعَات.</span><span class="tt-tel">Es-Salâtur-râbi'a hiyel-Mağrib: Selâs rak'ât.</span><span class="tt-tr">Dördüncü namaz akşam namazıdır: üç rekat.</span></span>الصَّلاة الرَّابِعَة هِيَ المَغرِب: ثَلاث رَكَعَات.</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">الصَّلاة الخَامِسَة هِيَ العِشَاء: أَربَع رَكَعَات.</span><span class="tt-tel">Es-Salâtul-hâmise hiyel-İşâ: Erba' rak'ât.</span><span class="tt-tr">Beşinci namaz yatsı namazıdır: dört rekat.</span></span>الصَّلاة الخَامِسَة هِيَ العِشَاء: أَربَع رَكَعَات.</span>
+        <button class="copy-btn" onclick="copyText(this,'مَرحَباً بِكُم، أَصدِقَائِي الأَعزَّاء!\nالمُسلِمُ يُصَلِّي خَمسَ مَرَّات فِي اليَوم.\nالصَّلاة الأُولَى هِيَ الفَجر: رَكعَتَان.\nالصَّلاة الثَّانِيَة هِيَ الظُّهر: أَربَع رَكَعَات.\nالصَّلاة الثَّالِثَة هِيَ العَصر: أَربَع رَكَعَات.\nالصَّلاة الرَّابِعَة هِيَ المَغرِب: ثَلاث رَكَعَات.\nالصَّلاة الخَامِسَة هِيَ العِشَاء: أَربَع رَكَعَات.')">📋 Kopyala — انسخ</button>
+      </div>
+    </div>
+
+    <div class="model-card">
+      <div class="model-card-header"><span class="model-card-title">النموذج الثالث — 3. Örnek</span><span class="model-badge">Örnek C</span></div>
+      <div class="model-body">
+        <span class="ml"><span class="mltt"><span class="tt-ar">أَهلاً وَسَهلاً بِكُم جَمِيعاً!</span><span class="tt-tel">Ehlen ve sehlen biküm cemî'an!</span><span class="tt-tr">Hepinize hoş geldiniz!</span></span>أَهلاً وَسَهلاً بِكُم جَمِيعاً!</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">سَأَذكُر الصَّلَوَاتِ الخَمس وَعَدَدَ رَكَعَاتِهَا.</span><span class="tt-tel">Se-ezkurus-salavâtel-hams ve adede rak'âtihâ.</span><span class="tt-tr">Beş vakit namazı ve rekat sayılarını sayacağım.</span></span>سَأَذكُر الصَّلَوَاتِ الخَمس وَعَدَدَ رَكَعَاتِهَا.</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">الفَجر: رَكعَتَان، وَالظُّهر: أَربَع رَكَعَات.</span><span class="tt-tel">El-Fecr: Rak'atân, vez-Zuhr: Erba' rak'ât.</span><span class="tt-tr">Sabah: iki rekat, öğle: dört rekat.</span></span>الفَجر: رَكعَتَان، وَالظُّهر: أَربَع رَكَعَات.</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">وَالعَصر: أَربَع رَكَعَات، وَالمَغرِب: ثَلاث رَكَعَات.</span><span class="tt-tel">Vel-Asr: Erba' rak'ât, vel-Mağrib: Selâs rak'ât.</span><span class="tt-tr">İkindi: dört rekat, akşam: üç rekat.</span></span>وَالعَصر: أَربَع رَكَعَات، وَالمَغرِب: ثَلاث رَكَعَات.</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">وَالعِشَاء: أَربَع رَكَعَات.</span><span class="tt-tel">Vel-İşâ: Erba' rak'ât.</span><span class="tt-tr">Yatsı: dört rekat.</span></span>وَالعِشَاء: أَربَع رَكَعَات.</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">هَذِه هِيَ صَلَوَاتُنَا الخَمس!</span><span class="tt-tel">Hâzihî hiye salavâtunel-hams!</span><span class="tt-tr">İşte beş vakit namazımız bunlardır!</span></span>هَذِه هِيَ صَلَوَاتُنَا الخَمس!</span>
+        <button class="copy-btn" onclick="copyText(this,'أَهلاً وَسَهلاً بِكُم جَمِيعاً!\nسَأَذكُر الصَّلَوَاتِ الخَمس وَعَدَدَ رَكَعَاتِهَا.\nالفَجر: رَكعَتَان، وَالظُّهر: أَربَع رَكَعَات.\nوَالعَصر: أَربَع رَكَعَات، وَالمَغرِب: ثَلاث رَكَعَات.\nوَالعِشَاء: أَربَع رَكَعَات.\nهَذِه هِيَ صَلَوَاتُنَا الخَمس!')">📋 Kopyala — انسخ</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================= SECTION 4 ============================= -->
+<div id="s4" class="section">
+  <div class="section-header">
+    <div class="section-icon">🌙</div>
+    <div>
+      <div class="section-title">الأَعيَادُ الإِسلامِيَّة</div>
+      <div class="section-subtitle">İslami Bayramlar — Ramazan ve Kurban Bayramı</div>
+    </div>
+  </div>
+  <div class="intro-card">
+    🎯 <strong>İslami Bayramlar</strong> konusunu seçtiysen bu bölümü ezberle. Önce kendini tanıtmayı unutma!<br>
+    إِذَا اخترتَ هَذَا الموضوع، احفَظ هَذِه الفَقرَة بَعدَ التَّعريف بِنَفسِك.
+  </div>
+  <div class="tooltip-hint"><span>🖱️ Fareyi kelimelerin üzerine getir → okunuş + anlam görünür</span></div>
+
+  <div class="table-title">📚 المُفردات — Kelimeler</div>
+  <table class="words-table">
+    <thead><tr><th>الكلمة العربية</th><th>Telaffuz</th><th>Türkçe Anlam</th><th>مثال</th></tr></thead>
+    <tbody>
+      <tr><td><span class="wc c1" style="font-size:1.3rem">عِيدَان<span class="tt"><span class="tt-ar">عِيدَان</span><span class="tt-tel">İydân</span><span class="tt-tr">İki bayram</span></span></span></td><td class="telaffuz-cell c1">İydân</td><td class="meaning-cell">İki bayram</td><td class="example-cell">فِي الإِسلام عِيدَان.</td></tr>
+      <tr><td><span class="wc c2" style="font-size:1.3rem">عِيدُ الفِطر<span class="tt"><span class="tt-ar">عِيدُ الفِطر</span><span class="tt-tel">İydül-Fıtr</span><span class="tt-tr">Ramazan Bayramı</span></span></span></td><td class="telaffuz-cell c2">İydül-Fıtr</td><td class="meaning-cell">Ramazan Bayramı</td><td class="example-cell">عِيدُ الفِطر فِي شَوَّال.</td></tr>
+      <tr><td><span class="wc c3" style="font-size:1.3rem">عِيدُ الأَضحَى<span class="tt"><span class="tt-ar">عِيدُ الأَضحَى</span><span class="tt-tel">İydül-Adhâ</span><span class="tt-tr">Kurban Bayramı</span></span></span></td><td class="telaffuz-cell c3">İydül-Adhâ</td><td class="meaning-cell">Kurban Bayramı</td><td class="example-cell">عِيدُ الأَضحَى فِي ذِي الحِجَّة.</td></tr>
+      <tr><td><span class="wc c4" style="font-size:1.3rem">يَستَغرِق<span class="tt"><span class="tt-ar">يَستَغرِق</span><span class="tt-tel">Yestagrik</span><span class="tt-tr">Sürer / Devam eder</span></span></span></td><td class="telaffuz-cell c4">Yestagrik</td><td class="meaning-cell">Sürer</td><td class="example-cell">يَستَغرِق ثَلاثَة أَيَّام.</td></tr>
+      <tr><td><span class="wc c5" style="font-size:1.3rem">نَلبَس<span class="tt"><span class="tt-ar">نَلبَس</span><span class="tt-tel">Nelbis</span><span class="tt-tr">Giyeriz</span></span></span></td><td class="telaffuz-cell c5">Nelbis</td><td class="meaning-cell">Giyeriz</td><td class="example-cell">نَلبَس المَلابِس الجَدِيدَة.</td></tr>
+      <tr><td><span class="wc c6" style="font-size:1.3rem">نُقَبِّل<span class="tt"><span class="tt-ar">نُقَبِّل</span><span class="tt-tel">Nukabbil</span><span class="tt-tr">Öperiz</span></span></span></td><td class="telaffuz-cell c6">Nukabbil</td><td class="meaning-cell">Öperiz</td><td class="example-cell">نُقَبِّل أَيدِي الكِبَار.</td></tr>
+      <tr><td><span class="wc c7" style="font-size:1.3rem">نَزُور<span class="tt"><span class="tt-ar">نَزُور</span><span class="tt-tel">Nezûr</span><span class="tt-tr">Ziyaret ederiz</span></span></span></td><td class="telaffuz-cell c7">Nezûr</td><td class="meaning-cell">Ziyaret ederiz</td><td class="example-cell">نَزُور أَقَارِبَنَا.</td></tr>
+      <tr><td><span class="wc c8" style="font-size:1.3rem">المَلابِس العِيدِيَّة<span class="tt"><span class="tt-ar">المَلابِس العِيدِيَّة</span><span class="tt-tel">El-melâbisül-îdiyye</span><span class="tt-tr">Bayramlık kıyafetler</span></span></span></td><td class="telaffuz-cell c8">El-melâbisül-îdiyye</td><td class="meaning-cell">Bayramlık kıyafetler</td><td class="example-cell">نَلبَس المَلابِس العِيدِيَّة.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="table-title">💬 بناء الجُمَل — Cümle Kurma</div>
+  <div class="sentences-box">
+    <div class="sentence-row"><div class="sentence-num">١</div><div class="sentence-content">
+      <div class="sentence-arabic">فِي الإِسلام <span class="wc c1">عِيدَان<span class="tt"><span class="tt-ar">عِيدَان</span><span class="tt-tel">İydân</span><span class="tt-tr">İki bayram</span></span></span>: <span class="wc c2">عِيدُ الفِطر<span class="tt"><span class="tt-ar">عِيدُ الفِطر</span><span class="tt-tel">İydül-Fıtr</span><span class="tt-tr">Ramazan Bayramı</span></span></span> وَ<span class="wc c3">عِيدُ الأَضحَى<span class="tt"><span class="tt-ar">عِيدُ الأَضحَى</span><span class="tt-tel">İydül-Adhâ</span><span class="tt-tr">Kurban Bayramı</span></span></span>.</div>
+      <div class="sentence-telaffuz">Fîl-İslâm îdân: İydül-Fıtr ve İydül-Adhâ.</div>
+      <div class="sentence-meaning">İslam'da iki bayram vardır: Ramazan Bayramı ve Kurban Bayramı.</div>
+    </div></div>
+    <div class="sentence-row"><div class="sentence-num">٢</div><div class="sentence-content">
+      <div class="sentence-arabic"><span class="wc c2">عِيدُ الفِطر<span class="tt"><span class="tt-ar">عِيدُ الفِطر</span><span class="tt-tel">İydül-Fıtr</span><span class="tt-tr">Ramazan Bayramı</span></span></span> فِي شَهرِ شَوَّال، وَ<span class="wc c4">يَستَغرِق<span class="tt"><span class="tt-ar">يَستَغرِق</span><span class="tt-tel">Yestagrik</span><span class="tt-tr">Sürer</span></span></span> ثَلاثَةَ أَيَّام.</div>
+      <div class="sentence-telaffuz">İydül-Fıtr fî şehri Şevvâl, ve yestagrik selâsete eyyâm.</div>
+      <div class="sentence-meaning">Ramazan Bayramı Şevval ayındadır ve üç gün sürer.</div>
+    </div></div>
+    <div class="sentence-row"><div class="sentence-num">٣</div><div class="sentence-content">
+      <div class="sentence-arabic"><span class="wc c3">عِيدُ الأَضحَى<span class="tt"><span class="tt-ar">عِيدُ الأَضحَى</span><span class="tt-tel">İydül-Adhâ</span><span class="tt-tr">Kurban Bayramı</span></span></span> فِي شَهرِ ذِي الحِجَّة، وَيَستَغرِق أَربَعَةَ أَيَّام.</div>
+      <div class="sentence-telaffuz">İydül-Adhâ fî şehri Zil-Hicce, ve yestagrik erba'ate eyyâm.</div>
+      <div class="sentence-meaning">Kurban Bayramı Zilhicce ayındadır ve dört gün sürer.</div>
+    </div></div>
+    <div class="sentence-row"><div class="sentence-num">٤</div><div class="sentence-content">
+      <div class="sentence-arabic"><span class="wc c5">نَلبَس<span class="tt"><span class="tt-ar">نَلبَس</span><span class="tt-tel">Nelbis</span><span class="tt-tr">Giyeriz</span></span></span> <span class="wc c8">المَلابِسَ العِيدِيَّة<span class="tt"><span class="tt-ar">المَلابِسَ العِيدِيَّة</span><span class="tt-tel">El-melâbisel-îdiyye</span><span class="tt-tr">Bayramlık kıyafetleri</span></span></span> فِي صَبَاحِ العِيد.</div>
+      <div class="sentence-telaffuz">Nelbis el-melâbisel-îdiyye fî sabâhil-îd.</div>
+      <div class="sentence-meaning">Bayram sabahı bayramlık kıyafetler giyeriz.</div>
+    </div></div>
+    <div class="sentence-row"><div class="sentence-num">٥</div><div class="sentence-content">
+      <div class="sentence-arabic"><span class="wc c6">نُقَبِّل<span class="tt"><span class="tt-ar">نُقَبِّل</span><span class="tt-tel">Nukabbil</span><span class="tt-tr">Öperiz</span></span></span> أَيدِي الكِبَار، وَ<span class="wc c7">نَزُور<span class="tt"><span class="tt-ar">نَزُور</span><span class="tt-tel">Nezûr</span><span class="tt-tr">Ziyaret ederiz</span></span></span> أَقَارِبَنَا وَأَصدِقَاءَنَا.</div>
+      <div class="sentence-telaffuz">Nukabbil eydil-kibâr, ve nezûr ekâribenâ ve esdikâenâ.</div>
+      <div class="sentence-meaning">Büyüklerin ellerini öperiz ve akrabalarımızı, arkadaşlarımızı ziyaret ederiz.</div>
+    </div></div>
+  </div>
+
+  <div class="models-title">🌟 نماذج جاهزة — Hazır Örnekler (İslami Bayramlar)</div>
+  <div class="tooltip-hint"><span>🖱️ Her cümlenin üzerine gel → okunuş + Türkçe anlam görünür</span></div>
+  <div class="models-grid">
+    <div class="model-card">
+      <div class="model-card-header"><span class="model-card-title">النموذج الأول — 1. Örnek</span><span class="model-badge">Örnek A</span></div>
+      <div class="model-body">
+        <span class="ml"><span class="mltt"><span class="tt-ar">السَّلاَمُ عَلَيْكُمْ، أَصدِقَائِي!</span><span class="tt-tel">Esselâmü aleyküm, esdikâî!</span><span class="tt-tr">Selamün aleyküm, arkadaşlarım!</span></span>السَّلاَمُ عَلَيْكُمْ، أَصدِقَائِي!</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">فِي الإِسلام عِيدَان: عِيدُ الفِطر وَعِيدُ الأَضحَى.</span><span class="tt-tel">Fîl-İslâm îdân: İydül-Fıtr ve İydül-Adhâ.</span><span class="tt-tr">İslam'da iki bayram vardır: Ramazan Bayramı ve Kurban Bayramı.</span></span>فِي الإِسلام عِيدَان: عِيدُ الفِطر وَعِيدُ الأَضحَى.</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">عِيدُ الفِطر فِي شَهرِ شَوَّال، وَيَستَغرِق ثَلاثَةَ أَيَّام.</span><span class="tt-tel">İydül-Fıtr fî şehri Şevvâl, ve yestagrik selâsete eyyâm.</span><span class="tt-tr">Ramazan Bayramı Şevval ayında olur ve üç gün sürer.</span></span>عِيدُ الفِطر فِي شَهرِ شَوَّال، وَيَستَغرِق ثَلاثَةَ أَيَّام.</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">عِيدُ الأَضحَى فِي شَهرِ ذِي الحِجَّة، وَيَستَغرِق أَربَعَةَ أَيَّام.</span><span class="tt-tel">İydül-Adhâ fî şehri Zil-Hicce, ve yestagrik erba'ate eyyâm.</span><span class="tt-tr">Kurban Bayramı Zilhicce ayında olur ve dört gün sürer.</span></span>عِيدُ الأَضحَى فِي شَهرِ ذِي الحِجَّة، وَيَستَغرِق أَربَعَةَ أَيَّام.</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">نَلبَس المَلابِسَ العِيدِيَّة فِي صَبَاحِ العِيد.</span><span class="tt-tel">Nelbis el-melâbisel-îdiyye fî sabâhil-îd.</span><span class="tt-tr">Bayram sabahı bayramlık kıyafetler giyeriz.</span></span>نَلبَس المَلابِسَ العِيدِيَّة فِي صَبَاحِ العِيد.</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">وَنُصَلِّي صَلاةَ العِيد فِي المَسجِد.</span><span class="tt-tel">Ve nusallî salâtel-îd fil-mescid.</span><span class="tt-tr">Ve bayram namazını camide kılarız.</span></span>وَنُصَلِّي صَلاةَ العِيد فِي المَسجِد.</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">وَنُقَبِّل أَيدِي الكِبَار، وَنَزُور أَقَارِبَنَا وَأَصدِقَاءَنَا.</span><span class="tt-tel">Ve nukabbil eydil-kibâr, ve nezûr ekâribenâ ve esdikâenâ.</span><span class="tt-tr">Büyüklerin ellerini öperiz, akrabalarımızı ve arkadaşlarımızı ziyaret ederiz.</span></span>وَنُقَبِّل أَيدِي الكِبَار، وَنَزُور أَقَارِبَنَا وَأَصدِقَاءَنَا.</span>
+        <button class="copy-btn" onclick="copyText(this,'السَّلاَمُ عَلَيْكُمْ، أَصدِقَائِي!\nفِي الإِسلام عِيدَان: عِيدُ الفِطر وَعِيدُ الأَضحَى.\nعِيدُ الفِطر فِي شَهرِ شَوَّال، وَيَستَغرِق ثَلاثَةَ أَيَّام.\nعِيدُ الأَضحَى فِي شَهرِ ذِي الحِجَّة، وَيَستَغرِق أَربَعَةَ أَيَّام.\nنَلبَس المَلابِسَ العِيدِيَّة فِي صَبَاحِ العِيد.\nوَنُصَلِّي صَلاةَ العِيد فِي المَسجِد.\nوَنُقَبِّل أَيدِي الكِبَار، وَنَزُور أَقَارِبَنَا وَأَصدِقَاءَنَا.')">📋 Kopyala — انسخ</button>
+      </div>
+    </div>
+
+    <div class="model-card">
+      <div class="model-card-header"><span class="model-card-title">النموذج الثاني — 2. Örnek</span><span class="model-badge">Örnek B</span></div>
+      <div class="model-body">
+        <span class="ml"><span class="mltt"><span class="tt-ar">مَرحَباً بِكُم!</span><span class="tt-tel">Merheben biküm!</span><span class="tt-tr">Hoş geldiniz!</span></span>مَرحَباً بِكُم!</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">أُحِبُّ الأَعيَادَ الإِسلامِيَّة كَثِيراً!</span><span class="tt-tel">Uhibbul-a'yâdel-İslâmiyye kesîran!</span><span class="tt-tr">İslami bayramları çok seviyorum!</span></span>أُحِبُّ الأَعيَادَ الإِسلامِيَّة كَثِيراً!</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">لَدَينَا عِيدَان: الفِطر وَالأَضحَى.</span><span class="tt-tel">Ladeynâ îdân: El-Fıtr vel-Adhâ.</span><span class="tt-tr">Bizim iki bayramımız var: Ramazan ve Kurban.</span></span>لَدَينَا عِيدَان: الفِطر وَالأَضحَى.</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">عِيدُ الفِطر يَأتِي بَعدَ رَمَضَان فِي شَوَّال، وَمُدَّتُه ثَلاثَة أَيَّام.</span><span class="tt-tel">İydül-Fıtr ye'tî ba'de Ramazân fî Şevvâl, ve müddetühü selâse eyyâm.</span><span class="tt-tr">Ramazan Bayramı, Ramazan'dan sonra Şevval'de gelir ve üç gün sürer.</span></span>عِيدُ الفِطر يَأتِي بَعدَ رَمَضَان فِي شَوَّال، وَمُدَّتُه ثَلاثَة أَيَّام.</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">عِيدُ الأَضحَى يَأتِي فِي ذِي الحِجَّة، وَمُدَّتُه أَربَعَة أَيَّام.</span><span class="tt-tel">İydül-Adhâ ye'tî fî Zil-Hicce, ve müddetühü erba'ate eyyâm.</span><span class="tt-tr">Kurban Bayramı Zilhicce'de gelir ve dört gün sürer.</span></span>عِيدُ الأَضحَى يَأتِي فِي ذِي الحِجَّة، وَمُدَّتُه أَربَعَة أَيَّام.</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">فِي العِيد نَلبَس جَدِيداً، وَنُصَلِّي، وَنُقَبِّل أَيدِي الكِبَار.</span><span class="tt-tel">Fil-îd nelbis cedîdan, ve nusallî, ve nukabbil eydil-kibâr.</span><span class="tt-tr">Bayramda yeni giysiler giyeriz, namaz kılarız ve büyüklerin ellerini öperiz.</span></span>فِي العِيد نَلبَس جَدِيداً، وَنُصَلِّي، وَنُقَبِّل أَيدِي الكِبَار.</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">وَنَزُور أَقَارِبَنَا وَأَصدِقَاءَنَا! عِيدُكُم مُبَارَك!</span><span class="tt-tel">Ve nezûr ekâribenâ ve esdikâenâ! İydüküm mübârek!</span><span class="tt-tr">Akrabalarımızı ve arkadaşlarımızı ziyaret ederiz! Bayramınız mübarek olsun!</span></span>وَنَزُور أَقَارِبَنَا وَأَصدِقَاءَنَا! عِيدُكُم مُبَارَك!</span>
+        <button class="copy-btn" onclick="copyText(this,'مَرحَباً بِكُم!\nأُحِبُّ الأَعيَادَ الإِسلامِيَّة كَثِيراً!\nلَدَينَا عِيدَان: الفِطر وَالأَضحَى.\nعِيدُ الفِطر يَأتِي بَعدَ رَمَضَان فِي شَوَّال، وَمُدَّتُه ثَلاثَة أَيَّام.\nعِيدُ الأَضحَى يَأتِي فِي ذِي الحِجَّة، وَمُدَّتُه أَربَعَة أَيَّام.\nفِي العِيد نَلبَس جَدِيداً، وَنُصَلِّي، وَنُقَبِّل أَيدِي الكِبَار.\nوَنَزُور أَقَارِبَنَا وَأَصدِقَاءَنَا! عِيدُكُم مُبَارَك!')">📋 Kopyala — انسخ</button>
+      </div>
+    </div>
+
+    <div class="model-card">
+      <div class="model-card-header"><span class="model-card-title">النموذج الثالث — 3. Örnek</span><span class="model-badge">Örnek C</span></div>
+      <div class="model-body">
+        <span class="ml"><span class="mltt"><span class="tt-ar">أَهلاً وَسَهلاً بِكُم!</span><span class="tt-tel">Ehlen ve sehlen biküm!</span><span class="tt-tr">Hoş geldiniz!</span></span>أَهلاً وَسَهلاً بِكُم!</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">سَأَتَحَدَّث اليَوم عَنِ الأَعيَادِ الإِسلامِيَّة.</span><span class="tt-tel">Se-eteheddas el-yevm anil-a'yâdil-İslâmiyye.</span><span class="tt-tr">Bugün İslami bayramlar hakkında konuşacağım.</span></span>سَأَتَحَدَّث اليَوم عَنِ الأَعيَادِ الإِسلامِيَّة.</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">لِلمُسلِمِينَ عِيدَان فِي السَّنَة.</span><span class="tt-tel">Lil-müslimîne îdân fis-sene.</span><span class="tt-tr">Müslümanların yılda iki bayramı vardır.</span></span>لِلمُسلِمِينَ عِيدَان فِي السَّنَة.</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">الأَوَّل: عِيدُ الفِطر فِي شَوَّال - ثَلاثَة أَيَّام فَرَح!</span><span class="tt-tel">El-evvel: İydül-Fıtr fî Şevvâl - Selâse eyyâm fereh!</span><span class="tt-tr">Birincisi: Ramazan Bayramı Şevval'de - üç gün neşe!</span></span>الأَوَّل: عِيدُ الفِطر فِي شَوَّال - ثَلاثَة أَيَّام فَرَح!</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">الثَّانِي: عِيدُ الأَضحَى فِي ذِي الحِجَّة - أَربَعَة أَيَّام بَهجَة!</span><span class="tt-tel">Es-sânî: İydül-Adhâ fî Zil-Hicce - Erba'ate eyyâm behce!</span><span class="tt-tr">İkincisi: Kurban Bayramı Zilhicce'de - dört gün sevinç!</span></span>الثَّانِي: عِيدُ الأَضحَى فِي ذِي الحِجَّة - أَربَعَة أَيَّام بَهجَة!</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">فِي كِلَيهِمَا نَلبَس المَلابِس الجَمِيلَة وَنُصَلِّي صَلاةَ العِيد.</span><span class="tt-tel">Fî kilîhimâ nelbis el-melâbisel-cemîle ve nusallî salâtel-îd.</span><span class="tt-tr">Her ikisinde de güzel kıyafetler giyeriz ve bayram namazı kılarız.</span></span>فِي كِلَيهِمَا نَلبَس المَلابِس الجَمِيلَة وَنُصَلِّي صَلاةَ العِيد.</span>
+        <span class="ml"><span class="mltt"><span class="tt-ar">وَنُقَبِّل يَدَ أُمِّي وَأَبِي وَأَجدَادِي، وَنَزُور الأَقَارِب.</span><span class="tt-tel">Ve nukabbil yede ümmî ve ebî ve ecdâdî, ve nezûrul-ekârib.</span><span class="tt-tr">Annem, babam ve büyüklerimin ellerini öperim; akrabaları ziyaret ederiz.</span></span>وَنُقَبِّل يَدَ أُمِّي وَأَبِي وَأَجدَادِي، وَنَزُور الأَقَارِب.</span>
+        <button class="copy-btn" onclick="copyText(this,'أَهلاً وَسَهلاً بِكُم!\nسَأَتَحَدَّث اليَوم عَنِ الأَعيَادِ الإِسلامِيَّة.\nلِلمُسلِمِينَ عِيدَان فِي السَّنَة.\nالأَوَّل: عِيدُ الفِطر فِي شَوَّال - ثَلاثَة أَيَّام فَرَح!\nالثَّانِي: عِيدُ الأَضحَى فِي ذِي الحِجَّة - أَربَعَة أَيَّام بَهجَة!\nفِي كِلَيهِمَا نَلبَس المَلابِس الجَمِيلَة وَنُصَلِّي صَلاةَ العِيد.\nوَنُقَبِّل يَدَ أُمِّي وَأَبِي وَأَجدَادِي، وَنَزُور الأَقَارِب.')">📋 Kopyala — انسخ</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end .main -->
+
+<script>
+function showSection(id, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function copyText(btn, text) {
+  navigator.clipboard.writeText(text).then(() => {
+    const orig = btn.textContent;
+    btn.textContent = '✅ تم النسخ! — Kopyalandı!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = orig; btn.classList.remove('copied'); }, 2200);
+  }).catch(() => {
+    const ta = document.createElement('textarea');
+    ta.value = text; document.body.appendChild(ta); ta.select();
+    document.execCommand('copy'); document.body.removeChild(ta);
+    btn.textContent = '✅ تم النسخ!'; btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = '📋 Kopyala — انسخ'; btn.classList.remove('copied'); }, 2200);
+  });
+}
+</script>
+<!-- ===== Arapça Sesli Okuma (tıkla-dinle) — otomatik eklendi ===== -->
+<script>
+(function(){
+  function hasAr(s){ return /[؀-ۿ]/.test(s||''); }
+  var st=document.createElement('style');
+  st.textContent='.tts-on{background:#ffd84d !important;border-radius:6px;box-shadow:0 0 0 2px #f1b400}';
+  document.head.appendChild(st);
+
+  var arVoice=null, ttsAudio=new Audio();
+  function pickVoice(){ if('speechSynthesis' in window){ var v=window.speechSynthesis.getVoices(); arVoice=v.find(function(x){return /^ar(\b|-|_)/i.test(x.lang);})||null; } }
+  if('speechSynthesis' in window){ pickVoice(); window.speechSynthesis.onvoiceschanged=pickVoice; }
+  function clearHi(){ var a=document.querySelectorAll('.tts-on'); for(var i=0;i<a.length;i++) a[i].classList.remove('tts-on'); }
+
+  function speakLocal(ar, el){
+    if(!('speechSynthesis' in window) || !arVoice){ if(el) el.classList.remove('tts-on'); return; }
+    window.speechSynthesis.cancel();
+    var u=new SpeechSynthesisUtterance(ar);
+    u.lang='ar-SA'; u.rate=0.8; u.voice=arVoice;
+    u.onend=function(){ if(el) el.classList.remove('tts-on'); };
+    u.onerror=function(){ if(el) el.classList.remove('tts-on'); };
+    window.speechSynthesis.speak(u);
+  }
+
+  function say(el, raw){
+    var m=(raw||'').match(/[؀-ۿـٰ\s]+/g);
+    var ar=m?m.join(' ').replace(/\s+/g,' ').trim():'';
+    if(!ar) return;
+    if(ar.length>200) ar=ar.slice(0,200);
+
+    // Tek ses elemanı: yeni tıklamada öncekini kesin durdurur (asla iki ses)
+    try{ ttsAudio.pause(); }catch(e){}
+    if('speechSynthesis' in window) window.speechSynthesis.cancel();
+    clearHi(); if(el) el.classList.add('tts-on');
+
+    var q=encodeURIComponent(ar);
+    var urls=[
+      'https://translate.googleapis.com/translate_tts?ie=UTF-8&tl=ar&client=gtx&q='+q,
+      'https://translate.google.com/translate_tts?ie=UTF-8&tl=ar&client=tw-ob&q='+q
+    ];
+    var idx=0, started=false;
+    ttsAudio.onplaying=function(){ started=true; };
+    ttsAudio.onended=function(){ if(el) el.classList.remove('tts-on'); };
+    ttsAudio.onerror=function(){
+      if(started){ if(el) el.classList.remove('tts-on'); return; }
+      idx++;
+      if(idx<urls.length){ ttsAudio.src=urls[idx]; var pp=ttsAudio.play(); if(pp&&pp.catch) pp.catch(function(){}); }
+      else speakLocal(ar, el);
+    };
+    ttsAudio.src=urls[0];
+    var p=ttsAudio.play(); if(p&&p.catch) p.catch(function(){});
+  }
+
+  document.addEventListener('click', function(e){
+    var t=e.target;
+    if(t.closest && t.closest('button,input,textarea,select,a[href],label')) return;
+    if(!hasAr(t.textContent)) return;
+    say(t, t.textContent);
+  }, true);
+
+  document.addEventListener('mouseover', function(e){
+    var t=e.target;
+    if(t.nodeType!==1) return;
+    if(t.closest && t.closest('button,input,textarea,select,a[href],label')) return;
+    if(t.children && t.children.length===0 && hasAr(t.textContent)) t.style.cursor='pointer';
+  });
+})();
+</script>
+</body>
+</html>

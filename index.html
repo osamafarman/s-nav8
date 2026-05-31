@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arapça Sınav Hazırlık — Sınıf Seçimi</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:"Segoe UI",Tahoma,system-ui,Arial,sans-serif;
+    min-height:100vh;
+    background:linear-gradient(135deg,#1b5e9c,#0d8a72);
+    color:#1f2a44;
+    padding:30px 16px 50px;
+  }
+  .head{text-align:center;color:#fff;margin-bottom:30px}
+  .head .ar{font-family:"Traditional Arabic","Amiri","Times New Roman",serif;font-size:2.6rem;line-height:1.2;margin-bottom:8px}
+  .head h1{font-size:1.6rem;margin-bottom:6px}
+  .head p{opacity:.95;font-size:1rem}
+
+  .section{max-width:920px;margin:0 auto 30px}
+  .section-title{
+    display:flex;align-items:center;gap:10px;
+    color:#fff;font-size:1.25rem;font-weight:800;
+    margin:0 4px 14px;padding-bottom:8px;
+    border-bottom:2px solid rgba(255,255,255,.35);
+  }
+  .section-title .ar{font-family:"Traditional Arabic","Amiri","Times New Roman",serif;font-weight:400;font-size:1.3rem;opacity:.9}
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+  }
+  .grid.three{grid-template-columns:repeat(3,1fr);max-width:680px}
+  .card{
+    background:#fff;
+    border-radius:18px;
+    padding:24px 14px;
+    text-align:center;
+    text-decoration:none;
+    color:#1f2a44;
+    box-shadow:0 10px 26px rgba(10,30,60,.22);
+    transition:transform .15s, box-shadow .15s;
+    display:flex;flex-direction:column;align-items:center;gap:10px;
+  }
+  .card:hover{transform:translateY(-6px);box-shadow:0 16px 38px rgba(10,30,60,.3)}
+  .card:active{transform:translateY(-2px)}
+  .num{
+    width:72px;height:72px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:2.1rem;font-weight:800;color:#fff;
+    box-shadow:0 6px 16px rgba(0,0,0,.18);
+  }
+  .b5 .num{background:linear-gradient(135deg,#1b5e9c,#3aa0ff)}
+  .b6 .num{background:linear-gradient(135deg,#7048b6,#a06cf0)}
+  .b7 .num{background:linear-gradient(135deg,#0d8a72,#22c39a)}
+  .b8 .num{background:linear-gradient(135deg,#b45309,#f0a020)}
+  .card h2{font-size:1.1rem}
+  .card .ar{font-family:"Traditional Arabic","Amiri","Times New Roman",serif;font-size:1.25rem;color:#5b6b8c;direction:rtl}
+  .card .go{margin-top:4px;background:#eef5fb;color:#1b5e9c;font-weight:700;padding:7px 16px;border-radius:999px;font-size:.85rem}
+
+  .card.soon{opacity:.6;cursor:not-allowed;pointer-events:none}
+  .card.soon .num{background:#9aa7bd}
+  .card.soon .go{background:#eee;color:#888}
+
+  footer{color:#fff;opacity:.92;margin-top:24px;font-size:.9rem;text-align:center}
+
+  @media(max-width:760px){
+    .grid, .grid.three{grid-template-columns:repeat(2,1fr);max-width:480px;margin-left:auto;margin-right:auto}
+    .head .ar{font-size:2rem}
+    .head h1{font-size:1.3rem}
+  }
+  @media(max-width:380px){
+    .grid, .grid.three{grid-template-columns:1fr;max-width:300px}
+  }
+</style>
+</head>
+<body>
+
+  <div class="head">
+    <div class="ar">اللُّغَةُ الْعَرَبِيَّة</div>
+    <h1>Arapça Sınav Hazırlık</h1>
+    <p>Önce bölümü, sonra sınıfınızı seçiniz</p>
+  </div>
+
+  <!-- ===== SINAV HAZIRLIK (Yazılı + Dinleme) ===== -->
+  <div class="section">
+    <div class="section-title">📝 Sınav Hazırlık <span class="ar">الِامْتِحَان الكِتَابِي</span></div>
+    <div class="grid three">
+      <a class="card b5" href="arapca_5_sinif_calisma.html">
+        <div class="num">5</div>
+        <h2>5. Sınıf</h2>
+        <div class="ar">الصَّفُّ الْخَامِس</div>
+        <span class="go">Başla →</span>
+      </a>
+      <a class="card b7" href="arapca_7_sinif.html">
+        <div class="num">7</div>
+        <h2>7. Sınıf</h2>
+        <div class="ar">الصَّفُّ السَّابِع</div>
+        <span class="go">Başla →</span>
+      </a>
+      <a class="card b8" href="arapca_8_sinif.html">
+        <div class="num">8</div>
+        <h2>8. Sınıf</h2>
+        <div class="ar">الصَّفُّ الثَّامِن</div>
+        <span class="go">Başla →</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ===== KONUŞMA SINAVI ===== -->
+  <div class="section">
+    <div class="section-title">💬 Konuşma Sınavı <span class="ar">امْتِحَان المُحَادَثَة</span></div>
+    <div class="grid">
+      <a class="card b5" href="konusma/5.html">
+        <div class="num">5</div>
+        <h2>5. Sınıf</h2>
+        <div class="ar">الصَّفُّ الْخَامِس</div>
+        <span class="go">Başla →</span>
+      </a>
+      <div class="card b6 soon">
+        <div class="num">6</div>
+        <h2>6. Sınıf</h2>
+        <div class="ar">الصَّفُّ السَّادِس</div>
+        <span class="go">Hazırlanıyor</span>
+      </div>
+      <a class="card b7" href="konusma/7.html">
+        <div class="num">7</div>
+        <h2>7. Sınıf</h2>
+        <div class="ar">الصَّفُّ السَّابِع</div>
+        <span class="go">Başla →</span>
+      </a>
+      <a class="card b8" href="konusma/8.html">
+        <div class="num">8</div>
+        <h2>8. Sınıf</h2>
+        <div class="ar">الصَّفُّ الثَّامِن</div>
+        <span class="go">Başla →</span>
+      </a>
+    </div>
+  </div>
+
+  <footer>Arapça Sınav Hazırlık Portalı • Başarılar dileriz 🌟</footer>
+
+</body>
+</html>

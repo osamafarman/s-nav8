@@ -1,0 +1,2193 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+<head>
+<meta name="referrer" content="no-referrer">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arapça Sınav Hazırlık - 8. Sınıf</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #1a6b5a;
+  --primary-light: #2a9d78;
+  --primary-pale: #e8f5f0;
+  --accent: #f4a261;
+  --accent2: #e76f51;
+  --blue: #2271b3;
+  --blue-light: #e8f0fa;
+  --purple: #6b4fa0;
+  --purple-light: #f0ebfa;
+  --gold: #e9c46a;
+  --gold-light: #fdf6e3;
+  --red: #c0392b;
+  --red-light: #fdecea;
+  --gray: #f7f9fc;
+  --dark: #1e2a38;
+  --text: #2d3748;
+  --border: #dde3ec;
+  --shadow: 0 4px 18px rgba(26,107,90,0.10);
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: #f0f4f8;
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* HEADER */
+.site-header {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  color: white;
+  padding: 28px 20px 22px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 3px 20px rgba(26,107,90,0.3);
+}
+.site-header h1 {
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+.site-header p {
+  font-size: 0.88rem;
+  opacity: 0.85;
+  margin-top: 4px;
+}
+
+/* NAV */
+.nav-tabs {
+  display: flex;
+  overflow-x: auto;
+  background: white;
+  border-bottom: 2px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  scrollbar-width: none;
+}
+.nav-tabs::-webkit-scrollbar { display: none; }
+.nav-tab {
+  flex-shrink: 0;
+  padding: 12px 18px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #6b7a8d;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.nav-tab:hover { color: var(--primary); background: var(--primary-pale); }
+.nav-tab.active { color: var(--primary); border-bottom-color: var(--primary); background: var(--primary-pale); }
+
+/* CONTENT */
+.content {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 24px 16px 60px;
+}
+
+.section { display: none; }
+.section.active { display: block; }
+
+/* CARDS */
+.card {
+  background: white;
+  border-radius: var(--radius);
+  padding: 22px;
+  margin-bottom: 22px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--primary-pale);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.card-title .icon {
+  background: var(--primary);
+  color: white;
+  width: 28px; height: 28px;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+/* ARABIC TEXT */
+.arabic {
+  font-family: 'Tajawal', serif;
+  direction: rtl;
+  text-align: right;
+  line-height: 2.2;
+  font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+}
+.arabic-lg {
+  font-size: clamp(1.15rem, 3vw, 1.45rem);
+  font-weight: 700;
+}
+.turkish {
+  font-size: 0.88rem;
+  color: #555;
+  direction: ltr;
+  text-align: left;
+}
+.pronunciation {
+  font-size: 0.82rem;
+  color: var(--blue);
+  font-style: italic;
+  direction: ltr;
+}
+
+/* DIALOG */
+.dialog-box {
+  background: var(--gray);
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+.dialog-line {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-direction: row-reverse;
+}
+.dialog-line:last-child { margin-bottom: 0; }
+.speaker-tag {
+  font-family: 'Tajawal', serif;
+  font-weight: 700;
+  font-size: 0.88rem;
+  padding: 3px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  color: white;
+}
+.speaker-z { background: var(--primary); }
+.speaker-a { background: var(--blue); }
+.speaker-ar { background: var(--purple); }
+.speaker-y { background: var(--accent2); }
+
+.dialog-text-block {
+  flex: 1;
+  text-align: right;
+}
+.dialog-arabic {
+  font-family: 'Tajawal', serif;
+  direction: rtl;
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: var(--dark);
+}
+.dialog-tr { font-size: 0.83rem; color: #556; margin-top: 2px; }
+.dialog-pr { font-size: 0.78rem; color: var(--blue); font-style: italic; }
+
+/* WORD TABLE */
+.word-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 0.92rem;
+}
+.word-table th {
+  background: var(--primary);
+  color: white;
+  padding: 9px 12px;
+  text-align: center;
+  font-weight: 700;
+}
+.word-table td {
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+.word-table tr:nth-child(even) td { background: var(--primary-pale); }
+.word-table tr:hover td { background: var(--gold-light); }
+
+/* COLOR PAIRS */
+.pair-c1 { color: #c0392b; font-weight: 700; }
+.pair-c2 { color: #1565c0; font-weight: 700; }
+.pair-c3 { color: #1b6b3a; font-weight: 700; }
+.pair-c4 { color: #6b2fa0; font-weight: 700; }
+.pair-c5 { color: #d35400; font-weight: 700; }
+.pair-c6 { color: #006064; font-weight: 700; }
+
+/* BADGE */
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+.badge-green { background: var(--primary-pale); color: var(--primary); }
+.badge-blue { background: var(--blue-light); color: var(--blue); }
+.badge-gold { background: var(--gold-light); color: #8a6200; }
+.badge-red { background: var(--red-light); color: var(--red); }
+
+/* PRACTICE */
+.practice-header {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+  color: white;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+.q-item {
+  background: var(--gray);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  border-left: 4px solid var(--accent);
+}
+.q-num {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--accent2);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+.q-text {
+  font-family: 'Tajawal', serif;
+  direction: rtl;
+  text-align: right;
+  font-size: 1.05rem;
+  color: var(--dark);
+  margin-bottom: 4px;
+}
+.q-tr { font-size: 0.83rem; color: #667; margin-bottom: 8px; }
+
+.ans-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 7px 16px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.ans-btn:hover { background: var(--primary-light); transform: translateY(-1px); }
+.ans-box {
+  display: none;
+  background: var(--primary-pale);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-top: 8px;
+  border-left: 3px solid var(--primary);
+}
+.ans-box.visible { display: block; }
+.ans-arabic {
+  font-family: 'Tajawal', serif;
+  direction: rtl;
+  text-align: right;
+  font-size: 1.05rem;
+  color: var(--primary);
+  font-weight: 700;
+}
+.ans-tr { font-size: 0.83rem; color: #556; }
+
+/* RULE BOX */
+.rule-box {
+  background: var(--blue-light);
+  border: 1.5px solid #90b4e0;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+}
+.rule-title {
+  font-weight: 800;
+  color: var(--blue);
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.rule-body {
+  font-size: 0.88rem;
+  color: #334;
+  line-height: 1.7;
+}
+
+/* GRID */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+@media (max-width: 600px) {
+  .two-col { grid-template-columns: 1fr; }
+}
+
+/* WORD CARD */
+.word-card {
+  background: white;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  transition: all 0.2s;
+}
+.word-card:hover { border-color: var(--primary); box-shadow: 0 4px 16px rgba(26,107,90,0.12); }
+.word-arabic { font-family: 'Tajawal', serif; font-size: 1.6rem; font-weight: 700; color: var(--primary); margin-bottom: 6px; }
+.word-tr { font-size: 0.88rem; color: #556; }
+.word-pr { font-size: 0.8rem; color: var(--blue); font-style: italic; margin-top: 4px; }
+
+/* SENTENCE CARD */
+.sent-card {
+  background: white;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  border: 1.5px solid var(--border);
+}
+.sent-arabic { font-family: 'Tajawal', serif; direction: rtl; text-align: right; font-size: 1.15rem; font-weight: 700; margin-bottom: 4px; }
+.sent-tr { font-size: 0.85rem; color: #556; }
+.sent-pr { font-size: 0.8rem; color: var(--blue); font-style: italic; }
+
+/* ORDERING */
+.order-item {
+  background: white;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  flex-direction: row-reverse;
+}
+.order-num {
+  background: var(--primary);
+  color: white;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800;
+  font-size: 0.88rem;
+  flex-shrink: 0;
+}
+.order-content { flex: 1; }
+
+/* EXAM MODELS */
+.model-header {
+  background: linear-gradient(135deg, var(--purple) 0%, #8b6fc7 100%);
+  color: white;
+  border-radius: 12px 12px 0 0;
+  padding: 14px 18px;
+  font-weight: 800;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.model-body {
+  background: white;
+  border: 1.5px solid #c4b3e8;
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  padding: 18px;
+  margin-bottom: 24px;
+}
+
+/* STEP */
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.step-num {
+  background: var(--accent);
+  color: white;
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.step-text { font-size: 0.88rem; color: var(--text); line-height: 1.6; }
+
+/* HIGHLIGHT */
+.highlight {
+  background: var(--gold-light);
+  border-radius: 6px;
+  padding: 2px 8px;
+}
+.hl-r { background: #fdecea; border-radius: 6px; padding: 2px 8px; }
+.hl-g { background: var(--primary-pale); border-radius: 6px; padding: 2px 8px; }
+.hl-b { background: var(--blue-light); border-radius: 6px; padding: 2px 8px; }
+
+/* PAGE NUM */
+.page-ref {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--gold-light);
+  border: 1px solid var(--gold);
+  border-radius: 20px;
+  padding: 3px 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #7a5900;
+  margin-bottom: 10px;
+}
+
+/* INPUT PRACTICE */
+.input-answer {
+  width: 100%;
+  padding: 10px 14px;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  font-family: 'Tajawal', serif;
+  font-size: 1.1rem;
+  direction: rtl;
+  text-align: right;
+  margin-top: 8px;
+  color: var(--dark);
+  transition: border-color 0.2s;
+}
+.input-answer:focus { outline: none; border-color: var(--primary); }
+
+/* TIPS */
+.tip-box {
+  background: var(--gold-light);
+  border: 1.5px solid var(--gold);
+  border-radius: 10px;
+  padding: 12px 15px;
+  margin-bottom: 12px;
+  font-size: 0.88rem;
+  color: #6b4c00;
+}
+.tip-box strong { color: #8a6200; }
+
+/* TAG */
+.exam-tag {
+  background: var(--red-light);
+  color: var(--red);
+  border-radius: 5px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 2px 7px;
+  margin-left: 6px;
+}
+</style>
+</head>
+<body>
+
+<nav class="nav-tabs">
+  <div class="nav-tab active" onclick="showSection('s1')">📖 Soru 1 – Diyalog</div>
+  <div class="nav-tab" onclick="showSection('s2')">🏃 Soru 2 – Spor Kelimeler</div>
+  <div class="nav-tab" onclick="showSection('s3')">📝 Soru 3 – Tekil</div>
+  <div class="nav-tab" onclick="showSection('s4')">✍️ Soru 4 – Cümleler</div>
+  <div class="nav-tab" onclick="showSection('s5')">📖 Soru 5 – Mezuniyet</div>
+  <div class="nav-tab" onclick="showSection('s6')">🔢 Soru 6 – Sıralama</div>
+  <div class="nav-tab" onclick="showSection('models')">📋 Sınav Modelleri</div>
+  <div class="nav-tab" onclick="showSection('listening')">🎧 Dinleme Sınavı</div>
+</nav>
+
+<div class="content">
+
+<!-- ===================== SECTION 1 ===================== -->
+<div id="s1" class="section active">
+
+  <div class="card">
+    <div class="card-title"><div class="icon">1</div> Soru 1 – Diyalog Metni (Sayfa 154)</div>
+    <div class="page-ref">📄 Sayfa 154</div>
+
+    <div class="rule-box">
+      <div class="rule-title">📌 Bu Soru Hakkında</div>
+      <div class="rule-body">
+        Zeineb ve Adil arasındaki telefon konuşmasını okuyacaksın. Her cümlenin <strong>Türkçe anlamını</strong> ve <strong>Arapça okunuşunu</strong> öğren. Sonra soruları kısa ve doğru cevaplarla yanıtla.
+      </div>
+    </div>
+
+    <div class="card-title" style="margin-top:10px"><div class="icon" style="background:var(--blue)">📜</div> Tam Metin — Kelime Kelime Çeviri</div>
+
+    <!-- DIALOG LINES with full translation -->
+    <div style="background:var(--gray);border-radius:12px;padding:16px;">
+
+      <!-- Line 1 Zeineb -->
+      <div style="margin-bottom:18px;">
+        <div class="arabic arabic-lg" style="color:var(--primary)">زَيْنَبُ: أَلُو مَرْحَبًا يَا عَادِلُ. كَيْفَ حَالُكَ؟</div>
+        <div class="pronunciation">Zeynebü: Elû merhabân yâ Âdilü. Keyfe hâlük?</div>
+        <div class="turkish">Zeynep: Alo merhaba Adil. Nasılsın?</div>
+        <div style="margin-top:6px;font-size:0.82rem;">
+          <span class="pair-c1 arabic">أَلُو</span> <span class="pair-c1">= Alo</span> &nbsp;|&nbsp;
+          <span class="pair-c2 arabic">مَرْحَبًا</span> <span class="pair-c2">= Merhaba</span> &nbsp;|&nbsp;
+          <span class="pair-c3 arabic">كَيْفَ حَالُكَ</span> <span class="pair-c3">= Nasılsın (erkek)</span>
+        </div>
+      </div>
+
+      <!-- Line 2 Adil -->
+      <div style="margin-bottom:18px;">
+        <div class="arabic arabic-lg" style="color:var(--blue)">عَادِلٌ: اَلْحَمْدُ لِلّٰهِ، أَنَا بِخَيْرٍ. وَكَيْفَ حَالُكِ يَا زَيْنَبُ؟</div>
+        <div class="pronunciation">Âdilün: Elhamdüllillâh, ene bihayrin. Ve keyfe hâlüki yâ Zeynebü?</div>
+        <div class="turkish">Adil: Elhamdülillah, iyiyim. Sen nasılsın Zeynep?</div>
+        <div style="margin-top:6px;font-size:0.82rem;">
+          <span class="pair-c1 arabic">اَلْحَمْدُ لِلّٰهِ</span> <span class="pair-c1">= Elhamdülillah / Allah'a şükür</span> &nbsp;|&nbsp;
+          <span class="pair-c2 arabic">أَنَا بِخَيْرٍ</span> <span class="pair-c2">= Ben iyiyim</span>
+        </div>
+      </div>
+
+      <!-- Line 3 Zeineb -->
+      <div style="margin-bottom:18px;">
+        <div class="arabic arabic-lg" style="color:var(--primary)">زَيْنَبُ: شُكْرًا. أَنَا بِخَيْرٍ. مَاذَا تَفْعَلُ الْآنَ؟</div>
+        <div class="pronunciation">Zeynebü: Şükran. Ene bihayrin. Mâzâ tef'alü el-ân?</div>
+        <div class="turkish">Zeynep: Teşekkürler. İyiyim. Şu an ne yapıyorsun?</div>
+        <div style="margin-top:6px;font-size:0.82rem;">
+          <span class="pair-c3 arabic">شُكْرًا</span> <span class="pair-c3">= Teşekkürler</span> &nbsp;|&nbsp;
+          <span class="pair-c4 arabic">مَاذَا تَفْعَلُ</span> <span class="pair-c4">= Ne yapıyorsun</span> &nbsp;|&nbsp;
+          <span class="pair-c5 arabic">الْآنَ</span> <span class="pair-c5">= Şu an</span>
+        </div>
+      </div>
+
+      <!-- Line 4 Adil -->
+      <div style="margin-bottom:18px;">
+        <div class="arabic arabic-lg" style="color:var(--blue)">عَادِلٌ: أَنَا أَمَامَ النَّادِي لِلرِّيَاضَةِ وَأَنْتَظِرُ صَدِيقِي. مَاذَا تَفْعَلِينَ أَنْتِ؟</div>
+        <div class="pronunciation">Ene emâme en-nâdî li'r-riyâdati ve enteziru sadîkî. Mâzâ tef'alîne enti?</div>
+        <div class="turkish">Adil: Spor kulübünün önündeyim ve arkadaşımı bekliyorum. Sen ne yapıyorsun?</div>
+        <div style="margin-top:6px;font-size:0.82rem;">
+          <span class="pair-c1 arabic">أَمَامَ النَّادِي</span> <span class="pair-c1">= Kulübün önünde</span> &nbsp;|&nbsp;
+          <span class="pair-c2 arabic">أَنْتَظِرُ</span> <span class="pair-c2">= Bekliyorum</span> &nbsp;|&nbsp;
+          <span class="pair-c3 arabic">صَدِيقِي</span> <span class="pair-c3">= Arkadaşım</span>
+        </div>
+      </div>
+
+      <!-- Line 5 Zeineb -->
+      <div style="margin-bottom:18px;">
+        <div class="arabic arabic-lg" style="color:var(--primary)">زَيْنَبُ: أَذْهَبُ إِلَى صَالَةِ الرِّيَاضَةِ.</div>
+        <div class="pronunciation">Ezhebü ilâ sâletil-riyâdah.</div>
+        <div class="turkish">Zeynep: Spor salonuna gidiyorum.</div>
+        <div style="margin-top:6px;font-size:0.82rem;">
+          <span class="pair-c4 arabic">أَذْهَبُ</span> <span class="pair-c4">= Gidiyorum</span> &nbsp;|&nbsp;
+          <span class="pair-c5 arabic">صَالَةِ الرِّيَاضَةِ</span> <span class="pair-c5">= Spor salonu</span>
+        </div>
+      </div>
+
+      <!-- Line 6 Adil -->
+      <div style="margin-bottom:18px;">
+        <div class="arabic arabic-lg" style="color:var(--blue)">عَادِلٌ: هَلْ تُحِبِّينَ مُمَارَسَةَ الرِّيَاضَةِ؟</div>
+        <div class="pronunciation">Hel tühibbîne mümâresete'r-riyâdah?</div>
+        <div class="turkish">Adil: Spor yapmayı seviyor musun?</div>
+        <div style="margin-top:6px;font-size:0.82rem;">
+          <span class="pair-c1 arabic">هَلْ</span> <span class="pair-c1">= Mı/mi (soru)</span> &nbsp;|&nbsp;
+          <span class="pair-c2 arabic">تُحِبِّينَ</span> <span class="pair-c2">= Seviyorsun (kız)</span> &nbsp;|&nbsp;
+          <span class="pair-c3 arabic">مُمَارَسَةَ الرِّيَاضَةِ</span> <span class="pair-c3">= Spor yapmak</span>
+        </div>
+      </div>
+
+      <!-- Line 7 Zeineb -->
+      <div style="margin-bottom:18px;">
+        <div class="arabic arabic-lg" style="color:var(--primary)">زَيْنَبُ: نَعَمْ، أُحِبُّهَا وَأُمَارِسُ الرِّيَاضَةَ كُلَّ يَوْمٍ.</div>
+        <div class="pronunciation">Na'am, ühibbühâ ve ümârisü'r-riyâdete külle yevmin.</div>
+        <div class="turkish">Zeynep: Evet, onu seviyorum ve her gün spor yapıyorum.</div>
+        <div style="margin-top:6px;font-size:0.82rem;">
+          <span class="pair-c1 arabic">نَعَمْ</span> <span class="pair-c1">= Evet</span> &nbsp;|&nbsp;
+          <span class="pair-c2 arabic">أُحِبُّهَا</span> <span class="pair-c2">= Onu seviyorum</span> &nbsp;|&nbsp;
+          <span class="pair-c3 arabic">كُلَّ يَوْمٍ</span> <span class="pair-c3">= Her gün</span>
+        </div>
+      </div>
+
+      <!-- Line 8 Adil -->
+      <div style="margin-bottom:18px;">
+        <div class="arabic arabic-lg" style="color:var(--blue)">عَادِلٌ: مَا هِيَ رِيَاضَتُكِ الْمُفَضَّلَةُ؟</div>
+        <div class="pronunciation">Mâ hiye riyâdetüki'l-müfeddâleh?</div>
+        <div class="turkish">Adil: En sevdiğin spor nedir?</div>
+        <div style="margin-top:6px;font-size:0.82rem;">
+          <span class="pair-c4 arabic">الْمُفَضَّلَةُ</span> <span class="pair-c4">= En sevilen / Favori</span>
+        </div>
+      </div>
+
+      <!-- Line 9 Zeineb -->
+      <div style="margin-bottom:18px;">
+        <div class="arabic arabic-lg" style="color:var(--primary)">زَيْنَبُ: هِيَ كُرَةُ الطَّاوِلَةِ. هَلْ رِيَاضَتُكَ الْمُفَضَّلَةُ هِيَ كُرَةُ السَّلَّةِ؟</div>
+        <div class="pronunciation">Hiye küretü't-tâvileh. Hel riyâdetüke'l-müfeddâletü hiye küretus-selleh?</div>
+        <div class="turkish">Zeynep: Masa tenisidir. Senin favorin basketbol mu?</div>
+        <div style="margin-top:6px;font-size:0.82rem;">
+          <span class="pair-c1 arabic">كُرَةُ الطَّاوِلَةِ</span> <span class="pair-c1">= Masa tenisi</span> &nbsp;|&nbsp;
+          <span class="pair-c2 arabic">كُرَةُ السَّلَّةِ</span> <span class="pair-c2">= Basketbol</span>
+        </div>
+      </div>
+
+      <!-- Line 10 Adil -->
+      <div style="margin-bottom:18px;">
+        <div class="arabic arabic-lg" style="color:var(--blue)">عَادِلٌ: لَا، أُحِبُّهَا وَلَكِنْ أُفَضِّلُ كُرَةَ الْقَدَمِ عَلَى كُرَةِ السَّلَّةِ.</div>
+        <div class="pronunciation">Lâ, ühibbühâ velâkin üfeddilu küretel-kademi 'alâ küretis-selleh.</div>
+        <div class="turkish">Adil: Hayır, onu da severim ama futbolu basketbola tercih ederim.</div>
+        <div style="margin-top:6px;font-size:0.82rem;">
+          <span class="pair-c3 arabic">لَا</span> <span class="pair-c3">= Hayır</span> &nbsp;|&nbsp;
+          <span class="pair-c4 arabic">وَلَكِنْ</span> <span class="pair-c4">= Ama</span> &nbsp;|&nbsp;
+          <span class="pair-c5 arabic">كُرَةَ الْقَدَمِ</span> <span class="pair-c5">= Futbol</span> &nbsp;|&nbsp;
+          <span class="pair-c6 arabic">أُفَضِّلُ</span> <span class="pair-c6">= Tercih ederim</span>
+        </div>
+      </div>
+
+      <!-- Line 11 Zeineb -->
+      <div style="margin-bottom:18px;">
+        <div class="arabic arabic-lg" style="color:var(--primary)">زَيْنَبُ: كُرَةُ الْقَدَمِ لُعْبَةٌ جَمِيلَةٌ وَمُمْتِعَةٌ فِي رَأْيِي.</div>
+        <div class="pronunciation">Küretül-kademi lu'betün cemîletün ve mümti'atün fî re'yî.</div>
+        <div class="turkish">Zeynep: Futbol bence güzel ve eğlenceli bir oyundur.</div>
+        <div style="margin-top:6px;font-size:0.82rem;">
+          <span class="pair-c1 arabic">جَمِيلَةٌ</span> <span class="pair-c1">= Güzel</span> &nbsp;|&nbsp;
+          <span class="pair-c2 arabic">مُمْتِعَةٌ</span> <span class="pair-c2">= Eğlenceli</span> &nbsp;|&nbsp;
+          <span class="pair-c3 arabic">فِي رَأْيِي</span> <span class="pair-c3">= Bence</span>
+        </div>
+      </div>
+
+      <!-- Line 12 Adil -->
+      <div style="margin-bottom:18px;">
+        <div class="arabic arabic-lg" style="color:var(--blue)">عَادِلٌ: أَنْتِ عَلَى حَقٍّ. عَلَيَّ أَنْ أَدْخُلَ النَّادِيَ الْآنَ. إِلَى اللِّقَاءِ.</div>
+        <div class="pronunciation">Enti 'alâ hakkin. 'Aleyye en edhüleni'n-nâdiye el-ân. İlel-likâ'.</div>
+        <div class="turkish">Adil: Haklısın. Şimdi kulübe girmem gerekiyor. Görüşürüz.</div>
+        <div style="margin-top:6px;font-size:0.82rem;">
+          <span class="pair-c4 arabic">عَلَى حَقٍّ</span> <span class="pair-c4">= Haklısın</span> &nbsp;|&nbsp;
+          <span class="pair-c5 arabic">إِلَى اللِّقَاءِ</span> <span class="pair-c5">= Görüşürüz</span>
+        </div>
+      </div>
+
+      <!-- Line 13 Zeineb -->
+      <div>
+        <div class="arabic arabic-lg" style="color:var(--primary)">زَيْنَبُ: مَعَ السَّلَامَةِ.</div>
+        <div class="pronunciation">Meas-selâmeh.</div>
+        <div class="turkish">Zeynep: Güle güle / Hoşça kal.</div>
+        <div style="margin-top:6px;font-size:0.82rem;">
+          <span class="pair-c1 arabic">مَعَ السَّلَامَةِ</span> <span class="pair-c1">= Güle güle / Hoşça kal</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUESTIONS ANSWERS -->
+  <div class="card">
+    <div class="card-title"><div class="icon" style="background:var(--accent2)">❓</div> Metin Soruları ve Cevapları</div>
+
+    <div class="rule-box">
+      <div class="rule-title">📌 Nasıl Cevaplanır?</div>
+      <div class="rule-body">
+        Sorular <strong>Arapça</strong> sorulmaktadır. Cevapları da <strong>Arapça</strong> yaz. Kısa ve doğru cevap yeterlidir.
+      </div>
+    </div>
+
+    <!-- Q1 -->
+    <div class="q-item">
+      <div class="q-num">Soru 1</div>
+      <div class="q-text">أَيْنَ يَنْتَظِرُ عَادِلٌ صَدِيقَهُ؟</div>
+      <div class="q-tr">Adil arkadaşını nerede bekliyor?</div>
+      <button class="ans-btn" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+      <div class="ans-box">
+        <div class="ans-arabic">أَمَامَ النَّادِي.</div>
+        <div class="ans-tr">Kulübün önünde.</div>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="q-item">
+      <div class="q-num">Soru 2</div>
+      <div class="q-text">إِلَى أَيْنَ تَذْهَبُ زَيْنَبُ؟</div>
+      <div class="q-tr">Zeynep nereye gidiyor?</div>
+      <button class="ans-btn" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+      <div class="ans-box">
+        <div class="ans-arabic">إِلَى صَالَةِ الرِّيَاضَةِ.</div>
+        <div class="ans-tr">Spor salonuna.</div>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="q-item">
+      <div class="q-num">Soru 3</div>
+      <div class="q-text">مَتَى تُمَارِسُ زَيْنَبُ الرِّيَاضَةَ؟</div>
+      <div class="q-tr">Zeynep ne zaman spor yapıyor?</div>
+      <button class="ans-btn" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+      <div class="ans-box">
+        <div class="ans-arabic">كُلَّ يَوْمٍ.</div>
+        <div class="ans-tr">Her gün.</div>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="q-item">
+      <div class="q-num">Soru 4</div>
+      <div class="q-text">مَا هِيَ رِيَاضَةُ عَادِلٍ الْمُفَضَّلَةُ؟</div>
+      <div class="q-tr">Adil'in favori sporu nedir?</div>
+      <button class="ans-btn" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+      <div class="ans-box">
+        <div class="ans-arabic">كُرَةُ الْقَدَمِ.</div>
+        <div class="ans-tr">Futbol.</div>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="q-item">
+      <div class="q-num">Soru 5</div>
+      <div class="q-text">مَا هِيَ رِيَاضَةُ زَيْنَبَ الْمُفَضَّلَةُ؟</div>
+      <div class="q-tr">Zeynep'in favori sporu nedir?</div>
+      <button class="ans-btn" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+      <div class="ans-box">
+        <div class="ans-arabic">كُرَةُ الطَّاوِلَةِ.</div>
+        <div class="ans-tr">Masa tenisi.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRACTICE S1 -->
+  <div class="card">
+    <div class="practice-header">🏋️ Alıştırma Soruları — Diyalog Anlama</div>
+
+    <div class="tip-box"><strong>💡 İpucu:</strong> Önce diyalogu tekrar oku, sonra kısa bir Arapça cevap yaz.</div>
+
+    <div class="q-item">
+      <div class="q-num">Alıştırma 1</div>
+      <div class="q-text">أَيْنَ يَنْتَظِرُ عَادِلٌ صَدِيقَهُ؟</div>
+      <div class="q-tr">Adil arkadaşını nerede bekliyor?</div>
+      <button class="ans-btn" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+      <div class="ans-box">
+        <div class="ans-arabic">أَمَامَ النَّادِي.</div>
+        <div class="ans-tr">Kulübün önünde.</div>
+      </div>
+    </div>
+
+    <div class="q-item">
+      <div class="q-num">Alıştırma 2</div>
+      <div class="q-text">إِلَى أَيْنَ تَذْهَبُ زَيْنَبُ؟</div>
+      <div class="q-tr">Zeynep nereye gidiyor?</div>
+      <button class="ans-btn" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+      <div class="ans-box">
+        <div class="ans-arabic">إِلَى صَالَةِ الرِّيَاضَةِ.</div>
+        <div class="ans-tr">Spor salonuna.</div>
+      </div>
+    </div>
+
+    <div class="q-item">
+      <div class="q-num">Alıştırma 3</div>
+      <div class="q-text">مَتَى تُمَارِسُ زَيْنَبُ الرِّيَاضَةَ؟</div>
+      <div class="q-tr">Zeynep ne zaman spor yapıyor?</div>
+      <button class="ans-btn" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+      <div class="ans-box">
+        <div class="ans-arabic">كُلَّ يَوْمٍ.</div>
+        <div class="ans-tr">Her gün.</div>
+      </div>
+    </div>
+
+    <div class="q-item">
+      <div class="q-num">Alıştırma 4</div>
+      <div class="q-text">مَا هِيَ رِيَاضَةُ عَادِلٍ الْمُفَضَّلَةُ؟</div>
+      <div class="q-tr">Adil'in favori sporu nedir?</div>
+      <button class="ans-btn" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+      <div class="ans-box">
+        <div class="ans-arabic">كُرَةُ الْقَدَمِ.</div>
+        <div class="ans-tr">Futbol.</div>
+      </div>
+    </div>
+
+    <div class="q-item">
+      <div class="q-num">Alıştırma 5</div>
+      <div class="q-text">مَا هِيَ رِيَاضَةُ زَيْنَبَ الْمُفَضَّلَةُ؟</div>
+      <div class="q-tr">Zeynep'in favori sporu nedir?</div>
+      <button class="ans-btn" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+      <div class="ans-box">
+        <div class="ans-arabic">كُرَةُ الطَّاوِلَةِ.</div>
+        <div class="ans-tr">Masa tenisi.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== SECTION 2 ===================== -->
+<div id="s2" class="section">
+
+  <div class="card">
+    <div class="card-title"><div class="icon">2</div> Soru 2 – Spor Kelimelerini Öğren</div>
+
+    <div class="rule-box">
+      <div class="rule-title">📌 Bu Soru Hakkında</div>
+      <div class="rule-body">
+        Bu soruda görseldeki spor dallarını Arapça yazman istenecek. Aşağıdaki 4 kelimeyi <strong>yazılışı, okunuşu ve anlamıyla</strong> iyi öğren.
+      </div>
+    </div>
+
+    <div class="two-col" style="gap:14px; margin-top:14px;">
+
+      <div class="word-card">
+        <div class="word-arabic" style="color:#c0392b">اَلرَّكْضُ</div>
+        <div class="word-tr">Koşu / Koşmak</div>
+        <div class="word-pr">er-Rakdu</div>
+        <div style="margin-top:8px;font-size:1.8rem;">🏃</div>
+      </div>
+
+      <div class="word-card">
+        <div class="word-arabic" style="color:#1565c0">اَلْمَشْيُ</div>
+        <div class="word-tr">Yürüyüş / Yürümek</div>
+        <div class="word-pr">el-Meşyu</div>
+        <div style="margin-top:8px;font-size:1.8rem;">🚶</div>
+      </div>
+
+      <div class="word-card">
+        <div class="word-arabic" style="color:#1b6b3a">اَلسِّبَاحَةُ</div>
+        <div class="word-tr">Yüzme / Yüzmek</div>
+        <div class="word-pr">es-Sibâhah</div>
+        <div style="margin-top:8px;font-size:1.8rem;">🏊</div>
+      </div>
+
+      <div class="word-card">
+        <div class="word-arabic" style="color:#6b2fa0">اَلتَّسَلُّقُ</div>
+        <div class="word-tr">Tırmanma / Tırmanmak</div>
+        <div class="word-pr">et-Teselluk</div>
+        <div style="margin-top:8px;font-size:1.8rem;">🧗</div>
+      </div>
+    </div>
+
+    <div class="rule-box" style="margin-top:18px;">
+      <div class="rule-title">✍️ Harflerin Yazılışı — Adım Adım</div>
+      <div class="rule-body">
+        <div style="margin-bottom:10px;">
+          <span class="pair-c1" style="font-family:'Tajawal',serif;font-size:1.15rem;">اَلرَّكْضُ</span> — ال + رَكْض  
+          <span style="font-size:0.82rem;">(el-ré + kd)</span><br>
+          <span style="font-size:0.82rem;color:#777;">الـ = harf-i tarif (belirli tanımlık), رَكْض = koşu</span>
+        </div>
+        <div style="margin-bottom:10px;">
+          <span class="pair-c2" style="font-family:'Tajawal',serif;font-size:1.15rem;">اَلْمَشْيُ</span> — ال + مَشْي  
+          <span style="font-size:0.82rem;">(el-meş + yi)</span><br>
+          <span style="font-size:0.82rem;color:#777;">مَشْي = yürüyüş, م-ش-ي harflerinden gelir</span>
+        </div>
+        <div style="margin-bottom:10px;">
+          <span class="pair-c3" style="font-family:'Tajawal',serif;font-size:1.15rem;">اَلسِّبَاحَةُ</span> — ال + سِبَاحَة  
+          <span style="font-size:0.82rem;">(es-sibâ + hah)</span><br>
+          <span style="font-size:0.82rem;color:#777;">ş sesli (şeddeli س) — sin sesi iki kez ağırlıklı okunur</span>
+        </div>
+        <div>
+          <span class="pair-c4" style="font-family:'Tajawal',serif;font-size:1.15rem;">اَلتَّسَلُّقُ</span> — ال + تَسَلُّق  
+          <span style="font-size:0.82rem;">(et-tesél + luk)</span><br>
+          <span style="font-size:0.82rem;color:#777;">ت şedde ile — t sesi güçlü, لّ şedde ile çift l</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRACTICE S2 -->
+  <div class="card">
+    <div class="practice-header">🏋️ Alıştırma Soruları — Kelime Yazımı</div>
+
+    <div class="tip-box"><strong>💡 İpucu:</strong> Önce düşün, sonra cevabı kontrol et. Harfleri sırayla yaz!</div>
+
+    <div class="q-item">
+      <div class="q-num">Alıştırma 1</div>
+      <div class="q-tr">Bu sporun Arapçasını yaz: <strong>Koşu</strong> 🏃</div>
+      <button class="ans-btn" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+      <div class="ans-box">
+        <div class="ans-arabic">اَلرَّكْضُ</div>
+        <div class="ans-tr">er-Rakdu — Koşu</div>
+      </div>
+    </div>
+
+    <div class="q-item">
+      <div class="q-num">Alıştırma 2</div>
+      <div class="q-tr">Bu sporun Arapçasını yaz: <strong>Yüzme</strong> 🏊</div>
+      <button class="ans-btn" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+      <div class="ans-box">
+        <div class="ans-arabic">اَلسِّبَاحَةُ</div>
+        <div class="ans-tr">es-Sibâhah — Yüzme</div>
+      </div>
+    </div>
+
+    <div class="q-item">
+      <div class="q-num">Alıştırma 3</div>
+      <div class="q-tr">Bu sporun Arapçasını yaz: <strong>Tırmanma</strong> 🧗</div>
+      <button class="ans-btn" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+      <div class="ans-box">
+        <div class="ans-arabic">اَلتَّسَلُّقُ</div>
+        <div class="ans-tr">et-Teselluk — Tırmanma</div>
+      </div>
+    </div>
+
+    <div class="q-item">
+      <div class="q-num">Alıştırma 4</div>
+      <div class="q-tr">Bu sporun Arapçasını yaz: <strong>Yürüyüş</strong> 🚶</div>
+      <button class="ans-btn" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+      <div class="ans-box">
+        <div class="ans-arabic">اَلْمَشْيُ</div>
+        <div class="ans-tr">el-Meşyu — Yürüyüş</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== SECTION 3 ===================== -->
+<div id="s3" class="section">
+
+  <div class="card">
+    <div class="card-title"><div class="icon">3</div> Soru 3 – Çoğuldan Tekil (Cemî → Müfred)</div>
+
+    <div class="rule-box">
+      <div class="rule-title">📚 Kural: Cemî (Çoğul) ve Müfred (Tekil)</div>
+      <div class="rule-body">
+        Arapçada çoğul (cemî) kelimelerden tekilini (müfredini) bulmak gerekir. Bu kelimeler <strong>kırık çoğul</strong> kategorisindedir; yani tekile dönüşürken kelime yapısı değişir. Ezberle!
+      </div>
+    </div>
+
+    <table class="word-table">
+      <thead>
+        <tr>
+          <th>Çoğul (Cemî)</th>
+          <th>Okunuş (Çoğul)</th>
+          <th>Tekil (Müfred)</th>
+          <th>Okunuş (Tekil)</th>
+          <th>Türkçe Anlam</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="arabic" style="font-size:1.2rem;color:var(--red)">مَدَارِسُ</td>
+          <td class="pronunciation">Medârisu</td>
+          <td class="arabic" style="font-size:1.2rem;color:var(--primary)">مَدْرَسَةٌ</td>
+          <td class="pronunciation">Medresetün</td>
+          <td>Okul(lar)</td>
+        </tr>
+        <tr>
+          <td class="arabic" style="font-size:1.2rem;color:var(--red)">طُلَّابٌ</td>
+          <td class="pronunciation">Tüllâbün</td>
+          <td class="arabic" style="font-size:1.2rem;color:var(--primary)">طَالِبٌ</td>
+          <td class="pronunciation">Tâlibün</td>
+          <td>Öğrenci(ler)</td>
+        </tr>
+        <tr>
+          <td class="arabic" style="font-size:1.2rem;color:var(--red)">ثَانَوِيَّاتٌ</td>
+          <td class="pronunciation">Sânviyyâtün</td>
+          <td class="arabic" style="font-size:1.2rem;color:var(--primary)">ثَانَوِيَّةٌ</td>
+          <td class="pronunciation">Sânviyyetün</td>
+          <td>Lise(ler)</td>
+        </tr>
+        <tr>
+          <td class="arabic" style="font-size:1.2rem;color:var(--red)">سَنَوَاتٌ</td>
+          <td class="pronunciation">Senevâtün</td>
+          <td class="arabic" style="font-size:1.2rem;color:var(--primary)">سَنَةٌ</td>
+          <td class="pronunciation">Senetün</td>
+          <td>Yıl / Sene(ler)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="rule-box" style="margin-top:16px;">
+      <div class="rule-title">🔍 Dikkat Edilecek Nokta</div>
+      <div class="rule-body">
+        <div class="step"><div class="step-num">1</div><div class="step-text"><span class="arabic">مَدَارِسُ</span> → <span class="arabic">مَدْرَسَةٌ</span> — Harflerin sırası değişiyor. "Medresah" aynı zamanda Türkçeye geçmiştir.</div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-text"><span class="arabic">طُلَّابٌ</span> → <span class="arabic">طَالِبٌ</span> — Şeddeli <span class="arabic">لّ</span> düzleşir ve yapı kısalır.</div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-text"><span class="arabic">ثَانَوِيَّاتٌ</span> → <span class="arabic">ثَانَوِيَّةٌ</span> — Sonundaki <span class="arabic">اتٌ</span> kaldırılır, <span class="arabic">ةٌ</span> eklenir.</div></div>
+        <div class="step"><div class="step-num">4</div><div class="step-text"><span class="arabic">سَنَوَاتٌ</span> → <span class="arabic">سَنَةٌ</span> — Kökten çok farklılaşan kırık çoğul; ezberle!</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRACTICE S3 -->
+  <div class="card">
+    <div class="practice-header">🏋️ Alıştırma Soruları — Tekil Bulma</div>
+
+    <div class="q-item">
+      <div class="q-num">Alıştırma 1</div>
+      <div class="q-text">مَدَارِسُ — Tekilini yaz.</div>
+      <div class="q-tr">Bu kelimenin tekili nedir? (Okullar → Okul)</div>
+      <button class="ans-btn" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+      <div class="ans-box">
+        <div class="ans-arabic">مَدْرَسَةٌ</div>
+        <div class="ans-tr">Medresetün — Okul</div>
+      </div>
+    </div>
+
+    <div class="q-item">
+      <div class="q-num">Alıştırma 2</div>
+      <div class="q-text">طُلَّابٌ — Tekilini yaz.</div>
+      <div class="q-tr">Bu kelimenin tekili nedir? (Öğrenciler → Öğrenci)</div>
+      <button class="ans-btn" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+      <div class="ans-box">
+        <div class="ans-arabic">طَالِبٌ</div>
+        <div class="ans-tr">Tâlibün — Öğrenci</div>
+      </div>
+    </div>
+
+    <div class="q-item">
+      <div class="q-num">Alıştırma 3</div>
+      <div class="q-text">ثَانَوِيَّاتٌ — Tekilini yaz.</div>
+      <div class="q-tr">Bu kelimenin tekili nedir? (Liseler → Lise)</div>
+      <button class="ans-btn" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+      <div class="ans-box">
+        <div class="ans-arabic">ثَانَوِيَّةٌ</div>
+        <div class="ans-tr">Sânviyyetün — Lise</div>
+      </div>
+    </div>
+
+    <div class="q-item">
+      <div class="q-num">Alıştırma 4</div>
+      <div class="q-text">سَنَوَاتٌ — Tekilini yaz.</div>
+      <div class="q-tr">Bu kelimenin tekili nedir? (Yıllar → Yıl)</div>
+      <button class="ans-btn" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+      <div class="ans-box">
+        <div class="ans-arabic">سَنَةٌ</div>
+        <div class="ans-tr">Senetün — Yıl / Sene</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===================== SECTION 4 ===================== -->
+<div id="s4" class="section">
+
+  <div class="card">
+    <div class="card-title"><div class="icon">4</div> Soru 4 – Türkçeden Arapçaya Cümle Yaz</div>
+
+    <div class="rule-box">
+      <div class="rule-title">📌 Bu Soru Hakkında</div>
+      <div class="rule-body">
+        Sana Türkçe bir cümle verilecek, sen bunu Arapçaya çevireceksin. Aşağıdaki 2 cümleyi hem <strong>yazılışıyla</strong> hem de <strong>kelime kelime anlamıyla</strong> öğren.
+      </div>
+    </div>
+
+    <!-- Sentence 1 -->
+    <div class="sent-card">
+      <div style="font-size:0.8rem;font-weight:800;color:var(--accent2);margin-bottom:6px;">CÜMLECİK 1</div>
+      <div class="sent-arabic" style="color:var(--primary)">أَتَعَلَّمُ الإِسْعَافَاتِ الأَوَّلِيَّةَ.</div>
+      <div class="sent-pr">Ete'allemu'l-is'âfâti'l-evveliyyeh.</div>
+      <div class="sent-tr">İlk yardımı öğreniyorum.</div>
+      <div style="margin-top:10px;background:var(--primary-pale);border-radius:8px;padding:10px;">
+        <div style="font-size:0.82rem;font-weight:700;color:var(--primary);margin-bottom:6px;">Kelime Kelime:</div>
+        <div style="font-size:0.9rem;">
+          <span class="pair-c1 arabic">أَتَعَلَّمُ</span> <span class="pair-c1">= Öğreniyorum</span><br>
+          <span class="pair-c2 arabic">الإِسْعَافَاتِ</span> <span class="pair-c2">= İlk yardım (isimdir)</span><br>
+          <span class="pair-c3 arabic">الأَوَّلِيَّةَ</span> <span class="pair-c3">= İlk / Birinci (sıfat)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sentence 2 -->
+    <div class="sent-card">
+      <div style="font-size:0.8rem;font-weight:800;color:var(--blue);margin-bottom:6px;">CÜMLECİK 2</div>
+      <div class="sent-arabic" style="color:var(--blue)">أَلْعَبُ كُرَةَ الْقَدَمِ.</div>
+      <div class="sent-pr">El'abu küratel-kademi.</div>
+      <div class="sent-tr">Futbol oynuyorum.</div>
+      <div style="margin-top:10px;background:var(--blue-light);border-radius:8px;padding:10px;">
+        <div style="font-size:0.82rem;font-weight:700;color:var(--blue);margin-bottom:6px;">Kelime Kelime:</div>
+        <div style="font-size:0.9rem;">
+          <span class="pair-c1 arabic">أَلْعَبُ</span> <span class="pair-c1">= Oynuyorum</span><br>
+          <span class="pair-c2 arabic">كُرَةَ</span> <span class="pair-c2">= Topu / Top</span><br>
+          <span class="pair-c3 arabic">الْقَدَمِ</span> <span class="pair-c3">= Ayak → Futbol</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="rule-box">
+      <div class="rule-title">💡 Ezberleme Taktiği</div>
+      <div class="rule-body">
+        <div class="step"><div class="step-num">1</div><div class="step-text">Cümleyi 5 kez oku (sesli).</div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-text">Türkçe anlamına bak, Arapçasını yazmaya çalış.</div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-text">Kontrol et, eksikleri tekrar et.</div></div>
+        <div class="step"><div class="step-num">4</div><div class="step-text">Harekeli (sesli harfli) yaz — her harekeli harf önemli!</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRACTICE S4 -->
+  <div class="card">
+    <div class="practice-header">🏋️ Alıştırma Soruları — Türkçeden Arapçaya</div>
+
+    <div class="q-item">
+      <div class="q-num">Alıştırma 1</div>
+      <div class="q-tr">Türkçe: "İlk yardımı öğreniyorum." cümlesini Arapçaya çevir.</div>
+      <button class="ans-btn" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+      <div class="ans-box">
+        <div class="ans-arabic">أَتَعَلَّمُ الإِسْعَافَاتِ الأَوَّلِيَّةَ.</div>
+        <div class="ans-tr">Ete'allemu'l-is'âfâti'l-evveliyyeh.</div>
+      </div>
+    </div>
+
+    <div class="q-item">
+      <div class="q-num">Alıştırma 2</div>
+      <div class="q-tr">Türkçe: "Futbol oynuyorum." cümlesini Arapçaya çevir.</div>
+      <button class="ans-btn" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+      <div class="ans-box">
+        <div class="ans-arabic">أَلْعَبُ كُرَةَ الْقَدَمِ.</div>
+        <div class="ans-tr">El'abu küratel-kademi.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===================== SECTION 5 ===================== -->
+<div id="s5" class="section">
+
+  <div class="card">
+    <div class="card-title"><div class="icon">5</div> Soru 5 – Mezuniyet Töreni Diyalogu</div>
+
+    <div class="rule-box">
+      <div class="rule-title">📌 Metin Hakkında</div>
+      <div class="rule-body">
+        Artugrul ve Yavuz arasındaki mezuniyet töreni konuşması. Her cümleyi kelime kelime öğren. Sorular Arapça sorulacak, Arapça cevapla.
+      </div>
+    </div>
+
+    <!-- Full dialog with translation -->
+    <div class="card-title" style="margin-top:10px"><div class="icon" style="background:var(--purple)">🎓</div> Tam Metin — حَفْلَةُ التَّخَرُّجِ</div>
+    <div style="background:var(--purple-light);border-radius:10px;padding:12px;margin-bottom:14px;text-align:center;">
+      <div class="arabic arabic-lg" style="color:var(--purple)">حَفْلَةُ التَّخَرُّجِ</div>
+      <div class="pronunciation">Hafletü't-Taharruc</div>
+      <div class="turkish" style="text-align:center">Mezuniyet Töreni</div>
+    </div>
+
+    <div style="background:var(--gray);border-radius:12px;padding:16px;">
+
+      <!-- Line 1 Artugrul -->
+      <div style="margin-bottom:18px;">
+        <div class="arabic arabic-lg" style="color:var(--purple)">أَرْتُغْرُل: اَلْيَوْمَ عِنْدَنَا حَفْلَةُ التَّخَرُّجِ يَا يَاوُوزُ! هَلْ تُرِيدُ أَنْ تَحْضُرَ مَعِي إِلَى الْحَفْلَةِ؟</div>
+        <div class="pronunciation">El-yevme 'indenâ hafletü't-taharruc yâ Yâvûzu! Hel türîdu en tahder me'î ilel-hafleh?</div>
+        <div class="turkish">Artugrul: Bugün bizim mezuniyet törenimiz var Yavuz! Benimle törene gelmek ister misin?</div>
+        <div style="margin-top:6px;font-size:0.82rem;">
+          <span class="pair-c1 arabic">اَلْيَوْمَ</span> <span class="pair-c1">= Bugün</span> &nbsp;|&nbsp;
+          <span class="pair-c2 arabic">حَفْلَةُ التَّخَرُّجِ</span> <span class="pair-c2">= Mezuniyet töreni</span> &nbsp;|&nbsp;
+          <span class="pair-c3 arabic">تُرِيدُ</span> <span class="pair-c3">= İstiyorsun</span> &nbsp;|&nbsp;
+          <span class="pair-c4 arabic">تَحْضُرَ</span> <span class="pair-c4">= Katılmak / Gelmek</span>
+        </div>
+      </div>
+
+      <!-- Line 2 Yavuz -->
+      <div style="margin-bottom:18px;">
+        <div class="arabic arabic-lg" style="color:var(--accent2)">يَاوُوز: طَبْعًا، بِكُلِّ سُرُورٍ. مَاذَا يُوجَدُ فِي بَرْنَامَجِ الْحَفْلَةِ؟</div>
+        <div class="pronunciation">Tab'an, bikülli sürûrin. Mâzâ yûcedü fî bernâmeci'l-hafleh?</div>
+        <div class="turkish">Yavuz: Tabii ki, memnuniyetle. Tören programında neler var?</div>
+        <div style="margin-top:6px;font-size:0.82rem;">
+          <span class="pair-c1 arabic">طَبْعًا</span> <span class="pair-c1">= Tabii ki</span> &nbsp;|&nbsp;
+          <span class="pair-c2 arabic">بِكُلِّ سُرُورٍ</span> <span class="pair-c2">= Memnuniyetle</span> &nbsp;|&nbsp;
+          <span class="pair-c3 arabic">بَرْنَامَجِ</span> <span class="pair-c3">= Program</span>
+        </div>
+      </div>
+
+      <!-- Line 3 Artugrul -->
+      <div style="margin-bottom:18px;">
+        <div class="arabic arabic-lg" style="color:var(--purple)">أَرْتُغْرُل: هُنَاكَ أَوَّلًا تِلَاوَةُ الْقُرْآنِ الْكَرِيمِ، وَبَعْدَهَا حَفْلَةُ الشَّهَادَةِ، وَأَخِيرًا تَقْدِيمُ الطَّعَامِ.</div>
+        <div class="pronunciation">Hünâke evvelen tilâvetü'l-Kur'âni'l-Kerîm, ve ba'dehâ hafletü'ş-şehâdeh, ve ahîran takdîmu't-ta'âm.</div>
+        <div class="turkish">Artugrul: Önce Kur'an-ı Kerim tilaveti, sonra diploma töreni, en son yemek ikramı var.</div>
+        <div style="margin-top:6px;font-size:0.82rem;">
+          <span class="pair-c1 arabic">أَوَّلًا</span> <span class="pair-c1">= Önce / İlk olarak</span> &nbsp;|&nbsp;
+          <span class="pair-c2 arabic">تِلَاوَةُ الْقُرْآنِ</span> <span class="pair-c2">= Kur'an tilaveti</span> &nbsp;|&nbsp;
+          <span class="pair-c3 arabic">حَفْلَةُ الشَّهَادَةِ</span> <span class="pair-c3">= Diploma töreni</span> &nbsp;|&nbsp;
+          <span class="pair-c4 arabic">تَقْدِيمُ الطَّعَامِ</span> <span class="pair-c4">= Yemek ikramı</span> &nbsp;|&nbsp;
+          <span class="pair-c5 arabic">أَخِيرًا</span> <span class="pair-c5">= Son olarak</span>
+        </div>
+      </div>
+
+      <!-- Line 4 Yavuz -->
+      <div style="margin-bottom:18px;">
+        <div class="arabic arabic-lg" style="color:var(--accent2)">يَاوُوز: إِذَنْ سَتَكُونُ رَائِعَةً جِدًّا. وَسَأَحْضُرُ إِلَى حَفْلَتِكَ إِنْ شَاءَ اللّٰهُ.</div>
+        <div class="pronunciation">İzen setekûnu râi'aten ciddan. Ve se'ahduru ilâ hafletike in şâe'llâh.</div>
+        <div class="turkish">Yavuz: O zaman çok muhteşem olacak. Allah'ın izniyle törenine geleceğim.</div>
+        <div style="margin-top:6px;font-size:0.82rem;">
+          <span class="pair-c1 arabic">إِذَنْ</span> <span class="pair-c1">= O zaman</span> &nbsp;|&nbsp;
+          <span class="pair-c2 arabic">رَائِعَةً</span> <span class="pair-c2">= Harika / Muhteşem</span> &nbsp;|&nbsp;
+          <span class="pair-c3 arabic">إِنْ شَاءَ اللّٰهُ</span> <span class="pair-c3">= İnşallah</span>
+        </div>
+      </div>
+
+      <!-- Line 5 Artugrul -->
+      <div style="margin-bottom:18px;">
+        <div class="arabic arabic-lg" style="color:var(--purple)">أَرْتُغْرُل: لَكِنْ سَتَبْدَأُ الْحَفْلَةُ فِي السَّاعَةِ السَّابِعَةِ مَسَاءً. لَا تَتَأَخَّرْ!</div>
+        <div class="pronunciation">Lâkin setebd'eu'l-hafletu fi's-sâ'ati's-sâbi'ati mesâen. Lâ tete'ahhar!</div>
+        <div class="turkish">Artugrul: Ama tören akşam saat yedide başlayacak. Geç kalma!</div>
+        <div style="margin-top:6px;font-size:0.82rem;">
+          <span class="pair-c1 arabic">السَّاعَةِ السَّابِعَةِ</span> <span class="pair-c1">= Saat yedi</span> &nbsp;|&nbsp;
+          <span class="pair-c2 arabic">مَسَاءً</span> <span class="pair-c2">= Akşam</span> &nbsp;|&nbsp;
+          <span class="pair-c3 arabic">لَا تَتَأَخَّرْ</span> <span class="pair-c3">= Geç kalma!</span>
+        </div>
+      </div>
+
+      <!-- Line 6 Yavuz -->
+      <div style="margin-bottom:18px;">
+        <div class="arabic arabic-lg" style="color:var(--accent2)">يَاوُوز: لَا تَقْلَقْ! سَأَحْضُرُ مُبَكِّرًا إِنْ شَاءَ اللّٰهُ. إِلَى اللِّقَاءِ.</div>
+        <div class="pronunciation">Lâ taklek! Se'ahduru mübbekkiran in şâe'llâh. İlel-likâ'.</div>
+        <div class="turkish">Yavuz: Endişelenme! İnşallah erken geleceğim. Görüşürüz.</div>
+        <div style="margin-top:6px;font-size:0.82rem;">
+          <span class="pair-c1 arabic">لَا تَقْلَقْ</span> <span class="pair-c1">= Endişelenme / Merak etme</span> &nbsp;|&nbsp;
+          <span class="pair-c2 arabic">مُبَكِّرًا</span> <span class="pair-c2">= Erken</span>
+        </div>
+      </div>
+
+      <!-- Line 7 Artugrul -->
+      <div>
+        <div class="arabic arabic-lg" style="color:var(--purple)">أَرْتُغْرُل: إِلَى اللِّقَاءِ، فِي أَمَانِ اللّٰهِ.</div>
+        <div class="pronunciation">İlel-likâ', fî emâni'llâh.</div>
+        <div class="turkish">Artugrul: Görüşürüz, Allah'a emanet ol.</div>
+        <div style="margin-top:6px;font-size:0.82rem;">
+          <span class="pair-c4 arabic">فِي أَمَانِ اللّٰهِ</span> <span class="pair-c4">= Allah'a emanet ol / Güle güle</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q5 Questions -->
+  <div class="card">
+    <div class="card-title"><div class="icon" style="background:var(--accent2)">❓</div> Metin Soruları ve Cevapları</div>
+
+    <div class="q-item">
+      <div class="q-num">Soru 1</div>
+      <div class="q-text">بَيْنَ مَنْ يَدُورُ هَذَا الْحِوَارُ؟</div>
+      <div class="q-tr">Bu diyalog kimler arasında geçiyor?</div>
+      <button class="ans-btn" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+      <div class="ans-box">
+        <div class="ans-arabic">أَرْتُغْرُل وَيَاوُوز.</div>
+        <div class="ans-tr">Artugrul ve Yavuz.</div>
+      </div>
+    </div>
+
+    <div class="q-item">
+      <div class="q-num">Soru 2</div>
+      <div class="q-text">هَلْ يُرِيدُ يَاوُوز أَنْ يَحْضُرَ مَعَ أَرْتُغْرُل إِلَى الْحَفْلَةِ؟</div>
+      <div class="q-tr">Yavuz, Artugrul ile törene gelmek istiyor mu?</div>
+      <button class="ans-btn" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+      <div class="ans-box">
+        <div class="ans-arabic">نَعَمْ، يُرِيدُ.</div>
+        <div class="ans-tr">Evet, istiyor.</div>
+      </div>
+    </div>
+
+    <div class="q-item">
+      <div class="q-num">Soru 3</div>
+      <div class="q-text">فِي أَيِّ سَاعَةٍ سَتَكُونُ حَفْلَةُ التَّخَرُّجِ؟</div>
+      <div class="q-tr">Mezuniyet töreni saat kaçta olacak?</div>
+      <button class="ans-btn" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+      <div class="ans-box">
+        <div class="ans-arabic">السَّاعَةَ السَّابِعَةَ مَسَاءً.</div>
+        <div class="ans-tr">Akşam saat yedide.</div>
+      </div>
+    </div>
+
+    <div class="q-item">
+      <div class="q-num">Soru 4</div>
+      <div class="q-text">مَاذَا يُوجَدُ فِي بَرْنَامَجِ الْحَفْلَةِ أَوَّلًا؟</div>
+      <div class="q-tr">Program ilk olarak ne ile başlıyor?</div>
+      <button class="ans-btn" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+      <div class="ans-box">
+        <div class="ans-arabic">تِلَاوَةُ الْقُرْآنِ الْكَرِيمِ.</div>
+        <div class="ans-tr">Kur'an tilaveti.</div>
+      </div>
+    </div>
+
+    <div class="q-item">
+      <div class="q-num">Soru 5</div>
+      <div class="q-text">مَاذَا يُوجَدُ فِي بَرْنَامَجِ الْحَفْلَةِ أَخِيرًا؟</div>
+      <div class="q-tr">Programın son bölümünde ne var?</div>
+      <button class="ans-btn" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+      <div class="ans-box">
+        <div class="ans-arabic">تَقْدِيمُ الطَّعَامِ.</div>
+        <div class="ans-tr">Yemek ikramı.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRACTICE S5 -->
+  <div class="card">
+    <div class="practice-header">🏋️ Alıştırma Soruları — Mezuniyet Metni</div>
+
+    <div class="q-item">
+      <div class="q-num">Alıştırma 1</div>
+      <div class="q-text">بَيْنَ مَنْ يَدُورُ هَذَا الْحِوَارُ؟</div>
+      <div class="q-tr">Bu diyalog kimler arasında geçiyor?</div>
+      <button class="ans-btn" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+      <div class="ans-box">
+        <div class="ans-arabic">أَرْتُغْرُل وَيَاوُوز.</div>
+        <div class="ans-tr">Artugrul ve Yavuz.</div>
+      </div>
+    </div>
+
+    <div class="q-item">
+      <div class="q-num">Alıştırma 2</div>
+      <div class="q-text">هَلْ يُرِيدُ يَاوُوز أَنْ يَحْضُرَ مَعَ أَرْتُغْرُل إِلَى الْحَفْلَةِ؟</div>
+      <div class="q-tr">Yavuz, Artugrul ile törene gelmek istiyor mu?</div>
+      <button class="ans-btn" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+      <div class="ans-box">
+        <div class="ans-arabic">نَعَمْ، يُرِيدُ.</div>
+        <div class="ans-tr">Evet, istiyor.</div>
+      </div>
+    </div>
+
+    <div class="q-item">
+      <div class="q-num">Alıştırma 3</div>
+      <div class="q-text">فِي أَيِّ سَاعَةٍ سَتَكُونُ حَفْلَةُ التَّخَرُّجِ؟</div>
+      <div class="q-tr">Mezuniyet töreni saat kaçta olacak?</div>
+      <button class="ans-btn" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+      <div class="ans-box">
+        <div class="ans-arabic">السَّاعَةَ السَّابِعَةَ مَسَاءً.</div>
+        <div class="ans-tr">Akşam saat yedide.</div>
+      </div>
+    </div>
+
+    <div class="q-item">
+      <div class="q-num">Alıştırma 4</div>
+      <div class="q-text">مَاذَا يُوجَدُ فِي بَرْنَامَجِ الْحَفْلَةِ أَوَّلًا؟</div>
+      <div class="q-tr">Programda ilk olarak ne var?</div>
+      <button class="ans-btn" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+      <div class="ans-box">
+        <div class="ans-arabic">تِلَاوَةُ الْقُرْآنِ الْكَرِيمِ.</div>
+        <div class="ans-tr">Kur'an tilaveti.</div>
+      </div>
+    </div>
+
+    <div class="q-item">
+      <div class="q-num">Alıştırma 5</div>
+      <div class="q-text">مَاذَا يُوجَدُ فِي بَرْنَامَجِ الْحَفْلَةِ أَخِيرًا؟</div>
+      <div class="q-tr">Programın sonunda ne var?</div>
+      <button class="ans-btn" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+      <div class="ans-box">
+        <div class="ans-arabic">تَقْدِيمُ الطَّعَامِ.</div>
+        <div class="ans-tr">Yemek ikramı.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== SECTION 6 ===================== -->
+<div id="s6" class="section">
+
+  <div class="card">
+    <div class="card-title"><div class="icon">6</div> Soru 6 – Olayları Sırala</div>
+
+    <div class="rule-box">
+      <div class="rule-title">📌 Bu Soru Hakkında</div>
+      <div class="rule-body">
+        Mezuniyet diyaloğundaki olayları <strong>oluş sırasına göre</strong> numaralandırman istenecek. Diyalogu hatırla ve hangi olay önce, hangisi sonra oldu bunu bul.
+      </div>
+    </div>
+
+    <div class="card-title" style="margin-top:6px"><div class="icon" style="background:var(--purple)">✅</div> Doğru Sıralama ve Açıklaması</div>
+
+    <div class="order-item">
+      <div class="order-num" style="background:var(--primary)">1</div>
+      <div class="order-content">
+        <div class="arabic" style="font-size:1.05rem;">اَلْحِوَارُ بَيْنَ أَرْتُغْرُل وَيَاوُوز عَنْ حَفْلَةِ التَّخَرُّجِ.</div>
+        <div class="pronunciation">El-hiwâru beyne Ertugrul ve Yâvûz 'an hafleti't-taharruc.</div>
+        <div class="turkish">Artugrul ile Yavuz arasında mezuniyet töreni hakkındaki konuşma.</div>
+        <div style="font-size:0.8rem;color:#777;margin-top:4px;">🔹 Diyaloğun kendisi ilk adımdır — her şey buradan başlıyor.</div>
+      </div>
+    </div>
+
+    <div class="order-item">
+      <div class="order-num" style="background:var(--blue)">2</div>
+      <div class="order-content">
+        <div class="arabic" style="font-size:1.05rem;">بَدْءُ بَرْنَامَجِ الْحَفْلَةِ بِتِلَاوَةِ الْقُرْآنِ الْكَرِيمِ.</div>
+        <div class="pronunciation">Bed'u bernâmeci'l-hafleti bitilâveti'l-Kur'âni'l-Kerîm.</div>
+        <div class="turkish">Tören programının Kur'an-ı Kerim tilaveti ile başlaması.</div>
+        <div style="font-size:0.8rem;color:#777;margin-top:4px;">🔹 Artugrul dedi ki: <span class="arabic" style="font-size:0.9rem;">هُنَاكَ أَوَّلًا تِلَاوَةُ الْقُرْآنِ</span> — "önce tilavet var".</div>
+      </div>
+    </div>
+
+    <div class="order-item">
+      <div class="order-num" style="background:var(--accent)">3</div>
+      <div class="order-content">
+        <div class="arabic" style="font-size:1.05rem;">إِقَامَةُ حَفْلَةِ الشَّهَادَةِ بَعْدَ التِّلَاوَةِ.</div>
+        <div class="pronunciation">İkâmetü hafleti'ş-şehâdeti ba'de't-tilâveh.</div>
+        <div class="turkish">Tilavetten sonra diploma töreninin yapılması.</div>
+        <div style="font-size:0.8rem;color:#777;margin-top:4px;">🔹 Artugrul dedi ki: <span class="arabic" style="font-size:0.9rem;">وَبَعْدَهَا حَفْلَةُ الشَّهَادَةِ</span> — "sonra diploma töreni".</div>
+      </div>
+    </div>
+
+    <div class="order-item">
+      <div class="order-num" style="background:var(--accent2)">4</div>
+      <div class="order-content">
+        <div class="arabic" style="font-size:1.05rem;">تَقْدِيمُ الطَّعَامِ لِلْحَاضِرِينَ فِي النِّهَايَةِ.</div>
+        <div class="pronunciation">Takdîmu't-ta'âmi lil-hâdirîne fi'n-nihâyeh.</div>
+        <div class="turkish">Sonunda katılımcılara yemek ikramı yapılması.</div>
+        <div style="font-size:0.8rem;color:#777;margin-top:4px;">🔹 Artugrul dedi ki: <span class="arabic" style="font-size:0.9rem;">وَأَخِيرًا تَقْدِيمُ الطَّعَامِ</span> — "son olarak yemek".</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRACTICE S6 -->
+  <div class="card">
+    <div class="practice-header">🏋️ Alıştırma Soruları — Olayları Sırala</div>
+
+    <div class="tip-box"><strong>💡 Strateji:</strong> Diyalogda geçen sıra sözcüklerine dikkat et: <span class="arabic">أَوَّلًا</span> (önce), <span class="arabic">بَعْدَهَا</span> (sonra), <span class="arabic">أَخِيرًا</span> (en son).</div>
+
+    <div class="q-item">
+      <div class="q-num">Alıştırma 1</div>
+      <div class="q-tr">Bu 4 cümleyi doğru sıraya diz (1, 2, 3, 4 ile işaretle):</div>
+      <div style="font-family:'Tajawal',serif;direction:rtl;text-align:right;padding:8px 0;">
+        <div style="margin-bottom:6px;">( __ ) <span style="font-size:1rem;">إِقَامَةُ حَفْلَةِ الشَّهَادَةِ بَعْدَ التِّلَاوَةِ.</span></div>
+        <div style="margin-bottom:6px;">( __ ) <span style="font-size:1rem;">تَقْدِيمُ الطَّعَامِ لِلْحَاضِرِينَ فِي النِّهَايَةِ.</span></div>
+        <div style="margin-bottom:6px;">( __ ) <span style="font-size:1rem;">اَلْحِوَارُ بَيْنَ أَرْتُغْرُل وَيَاوُوز.</span></div>
+        <div>( __ ) <span style="font-size:1rem;">بَدْءُ بَرْنَامَجِ الْحَفْلَةِ بِتِلَاوَةِ الْقُرْآنِ الْكَرِيمِ.</span></div>
+      </div>
+      <button class="ans-btn" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+      <div class="ans-box">
+        <div class="ans-tr"><strong>Doğru Sıra:</strong><br>
+        (1) اَلْحِوَارُ بَيْنَ أَرْتُغْرُل وَيَاوُوز — Diyalog<br>
+        (2) بَدْءُ بَرْنَامَجِ الْحَفْلَةِ بِتِلَاوَةِ الْقُرْآنِ — Tilavet<br>
+        (3) إِقَامَةُ حَفْلَةِ الشَّهَادَةِ — Diploma töreni<br>
+        (4) تَقْدِيمُ الطَّعَامِ — Yemek ikramı
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===================== EXAM MODELS ===================== -->
+<div id="models" class="section">
+
+  <div class="card" style="background:linear-gradient(135deg,var(--purple-light),white);border-color:#c4b3e8">
+    <div class="card-title"><div class="icon" style="background:var(--purple)">📋</div> Sınav Modelleri — 3 Farklı Deneme</div>
+    <div style="font-size:0.88rem;color:#556;line-height:1.7;">
+      Her model gerçek sınav formatında hazırlanmıştır. Önce çöz, sonra cevabı kontrol et. Bu modeller sınav sorularını kapsamaktadır.
+    </div>
+  </div>
+
+  <!-- MODEL 1 -->
+  <div>
+    <div class="model-header">📝 Model 1 — Diyalog & Kelimeler</div>
+    <div class="model-body">
+
+      <!-- M1 Q1 - Dialog with questions -->
+      <div class="q-item" style="border-left-color:var(--purple)">
+        <div class="q-num" style="color:var(--purple)">Soru 1 — Diyalog Soruları</div>
+        <div class="q-tr" style="margin-bottom:8px;">Zeineb ve Adil diyalogunu hatırla ve şu soruyu yanıtla:</div>
+        <div class="q-text">مَا هِيَ رِيَاضَةُ عَادِلٍ الْمُفَضَّلَةُ وَلِمَاذَا؟</div>
+        <div class="q-tr">Adil'in favori sporu nedir ve neden?</div>
+        <button class="ans-btn" style="background:var(--purple)" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+        <div class="ans-box" style="border-left-color:var(--purple);background:var(--purple-light)">
+          <div class="ans-arabic">رِيَاضَةُ عَادِلٍ الْمُفَضَّلَةُ هِيَ كُرَةُ الْقَدَمِ، لِأَنَّهَا جَمِيلَةٌ وَمُمْتِعَةٌ.</div>
+          <div class="ans-tr">Adil'in favori sporu futboldur çünkü güzel ve eğlencelidir.</div>
+        </div>
+      </div>
+
+      <!-- M1 Q2 - Sports words -->
+      <div class="q-item" style="border-left-color:var(--purple)">
+        <div class="q-num" style="color:var(--purple)">Soru 2 — Spor Dalı Yaz</div>
+        <div class="q-tr">Bu sporun Arapçasını yaz: <strong>Yüzme</strong> 🏊</div>
+        <button class="ans-btn" style="background:var(--purple)" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+        <div class="ans-box" style="border-left-color:var(--purple);background:var(--purple-light)">
+          <div class="ans-arabic">اَلسِّبَاحَةُ</div>
+          <div class="ans-tr">es-Sibâhah — Yüzme</div>
+        </div>
+      </div>
+
+      <!-- M1 Q3 - Singular -->
+      <div class="q-item" style="border-left-color:var(--purple)">
+        <div class="q-num" style="color:var(--purple)">Soru 3 — Tekil Yaz</div>
+        <div class="q-text">سَنَوَاتٌ → ؟</div>
+        <div class="q-tr">"Yıllar" kelimesinin tekili nedir?</div>
+        <button class="ans-btn" style="background:var(--purple)" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+        <div class="ans-box" style="border-left-color:var(--purple);background:var(--purple-light)">
+          <div class="ans-arabic">سَنَةٌ</div>
+          <div class="ans-tr">Senetün — Yıl / Sene</div>
+        </div>
+      </div>
+
+      <!-- M1 Q4 - Translate to Arabic -->
+      <div class="q-item" style="border-left-color:var(--purple)">
+        <div class="q-num" style="color:var(--purple)">Soru 4 — Türkçeden Arapçaya</div>
+        <div class="q-tr">Türkçe: "Futbol oynuyorum." cümlesini Arapçaya çevir.</div>
+        <button class="ans-btn" style="background:var(--purple)" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+        <div class="ans-box" style="border-left-color:var(--purple);background:var(--purple-light)">
+          <div class="ans-arabic">أَلْعَبُ كُرَةَ الْقَدَمِ.</div>
+          <div class="ans-tr">El'abu küratel-kademi.</div>
+        </div>
+      </div>
+
+      <!-- M1 Q5 - Graduation dialog -->
+      <div class="q-item" style="border-left-color:var(--purple)">
+        <div class="q-num" style="color:var(--purple)">Soru 5 — Mezuniyet Diyalogu</div>
+        <div class="q-text">مَاذَا يُوجَدُ فِي بَرْنَامَجِ حَفْلَةِ التَّخَرُّجِ؟</div>
+        <div class="q-tr">Mezuniyet töreni programında neler var? (3 madde)</div>
+        <button class="ans-btn" style="background:var(--purple)" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+        <div class="ans-box" style="border-left-color:var(--purple);background:var(--purple-light)">
+          <div class="ans-arabic">أَوَّلًا تِلَاوَةُ الْقُرْآنِ الْكَرِيمِ، وَبَعْدَهَا حَفْلَةُ الشَّهَادَةِ، وَأَخِيرًا تَقْدِيمُ الطَّعَامِ.</div>
+          <div class="ans-tr">Önce Kur'an tilaveti, sonra diploma töreni, en son yemek ikramı.</div>
+        </div>
+      </div>
+
+      <!-- M1 Q6 - Ordering -->
+      <div class="q-item" style="border-left-color:var(--purple)">
+        <div class="q-num" style="color:var(--purple)">Soru 6 — Olayları Sırala</div>
+        <div class="q-tr">Bu 3 cümleyi diyaloğa göre sırala:</div>
+        <div style="font-family:'Tajawal',serif;direction:rtl;text-align:right;padding:8px 0;font-size:1rem;">
+          <div style="margin-bottom:4px;">( __ ) تَقْدِيمُ الطَّعَامِ.</div>
+          <div style="margin-bottom:4px;">( __ ) تِلَاوَةُ الْقُرْآنِ الْكَرِيمِ.</div>
+          <div>( __ ) حَفْلَةُ الشَّهَادَةِ.</div>
+        </div>
+        <button class="ans-btn" style="background:var(--purple)" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+        <div class="ans-box" style="border-left-color:var(--purple);background:var(--purple-light)">
+          <div class="ans-tr">(1) تِلَاوَةُ الْقُرْآنِ الْكَرِيمِ — Tilavet<br>(2) حَفْلَةُ الشَّهَادَةِ — Diploma<br>(3) تَقْدِيمُ الطَّعَامِ — Yemek</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODEL 2 -->
+  <div>
+    <div class="model-header" style="background:linear-gradient(135deg,var(--blue) 0%,#4a9fd4 100%)">📝 Model 2 — Anlama & Yazma</div>
+    <div class="model-body" style="border-color:#90b4e0">
+
+      <div class="q-item" style="border-left-color:var(--blue)">
+        <div class="q-num" style="color:var(--blue)">Soru 1 — Diyalog Sorusu</div>
+        <div class="q-text">أَيْنَ يَنْتَظِرُ عَادِلٌ صَدِيقَهُ؟</div>
+        <div class="q-tr">Adil arkadaşını nerede bekliyor?</div>
+        <button class="ans-btn" style="background:var(--blue)" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+        <div class="ans-box" style="border-left-color:var(--blue);background:var(--blue-light)">
+          <div class="ans-arabic">يَنْتَظِرُ عَادِلٌ صَدِيقَهُ أَمَامَ النَّادِي لِلرِّيَاضَةِ.</div>
+          <div class="ans-tr">Adil arkadaşını spor kulübünün önünde bekliyor.</div>
+        </div>
+      </div>
+
+      <div class="q-item" style="border-left-color:var(--blue)">
+        <div class="q-num" style="color:var(--blue)">Soru 2 — Spor Dalı Yaz</div>
+        <div class="q-tr">Bu sporun Arapçasını yaz: <strong>Koşu</strong> 🏃</div>
+        <button class="ans-btn" style="background:var(--blue)" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+        <div class="ans-box" style="border-left-color:var(--blue);background:var(--blue-light)">
+          <div class="ans-arabic">اَلرَّكْضُ</div>
+          <div class="ans-tr">er-Rakdu — Koşu</div>
+        </div>
+      </div>
+
+      <div class="q-item" style="border-left-color:var(--blue)">
+        <div class="q-num" style="color:var(--blue)">Soru 3 — Tekil Yaz</div>
+        <div class="q-text">مَدَارِسُ → ؟</div>
+        <div class="q-tr">"Okullar" kelimesinin tekili nedir?</div>
+        <button class="ans-btn" style="background:var(--blue)" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+        <div class="ans-box" style="border-left-color:var(--blue);background:var(--blue-light)">
+          <div class="ans-arabic">مَدْرَسَةٌ</div>
+          <div class="ans-tr">Medresetün — Okul</div>
+        </div>
+      </div>
+
+      <div class="q-item" style="border-left-color:var(--blue)">
+        <div class="q-num" style="color:var(--blue)">Soru 4 — Türkçeden Arapçaya</div>
+        <div class="q-tr">Türkçe: "İlk yardımı öğreniyorum." cümlesini Arapçaya çevir.</div>
+        <button class="ans-btn" style="background:var(--blue)" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+        <div class="ans-box" style="border-left-color:var(--blue);background:var(--blue-light)">
+          <div class="ans-arabic">أَتَعَلَّمُ الإِسْعَافَاتِ الأَوَّلِيَّةَ.</div>
+          <div class="ans-tr">Ete'allemu'l-is'âfâti'l-evveliyyeh.</div>
+        </div>
+      </div>
+
+      <div class="q-item" style="border-left-color:var(--blue)">
+        <div class="q-num" style="color:var(--blue)">Soru 5 — Mezuniyet Diyalogu</div>
+        <div class="q-text">هَلْ يُرِيدُ يَاوُوز أَنْ يَحْضُرَ مَعَ أَرْتُغْرُل إِلَى الْحَفْلَةِ؟</div>
+        <div class="q-tr">Yavuz, Artugrul ile törene gelmek istiyor mu?</div>
+        <button class="ans-btn" style="background:var(--blue)" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+        <div class="ans-box" style="border-left-color:var(--blue);background:var(--blue-light)">
+          <div class="ans-arabic">نَعَمْ، يُرِيدُ يَاوُوز أَنْ يَحْضُرَ مَعَ أَرْتُغْرُل إِلَى الْحَفْلَةِ.</div>
+          <div class="ans-tr">Evet, Yavuz Artugrul ile törene gelmek istiyor.</div>
+        </div>
+      </div>
+
+      <div class="q-item" style="border-left-color:var(--blue)">
+        <div class="q-num" style="color:var(--blue)">Soru 6 — Olayları Sırala</div>
+        <div class="q-tr">Doğru sırayı bul:</div>
+        <div style="font-family:'Tajawal',serif;direction:rtl;text-align:right;padding:8px 0;font-size:1rem;">
+          <div style="margin-bottom:4px;">( __ ) اَلْحِوَارُ بَيْنَ أَرْتُغْرُل وَيَاوُوز.</div>
+          <div style="margin-bottom:4px;">( __ ) إِقَامَةُ حَفْلَةِ الشَّهَادَةِ.</div>
+          <div style="margin-bottom:4px;">( __ ) تَقْدِيمُ الطَّعَامِ.</div>
+          <div>( __ ) تِلَاوَةُ الْقُرْآنِ الْكَرِيمِ.</div>
+        </div>
+        <button class="ans-btn" style="background:var(--blue)" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+        <div class="ans-box" style="border-left-color:var(--blue);background:var(--blue-light)">
+          <div class="ans-tr">(1) الحوار — Diyalog<br>(2) التلاوة — Tilavet<br>(3) حفلة الشهادة — Diploma<br>(4) تقديم الطعام — Yemek</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODEL 3 -->
+  <div>
+    <div class="model-header" style="background:linear-gradient(135deg,var(--accent2) 0%,var(--accent) 100%)">📝 Model 3 — Tam Tekrar</div>
+    <div class="model-body" style="border-color:#f4c091">
+
+      <div class="q-item" style="border-left-color:var(--accent2)">
+        <div class="q-num" style="color:var(--accent2)">Soru 1 — Diyalog Sorusu</div>
+        <div class="q-text">مَتَى تُمَارِسُ زَيْنَبُ الرِّيَاضَةَ؟</div>
+        <div class="q-tr">Zeynep ne zaman spor yapıyor?</div>
+        <button class="ans-btn" style="background:var(--accent2)" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+        <div class="ans-box" style="border-left-color:var(--accent2);background:#fff3ee">
+          <div class="ans-arabic">تُمَارِسُ زَيْنَبُ الرِّيَاضَةَ كُلَّ يَوْمٍ.</div>
+          <div class="ans-tr">Zeynep her gün spor yapıyor.</div>
+        </div>
+      </div>
+
+      <div class="q-item" style="border-left-color:var(--accent2)">
+        <div class="q-num" style="color:var(--accent2)">Soru 2 — Spor Dalı Yaz</div>
+        <div class="q-tr">Bu sporun Arapçasını yaz: <strong>Tırmanma</strong> 🧗</div>
+        <button class="ans-btn" style="background:var(--accent2)" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+        <div class="ans-box" style="border-left-color:var(--accent2);background:#fff3ee">
+          <div class="ans-arabic">اَلتَّسَلُّقُ</div>
+          <div class="ans-tr">et-Teselluk — Tırmanma</div>
+        </div>
+      </div>
+
+      <div class="q-item" style="border-left-color:var(--accent2)">
+        <div class="q-num" style="color:var(--accent2)">Soru 3 — Tekil Yaz</div>
+        <div class="q-text">طُلَّابٌ → ؟</div>
+        <div class="q-tr">"Öğrenciler" kelimesinin tekili nedir?</div>
+        <button class="ans-btn" style="background:var(--accent2)" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+        <div class="ans-box" style="border-left-color:var(--accent2);background:#fff3ee">
+          <div class="ans-arabic">طَالِبٌ</div>
+          <div class="ans-tr">Tâlibün — Öğrenci</div>
+        </div>
+      </div>
+
+      <div class="q-item" style="border-left-color:var(--accent2)">
+        <div class="q-num" style="color:var(--accent2)">Soru 4 — Türkçeden Arapçaya</div>
+        <div class="q-tr">Türkçe: "İlk yardımı öğreniyorum." — Arapçasını yaz.</div>
+        <button class="ans-btn" style="background:var(--accent2)" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+        <div class="ans-box" style="border-left-color:var(--accent2);background:#fff3ee">
+          <div class="ans-arabic">أَتَعَلَّمُ الإِسْعَافَاتِ الأَوَّلِيَّةَ.</div>
+          <div class="ans-tr">İlk yardımı öğreniyorum.</div>
+        </div>
+      </div>
+
+      <div class="q-item" style="border-left-color:var(--accent2)">
+        <div class="q-num" style="color:var(--accent2)">Soru 5 — Mezuniyet Diyalogu</div>
+        <div class="q-text">فِي أَيِّ سَاعَةٍ سَتَكُونُ حَفْلَةُ التَّخَرُّجِ؟</div>
+        <div class="q-tr">Mezuniyet töreni saat kaçta olacak?</div>
+        <button class="ans-btn" style="background:var(--accent2)" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+        <div class="ans-box" style="border-left-color:var(--accent2);background:#fff3ee">
+          <div class="ans-arabic">سَتَكُونُ حَفْلَةُ التَّخَرُّجِ فِي السَّاعَةِ السَّابِعَةِ مَسَاءً.</div>
+          <div class="ans-tr">Mezuniyet töreni akşam saat yedide olacak.</div>
+        </div>
+      </div>
+
+      <div class="q-item" style="border-left-color:var(--accent2)">
+        <div class="q-num" style="color:var(--accent2)">Soru 6 — Olayları Sırala</div>
+        <div class="q-tr">Bu cümleleri diyaloğa göre doğru sıraya diz:</div>
+        <div style="font-family:'Tajawal',serif;direction:rtl;text-align:right;padding:8px 0;font-size:1rem;">
+          <div style="margin-bottom:4px;">( __ ) بَدْءُ بَرْنَامَجِ الْحَفْلَةِ بِتِلَاوَةِ الْقُرْآنِ الْكَرِيمِ.</div>
+          <div style="margin-bottom:4px;">( __ ) تَقْدِيمُ الطَّعَامِ لِلْحَاضِرِينَ فِي النِّهَايَةِ.</div>
+          <div style="margin-bottom:4px;">( __ ) اَلْحِوَارُ بَيْنَ أَرْتُغْرُل وَيَاوُوز عَنْ حَفْلَةِ التَّخَرُّجِ.</div>
+          <div>( __ ) إِقَامَةُ حَفْلَةِ الشَّهَادَةِ بَعْدَ التِّلَاوَةِ.</div>
+        </div>
+        <button class="ans-btn" style="background:var(--accent2)" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+        <div class="ans-box" style="border-left-color:var(--accent2);background:#fff3ee">
+          <div class="ans-tr"><strong>Doğru Sıra:</strong><br>
+          (1) الحوار — Konuşma<br>
+          (2) بدء التلاوة — Tilavet başlangıcı<br>
+          (3) حفلة الشهادة — Diploma töreni<br>
+          (4) تقديم الطعام — Yemek ikramı</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end models -->
+
+</div><!-- end content -->
+
+<!-- ===================== LISTENING EXAM ===================== -->
+<div id="listening" class="section">
+
+  <!-- HEADER CARD -->
+  <div class="card" style="background:linear-gradient(135deg,#0d3b5e,#1a6b9a);color:white;border:none;">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+      <div style="font-size:2rem;">🎧</div>
+      <div>
+        <div style="font-size:1.1rem;font-weight:800;">Dinleme Sınavı Hazırlığı</div>
+        <div style="font-size:0.82rem;opacity:0.85;">İmtihanda çıkacak kelime ve cümleleri öğren</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── KELIME ÖĞRENMESİ (Soru 1 & 3 için ortak) ── -->
+  <div class="card">
+    <div class="card-title">
+      <div class="icon" style="background:#0d3b5e">📢</div>
+      Soru 1 & 3 — Dinlemede Geçen Kelimeler
+    </div>
+    <div class="rule-box">
+      <div class="rule-title">📌 Bu Kelimeler Neden Önemli?</div>
+      <div class="rule-body">
+        <strong>Soru 1:</strong> Ses kaydında geçen kelimelerin altını çizeceksin — tanıman gerekiyor.<br>
+        <strong>Soru 3:</strong> Dinlediğin kelime ve cümlelerin Türkçe anlamını yazacaksın — ezberlemen gerekiyor.
+      </div>
+    </div>
+
+    <!-- Word 1 -->
+    <div style="border:2px solid #c4b3e8;border-radius:12px;padding:14px;margin-bottom:12px;background:var(--purple-light);">
+      <div style="display:flex;align-items:center;gap:10px;flex-direction:row-reverse;flex-wrap:wrap;">
+        <div style="flex:1;text-align:right;">
+          <div class="arabic arabic-lg" style="color:var(--purple)">الإِسْعَافَاتُ الأَوَّلِيَّةُ</div>
+          <div class="pronunciation">el-İs'âfâtü'l-Evveliyyeh</div>
+        </div>
+        <div style="background:var(--purple);color:white;border-radius:8px;padding:8px 14px;font-weight:800;font-size:0.9rem;white-space:nowrap;">
+          İlk Yardım
+        </div>
+      </div>
+      <div style="margin-top:8px;font-size:0.83rem;color:#556;border-top:1px solid #ddd;padding-top:7px;">
+        🔤 Okunuş: <em>el-is'âfât el-evveliyyeh</em> — "İlk" anlamına gelen <span class="arabic" style="font-size:1rem;">أَوَّلِيَّة</span> ile "yardımlar" anlamına gelen <span class="arabic" style="font-size:1rem;">إِسْعَافَات</span> birleşir.
+      </div>
+    </div>
+
+    <!-- Word 2 -->
+    <div style="border:2px solid #90b4e0;border-radius:12px;padding:14px;margin-bottom:12px;background:var(--blue-light);">
+      <div style="display:flex;align-items:center;gap:10px;flex-direction:row-reverse;flex-wrap:wrap;">
+        <div style="flex:1;text-align:right;">
+          <div class="arabic arabic-lg" style="color:var(--blue)">الأَلْعَابُ الرِّيَاضِيَّةُ</div>
+          <div class="pronunciation">el-El'âbü'r-Riyâdiyyeh</div>
+        </div>
+        <div style="background:var(--blue);color:white;border-radius:8px;padding:8px 14px;font-weight:800;font-size:0.9rem;white-space:nowrap;">
+          Spor Oyunları
+        </div>
+      </div>
+      <div style="margin-top:8px;font-size:0.83rem;color:#556;border-top:1px solid #ddd;padding-top:7px;">
+        🔤 Okunuş: <em>el-el'âb er-riyâdiyyeh</em> — <span class="arabic" style="font-size:1rem;">أَلْعَاب</span> = oyunlar (çoğul), <span class="arabic" style="font-size:1rem;">رِيَاضِيَّة</span> = spor/atletik (sıfat)
+      </div>
+    </div>
+
+    <!-- Word 3 -->
+    <div style="border:2px solid #a8d5a8;border-radius:12px;padding:14px;margin-bottom:12px;background:var(--primary-pale);">
+      <div style="display:flex;align-items:center;gap:10px;flex-direction:row-reverse;flex-wrap:wrap;">
+        <div style="flex:1;text-align:right;">
+          <div class="arabic arabic-lg" style="color:var(--primary)">النَّوَادِي</div>
+          <div class="pronunciation">en-Nevâdî</div>
+        </div>
+        <div style="background:var(--primary);color:white;border-radius:8px;padding:8px 14px;font-weight:800;font-size:0.9rem;white-space:nowrap;">
+          Kulüpler
+        </div>
+      </div>
+      <div style="margin-top:8px;font-size:0.83rem;color:#556;border-top:1px solid #ddd;padding-top:7px;">
+        🔤 Okunuş: <em>en-nevâdî</em> — Tekili: <span class="arabic" style="font-size:1rem;">نَادٍ</span> (nâdin) = kulüp
+      </div>
+    </div>
+
+    <!-- Word 4 -->
+    <div style="border:2px solid var(--gold);border-radius:12px;padding:14px;margin-bottom:12px;background:var(--gold-light);">
+      <div style="display:flex;align-items:center;gap:10px;flex-direction:row-reverse;flex-wrap:wrap;">
+        <div style="flex:1;text-align:right;">
+          <div class="arabic arabic-lg" style="color:#8a6200">أَوْقَاتُ الْفَرَاغِ</div>
+          <div class="pronunciation">Evkâtü'l-Ferâğ</div>
+        </div>
+        <div style="background:#8a6200;color:white;border-radius:8px;padding:8px 14px;font-weight:800;font-size:0.9rem;white-space:nowrap;">
+          Boş Vakitler
+        </div>
+      </div>
+      <div style="margin-top:8px;font-size:0.83rem;color:#556;border-top:1px solid #ddd;padding-top:7px;">
+        🔤 Okunuş: <em>evkât el-ferâğ</em> — <span class="arabic" style="font-size:1rem;">أَوْقَات</span> = vakitler (çoğul), <span class="arabic" style="font-size:1rem;">فَرَاغ</span> = boşluk/boş zaman
+      </div>
+    </div>
+
+    <!-- Word 5 -->
+    <div style="border:2px solid #f4c2b0;border-radius:12px;padding:14px;margin-bottom:12px;background:#fff3ee;">
+      <div style="display:flex;align-items:center;gap:10px;flex-direction:row-reverse;flex-wrap:wrap;">
+        <div style="flex:1;text-align:right;">
+          <div class="arabic arabic-lg" style="color:var(--accent2)">قَوَاعِدُ الرِّيَاضَةِ</div>
+          <div class="pronunciation">Kavâidü'r-Riyâdeh</div>
+        </div>
+        <div style="background:var(--accent2);color:white;border-radius:8px;padding:8px 14px;font-weight:800;font-size:0.9rem;white-space:nowrap;">
+          Spor Kuralları
+        </div>
+      </div>
+      <div style="margin-top:8px;font-size:0.83rem;color:#556;border-top:1px solid #ddd;padding-top:7px;">
+        🔤 Okunuş: <em>kavâid er-riyâdeh</em> — <span class="arabic" style="font-size:1rem;">قَوَاعِد</span> = kurallar (çoğul), <span class="arabic" style="font-size:1rem;">رِيَاضَة</span> = spor
+      </div>
+    </div>
+
+    <!-- Word 6 -->
+    <div style="border:2px solid #ffd180;border-radius:12px;padding:14px;margin-bottom:12px;background:#fffbee;">
+      <div style="display:flex;align-items:center;gap:10px;flex-direction:row-reverse;flex-wrap:wrap;">
+        <div style="flex:1;text-align:right;">
+          <div class="arabic arabic-lg" style="color:#b8600a">كَأْسُ الْعَالَمِ</div>
+          <div class="pronunciation">Ke'sü'l-'Âlem</div>
+        </div>
+        <div style="background:#b8600a;color:white;border-radius:8px;padding:8px 14px;font-weight:800;font-size:0.9rem;white-space:nowrap;">
+          Dünya Kupası
+        </div>
+      </div>
+      <div style="margin-top:8px;font-size:0.83rem;color:#556;border-top:1px solid #ddd;padding-top:7px;">
+        🔤 Okunuş: <em>ke's el-'âlem</em> — <span class="arabic" style="font-size:1rem;">كَأْس</span> = kupa/bardak, <span class="arabic" style="font-size:1rem;">عَالَم</span> = dünya
+      </div>
+    </div>
+
+    <!-- Word 7 -->
+    <div style="border:2px solid #b3d9ff;border-radius:12px;padding:14px;margin-bottom:4px;background:#eaf5ff;">
+      <div style="display:flex;align-items:center;gap:10px;flex-direction:row-reverse;flex-wrap:wrap;">
+        <div style="flex:1;text-align:right;">
+          <div class="arabic arabic-lg" style="color:#005b99">كُرَةُ الْيَدِ</div>
+          <div class="pronunciation">Küretü'l-Yed</div>
+        </div>
+        <div style="background:#005b99;color:white;border-radius:8px;padding:8px 14px;font-weight:800;font-size:0.9rem;white-space:nowrap;">
+          Hentbol
+        </div>
+      </div>
+      <div style="margin-top:8px;font-size:0.83rem;color:#556;border-top:1px solid #ddd;padding-top:7px;">
+        🔤 Okunuş: <em>küret el-yed</em> — <span class="arabic" style="font-size:1rem;">كُرَة</span> = top, <span class="arabic" style="font-size:1rem;">يَد</span> = el → "El topu"
+      </div>
+    </div>
+  </div>
+
+  <!-- SORU 1 -->
+  <div class="card">
+    <div class="card-title">
+      <div class="icon" style="background:#0d3b5e">1</div>
+      Soru 1 — Altını Çiz (20 Puan)
+    </div>
+    <div style="background:#f0f6ff;border:1.5px solid #90b4e0;border-radius:10px;padding:13px 15px;margin-bottom:14px;font-size:0.9rem;color:#1a3a5c;font-weight:700;">
+      📋 Dinlediğiniz ses kaydına göre geçen kelimelerin altını çiziniz.
+    </div>
+
+    <div class="rule-box">
+      <div class="rule-title">📌 Nasıl Hazırlanırsın?</div>
+      <div class="rule-body">
+        Yukarıdaki 7 kelimeyi iyi ezberle. Ses kaydında bu kelimelerden bir kısmı geçecek — geçenlerin altını çizeceksin. Tanımak için okunuşunu bilmen yeterli.
+      </div>
+    </div>
+
+    <div class="practice-header" style="background:linear-gradient(135deg,#0d3b5e,#1a6b9a)">🏋️ Alıştırma — Hangileri Geçti?</div>
+
+    <div class="q-item" style="border-left-color:#0d3b5e;">
+      <div class="q-num" style="color:#0d3b5e;">Alıştırma 1</div>
+      <div class="q-tr">Aşağıdaki listede "Dünya Kupası" anlamına gelen kelimeyi bul ve altını çiz:</div>
+      <div class="arabic" style="direction:rtl;text-align:right;font-size:1.05rem;margin:8px 0;line-height:2.2;">
+        النَّوَادِي — كَأْسُ الْعَالَمِ — أَوْقَاتُ الْفَرَاغِ — الإِسْعَافَاتُ الأَوَّلِيَّةُ
+      </div>
+      <button class="ans-btn" style="background:#0d3b5e" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+      <div class="ans-box" style="border-left-color:#0d3b5e;background:#f0f6ff;">
+        <div class="ans-arabic" style="color:#0d3b5e;">كَأْسُ الْعَالَمِ</div>
+        <div class="ans-tr">Ke'sü'l-'Âlem — Dünya Kupası</div>
+      </div>
+    </div>
+
+    <div class="q-item" style="border-left-color:#0d3b5e;">
+      <div class="q-num" style="color:#0d3b5e;">Alıştırma 2</div>
+      <div class="q-tr">Ses kaydında "Spor Kuralları" geçti. Hangi kelime bu?</div>
+      <div class="arabic" style="direction:rtl;text-align:right;font-size:1.05rem;margin:8px 0;line-height:2.2;">
+        كُرَةُ الْيَدِ — قَوَاعِدُ الرِّيَاضَةِ — النَّوَادِي — كَأْسُ الْعَالَمِ
+      </div>
+      <button class="ans-btn" style="background:#0d3b5e" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+      <div class="ans-box" style="border-left-color:#0d3b5e;background:#f0f6ff;">
+        <div class="ans-arabic" style="color:#0d3b5e;">قَوَاعِدُ الرِّيَاضَةِ</div>
+        <div class="ans-tr">Kavâidü'r-Riyâdeh — Spor Kuralları</div>
+      </div>
+    </div>
+
+    <div class="q-item" style="border-left-color:#0d3b5e;">
+      <div class="q-num" style="color:#0d3b5e;">Alıştırma 3</div>
+      <div class="q-tr">Aşağıdaki listede ses kaydında GEÇEN kelimelerin altını çiz (3 kelime geçiyor):</div>
+      <div class="arabic" style="direction:rtl;text-align:right;font-size:1.05rem;margin:8px 0;line-height:2.5;">
+        النَّوَادِي &nbsp;|&nbsp; كَأْسُ الْعَالَمِ &nbsp;|&nbsp; قَوَاعِدُ الرِّيَاضَةِ &nbsp;|&nbsp; الأَلْعَابُ الرِّيَاضِيَّةُ &nbsp;|&nbsp; الإِسْعَافَاتُ الأَوَّلِيَّةُ &nbsp;|&nbsp; كُرَةُ الْيَدِ
+      </div>
+      <div class="q-tr" style="font-size:0.8rem;color:#888;">(Örnek alıştırma: النَّوَادِي + الأَلْعَابُ الرِّيَاضِيَّةُ + كُرَةُ الْيَدِ geçti diyelim)</div>
+      <button class="ans-btn" style="background:#0d3b5e" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+      <div class="ans-box" style="border-left-color:#0d3b5e;background:#f0f6ff;">
+        <div class="ans-tr">Bu alıştırmada 7 kelimeyi iyi tanıman yeterli. Gerçek sınavda ses kaydını dikkatle dinle ve tanıdığın kelimelerin altını çiz. <strong>Kelime listesini ezberlersen hiç şaşıramazsın!</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SORU 2 -->
+  <div class="card">
+    <div class="card-title">
+      <div class="icon" style="background:#1a5c2a">2</div>
+      Soru 2 — Boşluk Doldur (50 Puan)
+    </div>
+    <div style="background:#f0faf2;border:1.5px solid #a8d5a8;border-radius:10px;padding:13px 15px;margin-bottom:14px;font-size:0.9rem;color:#1a4a25;font-weight:700;">
+      📋 Aşağıdaki boşlukları verilen kelimelerle doldurunuz.
+    </div>
+
+    <!-- Word bank -->
+    <div style="background:white;border:2px dashed var(--primary);border-radius:10px;padding:12px 16px;margin-bottom:16px;">
+      <div style="font-size:0.8rem;font-weight:800;color:var(--primary);margin-bottom:10px;">📦 KELİME BANKASI — Bu 5 kelimeyi öğren:</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end;">
+        <div style="text-align:center;background:var(--primary-pale);border-radius:8px;padding:8px 12px;">
+          <div class="arabic" style="font-size:1.1rem;font-weight:700;color:var(--primary)">لِأَنَّ</div>
+          <div style="font-size:0.75rem;color:#556;">Çünkü</div>
+          <div style="font-size:0.72rem;color:var(--blue);font-style:italic;">Li-enne</div>
+        </div>
+        <div style="text-align:center;background:var(--blue-light);border-radius:8px;padding:8px 12px;">
+          <div class="arabic" style="font-size:1.1rem;font-weight:700;color:var(--blue)">الْمُبَارَاةُ</div>
+          <div style="font-size:0.75rem;color:#556;">Maç</div>
+          <div style="font-size:0.72rem;color:var(--blue);font-style:italic;">el-Mübâreh</div>
+        </div>
+        <div style="text-align:center;background:#fff3ee;border-radius:8px;padding:8px 12px;">
+          <div class="arabic" style="font-size:1.1rem;font-weight:700;color:var(--accent2)">أَحَدَ عَشَرَ</div>
+          <div style="font-size:0.75rem;color:#556;">On bir (11)</div>
+          <div style="font-size:0.72rem;color:var(--blue);font-style:italic;">Ahade 'aşere</div>
+        </div>
+        <div style="text-align:center;background:var(--purple-light);border-radius:8px;padding:8px 12px;">
+          <div class="arabic" style="font-size:1.1rem;font-weight:700;color:var(--purple)">لَكِنْ</div>
+          <div style="font-size:0.75rem;color:#556;">Ama / Fakat</div>
+          <div style="font-size:0.72rem;color:var(--blue);font-style:italic;">Lâkin</div>
+        </div>
+        <div style="text-align:center;background:var(--gold-light);border-radius:8px;padding:8px 12px;">
+          <div class="arabic" style="font-size:1.1rem;font-weight:700;color:#8a6200">الْفَارِغَةُ</div>
+          <div style="font-size:0.75rem;color:#556;">Boş (dişil)</div>
+          <div style="font-size:0.72rem;color:var(--blue);font-style:italic;">el-Fâriğah</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sentences -->
+    <div style="display:flex;flex-direction:column;gap:14px;">
+
+      <!-- Sentence 1 -->
+      <div style="background:var(--gray);border-radius:10px;padding:14px 16px;border-right:4px solid var(--primary);">
+        <div class="arabic" style="direction:rtl;text-align:right;font-size:1.05rem;line-height:2.2;color:var(--dark);">
+          أَنَا أَقْرَأُ الْكُتُبَ فِي أَوْقَاتِ فَرَاغِي، <span style="background:#ffe082;border-radius:4px;padding:0 8px;">............</span> أَحْيَانًا أَلْعَبُ كُرَةَ الْقَدَمِ أَيْضًا.
+        </div>
+        <div style="font-size:0.82rem;color:#667;margin-top:6px;text-align:right;direction:ltr;">Ben boş vakitlerimde kitap okurum, <strong>___</strong> bazen de futbol oynarım.</div>
+        <button class="ans-btn" style="background:var(--primary);margin-top:8px;" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+        <div class="ans-box" style="border-left-color:var(--primary);background:var(--primary-pale);">
+          <div class="ans-arabic" style="color:var(--primary);">لَكِنْ</div>
+          <div class="ans-tr">Lâkin — Ama / Fakat</div>
+        </div>
+      </div>
+
+      <!-- Sentence 2 -->
+      <div style="background:var(--gray);border-radius:10px;padding:14px 16px;border-right:4px solid var(--blue);">
+        <div class="arabic" style="direction:rtl;text-align:right;font-size:1.05rem;line-height:2.2;color:var(--dark);">
+          أَنَا أُمَارِسُ الرِّيَاضَةَ كُلَّ يَوْمٍ، <span style="background:#ffe082;border-radius:4px;padding:0 8px;">............</span> الرِّيَاضَةَ مُفِيدَةٌ.
+        </div>
+        <div style="font-size:0.82rem;color:#667;margin-top:6px;text-align:right;direction:ltr;">Ben her gün spor yaparım, <strong>___</strong> spor faydalıdır.</div>
+        <button class="ans-btn" style="background:var(--blue);margin-top:8px;" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+        <div class="ans-box" style="border-left-color:var(--blue);background:var(--blue-light);">
+          <div class="ans-arabic" style="color:var(--blue);">لِأَنَّ</div>
+          <div class="ans-tr">Li-enne — Çünkü</div>
+        </div>
+      </div>
+
+      <!-- Sentence 3 -->
+      <div style="background:var(--gray);border-radius:10px;padding:14px 16px;border-right:4px solid var(--accent2);">
+        <div class="arabic" style="direction:rtl;text-align:right;font-size:1.05rem;line-height:2.2;color:var(--dark);">
+          تَبْدَأُ <span style="background:#ffe082;border-radius:4px;padding:0 8px;">............</span> فَرِيقَيْنِ فِي السَّاعَةِ الثَّامِنَةِ مَسَاءً.
+        </div>
+        <div style="font-size:0.82rem;color:#667;margin-top:6px;text-align:right;direction:ltr;">İki takım arasındaki <strong>___</strong> akşam saat sekizde başlıyor.</div>
+        <button class="ans-btn" style="background:var(--accent2);margin-top:8px;" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+        <div class="ans-box" style="border-left-color:var(--accent2);background:#fff3ee;">
+          <div class="ans-arabic" style="color:var(--accent2);">الْمُبَارَاةُ</div>
+          <div class="ans-tr">el-Mübâreh — Maç</div>
+        </div>
+      </div>
+
+      <!-- Sentence 4 -->
+      <div style="background:var(--gray);border-radius:10px;padding:14px 16px;border-right:4px solid #8a6200;">
+        <div class="arabic" style="direction:rtl;text-align:right;font-size:1.05rem;line-height:2.2;color:var(--dark);">
+          لَا تَقْضِ وَقْتَكَ بِالأَعْمَالِ <span style="background:#ffe082;border-radius:4px;padding:0 8px;">............</span>!
+        </div>
+        <div style="font-size:0.82rem;color:#667;margin-top:6px;text-align:right;direction:ltr;">Vaktini <strong>___</strong> işlerle geçirme!</div>
+        <button class="ans-btn" style="background:#8a6200;margin-top:8px;" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+        <div class="ans-box" style="border-left-color:#8a6200;background:var(--gold-light);">
+          <div class="ans-arabic" style="color:#8a6200;">الْفَارِغَةِ</div>
+          <div class="ans-tr">el-Fâriğah — Boş (anlamsız / değersiz)</div>
+        </div>
+      </div>
+
+      <!-- Sentence 5 -->
+      <div style="background:var(--gray);border-radius:10px;padding:14px 16px;border-right:4px solid var(--purple);">
+        <div class="arabic" style="direction:rtl;text-align:right;font-size:1.05rem;line-height:2.2;color:var(--dark);">
+          يَلْعَبُ فِي فَرِيقِ كُرَةِ الْقَدَمِ <span style="background:#ffe082;border-radius:4px;padding:0 8px;">............</span> لَاعِبًا.
+        </div>
+        <div style="font-size:0.82rem;color:#667;margin-top:6px;text-align:right;direction:ltr;">Bir futbol takımında <strong>___</strong> oyuncu oynar.</div>
+        <button class="ans-btn" style="background:var(--purple);margin-top:8px;" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+        <div class="ans-box" style="border-left-color:var(--purple);background:var(--purple-light);">
+          <div class="ans-arabic" style="color:var(--purple);">أَحَدَ عَشَرَ</div>
+          <div class="ans-tr">Ahade 'aşere — On bir (11)</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SORU 3 -->
+  <div class="card">
+    <div class="card-title">
+      <div class="icon" style="background:#7a1c1c">3</div>
+      Soru 3 — Türkçe Anlam Yaz (30 Puan)
+    </div>
+    <div style="background:#fdecea;border:1.5px solid #e8a0a0;border-radius:10px;padding:13px 15px;margin-bottom:14px;font-size:0.9rem;color:#7a1c1c;font-weight:700;">
+      📋 Dinlediğiniz ses kaydında geçen kelime ve cümlelerin Türkçe anlamlarını yazınız.
+    </div>
+
+    <div class="rule-box">
+      <div class="rule-title">📌 Hazırlanma Stratejisi</div>
+      <div class="rule-body">
+        Sayfa başındaki 7 kelimeyi çok iyi öğren. Ses kaydında bu kelimeler geçecek ve sen Türkçe anlamını yazacaksın. Aşağıdaki alıştırmalarla pratik yap.
+      </div>
+    </div>
+
+    <div class="practice-header" style="background:linear-gradient(135deg,#7a1c1c,#c0392b)">🏋️ Alıştırma — Türkçe Anlam Yaz</div>
+
+    <div class="q-item" style="border-left-color:#c0392b;">
+      <div class="q-num" style="color:#c0392b;">Alıştırma 1</div>
+      <div class="q-text">النَّوَادِي</div>
+      <div class="q-tr">Bu kelimenin Türkçe anlamı nedir?</div>
+      <button class="ans-btn" style="background:#c0392b" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+      <div class="ans-box" style="border-left-color:#c0392b;background:var(--red-light);">
+        <div class="ans-tr"><strong>Kulüpler</strong> — en-Nevâdî</div>
+      </div>
+    </div>
+
+    <div class="q-item" style="border-left-color:#c0392b;">
+      <div class="q-num" style="color:#c0392b;">Alıştırma 2</div>
+      <div class="q-text">أَوْقَاتُ الْفَرَاغِ</div>
+      <div class="q-tr">Bu kelimenin Türkçe anlamı nedir?</div>
+      <button class="ans-btn" style="background:#c0392b" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+      <div class="ans-box" style="border-left-color:#c0392b;background:var(--red-light);">
+        <div class="ans-tr"><strong>Boş Vakitler</strong> — Evkâtü'l-Ferâğ</div>
+      </div>
+    </div>
+
+    <div class="q-item" style="border-left-color:#c0392b;">
+      <div class="q-num" style="color:#c0392b;">Alıştırma 3</div>
+      <div class="q-text">كَأْسُ الْعَالَمِ</div>
+      <div class="q-tr">Bu kelimenin Türkçe anlamı nedir?</div>
+      <button class="ans-btn" style="background:#c0392b" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+      <div class="ans-box" style="border-left-color:#c0392b;background:var(--red-light);">
+        <div class="ans-tr"><strong>Dünya Kupası</strong> — Ke'sü'l-'Âlem</div>
+      </div>
+    </div>
+
+    <div class="q-item" style="border-left-color:#c0392b;">
+      <div class="q-num" style="color:#c0392b;">Alıştırma 4</div>
+      <div class="q-text">الإِسْعَافَاتُ الأَوَّلِيَّةُ</div>
+      <div class="q-tr">Bu kelimenin Türkçe anlamı nedir?</div>
+      <button class="ans-btn" style="background:#c0392b" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+      <div class="ans-box" style="border-left-color:#c0392b;background:var(--red-light);">
+        <div class="ans-tr"><strong>İlk Yardım</strong> — el-İs'âfâtü'l-Evveliyyeh</div>
+      </div>
+    </div>
+
+    <div class="q-item" style="border-left-color:#c0392b;">
+      <div class="q-num" style="color:#c0392b;">Alıştırma 5</div>
+      <div class="q-text">كُرَةُ الْيَدِ</div>
+      <div class="q-tr">Bu kelimenin Türkçe anlamı nedir?</div>
+      <button class="ans-btn" style="background:#c0392b" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+      <div class="ans-box" style="border-left-color:#c0392b;background:var(--red-light);">
+        <div class="ans-tr"><strong>Hentbol</strong> — Küretü'l-Yed</div>
+      </div>
+    </div>
+
+    <div class="q-item" style="border-left-color:#c0392b;">
+      <div class="q-num" style="color:#c0392b;">Alıştırma 6</div>
+      <div class="q-text">الأَلْعَابُ الرِّيَاضِيَّةُ</div>
+      <div class="q-tr">Bu kelimenin Türkçe anlamı nedir?</div>
+      <button class="ans-btn" style="background:#c0392b" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+      <div class="ans-box" style="border-left-color:#c0392b;background:var(--red-light);">
+        <div class="ans-tr"><strong>Spor Oyunları</strong> — el-El'âbü'r-Riyâdiyyeh</div>
+      </div>
+    </div>
+
+    <div class="q-item" style="border-left-color:#c0392b;">
+      <div class="q-num" style="color:#c0392b;">Alıştırma 7</div>
+      <div class="q-text">قَوَاعِدُ الرِّيَاضَةِ</div>
+      <div class="q-tr">Bu kelimenin Türkçe anlamı nedir?</div>
+      <button class="ans-btn" style="background:#c0392b" onclick="toggleAns(this)">✅ Cevabı Göster</button>
+      <div class="ans-box" style="border-left-color:#c0392b;background:var(--red-light);">
+        <div class="ans-tr"><strong>Spor Kuralları</strong> — Kavâidü'r-Riyâdeh</div>
+      </div>
+    </div>
+
+  </div>
+
+</div><!-- end listening -->
+
+<script>
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  const idx = ['s1','s2','s3','s4','s5','s6','models','listening'].indexOf(id);
+  document.querySelectorAll('.nav-tab')[idx].classList.add('active');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+function toggleAns(btn) {
+  const box = btn.nextElementSibling;
+  const isVisible = box.classList.contains('visible');
+  box.classList.toggle('visible', !isVisible);
+  btn.textContent = isVisible ? '✅ Cevabı Göster' : '🙈 Cevabı Gizle';
+}
+</script>
+
+<!-- ===== Arapça Sesli Okuma (tıkla-dinle) — otomatik eklendi ===== -->
+<script>
+(function(){
+  function hasAr(s){ return /[؀-ۿ]/.test(s||''); }
+  var st=document.createElement('style');
+  st.textContent='.tts-on{background:#ffd84d !important;border-radius:6px;box-shadow:0 0 0 2px #f1b400}';
+  document.head.appendChild(st);
+
+  var arVoice=null, ttsAudio=new Audio();
+  function pickVoice(){ if('speechSynthesis' in window){ var v=window.speechSynthesis.getVoices(); arVoice=v.find(function(x){return /^ar(\b|-|_)/i.test(x.lang);})||null; } }
+  if('speechSynthesis' in window){ pickVoice(); window.speechSynthesis.onvoiceschanged=pickVoice; }
+  function clearHi(){ var a=document.querySelectorAll('.tts-on'); for(var i=0;i<a.length;i++) a[i].classList.remove('tts-on'); }
+
+  function speakLocal(ar, el){
+    if(!('speechSynthesis' in window) || !arVoice){ if(el) el.classList.remove('tts-on'); return; }
+    window.speechSynthesis.cancel();
+    var u=new SpeechSynthesisUtterance(ar);
+    u.lang='ar-SA'; u.rate=0.8; u.voice=arVoice;
+    u.onend=function(){ if(el) el.classList.remove('tts-on'); };
+    u.onerror=function(){ if(el) el.classList.remove('tts-on'); };
+    window.speechSynthesis.speak(u);
+  }
+
+  function say(el, raw){
+    var m=(raw||'').match(/[؀-ۿـٰ\s]+/g);
+    var ar=m?m.join(' ').replace(/\s+/g,' ').trim():'';
+    if(!ar) return;
+    if(ar.length>200) ar=ar.slice(0,200);
+
+    // Tek ses elemanı: yeni tıklamada öncekini kesin durdurur (asla iki ses)
+    try{ ttsAudio.pause(); }catch(e){}
+    if('speechSynthesis' in window) window.speechSynthesis.cancel();
+    clearHi(); if(el) el.classList.add('tts-on');
+
+    var q=encodeURIComponent(ar);
+    var urls=[
+      'https://translate.googleapis.com/translate_tts?ie=UTF-8&tl=ar&client=gtx&q='+q,
+      'https://translate.google.com/translate_tts?ie=UTF-8&tl=ar&client=tw-ob&q='+q
+    ];
+    var idx=0, started=false;
+    ttsAudio.onplaying=function(){ started=true; };
+    ttsAudio.onended=function(){ if(el) el.classList.remove('tts-on'); };
+    ttsAudio.onerror=function(){
+      if(started){ if(el) el.classList.remove('tts-on'); return; }
+      idx++;
+      if(idx<urls.length){ ttsAudio.src=urls[idx]; var pp=ttsAudio.play(); if(pp&&pp.catch) pp.catch(function(){}); }
+      else speakLocal(ar, el);
+    };
+    ttsAudio.src=urls[0];
+    var p=ttsAudio.play(); if(p&&p.catch) p.catch(function(){});
+  }
+
+  document.addEventListener('click', function(e){
+    var t=e.target;
+    if(t.closest && t.closest('button,input,textarea,select,a[href],label')) return;
+    if(!hasAr(t.textContent)) return;
+    say(t, t.textContent);
+  }, true);
+
+  document.addEventListener('mouseover', function(e){
+    var t=e.target;
+    if(t.nodeType!==1) return;
+    if(t.closest && t.closest('button,input,textarea,select,a[href],label')) return;
+    if(t.children && t.children.length===0 && hasAr(t.textContent)) t.style.cursor='pointer';
+  });
+})();
+</script>
+</body>
+</html>

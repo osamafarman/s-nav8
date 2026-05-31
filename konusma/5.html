@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta name="referrer" content="no-referrer">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kişisel Konuşma Rehberi - Arapça 5. Sınıf</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Cairo',sans-serif;background:#eef0f8;min-height:100vh;padding:24px 16px;}
+
+/* ── CONTAINER ── */
+.container{max-width:960px;margin:0 auto;background:#fff;border-radius:20px;box-shadow:0 8px 40px rgba(80,80,180,.15);overflow:hidden;}
+
+/* ── HEADER ── */
+header{background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;padding:44px 30px 36px;text-align:center;position:relative;}
+header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:6px;background:linear-gradient(90deg,#f59e0b,#ef4444,#10b981,#3b82f6,#8b5cf6);}
+header h1{font-size:2.2em;font-weight:900;letter-spacing:.5px;margin-bottom:8px;}
+header .subtitle{font-size:1.05em;opacity:.9;background:rgba(255,255,255,.12);display:inline-block;padding:6px 20px;border-radius:30px;margin-top:4px;}
+
+/* ── TABS ── */
+.tabs{display:flex;background:#f8f8fc;border-bottom:2px solid #e5e7f0;overflow-x:auto;}
+.tab-btn{flex:1;min-width:120px;padding:16px 8px;border:none;background:transparent;cursor:pointer;font-family:'Cairo',sans-serif;font-size:.95em;font-weight:700;color:#6b7280;border-bottom:3px solid transparent;transition:all .25s;white-space:nowrap;}
+.tab-btn:hover{color:#4f46e5;background:#f0effe;}
+.tab-btn.active{color:#4f46e5;border-bottom-color:#4f46e5;background:#fff;}
+
+/* ── TAB CONTENT ── */
+.tab-pane{display:none;padding:32px 28px;animation:fadeIn .3s;}
+.tab-pane.active{display:block;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── HEADINGS ── */
+.sec-title{font-size:1.5em;font-weight:800;color:#4f46e5;margin-bottom:22px;padding-bottom:10px;border-bottom:3px solid #e5e7ff;display:flex;align-items:center;gap:10px;}
+
+/* ── INFO / WARNING BOXES ── */
+.box{padding:16px 18px;border-radius:12px;margin-bottom:20px;line-height:1.75;}
+.box-yellow{background:#fefce8;border-right:5px solid #f59e0b;}
+.box-yellow strong{color:#92400e;}
+.box-blue{background:#eff6ff;border-right:5px solid #3b82f6;}
+.box-blue strong{color:#1e40af;}
+.box-green{background:#f0fdf4;border-right:5px solid #22c55e;}
+.box-green strong{color:#15803d;}
+
+/* ── VOCAB TABLE ── */
+.vtable{width:100%;border-collapse:collapse;margin-bottom:28px;border-radius:12px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.07);}
+.vtable th{background:#4f46e5;color:#fff;padding:13px 16px;text-align:right;font-size:.95em;font-weight:700;}
+.vtable td{padding:13px 16px;border-bottom:1px solid #f0f0f8;text-align:right;font-size:.97em;}
+.vtable tr:last-child td{border-bottom:none;}
+.vtable tr:hover td{background:#f8f8ff;}
+.ar{font-size:1.25em;font-weight:700;color:#4f46e5;}
+.pr{color:#7c3aed;font-style:italic;}
+.tr{color:#374151;font-weight:600;}
+
+/* ── COLOR LEGEND ── */
+.legend{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:8px;margin-bottom:24px;padding:16px;background:#fafafa;border-radius:12px;border:1px solid #ebe9f8;}
+.legend-item{display:flex;align-items:center;gap:8px;font-size:.88em;font-weight:600;color:#374151;}
+.lc{width:18px;height:18px;border-radius:4px;flex-shrink:0;}
+
+/* ── WORD CHIPS ── */
+.w{display:inline-block;padding:3px 7px;border-radius:5px;cursor:help;position:relative;font-weight:700;transition:transform .15s,box-shadow .15s;line-height:1.7;}
+.w:hover{transform:scale(1.12);box-shadow:0 4px 12px rgba(0,0,0,.18);z-index:10;}
+.w .tip{visibility:hidden;position:absolute;bottom:calc(100% + 6px);right:50%;transform:translateX(50%);background:#1e1b4b;color:#fff;padding:6px 11px;border-radius:8px;font-size:.8em;font-weight:600;white-space:nowrap;box-shadow:0 4px 14px rgba(0,0,0,.25);pointer-events:none;z-index:999;}
+.w .tip::after{content:'';position:absolute;top:100%;right:50%;transform:translateX(50%);border:5px solid transparent;border-top-color:#1e1b4b;}
+.w:hover .tip{visibility:visible;}
+
+/* COLORS */
+.c1{background:#fee2e2;color:#991b1b;}   /* تحية */
+.c2{background:#dbeafe;color:#1e40af;}   /* اسم/صف */
+.c3{background:#d1fae5;color:#065f46;}   /* وصف بيت */
+.c4{background:#fce7f3;color:#9d174d;}   /* غرف */
+.c5{background:#fef3c7;color:#92400e;}   /* أثاث */
+.c6{background:#ede9fe;color:#5b21b6;}   /* صفات */
+.c7{background:#cffafe;color:#164e63;}   /* مشاعر/خاتمة */
+
+/* ── MODEL CARD ── */
+.model-card{background:#fafbff;border:1.5px solid #e5e7ff;border-right:5px solid #4f46e5;border-radius:14px;padding:24px;margin-bottom:28px;}
+.model-badge{display:inline-flex;align-items:center;gap:6px;background:#4f46e5;color:#fff;padding:6px 16px;border-radius:20px;font-size:.88em;font-weight:800;margin-bottom:16px;}
+.para-ar{font-size:1.12em;line-height:2.4;margin-bottom:0;}
+.pronunc{background:#f5f3ff;border-right:4px solid #7c3aed;padding:14px 16px;border-radius:8px;margin-top:16px;color:#5b21b6;font-size:.9em;line-height:1.8;}
+.pronunc strong{color:#4f46e5;}
+.pronunc-title{font-weight:800;color:#4f46e5;margin-bottom:6px;font-size:.95em;display:block;}
+.tr-box{background:#f0fdf4;border-right:4px solid #22c55e;padding:14px 16px;border-radius:8px;margin-top:12px;color:#065f46;font-size:.93em;line-height:1.8;}
+.tr-title{font-weight:800;color:#15803d;margin-bottom:6px;font-size:.95em;display:block;}
+
+/* ── COPY BTN ── */
+.copy-btn{margin-top:14px;display:inline-flex;align-items:center;gap:6px;background:#4f46e5;color:#fff;border:none;padding:9px 18px;border-radius:8px;cursor:pointer;font-family:'Cairo',sans-serif;font-weight:700;font-size:.9em;transition:all .2s;}
+.copy-btn:hover{background:#4338ca;transform:translateY(-2px);box-shadow:0 4px 12px rgba(79,70,229,.35);}
+.copied{display:none;background:#22c55e;color:#fff;padding:9px 18px;border-radius:8px;font-weight:700;font-size:.9em;margin-top:14px;}
+
+/* ── PRACTICE ── */
+.practice-card{background:#f0fdf4;border-right:5px solid #22c55e;border-radius:12px;padding:20px;margin-bottom:20px;}
+.practice-title{color:#15803d;font-weight:800;font-size:1.05em;margin-bottom:12px;}
+.practice-card ul{padding-right:20px;}
+.practice-card li{color:#374151;margin-bottom:8px;line-height:1.6;}
+.tips-card{background:#eff6ff;border-right:5px solid #3b82f6;border-radius:12px;padding:20px;margin-bottom:20px;}
+.tips-card p{color:#1e40af;margin-bottom:10px;line-height:1.6;}
+
+/* ── FOOTER ── */
+footer{background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;padding:24px;text-align:center;}
+footer p{opacity:.9;font-size:.95em;}
+footer .year{font-weight:800;font-size:1.05em;margin-bottom:4px;}
+
+/* ── INPUT ── */
+input,textarea{width:100%;padding:10px 12px;margin-top:6px;border:1.5px solid #ddd;border-radius:8px;font-family:'Cairo',sans-serif;font-size:.97em;outline:none;transition:border .2s;}
+input:focus,textarea:focus{border-color:#4f46e5;}
+textarea{height:110px;resize:vertical;}
+label{color:#374151;font-weight:700;display:block;margin-top:14px;}
+
+@media(max-width:640px){
+  header h1{font-size:1.6em;}
+  .tab-pane{padding:20px 14px;}
+  .model-card{padding:16px;}
+  .para-ar{font-size:1em;}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- HEADER -->
+<header>
+  <h1>🎙️ Kişisel Konuşma Rehberi</h1>
+  <div class="subtitle">Arapça · 5. Sınıf · Kendinizi ve Evinizi Tanıtın</div>
+</header>
+
+<!-- TABS -->
+<div class="tabs">
+  <button class="tab-btn active" onclick="openTab(event,'t-learn')">📚 Öğren</button>
+  <button class="tab-btn" onclick="openTab(event,'t-vocab')">📖 Kelimeler</button>
+  <button class="tab-btn" onclick="openTab(event,'t-models')">⭐ 5 Model</button>
+  <button class="tab-btn" onclick="openTab(event,'t-practice')">✏️ Pratik Yap</button>
+</div>
+
+<!-- ═══════════════ TAB 1: ÖĞREN ═══════════════ -->
+<div id="t-learn" class="tab-pane active">
+  <h2 class="sec-title">📚 Bu Görev Nedir?</h2>
+  <div class="box box-yellow">
+    <strong>🎯 Hedef:</strong> Siz tek başınıza bir konuşma paragrafı hazırlayacaksınız.<br>
+    ✓ Adınızı ve sınıfınızı söyleyeceksiniz<br>
+    ✓ Evinizi tarif edeceksiniz<br>
+    ✓ Her odada ne olduğunu anlatacaksınız
+  </div>
+
+  <h3 style="color:#4f46e5;margin:24px 0 14px;font-size:1.15em;">❓ Neden Bunu Öğreniyoruz?</h3>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;">
+    <div style="background:#eff6ff;padding:14px;border-radius:10px;border-right:4px solid #3b82f6;">
+      <strong style="color:#1e40af;">🗣️ Konuşma Becerisi</strong>
+      <p style="color:#374151;margin-top:6px;font-size:.93em;line-height:1.6;">Kendinizi ve evinizi Arapçayla doğal biçimde anlatmayı öğrenirsiniz.</p>
+    </div>
+    <div style="background:#fdf4ff;padding:14px;border-radius:10px;border-right:4px solid #a855f7;">
+      <strong style="color:#7e22ce;">📝 Kelime Hazinesi</strong>
+      <p style="color:#374151;margin-top:6px;font-size:.93em;line-height:1.6;">Ev, oda ve mobilya kelimelerini gerçek cümlelerde kullanmayı öğrenirsiniz.</p>
+    </div>
+    <div style="background:#f0fdf4;padding:14px;border-radius:10px;border-right:4px solid #22c55e;">
+      <strong style="color:#15803d;">💪 Özgüven</strong>
+      <p style="color:#374151;margin-top:6px;font-size:.93em;line-height:1.6;">Kendi paragrafınızı hazırlamak Arapçada çok daha güvenli hissettirir.</p>
+    </div>
+    <div style="background:#fefce8;padding:14px;border-radius:10px;border-right:4px solid #eab308;">
+      <strong style="color:#854d0e;">🎓 Başarı</strong>
+      <p style="color:#374151;margin-top:6px;font-size:.93em;line-height:1.6;">Sınıf önünde akıcı konuşmak sizi en başarılı öğrenci yapar!</p>
+    </div>
+  </div>
+
+  <h3 style="color:#4f46e5;margin:20px 0 12px;font-size:1.15em;">🛠️ Paragrafı Nasıl Yazarız? (4 Adım)</h3>
+  <div style="display:flex;flex-direction:column;gap:10px;">
+    <div style="display:flex;align-items:flex-start;gap:12px;background:#f8f8ff;padding:14px;border-radius:10px;">
+      <div style="background:#4f46e5;color:#fff;min-width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.1em;">1</div>
+      <div><strong style="color:#4f46e5;">Kendinizi Tanıtın</strong><br><span style="color:#374151;font-size:.93em;">اِسْمِي أَحْمَد وَأَنَا فِي الصَّفِ الخَامِس — Adım Ahmet ve ben 5. sınıftayım</span></div>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:12px;background:#f8f8ff;padding:14px;border-radius:10px;">
+      <div style="background:#4f46e5;color:#fff;min-width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.1em;">2</div>
+      <div><strong style="color:#4f46e5;">Evi Tarif Edin</strong><br><span style="color:#374151;font-size:.93em;">بَيْتِي كَبِيرٌ وَجَمِيلٌ وَنَظِيفٌ — Evim büyük, güzel ve temiz</span></div>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:12px;background:#f8f8ff;padding:14px;border-radius:10px;">
+      <div style="background:#4f46e5;color:#fff;min-width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.1em;">3</div>
+      <div><strong style="color:#4f46e5;">Odaları Sayın</strong><br><span style="color:#374151;font-size:.93em;">يُوجَدُ فِي بَيْتِي صَالَةٌ وَمَطْبَخٌ وَحَمَّامٌ — Evimde salon, mutfak ve banyo var</span></div>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:12px;background:#f8f8ff;padding:14px;border-radius:10px;">
+      <div style="background:#4f46e5;color:#fff;min-width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.1em;">4</div>
+      <div><strong style="color:#4f46e5;">Eşyaları Anlatın</strong><br><span style="color:#374151;font-size:.93em;">فِي الصَّالَةِ أَرِيكَةٌ وَسَجَّادَةٌ — Salonda kanape ve halı var</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ TAB 2: KELIMELER ═══════════════ -->
+<div id="t-vocab" class="tab-pane">
+  <h2 class="sec-title">📖 Gerekli Kelimeler</h2>
+  <div class="box box-blue"><strong>💡 İpucu:</strong> Bu kelimeleri çok iyi öğrenin — modellerde hepsini kullanacaksınız!</div>
+
+  <h3 style="color:#4f46e5;margin:20px 0 12px;">🏠 Evin Odaları</h3>
+  <table class="vtable">
+    <thead><tr><th>Arapça</th><th>Telaffuz</th><th>Türkçe</th></tr></thead>
+    <tbody>
+      <tr><td class="ar">بَيْت</td><td class="pr">Bayt</td><td class="tr">Ev</td></tr>
+      <tr><td class="ar">صَالَة</td><td class="pr">Sala</td><td class="tr">Salon / Giriş odası</td></tr>
+      <tr><td class="ar">غُرْفَةُ الْجُلُوس</td><td class="pr">Gurfetul culoos</td><td class="tr">Oturma odası</td></tr>
+      <tr><td class="ar">غُرْفَةُ النَّوْم</td><td class="pr">Gurfetun neum</td><td class="tr">Yatak odası</td></tr>
+      <tr><td class="ar">غُرْفَةُ الْأَطْفَال</td><td class="pr">Gurfetul atfal</td><td class="tr">Çocuk odası</td></tr>
+      <tr><td class="ar">مَطْبَخ</td><td class="pr">Matbakh</td><td class="tr">Mutfak</td></tr>
+      <tr><td class="ar">حَمَّام</td><td class="pr">Hammam</td><td class="tr">Banyo</td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="color:#4f46e5;margin:20px 0 12px;">🛋️ Mobilya ve Eşyalar</h3>
+  <table class="vtable">
+    <thead><tr><th>Arapça</th><th>Telaffuz</th><th>Türkçe</th></tr></thead>
+    <tbody>
+      <tr><td class="ar">أَرِيكَة</td><td class="pr">Arika</td><td class="tr">Kanape / Koltuk</td></tr>
+      <tr><td class="ar">سَجَّادَة</td><td class="pr">Sajada</td><td class="tr">Halı</td></tr>
+      <tr><td class="ar">ثَلَّاجَة</td><td class="pr">Thallaja</td><td class="tr">Buzdolabı</td></tr>
+      <tr><td class="ar">فُرْن</td><td class="pr">Furn</td><td class="tr">Fırın</td></tr>
+      <tr><td class="ar">غَسَّالَة</td><td class="pr">Gavvala</td><td class="tr">Çamaşır makinesi</td></tr>
+      <tr><td class="ar">سَرِير</td><td class="pr">Sarir</td><td class="tr">Yatak</td></tr>
+      <tr><td class="ar">خِزَانَة</td><td class="pr">Khizana</td><td class="tr">Dolap</td></tr>
+      <tr><td class="ar">تِلْفَاز</td><td class="pr">Tilvaz</td><td class="tr">Televizyon</td></tr>
+      <tr><td class="ar">طَاوِلَة</td><td class="pr">Tavila</td><td class="tr">Masa</td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="color:#4f46e5;margin:20px 0 12px;">✨ Sıfatlar</h3>
+  <table class="vtable">
+    <thead><tr><th>Arapça</th><th>Telaffuz</th><th>Türkçe</th></tr></thead>
+    <tbody>
+      <tr><td class="ar">جَمِيل</td><td class="pr">Jamil</td><td class="tr">Güzel</td></tr>
+      <tr><td class="ar">كَبِير</td><td class="pr">Kabir</td><td class="tr">Büyük</td></tr>
+      <tr><td class="ar">نَظِيف</td><td class="pr">Nazif</td><td class="tr">Temiz</td></tr>
+      <tr><td class="ar">جَدِيد</td><td class="pr">Jadid</td><td class="tr">Yeni</td></tr>
+      <tr><td class="ar">قَدِيم</td><td class="pr">Kadim</td><td class="tr">Eski</td></tr>
+      <tr><td class="ar">كَبِير / صَغِير</td><td class="pr">Kabir / Sagir</td><td class="tr">Büyük / Küçük</td></tr>
+      <tr><td class="ar">مُرِيح</td><td class="pr">Murih</td><td class="tr">Rahat</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ═══════════════ TAB 3: MODELLER ═══════════════ -->
+<div id="t-models" class="tab-pane">
+  <h2 class="sec-title">⭐ 5 Hazır Model Paragraf</h2>
+
+  <div class="box box-blue">
+    <strong>💡 Nasıl kullanılır?</strong> Herhangi bir <strong>renkli kelime</strong>nin üzerine gelin — telaffuz ve Türkçe anlam görünür! En çok beğendiğiniz modeli seçip ezberleyin.
+  </div>
+
+  <!-- RENK AÇIKLAMASI -->
+  <div class="legend">
+    <div class="legend-item"><div class="lc" style="background:#fee2e2;border:1.5px solid #fca5a5;"></div>Selamlaşma</div>
+    <div class="legend-item"><div class="lc" style="background:#dbeafe;border:1.5px solid #93c5fd;"></div>Ad &amp; Sınıf</div>
+    <div class="legend-item"><div class="lc" style="background:#d1fae5;border:1.5px solid #6ee7b7;"></div>Ev Tariflemesi</div>
+    <div class="legend-item"><div class="lc" style="background:#fce7f3;border:1.5px solid #f9a8d4;"></div>Odalar</div>
+    <div class="legend-item"><div class="lc" style="background:#fef3c7;border:1.5px solid #fcd34d;"></div>Mobilya &amp; Eşya</div>
+    <div class="legend-item"><div class="lc" style="background:#ede9fe;border:1.5px solid #c4b5fd;"></div>Sıfatlar</div>
+    <div class="legend-item"><div class="lc" style="background:#cffafe;border:1.5px solid #67e8f9;"></div>Duygu &amp; Kapanış</div>
+  </div>
+
+  <!-- ── MODEL 1 ── -->
+  <div class="model-card">
+    <div class="model-badge">📌 MODEL 1 — Ahmed</div>
+    <div class="para-ar">
+      <span class="w c1">مَرْحَبًا<span class="tip">Merhaba | Merhabalar</span></span>،
+      <span class="w c2">اِسْمِي<span class="tip">İsmi | Benim adım</span></span>
+      <span class="w c2">أَحْمَد<span class="tip">Ahmet | (ad)</span></span>
+      وَ<span class="w c2">أَنَا<span class="tip">Ene | Ben</span></span>
+      <span class="w c2">فِي<span class="tip">Fi | -da / içinde</span></span>
+      <span class="w c2">الصَّفِ<span class="tip">Essıf | Sınıf</span></span>
+      <span class="w c2">الخَامِس<span class="tip">Elkhamis | Beşinci</span></span>.
+      <span class="w c3">بَيْتِي<span class="tip">Bayti | Evim</span></span>
+      <span class="w c6">جَمِيلٌ<span class="tip">Jamil | Güzel</span></span>
+      <span class="w c3">جِدًّا<span class="tip">Cidden | Çok</span></span>
+      وَ<span class="w c6">كَبِيرٌ<span class="tip">Kabir | Büyük</span></span>.
+      <span class="w c3">يُوجَدُ<span class="tip">Yuujud | Vardır</span></span>
+      <span class="w c3">فِي<span class="tip">Fi | İçinde</span></span>
+      <span class="w c3">بَيْتِي<span class="tip">Bayti | Evim</span></span>
+      <span class="w c4">صَالَةٌ<span class="tip">Sala | Salon</span></span>
+      وَ<span class="w c4">غُرْفَةُ الْجُلُوس<span class="tip">Gurfetul culoos | Oturma odası</span></span>
+      وَ<span class="w c4">غُرْفَةُ النَّوْم<span class="tip">Gurfetun neum | Yatak odası</span></span>
+      وَ<span class="w c4">مَطْبَخٌ<span class="tip">Matbakh | Mutfak</span></span>
+      وَ<span class="w c4">حَمَّامٌ<span class="tip">Hammam | Banyo</span></span>.
+      <span class="w c5">فِي الصَّالَةِ<span class="tip">Fi essala | Salonda</span></span>
+      <span class="w c5">أَرِيكَةٌ<span class="tip">Arika | Kanape</span></span>
+      <span class="w c6">جَدِيدَةٌ<span class="tip">Jadida | Yeni</span></span>
+      وَ<span class="w c5">سَجَّادَةٌ<span class="tip">Sajada | Halı</span></span>
+      <span class="w c6">جَمِيلَةٌ<span class="tip">Jamila | Güzel</span></span>.
+      وَ<span class="w c5">فِي الْمَطْبَخِ<span class="tip">Fi elmatkakh | Mutfakta</span></span>
+      <span class="w c5">ثَلَّاجَةٌ<span class="tip">Thallaja | Buzdolabı</span></span>
+      وَ<span class="w c5">فُرْنٌ<span class="tip">Furn | Fırın</span></span>
+      <span class="w c6">حَدِيثٌ<span class="tip">Hadith | Modern / Yeni</span></span>.
+      <span class="w c3">بَيْتِي<span class="tip">Bayti | Evim</span></span>
+      <span class="w c6">نَظِيفٌ<span class="tip">Nazif | Temiz</span></span>
+      وَ<span class="w c7">أَنَا<span class="tip">Ene | Ben</span></span>
+      <span class="w c7">سَعِيدٌ<span class="tip">Saaid | Mutlu</span></span>
+      <span class="w c7">فِيهِ<span class="tip">Fihi | Orada</span></span>.
+    </div>
+    <div class="pronunc">
+      <span class="pronunc-title">🔊 Tam Telaffuz:</span>
+      Merhaba, <strong>ismi Ahmet ve ene fi essıfful khames</strong>. <strong>Bayti jamil cidden ve kabir</strong>. <strong>Yuujud fi bayti sala ve gurfetul culoos ve gurfetun neum ve matbakh ve hammam</strong>. <strong>Fi essala arika jadida ve sajada jamila</strong>. Ve <strong>fi elmatkakh thallaja ve furn hadith</strong>. <strong>Bayti nazif ve ene saaid fihi</strong>.
+    </div>
+    <div class="tr-box">
+      <span class="tr-title">🇹🇷 Türkçe Çevirisi:</span>
+      Merhaba, adım Ahmet ve ben 5. sınıftayım. Evim çok güzel ve büyük. Evimde salon, oturma odası, yatak odası, mutfak ve banyo var. Salonda yeni kanape ve güzel halı var. Mutfakta buzdolabı ve modern fırın var. Evim temiz ve ben burada mutluyum.
+    </div>
+    <button class="copy-btn" onclick="doCopy(this)">📋 Kopyala</button>
+    <div class="copied">✓ Kopyalandı!</div>
+  </div>
+
+  <!-- ── MODEL 2 ── -->
+  <div class="model-card">
+    <div class="model-badge">📌 MODEL 2 — Fatma</div>
+    <div class="para-ar">
+      <span class="w c1">السَّلامُ عَلَيْكُمْ<span class="tip">Essalam alaikum | Selamlar</span></span>!
+      <span class="w c2">اِسْمِي<span class="tip">İsmi | Benim adım</span></span>
+      <span class="w c2">فَاطِمَةُ<span class="tip">Fatima | Fatma (ad)</span></span>
+      وَ<span class="w c2">أَنَا<span class="tip">Ene | Ben</span></span>
+      <span class="w c2">تِلْمِيذَةٌ<span class="tip">Tilmiza | Öğrenci (kız)</span></span>
+      <span class="w c2">فِي الصَّفِ الخَامِس<span class="tip">Fi essıfful khames | 5. sınıfta</span></span>.
+      <span class="w c3">بَيْتُنَا<span class="tip">Baytena | Evimiz</span></span>
+      <span class="w c6">نَظِيفٌ<span class="tip">Nazif | Temiz</span></span>
+      <span class="w c3">جِدًّا<span class="tip">Cidden | Çok</span></span>
+      وَ<span class="w c6">مُرَتَّبٌ<span class="tip">Muratab | Düzenli</span></span>.
+      <span class="w c3">يُوجَدُ فِي بَيْتِنَا<span class="tip">Yuujud fi baytena | Evimizde vardır</span></span>
+      <span class="w c4">صَالَةٌ<span class="tip">Sala | Salon</span></span>
+      <span class="w c6">كَبِيرَةٌ<span class="tip">Kabira | Büyük</span></span>
+      وَ<span class="w c4">غُرْفَةُ نَوْمٍ<span class="tip">Gurfetu neum | Yatak odası</span></span>
+      وَ<span class="w c4">غُرْفَةٌ لِلدِّرَاسَةِ<span class="tip">Gurfe lildirasa | Çalışma odası</span></span>
+      وَ<span class="w c4">مَطْبَخٌ<span class="tip">Matbakh | Mutfak</span></span>
+      <span class="w c6">حَدِيثٌ<span class="tip">Hadith | Modern</span></span>
+      وَ<span class="w c4">حَمَّامٌ<span class="tip">Hammam | Banyo</span></span>.
+      <span class="w c5">فِي الصَّالَةِ<span class="tip">Fi essala | Salonda</span></span>
+      <span class="w c5">أَرِيكَةٌ<span class="tip">Arika | Kanape</span></span>
+      <span class="w c6">رَمَادِيَّةٌ<span class="tip">Ramadiyya | Gri renkli</span></span>
+      وَ<span class="w c5">سَجَّادَةٌ<span class="tip">Sajada | Halı</span></span>
+      <span class="w c6">جَمِيلَةٌ<span class="tip">Jamila | Güzel</span></span>
+      وَ<span class="w c5">تِلْفَازٌ<span class="tip">Tilvaz | Televizyon</span></span>
+      <span class="w c6">كَبِيرٌ<span class="tip">Kabir | Büyük</span></span>.
+      <span class="w c7">أَنَا<span class="tip">Ene | Ben</span></span>
+      <span class="w c7">أُحِبُّ<span class="tip">Uhibu | Seviyorum</span></span>
+      <span class="w c7">بَيْتِي<span class="tip">Bayti | Evim</span></span>
+      <span class="w c7">كَثِيرًا<span class="tip">Kathira | Çok</span></span>.
+    </div>
+    <div class="pronunc">
+      <span class="pronunc-title">🔊 Tam Telaffuz:</span>
+      Essalam alaikum! <strong>İsmi Fatima ve ene tilmiza fi essıfful khames</strong>. <strong>Baytena nazif cidden ve muratab</strong>. <strong>Yuujud fi baytena sala kabira ve gurfetu neum ve gurfe lildirasa ve matbakh hadith ve hammam</strong>. <strong>Fi essala arika ramadiyya ve sajada jamila ve tilvaz kabir</strong>. <strong>Ene uhibu bayti kathira</strong>.
+    </div>
+    <div class="tr-box">
+      <span class="tr-title">🇹🇷 Türkçe Çevirisi:</span>
+      Selamlar! Adım Fatma ve ben 5. sınıf öğrencisiyim. Evimiz çok temiz ve düzenli. Evimizde büyük salon, yatak odası, çalışma odası, modern mutfak ve banyo var. Salonda gri kanape, güzel halı ve büyük televizyon var. Evimi çok seviyorum.
+    </div>
+    <button class="copy-btn" onclick="doCopy(this)">📋 Kopyala</button>
+    <div class="copied">✓ Kopyalandı!</div>
+  </div>
+
+  <!-- ── MODEL 3 ── -->
+  <div class="model-card">
+    <div class="model-badge">📌 MODEL 3 — Ali</div>
+    <div class="para-ar">
+      <span class="w c1">مَرْحَبًا بِكُمْ<span class="tip">Merhaba bikum | Herkese merhaba</span></span>!
+      <span class="w c2">أَنَا<span class="tip">Ene | Ben</span></span>
+      <span class="w c2">عَلِيٌّ<span class="tip">Ali | Ali (ad)</span></span>
+      وَ<span class="w c2">طَالِبٌ<span class="tip">Taleb | Öğrenci</span></span>
+      <span class="w c2">فِي الصَّفِ الخَامِس<span class="tip">Fi essıfful khames | 5. sınıfta</span></span>.
+      <span class="w c3">بَيْتِي<span class="tip">Bayti | Evim</span></span>
+      <span class="w c6">بَسِيطٌ<span class="tip">Basit | Basit</span></span>
+      وَلَكِنَّهُ
+      <span class="w c6">جَمِيلٌ<span class="tip">Jamil | Güzel</span></span>
+      <span class="w c3">جِدًّا<span class="tip">Cidden | Çok</span></span>.
+      <span class="w c3">يُوجَدُ فِي بَيْتِي<span class="tip">Yuujud fi bayti | Evimde vardır</span></span>
+      <span class="w c4">صَالَةٌ وَاسِعَةٌ<span class="tip">Sala vasia | Geniş salon</span></span>
+      وَ<span class="w c4">ثَلاثُ غُرَفِ نَوْمٍ<span class="tip">Thalath guraf neum | Üç yatak odası</span></span>
+      وَ<span class="w c4">مَطْبَخٌ<span class="tip">Matbakh | Mutfak</span></span>
+      <span class="w c6">صَغِيرٌ<span class="tip">Sagir | Küçük</span></span>
+      وَ<span class="w c4">حَمَّامٌ<span class="tip">Hammam | Banyo</span></span>.
+      <span class="w c5">فِي الصَّالَةِ<span class="tip">Fi essala | Salonda</span></span>
+      <span class="w c5">أَرِيكَتَانِ<span class="tip">Ariketayn | İki kanape</span></span>
+      وَ<span class="w c5">سَجَّادَةٌ<span class="tip">Sajada | Halı</span></span>
+      <span class="w c6">سَمِيكَةٌ<span class="tip">Samika | Kalın</span></span>.
+      <span class="w c7">أَنَا<span class="tip">Ene | Ben</span></span>
+      <span class="w c7">أَشْعُرُ بِالرَّاحَةِ<span class="tip">Aşur bilrahe | Rahat hissediyorum</span></span>
+      <span class="w c7">فِي بَيْتِي<span class="tip">Fi bayti | Evimde</span></span>.
+    </div>
+    <div class="pronunc">
+      <span class="pronunc-title">🔊 Tam Telaffuz:</span>
+      Merhaba bikum! <strong>Ene Ali ve taleb fi essıfful khames</strong>. <strong>Bayti basit ve lakinahu jamil cidden</strong>. <strong>Yuujud fi bayti sala vasia ve thalath guraf neum ve matbakh sagir ve hammam</strong>. <strong>Fi essala ariketayn ve sajada samika</strong>. <strong>Ene aşur bilrahe fi bayti</strong>.
+    </div>
+    <div class="tr-box">
+      <span class="tr-title">🇹🇷 Türkçe Çevirisi:</span>
+      Herkese merhaba! Ben Ali ve 5. sınıf öğrencisiyim. Evim basit ama çok güzel. Evimde geniş salon, üç yatak odası, küçük mutfak ve banyo var. Salonda iki kanape ve kalın halı var. Evimde kendimi rahat hissediyorum.
+    </div>
+    <button class="copy-btn" onclick="doCopy(this)">📋 Kopyala</button>
+    <div class="copied">✓ Kopyalandı!</div>
+  </div>
+
+  <!-- ── MODEL 4 ── -->
+  <div class="model-card">
+    <div class="model-badge">📌 MODEL 4 — Nur</div>
+    <div class="para-ar">
+      <span class="w c1">السَّلامُ عَلَيْكُمْ<span class="tip">Essalam alaikum | Selamlar</span></span>!
+      <span class="w c2">اِسْمِي<span class="tip">İsmi | Benim adım</span></span>
+      <span class="w c2">نُور<span class="tip">Nur | Nur (ad / ışık anlamı)</span></span>
+      وَ<span class="w c2">أَنَا<span class="tip">Ene | Ben</span></span>
+      <span class="w c2">فِي الصَّفِ الخَامِس<span class="tip">Fi essıfful khames | 5. sınıfta</span></span>.
+      <span class="w c3">أَسْكُنُ<span class="tip">Askun | Oturuyorum</span></span>
+      <span class="w c3">فِي<span class="tip">Fi | İçinde / -da</span></span>
+      <span class="w c3">شَقَّةٍ<span class="tip">Shakka | Daire</span></span>
+      <span class="w c6">جَمِيلَةٍ<span class="tip">Jamila | Güzel</span></span>
+      <span class="w c3">جِدًّا<span class="tip">Cidden | Çok</span></span>.
+      <span class="w c3">الشَّقَّةُ<span class="tip">Essakkka | Daire</span></span>
+      <span class="w c6">مُضِيئَةٌ<span class="tip">Mudiyya | Aydınlık</span></span>
+      وَ<span class="w c6">دَافِئَةٌ<span class="tip">Dafiyya | Sıcak</span></span>
+      وَ<span class="w c6">نَظِيفَةٌ<span class="tip">Nazifa | Temiz</span></span>.
+      <span class="w c3">تَحْتَوِي عَلَى<span class="tip">Tahtavi ala | İçeriyor</span></span>
+      <span class="w c4">صَالَةٍ رَحِبَةٍ<span class="tip">Sala rahiba | Geniş salon</span></span>
+      وَ<span class="w c4">غُرْفَتَيْ نَوْمٍ<span class="tip">Gurftey neum | İki yatak odası</span></span>
+      وَ<span class="w c4">مَطْبَخٍ<span class="tip">Matbakh | Mutfak</span></span>
+      <span class="w c6">حَدِيثٍ<span class="tip">Hadith | Modern</span></span>
+      وَ<span class="w c4">حَمَّامَيْنِ<span class="tip">Hammamayn | İki banyo</span></span>.
+      <span class="w c5">فِي الصَّالَةِ<span class="tip">Fi essala | Salonda</span></span>
+      <span class="w c5">أَرِيكَةٌ<span class="tip">Arika | Kanape</span></span>
+      <span class="w c6">مُرِيحَةٌ<span class="tip">Muriha | Rahat</span></span>
+      وَ<span class="w c5">تِلْفَازٌ<span class="tip">Tilvaz | Televizyon</span></span>
+      وَ<span class="w c5">طَاوِلَةٌ<span class="tip">Tavila | Masa</span></span>.
+      <span class="w c7">أَنَا<span class="tip">Ene | Ben</span></span>
+      <span class="w c7">أُحِبُّ شَقَّتِي<span class="tip">Uhibu shakkati | Dairemi seviyorum</span></span>
+      <span class="w c7">وَأَشْعُرُ بِالسَّعَادَةِ فِيهَا<span class="tip">Ve aşur bilsaada fiha | Ve orada mutlu hissediyorum</span></span>.
+    </div>
+    <div class="pronunc">
+      <span class="pronunc-title">🔊 Tam Telaffuz:</span>
+      Essalam alaikum! <strong>İsmi Nur ve ene fi essıfful khames</strong>. <strong>Askun fi shakka jamila cidden</strong>. <strong>Essakkka mudiyya ve dafiyya ve nazifa</strong>. <strong>Tahtavi ala sala rahiba ve gurftey neum ve matbakh hadith ve hammamayn</strong>. <strong>Fi essala arika muriha ve tilvaz ve tavila</strong>. <strong>Ene uhibu shakkati ve aşur bilsaada fiha</strong>.
+    </div>
+    <div class="tr-box">
+      <span class="tr-title">🇹🇷 Türkçe Çevirisi:</span>
+      Selamlar! Adım Nur ve 5. sınıftayım. Çok güzel bir dairede oturuyorum. Daire aydınlık, sıcak ve temiz. Geniş salon, iki yatak odası, modern mutfak ve iki banyo var. Salonda rahat kanape, televizyon ve masa var. Dairemi seviyorum ve orada mutlu hissediyorum.
+    </div>
+    <button class="copy-btn" onclick="doCopy(this)">📋 Kopyala</button>
+    <div class="copied">✓ Kopyalandı!</div>
+  </div>
+
+  <!-- ── MODEL 5 ── -->
+  <div class="model-card">
+    <div class="model-badge">📌 MODEL 5 — Halit</div>
+    <div class="para-ar">
+      <span class="w c1">أَهْلاً وَسَهْلاً<span class="tip">Ehlen ve sehlen | Hoşgeldiniz</span></span>!
+      <span class="w c2">أَنَا<span class="tip">Ene | Ben</span></span>
+      <span class="w c2">خَالِدٌ<span class="tip">Khalid | Halit (ad)</span></span>
+      <span class="w c2">مِنَ الصَّفِ الخَامِس<span class="tip">Mine essıfful khames | 5. sınıftan</span></span>.
+      <span class="w c3">أَسْكُنُ فِي<span class="tip">Askun fi | İçinde oturuyorum</span></span>
+      <span class="w c3">مَنْزِلٍ<span class="tip">Manzil | Ev / Konut</span></span>
+      <span class="w c6">قَدِيمٍ<span class="tip">Kadim | Eski</span></span>
+      وَلَكِنَّهُ
+      <span class="w c6">جَمِيلٌ<span class="tip">Jamil | Güzel</span></span>
+      <span class="w c3">جِدًّا<span class="tip">Cidden | Çok</span></span>.
+      <span class="w c3">لَهُ<span class="tip">Lahu | Onun var</span></span>
+      <span class="w c4">حَدِيقَةٌ<span class="tip">Hadika | Bahçe</span></span>
+      <span class="w c6">صَغِيرَةٌ<span class="tip">Sagira | Küçük</span></span>
+      وَ<span class="w c3">أَرْضِيَّةٌ<span class="tip">Ardiyya | Zemin kat</span></span>
+      وَ<span class="w c3">طَابِقٌ عُلْوِيٌّ<span class="tip">Tabik ulvi | Üst kat</span></span>.
+      <span class="w c3">فِي الْأَرْضِيَّةِ<span class="tip">Fi elardiyya | Zemin katta</span></span>
+      <span class="w c4">صَالَةٌ<span class="tip">Sala | Salon</span></span>
+      <span class="w c6">كَبِيرَةٌ<span class="tip">Kabira | Büyük</span></span>
+      وَ<span class="w c4">مَطْبَخٌ<span class="tip">Matbakh | Mutfak</span></span>
+      وَ<span class="w c4">حَمَّامٌ<span class="tip">Hammam | Banyo</span></span>.
+      <span class="w c3">فِي الطَّابِقِ الْعُلْوِيِّ<span class="tip">Fi ettabik elulvi | Üst katta</span></span>
+      <span class="w c4">ثَلاثُ غُرَفِ نَوْمٍ<span class="tip">Thalath guraf neum | Üç yatak odası</span></span>
+      وَ<span class="w c4">غُرْفَةُ دِرَاسَةٍ<span class="tip">Gurfe dirasa | Çalışma odası</span></span>.
+      <span class="w c5">الصَّالَةُ فِيهَا<span class="tip">Essala fiha | Salonda</span></span>
+      <span class="w c5">أَرِيكَاتٌ<span class="tip">Arikaat | Kanapeler</span></span>
+      <span class="w c6">مُرِيحَةٌ<span class="tip">Muriha | Rahat</span></span>
+      وَ<span class="w c5">سَجَّادَةٌ<span class="tip">Sajada | Halı</span></span>
+      <span class="w c6">كَبِيرَةٌ<span class="tip">Kabira | Büyük</span></span>.
+      <span class="w c7">بَيْتِي<span class="tip">Bayti | Evim</span></span>
+      <span class="w c7">هُوَ مَكَانُ رَاحَتِي<span class="tip">Huva makan rahati | Benim dinlenme yerim</span></span>
+      <span class="w c7">وَسَعَادَتِي<span class="tip">Ve saadati | Ve mutluluğum</span></span>.
+    </div>
+    <div class="pronunc">
+      <span class="pronunc-title">🔊 Tam Telaffuz:</span>
+      Ehlen ve sehlen! <strong>Ene Khalid mine essıfful khames</strong>. <strong>Askun fi manzil kadim ve lakinahu jamil cidden</strong>. <strong>Lahu hadika sagira ve ardiyya ve tabik ulvi</strong>. <strong>Fi elardiyya sala kabira ve matbakh ve hammam</strong>. <strong>Fi ettabik elulvi thalath guraf neum ve gurfe dirasa</strong>. <strong>Essala fiha arikaat muriha ve sajada kabira</strong>. <strong>Bayti huva makan rahati ve saadati</strong>.
+    </div>
+    <div class="tr-box">
+      <span class="tr-title">🇹🇷 Türkçe Çevirisi:</span>
+      Hoşgeldiniz! Ben Halit, 5. sınıftayım. Eski ama çok güzel bir evde oturuyorum. Evin küçük bahçesi, zemin katı ve üst katı var. Zemin katta büyük salon, mutfak ve banyo var. Üst katta üç yatak odası ve çalışma odası var. Salonda rahat kanapeler ve büyük halı var. Evim benim dinlenme ve mutluluk yerim.
+    </div>
+    <button class="copy-btn" onclick="doCopy(this)">📋 Kopyala</button>
+    <div class="copied">✓ Kopyalandı!</div>
+  </div>
+</div>
+
+<!-- ═══════════════ TAB 4: PRATIK ═══════════════ -->
+<div id="t-practice" class="tab-pane">
+  <h2 class="sec-title">✏️ Kendi Paragrafınızı Yazın</h2>
+  <div class="box box-yellow"><strong>🎯 Görev:</strong> Modelleri inceledikten sonra şimdi KENDİ paragrafınızı hazırlayın!</div>
+
+  <div class="practice-card">
+    <div class="practice-title">📝 Adım 1: Taslak Hazırlayın</div>
+    <label>Adınız nedir?</label>
+    <input type="text" placeholder="Adınızı Arapça yazın...">
+    <label>Evinizi nasıl tarif edersiniz? (2-3 sıfat)</label>
+    <input type="text" placeholder="Örn: büyük, güzel, temiz...">
+    <label>Evde hangi odalar var?</label>
+    <input type="text" placeholder="Salon, oturma odası, mutfak...">
+    <label>Her odada neler var?</label>
+    <textarea placeholder="Salonda kanape ve halı var. Mutfakta buzdolabı ve fırın var..."></textarea>
+  </div>
+
+  <div class="practice-card">
+    <div class="practice-title">🎤 Adım 2: Konuşma Hazırlığı</div>
+    <ul>
+      <li>☐ Seçtiğiniz paragrafı 5 kez yüksek sesle okuyun</li>
+      <li>☐ Her renkli kelimeye hover yaparak telaffuzu kontrol edin</li>
+      <li>☐ Tam telaffuz bölümünü sesli okuyun</li>
+      <li>☐ Kameraya veya telefona kaydedin ve dinleyin</li>
+      <li>☐ Bir arkadaşınıza dinletip geri bildirim alın</li>
+    </ul>
+  </div>
+
+  <div class="tips-card">
+    <div class="practice-title" style="color:#1e40af;">⭐ Altın İpuçları</div>
+    <p>💡 <strong>Yavaş konuşun</strong> — her kelimeyi açıkça söyleyin, acele etmeyin</p>
+    <p>💡 <strong>Göz teması kurun</strong> — sınıfa bakın, kağıda değil</p>
+    <p>💡 <strong>Hata yapmaktan korkmayın</strong> — hatalar öğrenmenin en iyi yoludur</p>
+    <p>💡 <strong>Gülümseyin</strong> — güvenli bir ses tonu sizi daha başarılı gösterir</p>
+    <p>💡 <strong>Pratik yapın</strong> — ne kadar çok tekrar ederseniz o kadar iyi olursunuz!</p>
+  </div>
+
+  <div class="box box-green">
+    <strong>✅ Sunum Öncesi Kontrol Listesi:</strong><br>
+    ☐ Tüm cümleler anlamlı ve tam mı?<br>
+    ☐ Adınız, sınıfınız, ev ve eşyaları anlattınız mı?<br>
+    ☐ Telaffuzları kontrol ettiniz mi?<br>
+    ☐ Yüksek sesle en az 3 kez prova yaptınız mı?
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<!-- FOOTER -->
+<footer>
+  <p class="year">🎙️ Kişisel Konuşma Rehberi — Arapça 5. Sınıf</p>
+  <p>2026 — Arapça Öğretmeni Tarafından Hazırlanmıştır</p>
+</footer>
+
+<script>
+function openTab(e, id) {
+  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  e.currentTarget.classList.add('active');
+}
+
+function doCopy(btn) {
+  var card = btn.closest('.model-card');
+  var para = card.querySelector('.para-ar');
+  var text = para.innerText.replace(/\n/g,' ').replace(/\s+/g,' ').trim();
+  navigator.clipboard.writeText(text).then(function(){
+    var msg = btn.nextElementSibling;
+    msg.style.display = 'inline-block';
+    setTimeout(function(){ msg.style.display = 'none'; }, 2200);
+  });
+}
+</script>
+<!-- ===== Arapça Sesli Okuma (tıkla-dinle) — otomatik eklendi ===== -->
+<script>
+(function(){
+  function hasAr(s){ return /[؀-ۿ]/.test(s||''); }
+  var st=document.createElement('style');
+  st.textContent='.tts-on{background:#ffd84d !important;border-radius:6px;box-shadow:0 0 0 2px #f1b400}';
+  document.head.appendChild(st);
+
+  var arVoice=null, ttsAudio=new Audio();
+  function pickVoice(){ if('speechSynthesis' in window){ var v=window.speechSynthesis.getVoices(); arVoice=v.find(function(x){return /^ar(\b|-|_)/i.test(x.lang);})||null; } }
+  if('speechSynthesis' in window){ pickVoice(); window.speechSynthesis.onvoiceschanged=pickVoice; }
+  function clearHi(){ var a=document.querySelectorAll('.tts-on'); for(var i=0;i<a.length;i++) a[i].classList.remove('tts-on'); }
+
+  function speakLocal(ar, el){
+    if(!('speechSynthesis' in window) || !arVoice){ if(el) el.classList.remove('tts-on'); return; }
+    window.speechSynthesis.cancel();
+    var u=new SpeechSynthesisUtterance(ar);
+    u.lang='ar-SA'; u.rate=0.8; u.voice=arVoice;
+    u.onend=function(){ if(el) el.classList.remove('tts-on'); };
+    u.onerror=function(){ if(el) el.classList.remove('tts-on'); };
+    window.speechSynthesis.speak(u);
+  }
+
+  function say(el, raw){
+    var m=(raw||'').match(/[؀-ۿـٰ\s]+/g);
+    var ar=m?m.join(' ').replace(/\s+/g,' ').trim():'';
+    if(!ar) return;
+    if(ar.length>200) ar=ar.slice(0,200);
+
+    // Tek ses elemanı: yeni tıklamada öncekini kesin durdurur (asla iki ses)
+    try{ ttsAudio.pause(); }catch(e){}
+    if('speechSynthesis' in window) window.speechSynthesis.cancel();
+    clearHi(); if(el) el.classList.add('tts-on');
+
+    var q=encodeURIComponent(ar);
+    var urls=[
+      'https://translate.googleapis.com/translate_tts?ie=UTF-8&tl=ar&client=gtx&q='+q,
+      'https://translate.google.com/translate_tts?ie=UTF-8&tl=ar&client=tw-ob&q='+q
+    ];
+    var idx=0, started=false;
+    ttsAudio.onplaying=function(){ started=true; };
+    ttsAudio.onended=function(){ if(el) el.classList.remove('tts-on'); };
+    ttsAudio.onerror=function(){
+      if(started){ if(el) el.classList.remove('tts-on'); return; }
+      idx++;
+      if(idx<urls.length){ ttsAudio.src=urls[idx]; var pp=ttsAudio.play(); if(pp&&pp.catch) pp.catch(function(){}); }
+      else speakLocal(ar, el);
+    };
+    ttsAudio.src=urls[0];
+    var p=ttsAudio.play(); if(p&&p.catch) p.catch(function(){});
+  }
+
+  document.addEventListener('click', function(e){
+    var t=e.target;
+    if(t.closest && t.closest('button,input,textarea,select,a[href],label')) return;
+    if(!hasAr(t.textContent)) return;
+    say(t, t.textContent);
+  }, true);
+
+  document.addEventListener('mouseover', function(e){
+    var t=e.target;
+    if(t.nodeType!==1) return;
+    if(t.closest && t.closest('button,input,textarea,select,a[href],label')) return;
+    if(t.children && t.children.length===0 && hasAr(t.textContent)) t.style.cursor='pointer';
+  });
+})();
+</script>
+</body>
+</html>

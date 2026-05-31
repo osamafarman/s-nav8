@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta name="referrer" content="no-referrer">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arapça 5. Sınıf — Sınava Hazırlık (Ev / البيت Ünitesi)</title>
+<style>
+  :root{
+    --bg:#f4f7fb;
+    --card:#ffffff;
+    --ink:#1f2a44;
+    --muted:#5b6b8c;
+    --line:#e2e8f4;
+    --brand:#1b5e9c;
+    --brand2:#0d8a72;
+    --warn:#b45309;
+    --ok:#0d8a72;
+    --shadow:0 6px 20px rgba(20,40,80,.08);
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:"Segoe UI",Tahoma,system-ui,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.7;
+    font-size:17px;
+  }
+  header.top{
+    background:linear-gradient(135deg,#1b5e9c,#0d8a72);
+    color:#fff;
+    padding:26px 18px;
+    text-align:center;
+  }
+  header.top h1{margin:0 0 6px;font-size:1.5rem}
+  header.top p{margin:0;opacity:.95;font-size:.98rem}
+  .wrap{max-width:920px;margin:0 auto;padding:16px}
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:18px 18px 22px;
+    margin:18px 0;
+    box-shadow:var(--shadow);
+  }
+  h2.sec{
+    font-size:1.25rem;
+    color:var(--brand);
+    border-right:6px solid var(--brand2);
+    padding:6px 12px;
+    margin:6px 0 4px;
+    border-radius:6px;
+    background:#eef5fb;
+  }
+  .page{
+    display:inline-block;
+    background:#fff4e5;
+    color:var(--warn);
+    border:1px solid #f4d9b0;
+    padding:2px 10px;
+    border-radius:999px;
+    font-size:.82rem;
+    font-weight:700;
+    margin:8px 0 6px;
+  }
+  h3{color:var(--brand2);margin:18px 0 6px;font-size:1.08rem}
+  p.note{color:var(--muted);font-size:.95rem}
+  .ar{
+    direction:rtl;
+    font-family:"Traditional Arabic","Amiri","Scheherazade New","Times New Roman",serif;
+    font-size:1.7rem;
+    line-height:2.2;
+  }
+  .arbig{font-size:2.1rem}
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin:12px 0;
+    background:#fff;
+    font-size:.98rem;
+  }
+  th,td{border:1px solid var(--line);padding:9px 8px;text-align:center;vertical-align:middle}
+  th{background:#eef5fb;color:var(--brand)}
+  td.arc{font-family:"Traditional Arabic","Amiri","Times New Roman",serif;font-size:1.5rem;direction:rtl}
+  .okunus{color:#7a4ed6;font-style:italic;font-size:.95rem}
+  /* Renk eşleştirme: Arapça kelime ile Türkçe anlamı AYNI renk */
+  .c1{color:#c0392b;font-weight:700}
+  .c2{color:#1e7e34;font-weight:700}
+  .c3{color:#2155cd;font-weight:700}
+  .c4{color:#b8860b;font-weight:700}
+  .c5{color:#8e44ad;font-weight:700}
+  .c6{color:#c2185b;font-weight:700}
+  .c7{color:#00838f;font-weight:700}
+  .c8{color:#6d4c00;font-weight:700}
+  .c9{color:#3949ab;font-weight:700}
+  .c10{color:#ad1457;font-weight:700}
+  .box{
+    background:#f7faff;
+    border:1px dashed #c7d6ee;
+    border-radius:12px;
+    padding:12px 14px;
+    margin:12px 0;
+  }
+  .rule{
+    background:#eafaf3;
+    border:1px solid #bfe9d6;
+    border-right:6px solid var(--brand2);
+    border-radius:12px;
+    padding:12px 14px;
+    margin:12px 0;
+  }
+  .tip{
+    background:#fff8e8;
+    border:1px solid #f0dca8;
+    border-right:6px solid var(--warn);
+    border-radius:12px;
+    padding:12px 14px;
+    margin:12px 0;
+    font-size:.96rem;
+  }
+  .ex{
+    background:#fbfdff;
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:12px 14px;
+    margin:12px 0;
+  }
+  .ex h4{margin:0 0 8px;color:var(--brand);font-size:1rem}
+  .q{margin:10px 0;padding:10px 12px;background:#fff;border:1px solid var(--line);border-radius:10px}
+  .q .num{display:inline-block;background:var(--brand);color:#fff;border-radius:50%;width:26px;height:26px;line-height:26px;text-align:center;font-size:.9rem;font-weight:700;margin-left:6px}
+  button.reveal{
+    background:var(--brand2);
+    color:#fff;
+    border:none;
+    padding:9px 16px;
+    border-radius:10px;
+    font-size:.95rem;
+    font-weight:700;
+    cursor:pointer;
+    margin-top:8px;
+  }
+  button.reveal:hover{filter:brightness(1.08)}
+  .answer{
+    display:none;
+    margin-top:10px;
+    background:#eafaf3;
+    border:1px solid #bfe9d6;
+    border-radius:10px;
+    padding:10px 12px;
+  }
+  .answer.show{display:block}
+  .answer strong{color:var(--ok)}
+  .exam{
+    border:2px solid var(--brand);
+    background:#fbfdff;
+  }
+  .exam h2.sec{background:#1b5e9c;color:#fff;border-right-color:#0d8a72}
+  .pill{display:inline-block;background:#eef5fb;border:1px solid var(--line);border-radius:999px;padding:3px 12px;font-size:.85rem;color:var(--brand);font-weight:700;margin:4px 4px 4px 0}
+  .toc a{display:block;color:var(--brand);text-decoration:none;padding:6px 8px;border-bottom:1px dashed var(--line)}
+  .toc a:hover{background:#eef5fb}
+  .tabs{position:sticky;top:0;z-index:30;display:flex;gap:8px;justify-content:center;background:#fff;border-bottom:1px solid var(--line);padding:10px;box-shadow:0 2px 10px rgba(20,40,80,.07);flex-wrap:wrap}
+  .tabbtn{font-family:inherit;font-size:1rem;font-weight:700;cursor:pointer;border:1px solid var(--line);background:#eef5fb;color:var(--brand);padding:10px 18px;border-radius:999px;transition:.15s}
+  .tabbtn:hover{filter:brightness(1.03)}
+  .tabbtn.on{background:linear-gradient(135deg,#1b5e9c,#0d8a72);color:#fff;border-color:transparent}
+  .tabpane{display:none}
+  .tabpane.active{display:block}
+  .ar, .arc{cursor:pointer}
+  .ar:hover, .arc:hover{background:#fff3bf;border-radius:6px}
+  .speaking{background:#ffd84d !important;border-radius:6px;box-shadow:0 0 0 2px #f1b400}
+  .audio-note{background:#eef7ff;border:1px solid #c7e0f5;border-right:6px solid var(--brand);border-radius:12px;padding:10px 14px;margin:12px 0;font-size:.95rem}
+  footer{text-align:center;color:var(--muted);font-size:.88rem;padding:24px}
+  .legend span{display:inline-block;margin:3px 8px 3px 0;font-size:.85rem}
+  @media(max-width:600px){
+    body{font-size:16px}
+    .ar{font-size:1.45rem}
+    .arbig{font-size:1.8rem}
+    td.arc{font-size:1.3rem}
+    header.top h1{font-size:1.2rem}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <h1>Arapça 5. Sınıf — Sınava Hazırlık Kılavuzu</h1>
+  <p>Ünite: Evimiz — البَيْت • Odalar, Eşyalar, Sıfatlar, Sayılar (0–10) ve Diyalog</p>
+</header>
+
+<nav class="tabs">
+  <button class="tabbtn on" data-tab="yazili" onclick="showTab('yazili')">📝 Yazılı Sınav Hazırlık</button>
+  <button class="tabbtn" data-tab="dinleme" onclick="showTab('dinleme')">🎧 Dinleme Sınavı</button>
+</nav>
+
+<div class="wrap">
+
+  <div class="tabpane active" data-tab="yazili">
+
+  <div class="card">
+    <h2 class="sec">Bu Kılavuz Nasıl Kullanılır?</h2>
+    <p class="note">Sevgili öğrenciler, bu çalışma kitapçığı sınavda karşınıza çıkacak <strong>altı konu</strong> için hazırlanmıştır. Her bölümde önce konu Türkçe olarak açıklanır, sonra kelimeler ve cümleler <strong>tam harekeli (vokalli)</strong> biçimde, okunuşlarıyla ve Türkçe çevirileriyle verilir. Her bölümün sonunda <strong>alıştırma soruları</strong> ve <strong>“Cevabı Göster”</strong> butonu bulunur. En sonda ise sınava birebir hazırlayan <strong>üç deneme sınavı</strong> yer alır.</p>
+    <div class="legend box">
+      <strong>Renk kuralı:</strong> Bir Arapça kelime ile onun Türkçe anlamı <strong>aynı renkle</strong> yazılmıştır. Örnek:
+      <span class="c1">المَطْبَخ</span> = <span class="c1">mutfak</span>.
+    </div>
+    <div class="audio-note">
+      🔊 <strong>Sesli okuma:</strong> Herhangi bir <strong>Arapça kelimeye veya cümleye tıklayınca</strong> doğru telaffuzu sesli dinlersiniz. Ses, çevrimiçi olarak okunur (Google ses servisi); cihazınızda Arapça sesi yoksa bile çalışır.
+      <br><em>Not: Bu özellik için <strong>internet bağlantısı</strong> gereklidir. İnternet yoksa, cihazda Arapça ses yüklüyse otomatik olarak ona geçilir.</em>
+    </div>
+    <div class="toc box">
+      <strong>İçindekiler</strong>
+      <a href="#b1">1. Bölüm — Evin Odaları (الغُرَف)</a>
+      <a href="#b2">2. Bölüm — Ev Eşyaları (أدوات المنزل)</a>
+      <a href="#b3">3. Bölüm — Sıfatlar: Eril / Dişil Uyumu</a>
+      <a href="#b4">4. Bölüm — Sayılar 0–10 (الأَعْداد)</a>
+      <a href="#b5">5. Bölüm — Cümle Düzeltme (Yer/Mekân)</a>
+      <a href="#b6">6. Bölüm — Diyalog ve Soru Sorma (هَلْ)</a>
+      <a href="#dinleme" onclick="showTab('dinleme');return false;">🎧 Dinleme Sınavı Bölümü (الاسْتِماع) — ayrı sekme</a>
+      <a href="#deneme">★ Deneme Sınavları (3 Model)</a>
+    </div>
+    <p class="note"><em>Not: Sayfa numaraları MEB Arapça 5 ders kitabının genel sıralamasına göre yaklaşık verilmiştir; baskıya göre 1–2 sayfa değişebilir.</em></p>
+  </div>
+
+  <!-- ============ BÖLÜM 1 ============ -->
+  <div class="card" id="b1">
+    <h2 class="sec">1. Bölüm — Evin Odaları (الغُرَف)</h2>
+
+    <h3>Konu Anlatımı</h3>
+    <p>Bir evin temel bölümlerinin Arapça adlarını öğreniyoruz. Bu kelimeler hem yazma (kopyalama) sorusunda, hem Türkçeden Arapçaya çeviri sorusunda, hem de cümle düzeltme sorusunda karşımıza çıkacaktır. Kelimeleri okunuşlarıyla birlikte ezberlemeniz önemlidir.</p>
+
+    <table>
+      <tr><th>Arapça (harekeli)</th><th>Okunuş</th><th>Türkçe</th></tr>
+      <tr><td class="arc"><span class="c3">البَيْت</span></td><td class="okunus">el-beyt</td><td><span class="c3">ev</span></td></tr>
+      <tr><td class="arc"><span class="c1">المَطْبَخ</span></td><td class="okunus">el-matbah</td><td><span class="c1">mutfak</span></td></tr>
+      <tr><td class="arc"><span class="c2">غُرْفَةُ النَّوْمِ</span></td><td class="okunus">ğurfetü'n-nevm</td><td><span class="c2">yatak odası</span></td></tr>
+      <tr><td class="arc"><span class="c5">غُرْفَةُ الجُلُوسِ</span></td><td class="okunus">ğurfetü'l-cülûs</td><td><span class="c5">oturma odası</span></td></tr>
+      <tr><td class="arc"><span class="c4">الحَمَّام</span></td><td class="okunus">el-hammâm</td><td><span class="c4">banyo</span></td></tr>
+    </table>
+
+    <div class="tip">
+      <strong>İpucu:</strong> <span class="ar" style="font-size:1.3rem">غُرْفَة</span> (ğurfe) = <strong>oda</strong> demektir. Yanına bir kelime gelince “… odası” olur:
+      <br><span class="c2">غُرْفَةُ النَّوْمِ</span> → “uyku odası = yatak odası”, &nbsp; <span class="c5">غُرْفَةُ الجُلُوسِ</span> → “oturma odası”.
+    </div>
+
+    <div class="ex">
+      <h4>Alıştırma Soruları (1. Bölüm)</h4>
+      <div class="q"><span class="num">1</span> “mutfak” kelimesinin Arapça yazılışı nedir?
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><strong>المَطْبَخ</strong> (el-matbah)</div>
+      </div>
+      <div class="q"><span class="num">2</span> “banyo” kelimesini Arapça yazınız.
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><strong>الحَمَّام</strong> (el-hammâm)</div>
+      </div>
+      <div class="q"><span class="num">3</span> <span class="ar" style="font-size:1.3rem">غُرْفَةُ الجُلُوسِ</span> ifadesinin Türkçesi nedir?
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><strong>oturma odası</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ BÖLÜM 2 ============ -->
+  <div class="card" id="b2">
+    <h2 class="sec">2. Bölüm — Ev Eşyaları (أَدَواتُ المَنْزِل)</h2>
+    <span class="page">Ders Kitabı: Sayfa 46–49</span>
+
+    <h3>Konu Anlatımı</h3>
+    <p>Evdeki temel eşyaların adlarını öğreniyoruz. Dikkat: Bu kelimelerin çoğu sonu <strong>ة</strong> (te merbûta) ile biten <strong>dişil (müennes)</strong> kelimelerdir. Bu durum sıfat konusunda çok önemli olacaktır.</p>
+
+    <table>
+      <tr><th>Arapça (harekeli)</th><th>Okunuş</th><th>Türkçe</th><th>Cinsiyet</th></tr>
+      <tr><td class="arc"><span class="c6">الثَّلَّاجَة</span></td><td class="okunus">es-sellâce</td><td><span class="c6">buzdolabı</span></td><td>dişil (ة)</td></tr>
+      <tr><td class="arc"><span class="c7">الفُرْن</span></td><td class="okunus">el-furn</td><td><span class="c7">fırın</span></td><td>eril</td></tr>
+      <tr><td class="arc"><span class="c9">الغَسَّالَة</span></td><td class="okunus">el-ğassâle</td><td><span class="c9">çamaşır makinesi</span></td><td>dişil (ة)</td></tr>
+      <tr><td class="arc"><span class="c10">السَّجَّادَة</span></td><td class="okunus">es-seccâde</td><td><span class="c10">halı / seccade</span></td><td>dişil (ة)</td></tr>
+    </table>
+
+    <div class="ex">
+      <h4>Alıştırma Soruları (2. Bölüm)</h4>
+      <div class="q"><span class="num">1</span> <span class="ar" style="font-size:1.3rem">الثَّلَّاجَة</span> kelimesinin Türkçesi nedir?
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><strong>buzdolabı</strong> (es-sellâce)</div>
+      </div>
+      <div class="q"><span class="num">2</span> “çamaşır makinesi”ni Arapça yazınız.
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><strong>الغَسَّالَة</strong> (el-ğassâle)</div>
+      </div>
+      <div class="q"><span class="num">3</span> Aşağıdaki eşyalardan hangisi <strong>eril</strong>dir? <span class="ar" style="font-size:1.2rem">( الفُرْن / الثَّلَّاجَة / الغَسَّالَة )</span>
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><strong>الفُرْن</strong> (fırın) erildir. Diğerleri ة ile bittiği için dişildir.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ BÖLÜM 3 ============ -->
+  <div class="card" id="b3">
+    <h2 class="sec">3. Bölüm — Sıfatlar: Eril / Dişil Uyumu (الصِّفَة)</h2>
+    <span class="page">Ders Kitabı: Sayfa 50–53</span>
+
+    <h3>Konu Anlatımı</h3>
+    <p>Arapçada sıfat (الصِّفَة), nitelediği isimle (المَوْصُوف) <strong>cinsiyet bakımından uyumlu</strong> olmak zorundadır:</p>
+    <div class="rule">
+      <strong>Kural 1:</strong> İsim <strong>eril</strong> ise sıfat da <strong>eril</strong> olur.<br>
+      <strong>Kural 2:</strong> İsim <strong>dişil</strong> ise (genelde sonu <strong>ة</strong> ile biter) sıfat da sonuna <strong>ة</strong> alır ve dişil olur.
+    </div>
+
+    <h3>Sıfatların Eril ve Dişil Hâlleri</h3>
+    <table>
+      <tr><th>Eril (müzekker)</th><th>Dişil (müennes)</th><th>Türkçe</th></tr>
+      <tr><td class="arc"><span class="c3">كَبِير</span></td><td class="arc"><span class="c3">كَبِيرَة</span></td><td><span class="c3">büyük</span></td></tr>
+      <tr><td class="arc"><span class="c2">صَغِير</span></td><td class="arc"><span class="c2">صَغِيرَة</span></td><td><span class="c2">küçük</span></td></tr>
+      <tr><td class="arc"><span class="c1">جَمِيل</span></td><td class="arc"><span class="c1">جَمِيلَة</span></td><td><span class="c1">güzel</span></td></tr>
+      <tr><td class="arc"><span class="c5">نَظِيف</span></td><td class="arc"><span class="c5">نَظِيفَة</span></td><td><span class="c5">temiz</span></td></tr>
+      <tr><td class="arc"><span class="c4">جَدِيد</span></td><td class="arc"><span class="c4">جَدِيدَة</span></td><td><span class="c4">yeni</span></td></tr>
+    </table>
+
+    <div class="ex">
+      <h4>Çözümlü Örnekler</h4>
+      <p class="ar"><span class="c7">الفُرْن</span> <span class="c1">جَمِيل</span></p>
+      <p class="note">“Fırın güzeldir.” → <span class="c7">الفُرْن</span> erildir, bu yüzden sıfat <span class="c1">جَمِيل</span> (eril) olur. ✔</p>
+      <hr style="border:none;border-top:1px dashed var(--line)">
+      <p class="ar"><span class="c10">السَّجَّادَة</span> <span class="c5">نَظِيفَة</span></p>
+      <p class="note">“Halı temizdir.” → <span class="c10">السَّجَّادَة</span> sonu ة ile bittiği için dişildir, sıfat da <span class="c5">نَظِيفَة</span> (dişil) olur. ✔</p>
+      <hr style="border:none;border-top:1px dashed var(--line)">
+      <p class="ar"><span class="c6">الثَّلَّاجَة</span> <span class="c4">جَدِيدَة</span></p>
+      <p class="note">“Buzdolabı yenidir.” → <span class="c6">الثَّلَّاجَة</span> dişildir, sıfat <span class="c4">جَدِيدَة</span> olur. ✔</p>
+    </div>
+
+    <div class="ex">
+      <h4>Alıştırma Soruları (3. Bölüm) — Doğru sıfatı seçiniz</h4>
+      <div class="q"><span class="num">1</span> <span class="ar" style="font-size:1.3rem">السَّجَّادَة …</span> &nbsp;( <span class="ar">نَظِيف</span> / <span class="ar">نَظِيفَة</span> )
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><strong>نَظِيفَة</strong> — Halı (السَّجَّادَة) dişildir, sıfat ة alır.</div>
+      </div>
+      <div class="q"><span class="num">2</span> <span class="ar" style="font-size:1.3rem">الفُرْن …</span> &nbsp;( <span class="ar">جَمِيل</span> / <span class="ar">جَمِيلَة</span> )
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><strong>جَمِيل</strong> — Fırın (الفُرْن) erildir.</div>
+      </div>
+      <div class="q"><span class="num">3</span> <span class="ar" style="font-size:1.3rem">الثَّلَّاجَة …</span> &nbsp;( <span class="ar">جَدِيد</span> / <span class="ar">جَدِيدَة</span> )
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><strong>جَدِيدَة</strong> — Buzdolabı (الثَّلَّاجَة) dişildir.</div>
+      </div>
+      <div class="q"><span class="num">4</span> <span class="ar" style="font-size:1.3rem">البَيْت …</span> &nbsp;( <span class="ar">كَبِير</span> / <span class="ar">كَبِيرَة</span> )
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><strong>كَبِير</strong> — Ev (البَيْت) erildir.</div>
+      </div>
+      <div class="q"><span class="num">5</span> <span class="ar" style="font-size:1.3rem">الغَسَّالَة …</span> &nbsp;( <span class="ar">صَغِير</span> / <span class="ar">صَغِيرَة</span> )
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><strong>صَغِيرَة</strong> — Çamaşır makinesi (الغَسَّالَة) dişildir.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ BÖLÜM 4 ============ -->
+  <div class="card" id="b4">
+    <h2 class="sec">4. Bölüm — Sayılar 0–10 (الأَعْداد)</h2>
+    <span class="page">Ders Kitabı: Sayfa 54–57</span>
+
+    <h3>Konu Anlatımı</h3>
+    <p>Bu bölümde sayıların hem <strong>yazıyla</strong> Arapça okunuşlarını, hem de <strong>Arap rakamlarıyla</strong> (٠١٢٣٤٥٦٧٨٩) yazılışını öğreniyoruz. Sınavda yazıyla verilen bir sayıyı görüp, karşısına <strong>rakamla</strong> yazmanız istenecektir.</p>
+
+    <table>
+      <tr><th>Rakam (Arap)</th><th>Rakam (Latin)</th><th>Arapça yazı (harekeli)</th><th>Okunuş</th><th>Türkçe</th></tr>
+      <tr><td class="arc">٠</td><td>0</td><td class="arc">صِفْر</td><td class="okunus">sıfr</td><td>sıfır</td></tr>
+      <tr><td class="arc">١</td><td>1</td><td class="arc">وَاحِد</td><td class="okunus">vâhid</td><td>bir</td></tr>
+      <tr><td class="arc">٢</td><td>2</td><td class="arc">اِثْنَان</td><td class="okunus">isnân</td><td>iki</td></tr>
+      <tr><td class="arc">٣</td><td>3</td><td class="arc">ثَلَاثَة</td><td class="okunus">selâse</td><td>üç</td></tr>
+      <tr><td class="arc">٤</td><td>4</td><td class="arc">أَرْبَعَة</td><td class="okunus">erbaa</td><td>dört</td></tr>
+      <tr><td class="arc">٥</td><td>5</td><td class="arc">خَمْسَة</td><td class="okunus">hamse</td><td>beş</td></tr>
+      <tr><td class="arc">٦</td><td>6</td><td class="arc">سِتَّة</td><td class="okunus">sitte</td><td>altı</td></tr>
+      <tr><td class="arc">٧</td><td>7</td><td class="arc">سَبْعَة</td><td class="okunus">seb'a</td><td>yedi</td></tr>
+      <tr><td class="arc">٨</td><td>8</td><td class="arc">ثَمَانِيَة</td><td class="okunus">semâniye</td><td>sekiz</td></tr>
+      <tr><td class="arc">٩</td><td>9</td><td class="arc">تِسْعَة</td><td class="okunus">tis'a</td><td>dokuz</td></tr>
+      <tr><td class="arc">١٠</td><td>10</td><td class="arc">عَشَرَة</td><td class="okunus">aşara</td><td>on</td></tr>
+    </table>
+
+    <div class="tip"><strong>İpucu:</strong> Arap rakamlarını ezberlerken bunlara dikkat edin: <span class="ar">٢</span> (2), <span class="ar">٣</span> (3), <span class="ar">٦</span> (6) ile <span class="ar">٧</span> (7) sıkça karıştırılır. <span class="ar">٥</span> (5) sıfıra benzer ama daha yuvarlaktır; <span class="ar">٠</span> (0) ise küçük bir noktadır.</div>
+
+    <div class="ex">
+      <h4>Alıştırma Soruları (4. Bölüm) — Rakamla yazınız</h4>
+      <div class="q"><span class="num">1</span> <span class="ar" style="font-size:1.3rem">خَمْسَة</span> = ?
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><strong>٥</strong> (5)</div>
+      </div>
+      <div class="q"><span class="num">2</span> <span class="ar" style="font-size:1.3rem">ثَمَانِيَة</span> = ?
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><strong>٨</strong> (8)</div>
+      </div>
+      <div class="q"><span class="num">3</span> <span class="ar" style="font-size:1.3rem">ثَلَاثَة</span> = ?
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><strong>٣</strong> (3)</div>
+      </div>
+      <div class="q"><span class="num">4</span> <span class="ar" style="font-size:1.3rem">عَشَرَة</span> = ?
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><strong>١٠</strong> (10)</div>
+      </div>
+      <div class="q"><span class="num">5</span> <span class="ar" style="font-size:1.3rem">سِتَّة</span> = ?
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><strong>٦</strong> (6)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ BÖLÜM 5 ============ -->
+  <div class="card" id="b5">
+    <h2 class="sec">5. Bölüm — Cümle Düzeltme (Yer / Mekân)</h2>
+    <span class="page">Ders Kitabı: Sayfa 58–60</span>
+
+    <h3>Konu Anlatımı</h3>
+    <p>Bu soruda size <strong>mantık olarak yanlış</strong> bir cümle verilir. Cümledeki <strong>yanlış kelimeyi</strong> bulup, doğru olanla değiştirerek cümleyi yeniden yazmanız istenir. Genellikle bir eşyanın <strong>yanlış odada</strong> gösterilmesi söz konusudur.</p>
+
+    <div class="rule">
+      <strong>Bağlaç:</strong> <span class="ar" style="font-size:1.3rem">فِي</span> (fî) = “… -de / … içinde”.
+      Örnek: <span class="ar">الثَّلَّاجَةُ فِي المَطْبَخِ</span> = “Buzdolabı mutfaktadır.”
+    </div>
+
+    <div class="box">
+      <strong>Hangi eşya hangi odada olmalı?</strong>
+      <ul>
+        <li><span class="c6">الثَّلَّاجَة</span> (buzdolabı) → <span class="c1">المَطْبَخ</span> (mutfak)</li>
+        <li><span class="c9">الغَسَّالَة</span> (çamaşır makinesi) → <span class="c4">الحَمَّام</span> (banyo)</li>
+        <li><span class="c7">الفُرْن</span> (fırın) → <span class="c1">المَطْبَخ</span> (mutfak)</li>
+      </ul>
+    </div>
+
+    <div class="ex">
+      <h4>Çözümlü Örnek</h4>
+      <p class="ar">الثَّلَّاجَةُ فِي غُرْفَةِ النَّوْمِ.</p>
+      <p class="note">“Buzdolabı yatak odasındadır.” → Bu yanlıştır. Buzdolabı mutfakta olur. Doğrusu:</p>
+      <p class="ar"><strong>الثَّلَّاجَةُ فِي المَطْبَخِ.</strong></p>
+      <p class="note">“Buzdolabı mutfaktadır.” ✔</p>
+    </div>
+
+    <div class="ex">
+      <h4>Alıştırma Soruları (5. Bölüm) — Cümleyi düzeltiniz</h4>
+      <div class="q"><span class="num">1</span> <span class="ar" style="font-size:1.3rem">الغَسَّالَةُ فِي غُرْفَةِ الجُلُوسِ.</span>
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><span class="ar">الغَسَّالَةُ فِي الحَمَّامِ.</span><br><strong>“Çamaşır makinesi banyodadır.”</strong></div>
+      </div>
+      <div class="q"><span class="num">2</span> <span class="ar" style="font-size:1.3rem">الفُرْنُ فِي الحَمَّامِ.</span>
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><span class="ar">الفُرْنُ فِي المَطْبَخِ.</span><br><strong>“Fırın mutfaktadır.”</strong></div>
+      </div>
+      <div class="q"><span class="num">3</span> <span class="ar" style="font-size:1.3rem">الثَّلَّاجَةُ فِي الحَمَّامِ.</span>
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><span class="ar">الثَّلَّاجَةُ فِي المَطْبَخِ.</span><br><strong>“Buzdolabı mutfaktadır.”</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ BÖLÜM 6 ============ -->
+  <div class="card" id="b6">
+    <h2 class="sec">6. Bölüm — Diyalog ve Soru Sorma (هَلْ)</h2>
+    <span class="page">Ders Kitabı: Sayfa 61–64</span>
+
+    <h3>Konu Anlatımı</h3>
+    <p>Arapçada “evet/hayır” ile cevaplanan bir soru sormak için cümlenin başına <span class="ar" style="font-size:1.3rem">هَلْ</span> (hel) getiririz. Türkçedeki <strong>“… mı / mi?”</strong> ekinin karşılığıdır.</p>
+
+    <div class="rule">
+      <strong>İyelik (senin) ekleri:</strong><br>
+      <span class="ar" style="font-size:1.3rem">بَيْتُكَ</span> (beytüke) = senin evin <em>(bir erkeğe)</em><br>
+      <span class="ar" style="font-size:1.3rem">بَيْتُكِ</span> (beytüki) = senin evin <em>(bir kıza)</em><br>
+      <span class="ar" style="font-size:1.3rem">بَيْتِي</span> (beytî) = benim evim
+    </div>
+
+    <h3>Metnin Tam Çevirisi — Kelime Kelime ve Cümle Cümle</h3>
+    <div class="box">
+      <p class="ar">— هَلْ بَيْتُكَ كَبِيرٌ؟</p>
+      <p class="ar">— نَعَمْ، بَيْتِي كَبِيرٌ وَجَمِيلٌ.</p>
+      <hr style="border:none;border-top:1px dashed var(--line)">
+      <p><strong>Kelime kelime:</strong></p>
+      <table>
+        <tr><th>Arapça</th><th>Okunuş</th><th>Türkçe</th></tr>
+        <tr><td class="arc"><span class="c3">هَلْ</span></td><td class="okunus">hel</td><td><span class="c3">… mı? (soru edatı)</span></td></tr>
+        <tr><td class="arc"><span class="c2">بَيْتُكَ</span></td><td class="okunus">beytüke</td><td><span class="c2">senin evin</span></td></tr>
+        <tr><td class="arc"><span class="c3">كَبِيرٌ</span></td><td class="okunus">kebîrun</td><td><span class="c3">büyük</span></td></tr>
+        <tr><td class="arc"><span class="c5">نَعَمْ</span></td><td class="okunus">naam</td><td><span class="c5">evet</span></td></tr>
+        <tr><td class="arc"><span class="c2">بَيْتِي</span></td><td class="okunus">beytî</td><td><span class="c2">benim evim</span></td></tr>
+        <tr><td class="arc"><span class="c4">وَ</span></td><td class="okunus">ve</td><td><span class="c4">ve</span></td></tr>
+        <tr><td class="arc"><span class="c1">جَمِيلٌ</span></td><td class="okunus">cemîlun</td><td><span class="c1">güzel</span></td></tr>
+      </table>
+      <p><strong>Cümle cümle çeviri:</strong></p>
+      <p>— <span class="c3">Evin</span> <span class="c3">büyük</span> <span class="c3">mü</span>? </p>
+      <p>— <span class="c5">Evet</span>, <span class="c2">evim</span> <span class="c3">büyük</span> <span class="c4">ve</span> <span class="c1">güzeldir</span>.</p>
+    </div>
+
+    <div class="rule">
+      <strong>Mantık:</strong> Cevap “نَعَمْ، بَيْتِي كَبِيرٌ” (Evet, evim büyük) ise, sorulan soru “Evin büyük mü?” olmalıdır:
+      <br><span class="ar" style="font-size:1.4rem"><strong>هَلْ بَيْتُكَ كَبِيرٌ؟</strong></span>
+    </div>
+
+    <div class="ex">
+      <h4>Alıştırma Soruları (6. Bölüm) — Uygun soruyu yazınız</h4>
+      <div class="q"><span class="num">1</span> — …………………………؟ <br>— <span class="ar">نَعَمْ، بَيْتِي كَبِيرٌ وَجَمِيلٌ.</span>
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><span class="ar" style="font-size:1.3rem">هَلْ بَيْتُكَ كَبِيرٌ؟</span><br><strong>“Evin büyük mü?”</strong></div>
+      </div>
+      <div class="q"><span class="num">2</span> — …………………………؟ <br>— <span class="ar">نَعَمْ، المَطْبَخُ نَظِيفٌ.</span>
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><span class="ar" style="font-size:1.3rem">هَلِ المَطْبَخُ نَظِيفٌ؟</span><br><strong>“Mutfak temiz mi?”</strong></div>
+      </div>
+      <div class="q"><span class="num">3</span> — …………………………؟ <br>— <span class="ar">نَعَمْ، الثَّلَّاجَةُ جَدِيدَةٌ.</span>
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><span class="ar" style="font-size:1.3rem">هَلِ الثَّلَّاجَةُ جَدِيدَةٌ؟</span><br><strong>“Buzdolabı yeni mi?”</strong></div>
+      </div>
+    </div>
+  </div>
+
+  </div><!-- /tab-yazili (1) -->
+
+  <div class="tabpane" data-tab="dinleme">
+
+  <!-- ============ DİNLEME BÖLÜMÜ ============ -->
+  <div class="card" id="dinleme">
+    <h2 class="sec">🎧 Dinleme Sınavı Bölümü (الاسْتِماع)</h2>
+
+    <h3>Bu Sınav Nasıl Yapılır?</h3>
+    <p>Dinleme sınavında <strong>öğretmen kelimeleri ve sayıları yüksek sesle okur</strong>, siz de duyduğunuzu kâğıda yazarsınız veya işaretlersiniz. Bu bölümde başarılı olmanın tek yolu, kelimelerin <strong>doğru okunuşunu</strong> (telaffuzunu) tanımak ve anlamlarını ezberlemektir. Aşağıda her kelimenin <strong>Türkçe harflerle okunuşu</strong> verilmiştir; bu okunuşlara çalışırsanız öğretmeni duyduğunuzda kelimeyi tanırsınız.</p>
+
+    <div class="rule">
+      <strong>Sınavda üç çeşit soru gelir:</strong>
+      <ol>
+        <li><strong>1. Soru (30 puan):</strong> Öğretmen Arapça kelimeleri okur → siz o kelimelerin <strong>Arapça yazılışını</strong> yazarsınız. <em>(3 kelime)</em></li>
+        <li><strong>2. Soru (30 puan):</strong> Öğretmen Arapça kelimeleri okur → siz o kelimelerin <strong>Türkçe anlamını</strong> yazarsınız. <em>(6 kelime)</em></li>
+        <li><strong>3. Soru (40 puan):</strong> Öğretmen <strong>sayıları</strong> okur → siz tablodan duyduğunuz sayıyı <strong>işaretlersiniz</strong>.</li>
+      </ol>
+    </div>
+
+    <h3>Dinleme İçin Bilmeniz Gereken Kelimeler</h3>
+    <p class="note">Aşağıdaki kelimeleri okunuşlarıyla birlikte ezberleyiniz. Renkler kelime ile anlamını eşleştirir.</p>
+    <div class="audio-note">🔊 <strong>Telaffuz dinleyin:</strong> Dinleme sınavına hazırlanırken her Arapça kelimenin <strong>üzerine tıklayarak</strong> doğru sesini dinleyebilirsiniz. Kulakla tanımak, dinleme sınavının anahtarıdır.</div>
+    <table>
+      <tr><th>Arapça (harekeli)</th><th>Okunuş (Türkçe harf)</th><th>Türkçe</th></tr>
+      <tr><td class="arc"><span class="c1">أَرِيكَة</span></td><td class="okunus">arîke</td><td><span class="c1">koltuk</span></td></tr>
+      <tr><td class="arc"><span class="c7">فُرْن</span></td><td class="okunus">furn</td><td><span class="c7">fırın</span></td></tr>
+      <tr><td class="arc"><span class="c3">تِلْفَاز</span></td><td class="okunus">tilfâz</td><td><span class="c3">televizyon</span></td></tr>
+      <tr><td class="arc"><span class="c2">غُرْفَةُ النَّوْمِ</span></td><td class="okunus">ğurfetü'n-nevm</td><td><span class="c2">yatak odası</span></td></tr>
+      <tr><td class="arc"><span class="c4">حَمَّام</span></td><td class="okunus">hammâm</td><td><span class="c4">banyo</span></td></tr>
+      <tr><td class="arc"><span class="c5">مَطْبَخ</span></td><td class="okunus">matbah</td><td><span class="c5">mutfak</span></td></tr>
+      <tr><td class="arc"><span class="c6">وَسِخ</span></td><td class="okunus">vesih</td><td><span class="c6">kirli</span></td></tr>
+      <tr><td class="arc"><span class="c4">جَدِيد</span></td><td class="okunus">cedîd</td><td><span class="c4">yeni</span></td></tr>
+      <tr><td class="arc"><span class="c3">كَبِير</span></td><td class="okunus">kebîr</td><td><span class="c3">büyük</span></td></tr>
+    </table>
+
+    <div class="tip">
+      <strong>Karşıt kelimeler (zıt anlamlılar):</strong>
+      <span class="ar" style="font-size:1.2rem">وَسِخ</span> (vesih = kirli) ↔ <span class="ar" style="font-size:1.2rem">نَظِيف</span> (nazîf = temiz) &nbsp;•&nbsp;
+      <span class="ar" style="font-size:1.2rem">كَبِير</span> (kebîr = büyük) ↔ <span class="ar" style="font-size:1.2rem">صَغِير</span> (sağîr = küçük) &nbsp;•&nbsp;
+      <span class="ar" style="font-size:1.2rem">جَدِيد</span> (cedîd = yeni) ↔ <span class="ar" style="font-size:1.2rem">قَدِيم</span> (kadîm = eski).
+      Öğretmen bunlardan birini okuyabilir; ikisini de tanıyın.
+    </div>
+
+    <!-- ALIŞTIRMA A -->
+    <div class="ex">
+      <h4>Alıştırma A — (1. Soru tipi) Okunuşu verilen kelimeyi <u>Arapça</u> yazınız</h4>
+      <p class="note">Öğretmenin sesli okuduğunu temsil eder. Önce siz yazın, sonra cevabı açın.</p>
+
+      <div class="q"><span class="num">1</span> “<em>kürsî</em>” (sandalye) <span class="okunus">— öğretmenin örnek okuması</span>
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><span class="ar">كُرْسِيّ</span> &nbsp; <strong>(kürsî = sandalye)</strong></div>
+      </div>
+      <div class="q"><span class="num">2</span> “<em>serîr</em>” (yatak)
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><span class="ar">سَرِير</span> &nbsp; <strong>(serîr = yatak)</strong></div>
+      </div>
+      <div class="q"><span class="num">3</span> “<em>arîke</em>” (koltuk)
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><span class="ar">أَرِيكَة</span> &nbsp; <strong>(arîke = koltuk)</strong></div>
+      </div>
+      <div class="q"><span class="num">4</span> “<em>furn</em>” (fırın)
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><span class="ar">فُرْن</span> &nbsp; <strong>(furn = fırın)</strong></div>
+      </div>
+      <div class="q"><span class="num">5</span> “<em>tilfâz</em>” (televizyon)
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><span class="ar">تِلْفَاز</span> &nbsp; <strong>(tilfâz = televizyon)</strong></div>
+      </div>
+    </div>
+
+    <!-- ALIŞTIRMA B -->
+    <div class="ex">
+      <h4>Alıştırma B — (2. Soru tipi) Duyduğunuz kelimenin <u>Türkçe</u> anlamını yazınız</h4>
+      <p class="note">Arapça kelime + okunuşu verilmiştir. Siz Türkçe anlamını yazın, sonra cevabı açın.</p>
+
+      <div class="q"><span class="num">1</span> <span class="ar">نَظِيف</span> <span class="okunus">(nazîf)</span>
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><strong>temiz</strong></div>
+      </div>
+      <div class="q"><span class="num">2</span> <span class="ar">صَغِير</span> <span class="okunus">(sağîr)</span>
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><strong>küçük</strong></div>
+      </div>
+      <div class="q"><span class="num">3</span> <span class="ar">غُرْفَةُ النَّوْمِ</span> <span class="okunus">(ğurfetü'n-nevm)</span>
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><strong>yatak odası</strong></div>
+      </div>
+      <div class="q"><span class="num">4</span> <span class="ar">حَمَّام</span> <span class="okunus">(hammâm)</span>
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><strong>banyo</strong></div>
+      </div>
+      <div class="q"><span class="num">5</span> <span class="ar">مَطْبَخ</span> <span class="okunus">(matbah)</span>
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><strong>mutfak</strong></div>
+      </div>
+      <div class="q"><span class="num">6</span> <span class="ar">وَسِخ</span> <span class="okunus">(vesih)</span>
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><strong>kirli</strong></div>
+      </div>
+      <div class="q"><span class="num">7</span> <span class="ar">جَدِيد</span> <span class="okunus">(cedîd)</span>
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><strong>yeni</strong></div>
+      </div>
+      <div class="q"><span class="num">8</span> <span class="ar">كَبِير</span> <span class="okunus">(kebîr)</span>
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><strong>büyük</strong></div>
+      </div>
+      <div class="q"><span class="num">9</span> <span class="ar">الثَّلَّاجَة</span> <span class="okunus">(es-sellâce)</span>
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><strong>buzdolabı</strong></div>
+      </div>
+      <div class="q"><span class="num">10</span> <span class="ar">غُرْفَةُ الجُلُوسِ</span> <span class="okunus">(ğurfetü'l-cülûs)</span>
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><strong>oturma odası</strong></div>
+      </div>
+      <div class="q"><span class="num">11</span> <span class="ar">جَمِيل</span> <span class="okunus">(cemîl)</span>
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><strong>güzel</strong></div>
+      </div>
+      <div class="q"><span class="num">12</span> <span class="ar">البَيْت</span> <span class="okunus">(el-beyt)</span>
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><strong>ev</strong></div>
+      </div>
+    </div>
+
+    <!-- ALIŞTIRMA C -->
+    <div class="ex">
+      <h4>Alıştırma C — (3. Soru tipi) Duyduğunuz sayıyı tabloda işaretleyiniz</h4>
+      <p class="note">Sınavda her satırda (أ – ب – ت) üç sayı bulunur. Öğretmen her satır için <strong>bir sayı</strong> okur; siz duyduğunuz sayıyı <strong>işaretlersiniz</strong>. Aşağıda yöntemi gösteren örnek bir tablo vardır.</p>
+
+      <table>
+        <tr><th>Satır</th><th colspan="3">Seçenekler (sağdan sola)</th></tr>
+        <tr><td><strong>أ</strong></td><td class="arc">وَاحِدُ <span class="okunus">(1)</span></td><td class="arc">تِسْعَة <span class="okunus">(9)</span></td><td class="arc">خَمْسَة <span class="okunus">(5)</span></td></tr>
+        <tr><td><strong>ب</strong></td><td class="arc">ثَلَاثَة <span class="okunus">(3)</span></td><td class="arc">ثَمَانِيَة <span class="okunus">(8)</span></td><td class="arc">سِتَّة <span class="okunus">(6)</span></td></tr>
+        <tr><td><strong>ت</strong></td><td class="arc">أَرْبَعَة <span class="okunus">(4)</span></td><td class="arc">اِثْنَان <span class="okunus">(2)</span></td><td class="arc">سَبْعَة <span class="okunus">(7)</span></td></tr>
+      </table>
+
+      <div class="q"><span class="num">1</span> Öğretmen <strong>أ</strong> satırı için “<em>tis'a</em>” okudu. Hangisini işaretlersiniz?
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><span class="ar">تِسْعَة</span> = <strong>٩ (9)</strong> işaretlenir.</div>
+      </div>
+      <div class="q"><span class="num">2</span> Öğretmen <strong>ب</strong> satırı için “<em>sitte</em>” okudu. Hangisini işaretlersiniz?
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><span class="ar">سِتَّة</span> = <strong>٦ (6)</strong> işaretlenir.</div>
+      </div>
+      <div class="q"><span class="num">3</span> Öğretmen <strong>ت</strong> satırı için “<em>isnân</em>” okudu. Hangisini işaretlersiniz?
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><span class="ar">اِثْنَان</span> = <strong>٢ (2)</strong> işaretlenir.</div>
+      </div>
+
+      <div class="tip"><strong>Hatırlatma:</strong> Sayıların okunuşlarını 4. Bölümdeki tablodan tekrar ediniz (sıfr, vâhid, isnân, selâse, erbaa, hamse, sitte, seb'a, semâniye, tis'a, aşara). Bu soruda hata yapmamak için sayıların <strong>kulakla tanınması</strong> en önemli noktadır.</div>
+    </div>
+  </div>
+
+  </div><!-- /tab-dinleme -->
+
+  <div class="tabpane active" data-tab="yazili">
+
+  <!-- ============ DENEME SINAVLARI ============ -->
+  <div class="card exam" id="deneme">
+    <h2 class="sec">★ Deneme Sınavları</h2>
+    <p>Aşağıda gerçek sınav düzenine birebir uygun <strong>üç deneme sınavı</strong> bulunmaktadır. Her deneme altı bölümden oluşur. Önce kendiniz çözünüz, sonra her sorunun altındaki <strong>“Cevabı Göster”</strong> butonuna basarak kontrol ediniz. Üç denemeyi de çözen bir öğrenci, sınavdaki tüm soru tiplerine ve içeriklerine hazır olur.</p>
+  </div>
+
+  <!-- ===== DENEME 1 ===== -->
+  <div class="card exam">
+    <h2 class="sec">Deneme Sınavı — 1</h2>
+
+    <h3>Soru 1 — Cümleyi aynen, güzel bir yazıyla yazınız.</h3>
+    <div class="q">a) <span class="ar">الفُرْن جَمِيل</span> &nbsp;&nbsp; b) <span class="ar">بَيْتِي كَبِيرٌ</span>
+      <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+      <div class="answer">Öğrenci cümleyi <strong>birebir aynı</strong> kopyalar: a) <span class="ar">الفُرْن جَمِيل</span> &nbsp; b) <span class="ar">بَيْتِي كَبِيرٌ</span></div>
+    </div>
+
+    <h3>Soru 2 — Uygun sıfatı seçiniz (eril/dişil).</h3>
+    <div class="q">a) <span class="ar">السَّجَّادَة …</span> ( <span class="ar">نَظِيف / نَظِيفَة</span> ) &nbsp;&nbsp; b) <span class="ar">الفُرْن …</span> ( <span class="ar">جَمِيل / جَمِيلَة</span> )
+      <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+      <div class="answer">a) <strong>نَظِيفَة</strong> (halı dişil) &nbsp; b) <strong>جَمِيل</strong> (fırın eril)</div>
+    </div>
+
+    <h3>Soru 3 — Türkçe kelimeleri Arapça yazınız.</h3>
+    <div class="q">a) mutfak &nbsp;&nbsp; b) banyo
+      <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+      <div class="answer">a) <strong>المَطْبَخ</strong> &nbsp; b) <strong>الحَمَّام</strong></div>
+    </div>
+
+    <h3>Soru 4 — Sayıları rakamla (Arap rakamı) yazınız.</h3>
+    <div class="q">a) <span class="ar">سَبْعَة</span> &nbsp;&nbsp; b) <span class="ar">أَرْبَعَة</span> &nbsp;&nbsp; c) <span class="ar">تِسْعَة</span>
+      <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+      <div class="answer">a) <strong>٧</strong> (7) &nbsp; b) <strong>٤</strong> (4) &nbsp; c) <strong>٩</strong> (9)</div>
+    </div>
+
+    <h3>Soru 5 — Cümleyi okuyup, yanlış kelimeyi düzelterek yeniden yazınız.</h3>
+    <div class="q"><span class="ar">الثَّلَّاجَةُ فِي غُرْفَةِ النَّوْمِ.</span>
+      <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+      <div class="answer"><span class="ar">الثَّلَّاجَةُ فِي المَطْبَخِ.</span> — <strong>“Buzdolabı mutfaktadır.”</strong></div>
+    </div>
+
+    <h3>Soru 6 — Diyaloğu uygun bir soru yazarak tamamlayınız.</h3>
+    <div class="q">— …………………………؟ <br>— <span class="ar">نَعَمْ، بَيْتِي كَبِيرٌ وَجَمِيلٌ.</span>
+      <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+      <div class="answer"><span class="ar" style="font-size:1.3rem">هَلْ بَيْتُكَ كَبِيرٌ؟</span> — <strong>“Evin büyük mü?”</strong></div>
+    </div>
+  </div>
+
+  <!-- ===== DENEME 2 ===== -->
+  <div class="card exam">
+    <h2 class="sec">Deneme Sınavı — 2</h2>
+
+    <h3>Soru 1 — Cümleyi aynen, güzel bir yazıyla yazınız.</h3>
+    <div class="q">a) <span class="ar">الثَّلَّاجَة نَظِيف</span> &nbsp;&nbsp; b) <span class="ar">غُرْفَةِ النَّوْمِ</span>
+      <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+      <div class="answer">Öğrenci birebir kopyalar: a) <span class="ar">الثَّلَّاجَة نَظِيف</span> &nbsp; b) <span class="ar">غُرْفَةِ النَّوْمِ</span></div>
+    </div>
+
+    <h3>Soru 2 — Uygun sıfatı seçiniz (eril/dişil).</h3>
+    <div class="q">a) <span class="ar">الثَّلَّاجَة …</span> ( <span class="ar">جَدِيد / جَدِيدَة</span> ) &nbsp;&nbsp; b) <span class="ar">البَيْت …</span> ( <span class="ar">كَبِير / كَبِيرَة</span> )
+      <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+      <div class="answer">a) <strong>جَدِيدَة</strong> (buzdolabı dişil) &nbsp; b) <strong>كَبِير</strong> (ev eril)</div>
+    </div>
+
+    <h3>Soru 3 — Türkçe kelimeleri Arapça yazınız.</h3>
+    <div class="q">a) oturma odası &nbsp;&nbsp; b) ev
+      <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+      <div class="answer">a) <strong>غُرْفَةُ الجُلُوسِ</strong> &nbsp; b) <strong>البَيْت</strong></div>
+    </div>
+
+    <h3>Soru 4 — Sayıları rakamla (Arap rakamı) yazınız.</h3>
+    <div class="q">a) <span class="ar">عَشَرَة</span> &nbsp;&nbsp; b) <span class="ar">اِثْنَان</span> &nbsp;&nbsp; c) <span class="ar">سِتَّة</span>
+      <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+      <div class="answer">a) <strong>١٠</strong> (10) &nbsp; b) <strong>٢</strong> (2) &nbsp; c) <strong>٦</strong> (6)</div>
+    </div>
+
+    <h3>Soru 5 — Cümleyi okuyup, yanlış kelimeyi düzelterek yeniden yazınız.</h3>
+    <div class="q"><span class="ar">الغَسَّالَةُ فِي غُرْفَةِ الجُلُوسِ.</span>
+      <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+      <div class="answer"><span class="ar">الغَسَّالَةُ فِي الحَمَّامِ.</span> — <strong>“Çamaşır makinesi banyodadır.”</strong></div>
+    </div>
+
+    <h3>Soru 6 — Diyaloğu uygun bir soru yazarak tamamlayınız.</h3>
+    <div class="q">— …………………………؟ <br>— <span class="ar">نَعَمْ، الفُرْنُ جَمِيلٌ.</span>
+      <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+      <div class="answer"><span class="ar" style="font-size:1.3rem">هَلِ الفُرْنُ جَمِيلٌ؟</span> — <strong>“Fırın güzel mi?”</strong></div>
+    </div>
+  </div>
+
+  <!-- ===== DENEME 3 ===== -->
+  <div class="card exam">
+    <h2 class="sec">Deneme Sınavı — 3</h2>
+
+    <h3>Soru 1 — Cümleyi aynen, güzel bir yazıyla yazınız.</h3>
+    <div class="q">a) <span class="ar">الفُرْن جَمِيل</span> &nbsp;&nbsp; b) <span class="ar">الثَّلَّاجَة نَظِيف</span>
+      <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+      <div class="answer">Öğrenci birebir kopyalar: a) <span class="ar">الفُرْن جَمِيل</span> &nbsp; b) <span class="ar">الثَّلَّاجَة نَظِيف</span></div>
+    </div>
+
+    <h3>Soru 2 — Uygun sıfatı seçiniz (eril/dişil).</h3>
+    <div class="q">a) <span class="ar">الغَسَّالَة …</span> ( <span class="ar">صَغِير / صَغِيرَة</span> ) &nbsp;&nbsp; b) <span class="ar">المَطْبَخ …</span> ( <span class="ar">نَظِيف / نَظِيفَة</span> )
+      <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+      <div class="answer">a) <strong>صَغِيرَة</strong> (çamaşır makinesi dişil) &nbsp; b) <strong>نَظِيف</strong> (mutfak eril)</div>
+    </div>
+
+    <h3>Soru 3 — Türkçe kelimeleri Arapça yazınız.</h3>
+    <div class="q">a) banyo &nbsp;&nbsp; b) mutfak
+      <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+      <div class="answer">a) <strong>الحَمَّام</strong> &nbsp; b) <strong>المَطْبَخ</strong></div>
+    </div>
+
+    <h3>Soru 4 — Sayıları rakamla (Arap rakamı) yazınız.</h3>
+    <div class="q">a) <span class="ar">صِفْر</span> &nbsp;&nbsp; b) <span class="ar">ثَلَاثَة</span> &nbsp;&nbsp; c) <span class="ar">خَمْسَة</span> &nbsp;&nbsp; d) <span class="ar">ثَمَانِيَة</span>
+      <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+      <div class="answer">a) <strong>٠</strong> (0) &nbsp; b) <strong>٣</strong> (3) &nbsp; c) <strong>٥</strong> (5) &nbsp; d) <strong>٨</strong> (8)</div>
+    </div>
+
+    <h3>Soru 5 — Cümleyi okuyup, yanlış kelimeyi düzelterek yeniden yazınız.</h3>
+    <div class="q"><span class="ar">الفُرْنُ فِي الحَمَّامِ.</span>
+      <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+      <div class="answer"><span class="ar">الفُرْنُ فِي المَطْبَخِ.</span> — <strong>“Fırın mutfaktadır.”</strong></div>
+    </div>
+
+    <h3>Soru 6 — Diyaloğu uygun bir soru yazarak tamamlayınız.</h3>
+    <div class="q">— …………………………؟ <br>— <span class="ar">نَعَمْ، بَيْتِي كَبِيرٌ وَجَمِيلٌ.</span>
+      <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+      <div class="answer"><span class="ar" style="font-size:1.3rem">هَلْ بَيْتُكَ كَبِيرٌ؟</span> — <strong>“Evin büyük mü?”</strong></div>
+    </div>
+  </div>
+
+  </div><!-- /tab-yazili (2) -->
+
+  <footer>
+    Arapça 5. Sınıf — Ev (البَيْت) Ünitesi Sınav Hazırlık Kılavuzu • Başarılar dileriz. 🌟
+  </footer>
+
+</div>
+
+<script>
+  function toggle(btn){
+    var ans = btn.nextElementSibling;
+    var open = ans.classList.toggle('show');
+    btn.textContent = open ? 'Cevabı Gizle' : 'Cevabı Göster';
+  }
+  function showTab(name){
+    document.querySelectorAll('.tabpane').forEach(function(p){
+      p.classList.toggle('active', p.getAttribute('data-tab') === name);
+    });
+    document.querySelectorAll('.tabbtn').forEach(function(b){
+      b.classList.toggle('on', b.getAttribute('data-tab') === name);
+    });
+    window.scrollTo(0, 0);
+  }
+
+  /* ===== Tıklayınca Arapça sesli okuma (TEK kaynak — asla iki ses) ===== */
+  var arVoice = null, ttsAudio = new Audio();
+  function pickArabicVoice(){
+    if(!('speechSynthesis' in window)) return;
+    var voices = window.speechSynthesis.getVoices();
+    arVoice = voices.find(function(v){ return /^ar(\b|-|_)/i.test(v.lang); }) || null;
+  }
+  if('speechSynthesis' in window){ pickArabicVoice(); window.speechSynthesis.onvoiceschanged = pickArabicVoice; }
+  function clearHi(){ document.querySelectorAll('.speaking').forEach(function(x){ x.classList.remove('speaking'); }); }
+
+  function speakLocal(ar, el){
+    if(!('speechSynthesis' in window) || !arVoice){ if(el) el.classList.remove('speaking'); return; }
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(ar);
+    u.lang = 'ar-SA'; u.rate = 0.8; u.voice = arVoice;
+    u.onend = function(){ if(el) el.classList.remove('speaking'); };
+    u.onerror = function(){ if(el) el.classList.remove('speaking'); };
+    window.speechSynthesis.speak(u);
+  }
+
+  function sayWord(el){
+    var matches = (el.textContent || '').match(/[؀-ۿٰـ\s]+/g);
+    var ar = matches ? matches.join(' ').replace(/\s+/g, ' ').trim() : '';
+    if(!ar) return;
+    if(ar.length > 200) ar = ar.slice(0, 200);
+
+    // Tek ses elemanı: yeni tıklamada öncekini kesin durdurur (asla iki ses)
+    try{ ttsAudio.pause(); }catch(e){}
+    if('speechSynthesis' in window) window.speechSynthesis.cancel();
+    clearHi(); el.classList.add('speaking');
+
+    var q = encodeURIComponent(ar);
+    var urls = [
+      'https://translate.googleapis.com/translate_tts?ie=UTF-8&tl=ar&client=gtx&q=' + q,
+      'https://translate.google.com/translate_tts?ie=UTF-8&tl=ar&client=tw-ob&q=' + q
+    ];
+    var idx = 0, started = false;
+    ttsAudio.onplaying = function(){ started = true; };
+    ttsAudio.onended = function(){ el.classList.remove('speaking'); };
+    // Bir kaynak çaldıysa asla başka kaynak başlatma; yalnızca YÜKLENEMEZSE sıradakini dene
+    ttsAudio.onerror = function(){
+      if(started){ el.classList.remove('speaking'); return; }
+      idx++;
+      if(idx < urls.length){ ttsAudio.src = urls[idx]; var pp = ttsAudio.play(); if(pp && pp.catch) pp.catch(function(){}); }
+      else speakLocal(ar, el);
+    };
+    ttsAudio.src = urls[0];
+    var p = ttsAudio.play();
+    if(p && p.catch){ p.catch(function(){}); }
+  }
+
+  document.addEventListener('click', function(e){
+    var el = e.target.closest('.ar, .arc');
+    if(el) sayWord(el);
+  });
+</script>
+
+</body>
+</html>

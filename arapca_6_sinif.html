@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="referrer" content="no-referrer">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
+<title>Arapça 6. Sınıf — Sınav Hazırlık</title>
+<style>
+  :root{
+    --bg:#f4f7fb; --card:#fff; --ink:#1f2a44; --muted:#5b6b8c; --line:#e2e8f4;
+    --brand:#7048b6; --brand2:#0d8a72; --warn:#b45309; --ok:#0d8a72;
+    --shadow:0 6px 20px rgba(20,40,80,.08);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Segoe UI",Tahoma,system-ui,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;font-size:17px}
+  header.top{background:linear-gradient(135deg,#7048b6,#0d8a72);color:#fff;padding:24px 18px;text-align:center}
+  header.top h1{margin:0 0 6px;font-size:1.45rem}
+  header.top p{margin:0;opacity:.95;font-size:.96rem}
+  .wrap{max-width:920px;margin:0 auto;padding:16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 18px 22px;margin:18px 0;box-shadow:var(--shadow)}
+  h2.sec{font-size:1.2rem;color:var(--brand);border-right:6px solid var(--brand2);padding:6px 12px;margin:4px 0;border-radius:6px;background:#f1ecfa}
+  .page{display:inline-block;background:#fff4e5;color:var(--warn);border:1px solid #f4d9b0;padding:2px 10px;border-radius:999px;font-size:.82rem;font-weight:700;margin:8px 0 6px}
+  h3{color:var(--brand2);margin:18px 0 6px;font-size:1.06rem}
+  p.note{color:var(--muted);font-size:.95rem}
+  .ar{direction:rtl;font-family:"Scheherazade New","Amiri","Traditional Arabic","Times New Roman",serif;font-size:1.6rem;line-height:2.2;cursor:pointer}
+  .ar:hover,.arc:hover{background:#fff3bf;border-radius:6px}
+  .speaking{background:#ffd84d !important;border-radius:6px;box-shadow:0 0 0 2px #f1b400}
+  table{width:100%;border-collapse:collapse;margin:12px 0;background:#fff;font-size:.97rem}
+  th,td{border:1px solid var(--line);padding:9px 8px;text-align:center;vertical-align:middle}
+  th{background:#f1ecfa;color:var(--brand)}
+  td.arc{font-family:"Scheherazade New","Amiri","Traditional Arabic","Times New Roman",serif;font-size:1.45rem;direction:rtl;cursor:pointer}
+  .okunus{color:#7a4ed6;font-style:italic;font-size:.93rem}
+  .c1{color:#c0392b;font-weight:700}.c2{color:#1e7e34;font-weight:700}.c3{color:#2155cd;font-weight:700}
+  .c4{color:#b8860b;font-weight:700}.c5{color:#8e44ad;font-weight:700}.c6{color:#c2185b;font-weight:700}
+  .c7{color:#00838f;font-weight:700}.c8{color:#6d4c00;font-weight:700}.c9{color:#3949ab;font-weight:700}.c10{color:#ad1457;font-weight:700}
+  .rule{background:#eafaf3;border:1px solid #bfe9d6;border-right:6px solid var(--brand2);border-radius:12px;padding:12px 14px;margin:12px 0}
+  .tip{background:#fff8e8;border:1px solid #f0dca8;border-right:6px solid var(--warn);border-radius:12px;padding:12px 14px;margin:12px 0;font-size:.95rem}
+  .box{background:#f7f4fd;border:1px dashed #cdbdef;border-radius:12px;padding:12px 14px;margin:12px 0}
+  .ex{background:#fbfdff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:12px 0}
+  .ex h4{margin:0 0 8px;color:var(--brand);font-size:1rem}
+  .q{margin:10px 0;padding:10px 12px;background:#fff;border:1px solid var(--line);border-radius:10px}
+  .q .num{display:inline-block;background:var(--brand);color:#fff;border-radius:50%;width:26px;height:26px;line-height:26px;text-align:center;font-size:.9rem;font-weight:700;margin-left:6px}
+  button.reveal{background:var(--brand2);color:#fff;border:none;padding:9px 16px;border-radius:10px;font-size:.95rem;font-weight:700;cursor:pointer;margin-top:8px}
+  button.reveal:hover{filter:brightness(1.08)}
+  .answer{display:none;margin-top:10px;background:#eafaf3;border:1px solid #bfe9d6;border-radius:10px;padding:10px 12px}
+  .answer.show{display:block}
+  .answer strong{color:var(--ok)}
+  .exam{border:2px solid var(--brand);background:#fbf9ff}
+  .exam h2.sec{background:#7048b6;color:#fff;border-right-color:#0d8a72}
+  .audio-note{background:#eef7ff;border:1px solid #c7e0f5;border-right:6px solid #2155cd;border-radius:12px;padding:10px 14px;margin:12px 0;font-size:.95rem}
+  footer{text-align:center;color:var(--muted);font-size:.88rem;padding:24px}
+  @media(max-width:600px){body{font-size:16px}.ar{font-size:1.4rem}td.arc{font-size:1.28rem}header.top h1{font-size:1.15rem}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <h1>Arapça 6. Sınıf — Sınav Hazırlık Kılavuzu</h1>
+  <p>Renkler & Giysiler • Kutsal Yerler • Gelecek Zaman • Ulaşım • Diyalog • Dinleme</p>
+</header>
+
+<div class="wrap">
+
+  <div class="card">
+    <h2 class="sec">Bu Kılavuz Nasıl Kullanılır?</h2>
+    <p class="note">Sevgili öğrenciler, bu kitapçık sınavda karşınıza çıkacak konuları içerir. Her bölümde önce <strong>sorunun ne istediği</strong> açıklanır, sonra <strong>ders ve kurallar</strong> anlatılır, ardından <strong>farklı örneklerle alıştırma</strong> yaparsınız. En sonda ise <strong>gerçek sınav soruları</strong> ayrı ayrı çalışılır. Tüm metinler <strong>harekeli</strong> ve <strong>Türkçe çevirilidir</strong>; aynı renk, kelime ile anlamını eşleştirir.</p>
+    <div class="audio-note">🔊 <strong>Sesli okuma:</strong> Herhangi bir <strong>Arapça kelime veya cümleye tıklayınca</strong> doğru telaffuzu dinlersiniz. (İnternet bağlantısı gereklidir.)</div>
+  </div>
+
+  <!-- ====== SORU 1: RENKLER & GİYSİLER ====== -->
+  <div class="card">
+    <h2 class="sec">1. Soru — Türkçe → Arapça Çeviri (Renkler & Giysiler)</h2>
+
+    <h3>Sorunun İstediği</h3>
+    <p>Size <strong>Türkçe bir ifade</strong> (renk + giysi) verilir; siz onun <strong>Arapça karşılığını</strong> yazarsınız.</p>
+
+    <div class="rule">
+      <strong>Çok önemli kural:</strong> Arapçada <strong>sıfat (renk) isimden SONRA</strong> gelir. Türkçede ise önce gelir.
+      <br>Türkçe: <em>kırmızı elbise</em> → Arapça: <span class="ar" style="font-size:1.3rem">فُسْتَانٌ أَحْمَرُ</span> (kelime kelime: “elbise kırmızı”).
+    </div>
+
+    <h3>Renkler (الأَلْوَان)</h3>
+    <table>
+      <tr><th>Arapça</th><th>Okunuş</th><th>Türkçe</th></tr>
+      <tr><td class="arc"><span class="c1">أَحْمَر</span></td><td class="okunus">ahmar</td><td><span class="c1">kırmızı</span></td></tr>
+      <tr><td class="arc"><span class="c3">أَزْرَق</span></td><td class="okunus">azrak</td><td><span class="c3">mavi</span></td></tr>
+      <tr><td class="arc"><span class="c2">أَخْضَر</span></td><td class="okunus">ahdar</td><td><span class="c2">yeşil</span></td></tr>
+      <tr><td class="arc"><span class="c4">أَصْفَر</span></td><td class="okunus">asfar</td><td><span class="c4">sarı</span></td></tr>
+      <tr><td class="arc"><span class="c8">بُنِّيّ</span></td><td class="okunus">bunnî</td><td><span class="c8">kahverengi</span></td></tr>
+      <tr><td class="arc"><span class="c5">أَبْيَض</span></td><td class="okunus">ebyad</td><td><span class="c5">beyaz</span></td></tr>
+      <tr><td class="arc"><span class="c9">أَسْوَد</span></td><td class="okunus">esved</td><td><span class="c9">siyah</span></td></tr>
+    </table>
+
+    <h3>Giysiler (الـمَلابِس)</h3>
+    <table>
+      <tr><th>Arapça</th><th>Okunuş</th><th>Türkçe</th></tr>
+      <tr><td class="arc"><span class="c6">فُسْتَان</span></td><td class="okunus">fustân</td><td><span class="c6">elbise</span></td></tr>
+      <tr><td class="arc"><span class="c7">قَمِيص</span></td><td class="okunus">kamîs</td><td><span class="c7">gömlek</span></td></tr>
+      <tr><td class="arc"><span class="c3">بَنْطَلُون</span></td><td class="okunus">bantalûn</td><td><span class="c3">pantolon</span></td></tr>
+      <tr><td class="arc"><span class="c2">حِذَاء</span></td><td class="okunus">hizâ'</td><td><span class="c2">ayakkabı</span></td></tr>
+      <tr><td class="arc"><span class="c10">شِبْشِب</span></td><td class="okunus">şibşib</td><td><span class="c10">terlik</span></td></tr>
+      <tr><td class="arc"><span class="c4">قُبَّعَة</span></td><td class="okunus">kubbe'a</td><td><span class="c4">şapka</span></td></tr>
+    </table>
+
+    <div class="ex">
+      <h4>Alıştırma — Türkçeyi Arapça yazınız (farklı örnekler)</h4>
+      <div class="q"><span class="num">1</span> mavi gömlek
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><span class="ar">قَمِيصٌ أَزْرَقُ</span> — <strong>“gömlek mavi”</strong></div>
+      </div>
+      <div class="q"><span class="num">2</span> siyah ayakkabı
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><span class="ar">حِذَاءٌ أَسْوَدُ</span></div>
+      </div>
+      <div class="q"><span class="num">3</span> sarı şapka
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><span class="ar">قُبَّعَةٌ صَفْرَاءُ</span> <span class="note">(قُبَّعَة dişil olduğu için renk de dişil: صَفْرَاء)</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== SORU 2: OKUMA + KUTSAL YERLER + أين ====== -->
+  <div class="card">
+    <h2 class="sec">2. Soru — Metne Göre Cevaplama (Kutsal Yerler)</h2>
+
+    <h3>Sorunun İstediği</h3>
+    <p>Kısa bir metin okursunuz, sonra <strong>أَيْنَ (nerede)</strong> sorularını metne göre <strong>tam cümleyle</strong> cevaplarsınız.</p>
+
+    <div class="rule">
+      <strong>Yer sorma:</strong> <span class="ar" style="font-size:1.3rem">أَيْنَ</span> (eyne) = <strong>nerede</strong>.
+      Cevapta <span class="ar" style="font-size:1.3rem">فِي</span> (fî) = “…-de” kullanılır.
+      <br>Örnek: <span class="ar">أَيْنَ المَسْجِدُ؟ — المَسْجِدُ فِي المَدِينَةِ.</span>
+    </div>
+
+    <h3>Kutsal Yerler (الأَماكِن الـمُقَدَّسَة)</h3>
+    <table>
+      <tr><th>Arapça</th><th>Okunuş</th><th>Türkçe</th></tr>
+      <tr><td class="arc"><span class="c1">مَكَّة المُكَرَّمَة</span></td><td class="okunus">Mekketü'l-Mükerreme</td><td><span class="c1">Mekke</span></td></tr>
+      <tr><td class="arc"><span class="c2">المَدِينَة المُنَوَّرَة</span></td><td class="okunus">el-Medînetü'l-Münevvere</td><td><span class="c2">Medine</span></td></tr>
+      <tr><td class="arc"><span class="c3">المَسْجِد الحَرَام</span></td><td class="okunus">el-Mescidü'l-Harâm</td><td><span class="c3">Mescid-i Haram</span></td></tr>
+      <tr><td class="arc"><span class="c5">الكَعْبَة الشَّرِيفَة</span></td><td class="okunus">el-Ka'betü'ş-Şerîfe</td><td><span class="c5">Kâbe</span></td></tr>
+      <tr><td class="arc"><span class="c7">المَسْجِد الأَقْصَى</span></td><td class="okunus">el-Mescidü'l-Aksâ</td><td><span class="c7">Mescid-i Aksa</span></td></tr>
+      <tr><td class="arc"><span class="c6">القُدْس</span></td><td class="okunus">el-Kuds</td><td><span class="c6">Kudüs</span></td></tr>
+      <tr><td class="arc"><span class="c4">السُّعُودِيَّة</span></td><td class="okunus">es-Suûdiyye</td><td><span class="c4">Suudi Arabistan</span></td></tr>
+      <tr><td class="arc"><span class="c9">مُقَدَّس</span></td><td class="okunus">mukaddes</td><td><span class="c9">kutsal</span></td></tr>
+      <tr><td class="arc"><span class="c10">قِبْلَة</span></td><td class="okunus">kıble</td><td><span class="c10">kıble</span></td></tr>
+    </table>
+
+    <div class="ex">
+      <h4>Örnek Metin + Tam Çeviri (tıklayıp dinleyebilirsiniz)</h4>
+      <p class="ar">المَدِينَةُ المُنَوَّرَةُ فِي السُّعُودِيَّةِ، وَفِيهَا المَسْجِدُ النَّبَوِيُّ.</p>
+      <p class="note">Medine Suudi Arabistan'dadır ve içinde Mescid-i Nebevî vardır.</p>
+      <div class="q"><span class="num">1</span> <span class="ar">أَيْنَ المَدِينَةُ المُنَوَّرَةُ؟</span>
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><span class="ar">المَدِينَةُ المُنَوَّرَةُ فِي السُّعُودِيَّةِ.</span> — <strong>“Medine Suudi Arabistan'dadır.”</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== SORU 3: GELECEK ZAMAN ====== -->
+  <div class="card">
+    <h2 class="sec">3. Soru — Gelecek Zaman (المُسْتَقْبَل)</h2>
+
+    <h3>Sorunun İstediği</h3>
+    <p>Bir tabloda verilen cümlelerden <strong>gelecek zaman</strong> olanları işaretlersiniz.</p>
+
+    <div class="rule">
+      <strong>Kural:</strong> Gelecek zaman, geniş zaman fiilinin başına <span class="ar" style="font-size:1.3rem">سَـ</span> (se-) veya <span class="ar" style="font-size:1.3rem">سَوْفَ</span> (sevfe) eklenerek yapılır.
+      <br><span class="ar">أَذْهَبُ</span> (gidiyorum) → <span class="ar">سَأَذْهَبُ</span> (gideceğim) &nbsp;•&nbsp;
+      <span class="ar">يَرْجِعُ</span> (dönüyor) → <span class="ar">سَيَرْجِعُ</span> (dönecek).
+    </div>
+    <div class="tip">
+      ⚠️ <strong>Tuzak:</strong> <span class="ar" style="font-size:1.3rem">سَافَرَ</span> (sâfera = seyahat etti) gelecek zaman <u>değildir</u>! Buradaki “سا” fiilin kökündendir, gelecek eki değildir. Bu fiil <strong>geçmiş zamandır</strong>. Gelecek eki <span class="ar">سَـ</span> daima <strong>geniş zaman fiiline</strong> (أ/ي/ت/ن ile başlayan) eklenir.
+    </div>
+
+    <div class="ex">
+      <h4>Alıştırma — Gelecek zaman mı? (farklı örnekler)</h4>
+      <div class="q"><span class="num">1</span> <span class="ar">سَأَكْتُبُ الوَاجِبَ</span>
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><strong>Gelecek ✓</strong> — “Ödevi yazacağım.” (سَـ + أكتب)</div>
+      </div>
+      <div class="q"><span class="num">2</span> <span class="ar">يَلْعَبُ الوَلَدُ</span>
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><strong>Gelecek değil ✗</strong> — geniş zaman: “Çocuk oynuyor.”</div>
+      </div>
+      <div class="q"><span class="num">3</span> <span class="ar">شَرِبَ المَاءَ</span>
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><strong>Gelecek değil ✗</strong> — geçmiş zaman: “Suyu içti.”</div>
+      </div>
+      <div class="q"><span class="num">4</span> <span class="ar">سَوْفَ نُسَافِرُ غَدًا</span>
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><strong>Gelecek ✓</strong> — “Yarın seyahat edeceğiz.” (سَوْفَ + نسافر)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== SORU 4: AYNEN YAZMA ====== -->
+  <div class="card">
+    <h2 class="sec">4. Soru — Cümleyi Aynen Yazma</h2>
+    <h3>Sorunun İstediği</h3>
+    <p>Verilen cümleyi <strong>harfi harfine, güzel bir yazıyla</strong> aynen yazarsınız. Harekelere dikkat ediniz.</p>
+    <div class="ex">
+      <h4>Alıştırma — Aynen yazınız (farklı örnekler)</h4>
+      <div class="q"><span class="num">1</span> <span class="ar">الكَعْبَةُ فِي مَكَّةَ المُكَرَّمَةِ</span>
+        <br><button class="reveal" onclick="toggle(this)">Çeviriyi Göster</button>
+        <div class="answer">“Kâbe Mekke'dedir.” — Cümleyi olduğu gibi kopyalayınız.</div>
+      </div>
+      <div class="q"><span class="num">2</span> <span class="ar">جَبَلُ النُّورِ قَرِيبٌ مِنْ مَكَّةَ</span>
+        <br><button class="reveal" onclick="toggle(this)">Çeviriyi Göster</button>
+        <div class="answer">“Nur Dağı Mekke'ye yakındır.”</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== SORU 5: DİYALOG / ULAŞIM ====== -->
+  <div class="card">
+    <h2 class="sec">5. Soru — Diyaloğa Göre Cevaplama (Yolculuk)</h2>
+
+    <h3>Sorunun İstediği</h3>
+    <p>Bir <strong>diyalog</strong> okursunuz (tren istasyonu), sonra metne göre sorulara cevap verirsiniz.</p>
+
+    <div class="rule">
+      <strong>Soru kelimeleri:</strong>
+      <span class="ar">مَتَى</span> (metâ)= ne zaman •
+      <span class="ar">بِكَمْ</span> (bikem)= kaça/ne kadara •
+      <span class="ar">كَمْ</span> (kem)= kaç.
+    </div>
+
+    <h3>Yolculuk Kelimeleri (السَّفَر وَالـمُوَاصَلات)</h3>
+    <table>
+      <tr><th>Arapça</th><th>Okunuş</th><th>Türkçe</th></tr>
+      <tr><td class="arc"><span class="c3">قِطَار</span></td><td class="okunus">kıtâr</td><td><span class="c3">tren</span></td></tr>
+      <tr><td class="arc"><span class="c2">حَافِلَة</span></td><td class="okunus">hâfile</td><td><span class="c2">otobüs</span></td></tr>
+      <tr><td class="arc"><span class="c5">مَحَطَّة</span></td><td class="okunus">mahatta</td><td><span class="c5">istasyon</span></td></tr>
+      <tr><td class="arc"><span class="c4">مَوْقِف</span></td><td class="okunus">mevkıf</td><td><span class="c4">durak</span></td></tr>
+      <tr><td class="arc"><span class="c1">تَذْكِرَة</span></td><td class="okunus">tezkire</td><td><span class="c1">bilet</span></td></tr>
+      <tr><td class="arc"><span class="c7">يُغَادِر</span></td><td class="okunus">yuğâdir</td><td><span class="c7">(o) ayrılır/kalkar</span></td></tr>
+    </table>
+
+    <div class="ex">
+      <h4>Örnek Mini Diyalog + Çeviri</h4>
+      <p class="ar">— مَتَى سَتُغَادِرُ الحَافِلَةُ؟ — سَتُغَادِرُ بَعْدَ عَشْرِ دَقَائِقَ.</p>
+      <p class="note">— Otobüs ne zaman kalkacak? — On dakika sonra kalkacak.</p>
+      <div class="q"><span class="num">1</span> <span class="ar">بِكَمِ التَّذْكِرَةُ؟ (سعر: ٢٠ ليرة)</span>
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><span class="ar">التَّذْكِرَةُ بِعِشْرِينَ لِيرَةً.</span> — <strong>“Bilet yirmi liradır.”</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== SORU 6: ARAPÇA → TÜRKÇE ====== -->
+  <div class="card">
+    <h2 class="sec">6. Soru — Arapça → Türkçe Çeviri (Ulaşım Araçları)</h2>
+
+    <h3>Sorunun İstediği</h3>
+    <p>Verilen Arapça cümlenin <strong>Türkçe çevirisini</strong> yazarsınız.</p>
+
+    <h3>Ulaşım Araçları (وَسَائِل النَّقْل)</h3>
+    <table>
+      <tr><th>Arapça</th><th>Okunuş</th><th>Türkçe</th></tr>
+      <tr><td class="arc"><span class="c1">سَيَّارَة</span></td><td class="okunus">seyyâre</td><td><span class="c1">araba</span></td></tr>
+      <tr><td class="arc"><span class="c3">طَائِرَة</span></td><td class="okunus">tâ'ire</td><td><span class="c3">uçak</span></td></tr>
+      <tr><td class="arc"><span class="c7">سَفِينَة</span></td><td class="okunus">sefîne</td><td><span class="c7">gemi</span></td></tr>
+      <tr><td class="arc"><span class="c2">دَرَّاجَة</span></td><td class="okunus">derrâce</td><td><span class="c2">bisiklet</span></td></tr>
+      <tr><td class="arc"><span class="c6">بَحْر</span></td><td class="okunus">bahr</td><td><span class="c6">deniz</span></td></tr>
+    </table>
+
+    <div class="ex">
+      <h4>Alıştırma — Türkçeye çeviriniz (farklı örnekler)</h4>
+      <div class="q"><span class="num">1</span> <span class="ar">السَّيَّارَةُ أَمَامَ البَيْتِ.</span>
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><strong>“Araba evin önündedir.”</strong></div>
+      </div>
+      <div class="q"><span class="num">2</span> <span class="ar">الطَّائِرَةُ فِي السَّمَاءِ.</span>
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><strong>“Uçak gökyüzündedir.”</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== DİNLEME ====== -->
+  <div class="card">
+    <h2 class="sec">🎧 Dinleme Sınavı Bölümü (الاسْتِماع)</h2>
+
+    <h3>Sorunun İstediği</h3>
+    <div class="rule">
+      <ol>
+        <li><strong>1. Bölüm:</strong> Öğretmen kelimeleri okur → siz <strong>Arapça yazılışını</strong> yazarsınız (yer/yön kelimeleri).</li>
+        <li><strong>2. Bölüm:</strong> Öğretmen kelimeleri okur → siz <strong>Türkçe anlamını</strong> yazarsınız (kutsal yerler).</li>
+        <li><strong>3. Bölüm:</strong> Duyduğunuz kelimeleri <strong>boşluklara yerleştirirsiniz</strong>.</li>
+      </ol>
+    </div>
+
+    <h3>Yer / Yön Kelimeleri (ظُرُوف المَكَان)</h3>
+    <table>
+      <tr><th>Arapça</th><th>Okunuş</th><th>Türkçe</th></tr>
+      <tr><td class="arc"><span class="c3">فَوْقَ</span></td><td class="okunus">fevka</td><td><span class="c3">üstünde</span></td></tr>
+      <tr><td class="arc"><span class="c1">تَحْتَ</span></td><td class="okunus">tahte</td><td><span class="c1">altında</span></td></tr>
+      <tr><td class="arc"><span class="c2">أَمَامَ</span></td><td class="okunus">emâme</td><td><span class="c2">önünde</span></td></tr>
+      <tr><td class="arc"><span class="c5">خَلْفَ</span></td><td class="okunus">halfe</td><td><span class="c5">arkasında</span></td></tr>
+      <tr><td class="arc"><span class="c4">بِجَانِبِ</span></td><td class="okunus">bicânibi</td><td><span class="c4">yanında</span></td></tr>
+      <tr><td class="arc"><span class="c7">قَرِيب مِنْ</span></td><td class="okunus">karîb min</td><td><span class="c7">-e yakın</span></td></tr>
+      <tr><td class="arc"><span class="c6">بَعِيد عَنْ</span></td><td class="okunus">ba'îd an</td><td><span class="c6">-den uzak</span></td></tr>
+    </table>
+
+    <div class="ex">
+      <h4>Alıştırma — Türkçe anlamını yazınız (farklı örnekler)</h4>
+      <div class="q"><span class="num">1</span> <span class="ar">تَحْتَ</span> <span class="okunus">(tahte)</span>
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><strong>altında</strong></div>
+      </div>
+      <div class="q"><span class="num">2</span> <span class="ar">أَمَامَ</span> <span class="okunus">(emâme)</span>
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><strong>önünde</strong></div>
+      </div>
+      <div class="q"><span class="num">3</span> <span class="ar">غَار حِرَاء</span> <span class="okunus">(ğâru hirâ')</span>
+        <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+        <div class="answer"><strong>Hira Mağarası</strong></div>
+      </div>
+    </div>
+  </div>
+
+    <!-- ====== GERÇEK SINAV SORULARI (ayrıntılı) ====== -->
+
+  <div class="card exam">
+    <h2 class="sec">📌 Sınav Sorusu 1 — Türkçe → Arapça (10 puan)</h2>
+    <h3>Açıklama</h3>
+    <p>Verilen Türkçe ifadenin Arapça karşılığını yazınız. <strong>Hatırlatma:</strong> Arapçada renk (sıfat) <strong>isimden sonra</strong> gelir; isim ile sıfat birlikte tenvinli (ـٌ) yazılır.</p>
+    <table>
+      <tr><th>Türkçe</th><th>Arapça</th><th>Okunuş</th></tr>
+      <tr><td>kırmızı elbise</td><td class="arc"><span class="c6">فُسْتَانٌ</span> <span class="c1">أَحْمَرُ</span></td><td class="okunus">fustânun ahmaru</td></tr>
+      <tr><td>kahverengi terlik</td><td class="arc"><span class="c10">شِبْشِبٌ</span> <span class="c8">بُنِّيٌّ</span></td><td class="okunus">şibşibun bunniyyun</td></tr>
+    </table>
+    <p class="note">Kelime kelime: <span class="c6">فُسْتَان</span>=<span class="c6">elbise</span>, <span class="c1">أَحْمَر</span>=<span class="c1">kırmızı</span> • <span class="c10">شِبْشِب</span>=<span class="c10">terlik</span>, <span class="c8">بُنِّيّ</span>=<span class="c8">kahverengi</span>.</p>
+    <div class="q">Kendiniz yazmayı deneyin, sonra kontrol edin.
+      <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+      <div class="answer">1) <span class="ar">فُسْتَانٌ أَحْمَرُ</span> &nbsp; 2) <span class="ar">شِبْشِبٌ بُنِّيٌّ</span></div>
+    </div>
+  </div>
+
+  <div class="card exam">
+    <h2 class="sec">📌 Sınav Sorusu 2 — Metne Göre Cevaplama (20 puan)</h2>
+    <h3>Açıklama</h3>
+    <p>Metni okuyup <strong>أَيْنَ (nerede)</strong> sorularını <strong>tam cümleyle</strong> cevaplayınız. Cevapta <span class="ar" style="font-size:1.2rem">فِي</span> (–de) kullanılır.</p>
+
+    <h3>Metin — cümle cümle (okunuş + çeviri)</h3>
+    <div class="box">
+      <p class="ar">مَكَّةُ المُكَرَّمَةُ فِي السُّعُودِيَّةِ، وَهِيَ مَدِينَةٌ مُقَدَّسَةٌ.</p>
+      <p class="okunus">Mekketü'l-mükerremetü fi's-suûdiyyeti, ve hiye medînetün mukaddesetün.</p>
+      <p class="note">Mekke Suudi Arabistan'dadır ve o kutsal bir şehirdir.</p>
+      <hr style="border:none;border-top:1px dashed #ccc">
+      <p class="ar">المَسْجِدُ الحَرَامُ فِي مَكَّةَ المُكَرَّمَةِ، وَهُوَ مُقَدَّسٌ أَيْضًا.</p>
+      <p class="okunus">el-Mescidü'l-harâmu fî mekkete'l-mükerremeti, ve hüve mukaddesün eydan.</p>
+      <p class="note">Mescid-i Haram Mekke'dedir ve o da kutsaldır.</p>
+      <hr style="border:none;border-top:1px dashed #ccc">
+      <p class="ar">الكَعْبَةُ الشَّرِيفَةُ قِبْلَةُ المُسْلِمِينَ، وَهِيَ فِي المَسْجِدِ الحَرَامِ.</p>
+      <p class="okunus">el-Ka'betü'ş-şerîfetü kıbletü'l-müslimîne, ve hiye fi'l-mescidi'l-harâmi.</p>
+      <p class="note">Şerefli Kâbe Müslümanların kıblesidir ve o Mescid-i Haram'dadır.</p>
+    </div>
+
+    <div class="q"><span class="num">1</span> <span class="ar">أَيْنَ تَقَعُ الكَعْبَةُ الشَّرِيفَةُ؟</span>
+      <br><span class="okunus">Eyne teka'u'l-ka'betü'ş-şerîfeh? — “Şerefli Kâbe nerededir?”</span>
+      <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+      <div class="answer"><span class="ar">الكَعْبَةُ الشَّرِيفَةُ فِي المَسْجِدِ الحَرَامِ.</span><br><span class="okunus">el-Ka'betü'ş-şerîfetü fi'l-mescidi'l-harâm.</span><br><strong>“Kâbe Mescid-i Haram'dadır.”</strong></div>
+    </div>
+    <div class="q"><span class="num">2</span> <span class="ar">أَيْنَ تَقَعُ مَكَّةُ المُكَرَّمَةُ؟</span>
+      <br><span class="okunus">Eyne teka'u mekketü'l-mükerrameh? — “Mekke nerededir?”</span>
+      <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+      <div class="answer"><span class="ar">مَكَّةُ المُكَرَّمَةُ فِي السُّعُودِيَّةِ.</span><br><span class="okunus">Mekketü'l-mükerremetü fi's-suûdiyyeh.</span><br><strong>“Mekke Suudi Arabistan'dadır.”</strong></div>
+    </div>
+  </div>
+
+  <div class="card exam">
+    <h2 class="sec">📌 Sınav Sorusu 3 — Gelecek Zamanı İşaretleyiniz (20 puan)</h2>
+    <h3>Açıklama & Kural</h3>
+    <p>Geniş zaman fiilinin başına <span class="ar" style="font-size:1.2rem">سَـ</span> (se-) veya <span class="ar" style="font-size:1.2rem">سَوْفَ</span> gelirse <strong>gelecek zaman</strong> olur. ⚠️ <span class="ar">سَافَرَ</span> (seyahat etti) <strong>geçmiştir</strong>, gelecek değildir!</p>
+    <table>
+      <tr><th>#</th><th>İfade</th><th>Okunuş</th><th>Türkçe</th><th>Gelecek?</th></tr>
+      <tr><td>1</td><td class="arc">سَافَرَ ياسر إلى مَكَّة</td><td class="okunus">sâfera Yâsir ilâ Mekke</td><td>Yasir Mekke'ye seyahat etti</td><td>✗ (geçmiş)</td></tr>
+      <tr><td>2</td><td class="arc">أَذْهَبُ إلى مَضِيق إِسْطَنْبُول</td><td class="okunus">ezhebu ilâ madîk İstanbul</td><td>İstanbul Boğazı'na gidiyorum</td><td>✗ (geniş)</td></tr>
+      <tr><td>3</td><td class="arc">سَأَذْهَبُ إلى المُسْتَشْفَى</td><td class="okunus">se-ezhebu ile'l-müstaşfâ</td><td>Hastaneye gideceğim</td><td>✓</td></tr>
+      <tr><td>4</td><td class="arc">أَرْجِعُ مِنَ المَسْجِدِ الأَقْصَى</td><td class="okunus">erci'u mine'l-mescidi'l-aksâ</td><td>Mescid-i Aksa'dan dönüyorum</td><td>✗ (geniş)</td></tr>
+      <tr><td>5</td><td class="arc">سَأَرْجِعُ مِنَ البَيْت</td><td class="okunus">se-erci'u mine'l-beyt</td><td>Evden döneceğim</td><td>✓</td></tr>
+      <tr><td>6</td><td class="arc">يَزُورُ أَبِي مَسْجِد قُبَاء</td><td class="okunus">yezûru ebî mescide Kubâ'</td><td>Babam Kuba Mescidi'ni ziyaret ediyor</td><td>✗ (geniş)</td></tr>
+      <tr><td>7</td><td class="arc">سَأَذْهَبُ إلى السُّوق</td><td class="okunus">se-ezhebu ile's-sûk</td><td>Çarşıya gideceğim</td><td>✓</td></tr>
+      <tr><td>8</td><td class="arc">يُصَلِّي فِي البَيْتِ</td><td class="okunus">yusallî fi'l-beyt</td><td>Evde namaz kılıyor</td><td>✗ (geniş)</td></tr>
+      <tr><td>9</td><td class="arc">سَأَرْجِعُ مِنَ السُّعُودِيَّة</td><td class="okunus">se-erci'u mine's-suûdiyye</td><td>Suudi Arabistan'dan döneceğim</td><td>✓</td></tr>
+    </table>
+    <div class="q">Hangileri işaretlenmeli?
+      <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+      <div class="answer"><strong>İşaretlenecekler: 3, 5, 7, 9</strong> (hepsi سَـ ile başlar).<br>1. madde (سَافَرَ) geçmiş olduğu için <strong>işaretlenmez</strong>.</div>
+    </div>
+  </div>
+
+  <div class="card exam">
+    <h2 class="sec">📌 Sınav Sorusu 4 — Cümleyi Aynen Yazınız (20 puan)</h2>
+    <h3>Açıklama</h3>
+    <p>Cümleleri <strong>harfi harfine, harekeleriyle</strong> karşısına aynen yazınız.</p>
+    <div class="box">
+      <p class="ar">المَدِينَةُ المُنَوَّرَةُ هِيَ مَدِينَةٌ مُقَدَّسَةٌ.</p>
+      <p class="okunus">el-Medînetü'l-münevveretü hiye medînetün mukaddesetün.</p>
+      <p class="note">Medine, o kutsal bir şehirdir.</p>
+      <hr style="border:none;border-top:1px dashed #ccc">
+      <p class="ar">المَسْجِدُ الأَقْصَى فِي القُدْسِ.</p>
+      <p class="okunus">el-Mescidü'l-aksâ fi'l-kuds.</p>
+      <p class="note">Mescid-i Aksa Kudüs'tedir.</p>
+    </div>
+    <div class="q">Yazdıktan sonra kontrol için açın.
+      <br><button class="reveal" onclick="toggle(this)">Notu Göster</button>
+      <div class="answer">Kelimeleri eksiksiz ve harekeleriyle kopyalayınız. Özellikle <span class="ar">المُنَوَّرَة</span> ve <span class="ar">الأَقْصَى</span> yazımına dikkat ediniz.</div>
+    </div>
+  </div>
+
+  <div class="card exam">
+    <h2 class="sec">📌 Sınav Sorusu 5 — Diyaloğa Göre Cevaplama (20 puan)</h2>
+    <h3>Açıklama</h3>
+    <p>Diyaloğu okuyup soruları metne göre cevaplayınız. Soru kelimeleri: <span class="ar">مَتَى</span>=ne zaman, <span class="ar">بِكَمْ</span>=kaça.</p>
+
+    <h3>Diyalog — satır satır (okunuş + çeviri)</h3>
+    <div class="box">
+      <p class="ar">خَليل: السَّلامُ عَلَيْكُم، كَيْفَ حالُكَ يا صَديقي؟</p>
+      <p class="okunus">Halîl: es-selâmü aleyküm, keyfe hâlüke yâ sadîkî?</p>
+      <p class="note">Halil: Selamün aleyküm, nasılsın dostum?</p>
+      <hr style="border:none;border-top:1px dashed #ccc">
+      <p class="ar">حَسَن: وَعَلَيْكُمُ السَّلام، أَنا بِخَيْرٍ شُكْرًا. ماذا تَفْعَلُ اليَوْمَ يا خليل؟</p>
+      <p class="okunus">Hasan: ve aleykümü's-selâm, ene bi-hayrin şükran. mâzâ tef'alü'l-yevme yâ Halîl?</p>
+      <p class="note">Hasan: Aleyküm selam, iyiyim teşekkürler. Bugün ne yapacaksın Halil?</p>
+      <hr style="border:none;border-top:1px dashed #ccc">
+      <p class="ar">خَليل: سَأَذْهَبُ إلى مَحَطَّةِ القِطارِ، وَلَكِنْ لا أَعْرِفُ كَيْفَ أَذْهَبُ إِلَيْها.</p>
+      <p class="okunus">Halîl: se-ezhebu ilâ mahattati'l-kıtâri, ve lâkin lâ a'rifu keyfe ezhebu ileyhâ.</p>
+      <p class="note">Halil: Tren istasyonuna gideceğim ama oraya nasıl gideceğimi bilmiyorum.</p>
+      <hr style="border:none;border-top:1px dashed #ccc">
+      <p class="ar">حَسَن: اِرْكَبِ الحافِلَةَ، وَانْزِلْ في المَوْقِفِ الخامِسِ بِجانِبِ المَسْجِدِ الكَبيرِ.</p>
+      <p class="okunus">Hasan: irkebi'l-hâfilete, venzil fi'l-mevkıfi'l-hâmisi bi-cânibi'l-mescidi'l-kebîr.</p>
+      <p class="note">Hasan: Otobüse bin ve büyük caminin yanındaki beşinci durakta in.</p>
+      <hr style="border:none;border-top:1px dashed #ccc">
+      <p class="ar">(بَعْدَ نِصْفِ ساعَة)</p>
+      <p class="okunus">(ba'de nısfi sâ'a) — (Yarım saat sonra)</p>
+      <hr style="border:none;border-top:1px dashed #ccc">
+      <p class="ar">خَليل: مِنْ فَضْلِكَ، مَتى سَيُغادِرُ قِطارُ إِسْطَنْبول؟</p>
+      <p class="okunus">Halîl: min fadlike, metâ seyuğâdiru kıtâru İstanbul?</p>
+      <p class="note">Halil: Lütfen, İstanbul treni ne zaman kalkacak?</p>
+      <hr style="border:none;border-top:1px dashed #ccc">
+      <p class="ar">المُوَظَّف: سَيُغادِرُ بَعْدَ ساعَةٍ.</p>
+      <p class="okunus">el-Muvazzaf: seyuğâdiru ba'de sâ'a.</p>
+      <p class="note">Memur: Bir saat sonra kalkacak.</p>
+      <hr style="border:none;border-top:1px dashed #ccc">
+      <p class="ar">خَليل: كَمْ ساعَةً تَسْتَغْرِقُ بَيْنَ أَنْقَرَةَ وَإِسْطَنْبول بِالقِطارِ السَّريعِ؟</p>
+      <p class="okunus">Halîl: kem sâ'aten testağriku beyne Ankara ve İstanbul bi'l-kıtâri's-serî'?</p>
+      <p class="note">Halil: Hızlı trenle Ankara ile İstanbul arası kaç saat sürer?</p>
+      <hr style="border:none;border-top:1px dashed #ccc">
+      <p class="ar">المُوَظَّف: ثَلاثُ ساعاتٍ تَقْريبًا.</p>
+      <p class="okunus">el-Muvazzaf: selâsü sâ'âtin takrîben.</p>
+      <p class="note">Memur: Yaklaşık üç saat.</p>
+      <hr style="border:none;border-top:1px dashed #ccc">
+      <p class="ar">خَليل: بِكَمِ التَّذْكِرَةُ؟</p>
+      <p class="okunus">Halîl: bi-kemi't-tezkireh?</p>
+      <p class="note">Halil: Bilet kaça?</p>
+      <hr style="border:none;border-top:1px dashed #ccc">
+      <p class="ar">المُوَظَّف: بِإِحْدى عَشْرَةَ ليرَةً تُرْكِيَّةً.</p>
+      <p class="okunus">el-Muvazzaf: bi-ihdâ aşrate lîraten türkiyyeh.</p>
+      <p class="note">Memur: On bir Türk lirasına.</p>
+      <hr style="border:none;border-top:1px dashed #ccc">
+      <p class="ar">خَليل: تَفَضَّلْ، ها هِيَ الأُجْرَةُ.</p>
+      <p class="okunus">Halîl: tefaddal, hâ hiye'l-ücrah.</p>
+      <p class="note">Halil: Buyurun, işte ücret.</p>
+    </div>
+
+    <div class="q"><span class="num">1</span> <span class="ar">مَتَى سَيُغَادِرُ القِطَارُ؟</span>
+      <br><span class="okunus">Metâ seyuğâdiru'l-kıtâr? — “Tren ne zaman kalkacak?”</span>
+      <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+      <div class="answer"><span class="ar">سَيُغَادِرُ بَعْدَ سَاعَةٍ.</span><br><span class="okunus">Seyuğâdiru ba'de sâ'a.</span><br><strong>“Bir saat sonra kalkacak.”</strong></div>
+    </div>
+    <div class="q"><span class="num">2</span> <span class="ar">بِكَمِ التَّذْكِرَةُ؟</span>
+      <br><span class="okunus">Bi-kemi't-tezkireh? — “Bilet kaça?”</span>
+      <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+      <div class="answer"><span class="ar">بِإِحْدَى عَشْرَةَ لِيرَةً تُرْكِيَّةً.</span><br><span class="okunus">Bi-ihdâ aşrate lîraten türkiyyeh.</span><br><strong>“On bir Türk lirasına.”</strong></div>
+    </div>
+  </div>
+
+  <div class="card exam">
+    <h2 class="sec">📌 Sınav Sorusu 6 — Türkçeye Çeviri (10 puan)</h2>
+    <h3>Açıklama</h3>
+    <p>Verilen Arapça cümlenin Türkçe çevirisini yazınız.</p>
+    <table>
+      <tr><th>Arapça</th><th>Okunuş</th><th>Türkçe</th></tr>
+      <tr><td class="arc">الدَّرَّاجَةُ فِي البَيْتِ</td><td class="okunus">ed-derrâcetü fi'l-beyt</td><td>Bisiklet evdedir.</td></tr>
+      <tr><td class="arc">السَّفِينَةُ فِي البَحْرِ</td><td class="okunus">es-sefînetü fi'l-bahr</td><td>Gemi denizdedir.</td></tr>
+    </table>
+    <div class="q">Önce çevirin, sonra kontrol edin.
+      <br><button class="reveal" onclick="toggle(this)">Cevabı Göster</button>
+      <div class="answer">1) <strong>“Bisiklet evdedir.”</strong> &nbsp; 2) <strong>“Gemi denizdedir.”</strong></div>
+    </div>
+  </div>
+
+  <footer>Arapça 6. Sınıf — Sınav Hazırlık Kılavuzu • Başarılar dileriz 🌟</footer>
+
+</div>
+
+<script>
+  function toggle(btn){
+    if(!btn.dataset.label) btn.dataset.label = btn.textContent;
+    var ans = btn.nextElementSibling;
+    var open = ans.classList.toggle('show');
+    btn.textContent = open ? 'Gizle' : btn.dataset.label;
+  }
+
+  /* ===== Tıklayınca Arapça sesli okuma (TEK kaynak — Google) ===== */
+  var arVoice = null, ttsAudio = new Audio();
+  function pickArabicVoice(){
+    if(!('speechSynthesis' in window)) return;
+    var voices = window.speechSynthesis.getVoices();
+    arVoice = voices.find(function(v){ return /^ar(\b|-|_)/i.test(v.lang); }) || null;
+  }
+  if('speechSynthesis' in window){ pickArabicVoice(); window.speechSynthesis.onvoiceschanged = pickArabicVoice; }
+  function clearHi(){ document.querySelectorAll('.speaking').forEach(function(x){ x.classList.remove('speaking'); }); }
+
+  function speakLocal(ar, el){
+    if(!('speechSynthesis' in window) || !arVoice){ if(el) el.classList.remove('speaking'); return; }
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(ar);
+    u.lang = 'ar-SA'; u.rate = 0.8; u.voice = arVoice;
+    u.onend = function(){ if(el) el.classList.remove('speaking'); };
+    u.onerror = function(){ if(el) el.classList.remove('speaking'); };
+    window.speechSynthesis.speak(u);
+  }
+
+  function sayWord(el){
+    var matches = (el.textContent || '').match(/[؀-ۿٰـ\s]+/g);
+    var ar = matches ? matches.join(' ').replace(/\s+/g, ' ').trim() : '';
+    if(!ar) return;
+    if(ar.length > 200) ar = ar.slice(0, 200);
+
+    try{ ttsAudio.pause(); }catch(e){}
+    if('speechSynthesis' in window) window.speechSynthesis.cancel();
+    clearHi(); el.classList.add('speaking');
+
+    var q = encodeURIComponent(ar);
+    var urls = [
+      'https://translate.googleapis.com/translate_tts?ie=UTF-8&tl=ar&client=gtx&q=' + q,
+      'https://translate.google.com/translate_tts?ie=UTF-8&tl=ar&client=tw-ob&q=' + q
+    ];
+    var idx = 0, started = false;
+    ttsAudio.onplaying = function(){ started = true; };
+    ttsAudio.onended = function(){ el.classList.remove('speaking'); };
+    ttsAudio.onerror = function(){
+      if(started){ el.classList.remove('speaking'); return; }
+      idx++;
+      if(idx < urls.length){ ttsAudio.src = urls[idx]; var pp = ttsAudio.play(); if(pp && pp.catch) pp.catch(function(){}); }
+      else speakLocal(ar, el);
+    };
+    ttsAudio.src = urls[0];
+    var p = ttsAudio.play();
+    if(p && p.catch){ p.catch(function(){}); }
+  }
+
+  document.addEventListener('click', function(e){
+    var el = e.target.closest('.ar, .arc');
+    if(el) sayWord(el);
+  });
+</script>
+
+</body>
+</html>
